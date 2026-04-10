@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
+
+@layer components {
+  /* Layout */
+  .container-content {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 bg-brand-500 text-white
+           rounded-lg hover:bg-brand-600 active:bg-brand-700
+           transition-colors duration-150 font-medium text-sm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 bg-white text-gray-700
+           border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300
+           active:bg-gray-100 transition-colors duration-150 font-medium text-sm;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-gray-600
+           rounded-lg hover:bg-gray-100 transition-colors duration-150 text-sm;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-card
+           hover:shadow-card-hover transition-all duration-200;
+  }
+
+  .card-p {
+    @apply card p-5;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-free {
+    @apply badge bg-emerald-50 text-emerald-700 border border-emerald-200;
+  }
+
+  .badge-freemium {
+    @apply badge bg-blue-50 text-blue-700 border border-blue-200;
+  }
+
+  .badge-paid {
+    @apply badge bg-amber-50 text-amber-700 border border-amber-200;
+  }
+
+  .badge-enterprise {
+    @apply badge bg-purple-50 text-purple-700 border border-purple-200;
+  }
+
+  /* Section headings */
+  .section-title {
+    @apply text-xl font-bold text-gray-900;
+  }
+
+  /* Tool logo */
+  .tool-logo {
+    @apply rounded-xl border border-gray-100 bg-white object-contain flex-shrink-0;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-gray-100 my-4;
+  }
+
+  /* Search input */
+  .search-input {
+    @apply w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl
+           text-sm placeholder-gray-400 focus:outline-none focus:ring-2
+           focus:ring-brand-500 focus:border-transparent transition-all;
+  }
+}

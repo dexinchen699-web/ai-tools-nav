@@ -1,0 +1,86 @@
+name,category,keywords,website
+ChatGPT,AI对话,聊天机器人 GPT 对话AI OpenAI,https://chat.openai.com
+Claude,AI对话,AI助手 写作 分析 Anthropic,https://claude.ai
+Gemini,AI对话,Google AI 对话助手 多模态,https://gemini.google.com
+Perplexity,AI搜索,AI搜索 问答 研究 引用,https://perplexity.ai
+You.com,AI搜索,AI搜索引擎 隐私保护 多模态,https://you.com
+Phind,AI搜索,开发者搜索 代码问答 技术搜索,https://www.phind.com
+SearchGPT,AI搜索,OpenAI 搜索 实时信息 网页搜索,https://chatgpt.com/search
+Exa AI,AI搜索,语义搜索 API 开发者 神经搜索,https://exa.ai
+Grok,AI对话,xAI 马斯克 实时信息 Twitter,https://grok.x.ai
+Kimi,AI对话,国产AI 长文本 中文助手 月之暗面,https://kimi.moonshot.cn
+DeepSeek,AI对话,国产AI 推理 开源 深度求索,https://chat.deepseek.com
+豆包,AI对话,字节跳动 AI助手 国产 免费,https://www.doubao.com
+文心一言,AI对话,百度AI 国产大模型 中文,https://yiyan.baidu.com
+通义千问,AI对话,阿里AI 国产大模型 免费,https://tongyi.aliyun.com
+Midjourney,AI绘图,AI绘图 图片生成 艺术创作,https://midjourney.com
+Stable Diffusion,AI绘图,开源 图像生成 本地部署 SD,https://stability.ai
+DALL-E 3,AI绘图,OpenAI 图像生成 文生图,https://openai.com/dall-e-3
+Adobe Firefly,AI绘图,Adobe AI 商业版权 图像生成,https://firefly.adobe.com
+Ideogram,AI绘图,文字图像 AI绘图 海报设计,https://ideogram.ai
+Leonardo AI,AI绘图,游戏素材 AI绘图 角色设计,https://leonardo.ai
+Flux,AI绘图,开源 高质量 图像生成 Black Forest,https://blackforestlabs.ai
+Canva AI,AI设计,在线设计 模板 AI生成 平面设计,https://www.canva.com
+Figma AI,AI设计,UI设计 原型 协作 AI功能,https://www.figma.com
+Framer AI,AI设计,网站生成 UI设计 无代码,https://www.framer.com
+Uizard,AI设计,UI原型 线框图 AI生成 快速设计,https://uizard.io
+Looka,AI设计,Logo设计 品牌设计 AI生成,https://looka.com
+即梦AI,AI绘图,字节 国产AI绘图 文生图 免费,https://jimeng.jianying.com
+通义万相,AI绘图,阿里 国产AI绘图 文生图,https://tongyi.aliyun.com/wanxiang
+GitHub Copilot,AI编程,代码补全 编程助手 VS Code,https://github.com/features/copilot
+Cursor,AI编程,AI代码编辑器 编程 自动补全,https://cursor.sh
+Windsurf,AI编程,AI IDE 代码生成 Codeium,https://codeium.com/windsurf
+Tabnine,AI编程,代码补全 多语言 隐私保护,https://www.tabnine.com
+Codeium,AI编程,免费 代码补全 AI编程助手,https://codeium.com
+Replit AI,AI编程,在线编程 AI助手 云端IDE,https://replit.com
+Bolt.new,AI编程,全栈生成 Web应用 AI编程,https://bolt.new
+v0,AI编程,UI生成 React组件 Vercel AI,https://v0.dev
+Devin,AI编程,AI软件工程师 自主编程 代理,https://devin.ai
+Lovable,AI编程,全栈应用生成 AI编程 无代码,https://lovable.dev
+Notion AI,AI写作,笔记 写作助手 知识管理,https://notion.so
+Jasper,AI写作,营销文案 内容创作 SEO写作,https://www.jasper.ai
+Copy.ai,AI写作,文案生成 营销 社交媒体,https://www.copy.ai
+Writesonic,AI写作,SEO文章 博客 广告文案,https://writesonic.com
+Grammarly,AI写作,语法检查 英文写作 润色,https://www.grammarly.com
+QuillBot,AI写作,改写 摘要 英文润色,https://quillbot.com
+Sudowrite,AI写作,小说创作 故事生成 创意写作,https://www.sudowrite.com
+秘塔写作猫,AI写作,中文写作 AI润色 国产,https://xiezuocat.com
+火山写作,AI写作,字节 中文写作助手 国产,https://www.writingo.net
+MindOS,AI写作,AI工作流 内容生成 自动化,https://mindos.com
+Sora,AI视频,OpenAI 文生视频 高质量,https://sora.com
+Runway,AI视频,视频生成 编辑 特效 Gen-3,https://runwayml.com
+Pika,AI视频,文生视频 短视频 动画生成,https://pika.art
+Kling AI,AI视频,快手 国产 文生视频 高质量,https://klingai.com
+即梦视频,AI视频,字节 国产视频生成 免费,https://jimeng.jianying.com
+HeyGen,AI视频,AI数字人 视频翻译 口播,https://www.heygen.com
+Synthesia,AI视频,AI数字人 企业培训 多语言,https://www.synthesia.io
+CapCut AI,AI视频,剪映 视频剪辑 AI特效 国产,https://www.capcut.com
+Luma AI,AI视频,3D生成 视频生成 Dream Machine,https://lumalabs.ai
+可灵AI,AI视频,快手 国产 视频生成 文生视频,https://klingai.com
+ElevenLabs,AI音频,语音合成 克隆声音 配音,https://elevenlabs.io
+Suno,AI音频,AI作曲 音乐生成 歌曲创作,https://suno.ai
+Udio,AI音频,AI音乐生成 作曲 歌词,https://www.udio.com
+Whisper,AI音频,语音识别 转录 OpenAI 开源,https://openai.com/research/whisper
+Adobe Podcast,AI音频,播客制作 音频增强 降噪,https://podcast.adobe.com
+Murf AI,AI音频,文字转语音 配音 多语言,https://murf.ai
+网易天音,AI音频,国产 AI作曲 音乐生成,https://tianyin.music.163.com
+Aiva,AI音频,AI作曲 背景音乐 影视配乐,https://www.aiva.ai
+Descript,AI音频,播客编辑 视频转录 AI剪辑,https://www.descript.com
+Surfer SEO,AI SEO,SEO优化 内容分析 关键词,https://surferseo.com
+Semrush AI,AI SEO,SEO工具 竞品分析 关键词研究,https://www.semrush.com
+Ahrefs,AI SEO,外链分析 关键词 SEO审计,https://ahrefs.com
+Clearscope,AI SEO,内容优化 SEO写作 关键词密度,https://www.clearscope.io
+MarketMuse,AI SEO,内容策略 SEO规划 主题权威,https://www.marketmuse.com
+Frase,AI SEO,SEO文章 内容摘要 问答优化,https://www.frase.io
+NeuronWriter,AI SEO,SEO写作 内容优化 NLP,https://neuronwriter.com
+RankMath AI,AI SEO,WordPress SEO 插件 AI建议,https://rankmath.com
+Otter.ai,AI效率,会议记录 语音转文字 协作,https://otter.ai
+Fireflies.ai,AI效率,会议AI 自动记录 摘要,https://fireflies.ai
+Zapier AI,AI效率,自动化 工作流 无代码集成,https://zapier.com
+Make,AI效率,自动化 工作流 可视化 Integromat,https://www.make.com
+Gamma,AI效率,AI演示文稿 PPT生成 幻灯片,https://gamma.app
+Beautiful.ai,AI效率,PPT设计 演示文稿 AI排版,https://www.beautiful.ai
+Tome,AI效率,AI演示 故事叙述 幻灯片生成,https://tome.app
+Mem.ai,AI效率,AI笔记 知识管理 自动整理,https://mem.ai
+Taskade,AI效率,AI项目管理 任务 协作,https://www.taskade.com
+Reclaim AI,AI效率,日程管理 时间优化 日历AI,https://reclaim.ai
