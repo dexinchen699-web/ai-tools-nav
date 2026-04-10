@@ -3,6 +3,7 @@
 
 export interface GeneratedTool {
   // Core identity
+  id?: string;
   name: string;
   slug: string;
   website: string;
