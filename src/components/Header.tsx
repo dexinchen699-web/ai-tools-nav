@@ -61,9 +61,9 @@ export function Header() {
           </nav>
 
           {/* Submit tool CTA */}
-          <a href="mailto:634932139@qq.com" className="btn-primary hidden sm:inline-flex flex-shrink-0 text-xs">
+          <Link href="/submit" className="btn-primary hidden sm:inline-flex flex-shrink-0 text-xs">
             提交工具
-          </a>
+          </Link>
 
           {/* Mobile menu toggle */}
           <button
@@ -96,9 +96,9 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <a href="mailto:634932139@qq.com" className="btn-primary text-xs ml-auto" onClick={() => setMenuOpen(false)}>
+            <Link href="/submit" className="btn-primary text-xs ml-auto" onClick={() => setMenuOpen(false)}>
               提交工具
-            </a>
+            </Link>
           </nav>
         )}
       </div>

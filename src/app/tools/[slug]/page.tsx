@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllTools, getToolBySlug, getCategoryBySlug, getRelatedTools } from '@/lib/data'
+import { getAllTools, getToolBySlug, getCategoryBySlug, getRelatedTools, getAllComparisons } from '@/lib/data'
 import { JsonLd } from '@/components/JsonLd'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { ToolLogo } from '@/components/ToolLogo'
@@ -49,10 +49,16 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   const tool = await getToolBySlug(slug)
   if (!tool) notFound()
 
-  const [category, relatedTools] = await Promise.all([
+  const [category, relatedTools, allComparisons] = await Promise.all([
     getCategoryBySlug(tool.category),
     getRelatedTools(tool.slug, 4),
+    getAllComparisons(),
   ])
+
+  // Find comparisons that include this tool
+  const relatedComparisons = allComparisons.filter(
+    c => c.toolASlug === tool.slug || c.toolBSlug === tool.slug
+  )
 
   const breadcrumbs = [
     { name: '首页', url: '/' },
@@ -153,23 +159,27 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     <span className={PRICING_BADGE[tool.pricing]}>{PRICING_LABEL[tool.pricing]}</span>
                   </div>
                 </div>
-                <a
-                  href={tool.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary flex-shrink-0 hidden sm:inline-flex"
+                <Link
+                  href={`/go/${tool.slug}`}
+                  className="btn-primary flex-shrink-0 hidden sm:inline-flex items-center gap-1.5"
                 >
-                  访问官网 ↗
-                </a>
+                  访问官网
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                    <path fillRule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z" clipRule="evenodd" />
+                  </svg>
+                </Link>
               </div>
-              <a
-                href={tool.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full justify-center mt-4 sm:hidden"
+              <Link
+                href={`/go/${tool.slug}`}
+                className="btn-primary w-full justify-center mt-4 sm:hidden items-center gap-1.5"
               >
-                访问官网 ↗
-              </a>
+                访问官网
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                  <path fillRule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z" clipRule="evenodd" />
+                </svg>
+              </Link>
             </div>
 
             {/* Description */}
@@ -299,14 +309,16 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 </div>
               </dl>
               <div className="divider" />
-              <a
-                href={tool.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full justify-center"
+              <Link
+                href={`/go/${tool.slug}`}
+                className="btn-primary w-full justify-center flex items-center gap-1.5"
               >
-                免费试用 ↗
-              </a>
+                免费试用
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                  <path fillRule="evenodd" d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z" clipRule="evenodd" />
+                </svg>
+              </Link>
             </div>
 
             {/* Tags */}
@@ -342,9 +354,23 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             <div className="card p-5 bg-brand-50 border-brand-100">
               <h2 className="text-sm font-semibold text-gray-900 mb-2">工具对比</h2>
               <p className="text-xs text-gray-500 mb-3">想知道 {tool.name} 和其他工具的区别？</p>
-              <Link href="/compare" className="btn-secondary w-full justify-center text-xs">
-                查看对比 →
-              </Link>
+              {relatedComparisons.length > 0 ? (
+                <div className="flex flex-col gap-2">
+                  {relatedComparisons.slice(0, 3).map(c => (
+                    <Link
+                      key={c.slug}
+                      href={`/compare/${c.slug}`}
+                      className="btn-secondary w-full justify-center text-xs"
+                    >
+                      {c.title} →
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link href="/compare" className="btn-secondary w-full justify-center text-xs">
+                  查看对比 →
+                </Link>
+              )}
             </div>
           </aside>
         </div>

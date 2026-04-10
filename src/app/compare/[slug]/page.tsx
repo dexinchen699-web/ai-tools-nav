@@ -69,9 +69,9 @@ function ToolHeroCard({ tool }: { tool: AITool }) {
       <Link href={`/tools/${tool.slug}`} className="btn-ghost text-xs w-full text-center">
         查看详情
       </Link>
-      <a href={tool.website} target="_blank" rel="noopener noreferrer" className="btn-primary text-xs w-full text-center">
+      <Link href={`/go/${tool.slug}`} className="btn-primary text-xs w-full text-center">
         访问官网 ↗
-      </a>
+      </Link>
     </div>
   )
 }
