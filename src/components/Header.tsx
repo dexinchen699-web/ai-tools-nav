@@ -61,7 +61,7 @@ export function Header() {
           </nav>
 
           {/* Submit tool CTA */}
-          <a href="mailto:submit@ai-tools-nav.vercel.app" className="btn-primary hidden sm:inline-flex flex-shrink-0 text-xs">
+          <a href="mailto:634932139@qq.com" className="btn-primary hidden sm:inline-flex flex-shrink-0 text-xs">
             提交工具
           </a>
 
@@ -96,7 +96,7 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <a href="mailto:submit@ai-tools-nav.vercel.app" className="btn-primary text-xs ml-auto" onClick={() => setMenuOpen(false)}>
+            <a href="mailto:634932139@qq.com" className="btn-primary text-xs ml-auto" onClick={() => setMenuOpen(false)}>
               提交工具
             </a>
           </nav>
