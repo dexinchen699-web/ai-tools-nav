@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getAllTools, getAllCategories, getAllComparisons } from '@/lib/data'
 
-const BASE_URL = 'https://ai-tools-nav.vercel.app'
+const BASE_URL = 'https://ai-tools-nav-two.vercel.app'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [tools, categories, comparisons] = await Promise.all([
