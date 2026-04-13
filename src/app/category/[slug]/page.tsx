@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getAllCategories, getCategoryBySlug, getToolsByCategory, getAllTools } from '@/lib/data'
 import { buildCategoryMetadata } from '@/lib/metadata'
@@ -63,35 +64,65 @@ type PricingFilter = typeof PRICING_FILTERS[number]['value']
 // ── Sub-components ────────────────────────────────────────────────────────────
 
 function ToolCard({ tool }: { tool: AITool }) {
+  const coverSrc = tool.imageUrl && tool.imageUrl !== '/images/tools/placeholder.png'
+    ? tool.imageUrl
+    : null
+
   return (
     <Link
       href={`/tools/${tool.slug}`}
-      className="group flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 hover:border-brand-200 transition-all duration-200"
+      className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-0.5 hover:border-brand-200 transition-all duration-200"
     >
-      <ToolLogo
-        src={tool.logoUrl || tool.imageUrl || '/images/tools/placeholder.png'}
-        alt={tool.name}
-        width={40}
-        height={40}
-        className="tool-logo w-10 h-10 shrink-0"
-      />
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-1.5 mb-0.5">
+      {/* Cover image */}
+      <div className="relative w-full h-32 bg-gradient-to-br from-brand-50 to-blue-50 overflow-hidden">
+        {coverSrc ? (
+          <Image
+            src={coverSrc}
+            alt={`${tool.name} cover`}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <ToolLogo
+              src={tool.logoUrl || '/images/tools/placeholder.png'}
+              alt={tool.name}
+              width={56}
+              height={56}
+              className="tool-logo w-14 h-14 opacity-40"
+            />
+          </div>
+        )}
+        <div className="absolute top-2 left-2 flex gap-1">
+          {tool.isNew && (
+            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-rose-500 text-white leading-none">NEW</span>
+          )}
+          {tool.isFeatured && (
+            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-400 text-white leading-none">精选</span>
+          )}
+        </div>
+      </div>
+
+      {/* Card body */}
+      <div className="flex items-center gap-2.5 px-3 py-2.5">
+        <ToolLogo
+          src={tool.logoUrl || '/images/tools/placeholder.png'}
+          alt={tool.name}
+          width={32}
+          height={32}
+          className="tool-logo w-8 h-8 shrink-0 rounded-lg"
+        />
+        <div className="flex-1 min-w-0">
           <h3 className="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors truncate leading-tight">
             {tool.name}
           </h3>
-          {tool.isNew && (
-            <span className="shrink-0 text-[9px] font-bold px-1 py-0.5 rounded bg-rose-500 text-white leading-none">NEW</span>
-          )}
-          {tool.isFeatured && (
-            <span className="shrink-0 text-[9px] font-bold px-1 py-0.5 rounded bg-amber-400 text-white leading-none">精选</span>
-          )}
+          <p className="text-xs text-gray-500 truncate leading-snug">{tool.tagline}</p>
         </div>
-        <p className="text-xs text-gray-500 truncate leading-snug">{tool.tagline}</p>
+        <span className={`${PRICING_BADGE[tool.pricing]} shrink-0 text-[10px]`}>
+          {PRICING_LABEL[tool.pricing]}
+        </span>
       </div>
-      <span className={`${PRICING_BADGE[tool.pricing]} shrink-0 text-[10px]`}>
-        {PRICING_LABEL[tool.pricing]}
-      </span>
     </Link>
   )
 }

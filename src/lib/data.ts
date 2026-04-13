@@ -57,7 +57,7 @@ function adaptTool(t: GeneratedTool, index: number): AITool {
     useCases: t.useCases,
     faqs: t.faqs,
     howToSteps: t.howToSteps,
-    imageUrl: '/images/tools/placeholder.png',
+    imageUrl: t.imageUrl || '/images/tools/placeholder.png',
     logoUrl,
     createdAt: '2026-04-09T00:00:00Z',
     updatedAt: '2026-04-09T00:00:00Z',
