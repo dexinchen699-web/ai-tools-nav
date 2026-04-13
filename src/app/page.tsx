@@ -182,55 +182,50 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* ── Main layout: sidebar + content ── */}
-      <div className="container-content py-6">
-        <div className="flex gap-6 items-start">
+      {/* ── Main layout: fixed sidebar (rendered inside component) + content ── */}
+      <CategoryNavSidebar categories={categories} totalCount={allTools.length} />
 
-          {/* Left sidebar */}
-          <CategoryNavSidebar categories={categories} totalCount={allTools.length} />
+      <div className="lg:pl-56">
+        <div className="container-content py-6 space-y-8">
 
-          {/* Right content */}
-          <div className="flex-1 min-w-0 space-y-8">
+          {/* Featured Tools */}
+          <section id="featured">
+            <SectionHeader icon="⭐" title="精选推荐" href="/tools" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2.5">
+              {featuredTools.slice(0, 6).map(tool => (
+                <ToolCard key={tool.slug} tool={tool} />
+              ))}
+            </div>
+          </section>
 
-            {/* Featured Tools */}
-            <section>
-              <SectionHeader icon="⭐" title="精选推荐" href="/tools" />
+          {/* New Tools */}
+          {newTools.length > 0 && (
+            <section id="new-tools">
+              <SectionHeader icon="🆕" title="最新收录" />
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2.5">
-                {featuredTools.slice(0, 6).map(tool => (
+                {newTools.map(tool => (
                   <ToolCard key={tool.slug} tool={tool} />
                 ))}
               </div>
             </section>
+          )}
 
-            {/* New Tools */}
-            {newTools.length > 0 && (
-              <section>
-                <SectionHeader icon="🆕" title="最新收录" />
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2.5">
-                  {newTools.map(tool => (
-                    <ToolCard key={tool.slug} tool={tool} />
-                  ))}
-                </div>
-              </section>
-            )}
+          {/* Per-category sections */}
+          {categoryTools.map(({ category, tools }) => (
+            <CategorySection key={category.slug} category={category} tools={tools} />
+          ))}
 
-            {/* Per-category sections */}
-            {categoryTools.map(({ category, tools }) => (
-              <CategorySection key={category.slug} category={category} tools={tools} />
-            ))}
+          {/* CTA Banner */}
+          <section>
+            <div className="bg-gradient-to-r from-brand-50 to-blue-50 border border-brand-100 rounded-2xl p-8 text-center">
+              <h2 className="text-lg font-bold text-gray-900 mb-2">有好用的AI工具想推荐？</h2>
+              <p className="text-gray-500 text-sm mb-5">欢迎提交你发现的优质AI工具，帮助更多人找到合适的AI助手</p>
+              <Link href="/submit" className="btn-primary px-6 py-2.5">
+                提交工具
+              </Link>
+            </div>
+          </section>
 
-            {/* CTA Banner */}
-            <section>
-              <div className="bg-gradient-to-r from-brand-50 to-blue-50 border border-brand-100 rounded-2xl p-8 text-center">
-                <h2 className="text-lg font-bold text-gray-900 mb-2">有好用的AI工具想推荐？</h2>
-                <p className="text-gray-500 text-sm mb-5">欢迎提交你发现的优质AI工具，帮助更多人找到合适的AI助手</p>
-                <Link href="/submit" className="btn-primary px-6 py-2.5">
-                  提交工具
-                </Link>
-              </div>
-            </section>
-
-          </div>
         </div>
       </div>
     </div>
