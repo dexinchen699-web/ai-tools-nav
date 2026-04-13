@@ -1,6 +1,6 @@
 import { AITool, Category } from './types'
 
-const SITE_URL = 'https://ai-tools-nav.vercel.app'
+const SITE_URL = 'https://ai-tools-nav-two.vercel.app'
 const SITE_NAME = 'AI工具导航'
 
 export function buildWebSiteSchema() {
@@ -9,11 +9,6 @@ export function buildWebSiteSchema() {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/search?q={search_term_string}` },
-      'query-input': 'required name=search_term_string',
-    },
   }
 }
 
@@ -29,13 +24,17 @@ export function buildToolSchema(tool: AITool) {
       operatingSystem: 'Web',
       offers: {
         '@type': 'Offer',
-        price: tool.pricing === 'free' ? '0' : undefined,
-        priceCurrency: 'USD',
+        ...(tool.pricing === 'free' ? { price: '0', priceCurrency: 'USD' } : { priceCurrency: 'USD' }),
         description: tool.pricingDetail,
       },
-      aggregateRating: tool.reviewCount > 0
-        ? { '@type': 'AggregateRating', ratingValue: tool.rating, reviewCount: tool.reviewCount, bestRating: 5 }
-        : undefined,
+      ...(tool.reviewCount > 0 && {
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: tool.rating,
+          reviewCount: tool.reviewCount,
+          bestRating: 5,
+        },
+      }),
       image: tool.imageUrl ?? tool.logoUrl,
     },
     {
