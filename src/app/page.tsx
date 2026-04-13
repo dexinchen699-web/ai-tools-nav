@@ -140,7 +140,7 @@ export default async function HomePage() {
 
       {/* ── Compact hero bar ── */}
       <section className="bg-gradient-to-r from-brand-600 to-brand-800 text-white">
-        <div className="container-content py-8 sm:py-10">
+        <div className="container-content lg:pl-56 py-8 sm:py-10">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
