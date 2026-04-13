@@ -62,47 +62,36 @@ type PricingFilter = typeof PRICING_FILTERS[number]['value']
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <span className="flex items-center gap-0.5 text-amber-400 text-xs">
-      {'★'.repeat(Math.round(rating))}{'☆'.repeat(5 - Math.round(rating))}
-      <span className="text-gray-500 ml-1">{rating.toFixed(1)}</span>
-    </span>
-  )
-}
-
 function ToolCard({ tool }: { tool: AITool }) {
   return (
-    <Link href={`/tools/${tool.slug}`} className="card p-4 flex flex-col gap-3 group">
-      <div className="flex items-start gap-3">
-        <ToolLogo
-          src={tool.logoUrl || tool.imageUrl || '/images/tools/placeholder.png'}
-          alt={tool.name}
-          width={44}
-          height={44}
-          className="tool-logo w-11 h-11"
-        />
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="font-semibold text-gray-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-              {tool.name}
-            </h3>
-            {tool.isNew && (
-              <span className="badge bg-rose-50 text-rose-600 border border-rose-200 text-[10px]">NEW</span>
-            )}
-            {tool.isFeatured && (
-              <span className="badge bg-amber-50 text-amber-700 border border-amber-200 text-[10px]">精选</span>
-            )}
-          </div>
-          <span className={`${PRICING_BADGE[tool.pricing]} mt-0.5`}>
-            {PRICING_LABEL[tool.pricing]}
-          </span>
+    <Link
+      href={`/tools/${tool.slug}`}
+      className="group flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 hover:border-brand-200 transition-all duration-200"
+    >
+      <ToolLogo
+        src={tool.logoUrl || tool.imageUrl || '/images/tools/placeholder.png'}
+        alt={tool.name}
+        width={40}
+        height={40}
+        className="tool-logo w-10 h-10 shrink-0"
+      />
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-1.5 mb-0.5">
+          <h3 className="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors truncate leading-tight">
+            {tool.name}
+          </h3>
+          {tool.isNew && (
+            <span className="shrink-0 text-[9px] font-bold px-1 py-0.5 rounded bg-rose-500 text-white leading-none">NEW</span>
+          )}
+          {tool.isFeatured && (
+            <span className="shrink-0 text-[9px] font-bold px-1 py-0.5 rounded bg-amber-400 text-white leading-none">精选</span>
+          )}
         </div>
+        <p className="text-xs text-gray-500 truncate leading-snug">{tool.tagline}</p>
       </div>
-      <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed">{tool.tagline}</p>
-      <div className="mt-auto pt-1 border-t border-gray-50">
-        <StarRating rating={tool.rating} />
-      </div>
+      <span className={`${PRICING_BADGE[tool.pricing]} shrink-0 text-[10px]`}>
+        {PRICING_LABEL[tool.pricing]}
+      </span>
     </Link>
   )
 }
