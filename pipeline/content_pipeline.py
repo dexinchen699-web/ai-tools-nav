@@ -171,6 +171,21 @@ def generate_text_content(tool_name: str, tool_info: dict) -> dict:
     {{"name": "步骤1名称（最多15字）", "text": "步骤1说明（最多50字）"}},
     {{"name": "步骤2名称（最多15字）", "text": "步骤2说明（最多50字）"}},
     {{"name": "步骤3名称（最多15字）", "text": "步骤3说明（最多50字）"}}
+  ],
+  "introduction": "工具详细介绍（中文，2-3段，每段50-80字，总计150-200字，比description更深入）",
+  "targetUsers": [
+    {{"type": "用户类型1（最多10字）", "description": "适用原因（最多40字）"}},
+    {{"type": "用户类型2", "description": "适用原因"}},
+    {{"type": "用户类型3", "description": "适用原因"}}
+  ],
+  "pricingTiers": [
+    {{"name": "套餐名称1", "price": "价格（如：免费 / $20/月）", "features": ["功能1", "功能2", "功能3"]}},
+    {{"name": "套餐名称2", "price": "价格", "features": ["功能1", "功能2", "功能3"]}}
+  ],
+  "similarTools": [
+    {{"name": "类似工具名1", "slug": "similar-tool-slug-1"}},
+    {{"name": "类似工具名2", "slug": "similar-tool-slug-2"}},
+    {{"name": "类似工具名3", "slug": "similar-tool-slug-3"}}
   ]
 }}
 
@@ -273,6 +288,44 @@ def _tool_ts_block(tool: dict) -> list[str]:
     lines.append(f'    useCases: {ts_string_array(tool.get("useCases", []))},')
     lines.append(f'    faqs: {ts_faq_array(tool.get("faqs", []))},')
     lines.append(f'    howToSteps: {ts_howto_array(tool.get("howToSteps", []))},')
+
+    # introduction
+    intro = tool.get("introduction")
+    if intro:
+        lines.append(f'    introduction: {ts_string(intro)},')
+
+    # targetUsers
+    target_users = tool.get("targetUsers", [])
+    if target_users:
+        parts = []
+        for u in target_users:
+            t = str(u.get("type", "")).replace('"', "'")
+            d = str(u.get("description", "")).replace('"', "'")
+            parts.append(f'      {{ type: "{t}", description: "{d}" }}')
+        lines.append('    targetUsers: [\n' + ',\n'.join(parts) + '\n    ],')
+
+    # pricingTiers
+    pricing_tiers = tool.get("pricingTiers", [])
+    if pricing_tiers:
+        parts = []
+        for tier in pricing_tiers:
+            n = str(tier.get("name", "")).replace('"', "'")
+            p = str(tier.get("price", "")).replace('"', "'")
+            feats = tier.get("features", [])
+            feats_str = ", ".join(f'"{str(f).replace(chr(34), chr(39))}"' for f in feats)
+            parts.append(f'      {{ name: "{n}", price: "{p}", features: [{feats_str}] }}')
+        lines.append('    pricingTiers: [\n' + ',\n'.join(parts) + '\n    ],')
+
+    # similarTools
+    similar_tools = tool.get("similarTools", [])
+    if similar_tools:
+        parts = []
+        for st in similar_tools:
+            n = str(st.get("name", "")).replace('"', "'")
+            s = str(st.get("slug", "")).replace('"', "'")
+            parts.append(f'      {{ name: "{n}", slug: "{s}" }}')
+        lines.append('    similarTools: [\n' + ',\n'.join(parts) + '\n    ],')
+
     lines.append("  },")
     return lines
 

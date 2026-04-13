@@ -186,6 +186,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             <div className="card p-6">
               <h2 className="section-title mb-3">工具介绍</h2>
               <p className="text-gray-600 text-sm leading-relaxed">{tool.description}</p>
+              {(tool as any).introduction && (
+                <p className="mt-3 text-gray-600 leading-relaxed">{(tool as any).introduction}</p>
+              )}
             </div>
 
             {/* Screenshot */}
@@ -277,6 +280,24 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               </div>
             )}
 
+            {/* Target Users */}
+            {(tool as any).targetUsers?.length > 0 && (
+              <section className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">适用人群</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {(tool as any).targetUsers.map((user: { type: string; description: string }, i: number) => (
+                    <div key={i} className="flex items-start gap-3 p-3 bg-blue-50 rounded-xl">
+                      <span className="text-blue-500 mt-0.5">👤</span>
+                      <div>
+                        <div className="font-semibold text-gray-800 text-sm">{user.type}</div>
+                        <div className="text-gray-600 text-sm mt-0.5">{user.description}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* FAQ */}
             {tool.faqs?.length > 0 && (
               <div className="card p-6">
@@ -336,6 +357,30 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               </Link>
             </div>
 
+            {/* Pricing Tiers */}
+            {(tool as any).pricingTiers?.length > 0 && (
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-gray-900 mb-3">产品定价</h3>
+                <div className="space-y-3">
+                  {(tool as any).pricingTiers.map((tier: { name: string; price: string; features: string[] }, i: number) => (
+                    <div key={i} className="border border-gray-200 rounded-xl p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-semibold text-gray-800 text-sm">{tier.name}</span>
+                        <span className="text-blue-600 font-bold text-sm">{tier.price}</span>
+                      </div>
+                      <ul className="space-y-1">
+                        {tier.features.map((f, j) => (
+                          <li key={j} className="text-xs text-gray-600 flex items-center gap-1">
+                            <span className="text-green-500">✓</span>{f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Tags */}
             {tool.tags?.length > 0 && (
               <div className="card p-5">
@@ -387,6 +432,29 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 </Link>
               )}
             </div>
+            {/* Similar Tools */}
+            {(tool as any).similarTools?.length > 0 && (
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-gray-900 mb-3">类似工具</h3>
+                <div className="space-y-2">
+                  {(tool as any).similarTools.map((st: { name: string; slug: string }, i: number) => (
+                    <Link
+                      key={i}
+                      href={`/tools/${st.slug}`}
+                      className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
+                    >
+                      <img
+                        src={`https://logo.clearbit.com/${st.slug}.com`}
+                        alt={st.name}
+                        className="w-6 h-6 rounded"
+                        onError={(e) => { (e.target as HTMLImageElement).src = '/images/tools/placeholder.png' }}
+                      />
+                      <span className="text-sm text-gray-700 group-hover:text-blue-600">{st.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </aside>
         </div>
       </div>

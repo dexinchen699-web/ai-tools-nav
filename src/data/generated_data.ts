@@ -39,6 +39,7 @@ export interface GeneratedTool {
   introduction?: string;
   targetUsers?: { type: string; description: string }[];
   pricingTiers?: { name: string; price: string; features: string[] }[];
+  similarTools?: { name: string; slug: string }[];
 }
 
 export const generatedTools: GeneratedTool[] = [
@@ -2905,6 +2906,527 @@ export const generatedTools: GeneratedTool[] = [
     ],
     screenshotUrl: 'https://api.microlink.io/?url=https%3A%2F%2Fwawawriter.com%2F&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: '/images/tools/wawawriter.png',
+  },
+  {
+    id: "doubao",
+    slug: "doubao",
+    name: `豆包`,
+    tagline: `字节跳动出品的智能AI助手，免费好用`,
+    description: `豆包是字节跳动推出的AI对话助手，基于自研大语言模型，支持多轮对话、内容创作、知识问答、代码辅助等功能。界面简洁，响应速度快，完全免费使用，适合学生、职场人士及创作者日常使用。`,
+    category: "chat",
+    tags: ["字节跳动", "国产AI", "免费"],
+    website: "https://www.doubao.com",
+    logoUrl: "https://logo.clearbit.com/www.doubao.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `基础功能免费 / 豆包Pro高级版按需付费`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `豆包AI助手测评 - 字节跳动免费国产AI对话工具`,
+    metaDescription: `豆包是字节跳动推出的免费AI助手，支持智能对话、写作辅助、知识问答。国产大模型，响应快，无需付费即可使用。`,
+    heroTitle: `豆包：字节跳动免费AI助手`,
+    heroSubtitle: `国产大模型驱动，支持对话、写作、问答，完全免费，随时可用`,
+    features: ["多轮智能对话", "AI辅助写作与创作", "知识问答与搜索增强", "代码生成与调试", "图片理解与分析"],
+    pros: ["完全免费，无使用限制", "字节跳动背书，模型能力强", "界面简洁，上手门槛低"],
+    cons: ["部分专业领域回答深度有限", "暂无API开放给个人开发者", "长文档处理能力较弱"],
+    useCases: ["日常学习答疑与知识查询", "职场文案与邮件撰写", "编程辅助与代码生成"],
+    faqs: [
+    { question: "豆包完全免费吗？", answer: "豆包基础功能完全免费，注册账号即可使用。部分高级功能可能推出付费版本，目前核心对话功能无需付费。" },
+    { question: "豆包和ChatGPT有什么区别？", answer: "豆包是国产AI，对中文理解更好，访问速度更稳定，无需翻墙。ChatGPT模型能力更强，但需要付费且国内访问受限。" }
+  ],
+    howToSteps: [
+    { name: "注册账号", text: "访问doubao.com，使用手机号或抖音账号快速注册登录。" },
+    { name: "输入问题", text: "在对话框中输入你的问题或任务需求，支持中英文输入。" },
+    { name: "获取回答", text: "豆包即时生成回答，可继续追问或要求修改，支持多轮对话。" }
+  ],
+    introduction: `豆包是字节跳动于2023年推出的AI智能助手产品，基于自研云雀大语言模型构建。作为国内头部科技公司的AI布局，豆包在中文语义理解和内容生成方面表现出色，能够流畅处理日常对话、写作辅助、知识问答等多类任务。
+
+与其他国产AI相比，豆包的优势在于完全免费且无明显使用限制，同时依托字节跳动的技术积累，模型响应速度快、稳定性高。产品界面设计简洁直观，用户无需学习成本即可上手。
+
+豆包还支持图片理解、代码辅助等多模态能力，持续迭代更新。对于希望使用免费国产AI工具的用户而言，豆包是目前综合体验较好的选择之一。`,
+    targetUsers: [
+      { type: "学生群体", description: "用于学习答疑、作业辅助、知识点讲解，免费且易用" },
+      { type: "职场人士", description: "辅助撰写报告、邮件、方案，提升工作效率" },
+      { type: "内容创作者", description: "快速生成文案、脚本、创意灵感，降低创作门槛" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["无限次基础对话", "写作与问答辅助", "图片理解"] },
+      { name: "Pro版", price: "按需付费", features: ["更强模型能力", "优先响应速度", "更长上下文支持"] }
+    ],
+    similarTools: [
+      { name: "文心一言", slug: "wenxin-yiyan" },
+      { name: "通义千问", slug: "tongyi-qianwen" },
+      { name: "Kimi", slug: "kimi" }
+    ],
+  },
+  {
+    id: "wenxin-yiyan",
+    slug: "wenxin-yiyan",
+    name: `文心一言`,
+    tagline: `百度推出的中文大语言模型，懂中文更懂你`,
+    description: `文心一言是百度基于文心大模型推出的AI对话产品，支持多轮对话、文案创作、逻辑推理、代码生成及图文理解等能力。深度优化中文语境，适合国内用户日常办公、学习与创作使用，是目前国内最具代表性的AI助手之一。`,
+    category: "chat",
+    tags: ["百度AI", "国产大模型", "中文对话"],
+    website: "https://yiyan.baidu.com",
+    logoUrl: "https://logo.clearbit.com/yiyan.baidu.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `基础版免费 / 专业版按需付费，会员约59元/月`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `文心一言 - 百度AI对话助手，国产大模型首选`,
+    metaDescription: `文心一言是百度推出的国产AI对话工具，支持中文创作、问答、代码生成，免费使用，适合办公学习场景。`,
+    heroTitle: `文心一言，懂中文的AI助手`,
+    heroSubtitle: `百度出品的国产大模型，中文理解更精准，覆盖创作、问答、办公全场景`,
+    features: ["多轮中文对话理解", "文案与内容创作", "代码生成与调试", "图片理解与分析", "插件扩展与联网搜索"],
+    pros: ["中文理解能力强，语境把握准确", "免费版功能完善，门槛低", "与百度生态深度整合"],
+    cons: ["创意类任务表现略逊于GPT-4", "高峰期响应速度偶有延迟", "部分敏感话题回答受限"],
+    useCases: ["日常办公文案撰写与润色", "学生学习辅助与作业解析", "开发者代码生成与排错"],
+    faqs: [
+    { question: "文心一言是否完全免费？", answer: "基础功能免费使用，高级模型和更多调用次数需开通会员或付费套餐。" },
+    { question: "文心一言支持哪些使用方式？", answer: "支持网页端、手机App及API接入，开发者可通过百度智能云调用文心大模型接口。" }
+  ],
+    howToSteps: [
+    { name: "注册登录", text: "访问yiyan.baidu.com，使用百度账号登录即可免费使用。" },
+    { name: "输入问题", text: "在对话框中输入你的问题或任务需求，支持中英文输入。" },
+    { name: "获取结果", text: "AI实时生成回答，可继续追问或要求修改，支持多轮对话。" }
+  ],
+    introduction: `文心一言是百度于2023年正式发布的生成式AI产品，基于文心大模型（ERNIE）构建，专为中文用户深度优化。在中文语义理解、知识问答和内容生成方面表现突出，是国内最早商业化落地的大语言模型之一。
+
+产品覆盖对话问答、文学创作、代码编写、数学推理和图像理解等多个维度，并持续迭代升级模型版本。用户可通过网页、App或API多种方式接入，满足个人与企业的不同需求。
+
+依托百度搜索和知识图谱的积累，文心一言在时事资讯、百科知识等领域具备较强的信息获取能力，是国内用户进行AI辅助工作的可靠选择。`,
+    targetUsers: [
+      { type: "职场办公人员", description: "快速生成报告、邮件、PPT文案，提升工作效率" },
+      { type: "学生与教育者", description: "辅助学习、解题、写作，获取知识解析" },
+      { type: "开发者", description: "通过API集成文心能力，构建AI应用或辅助编码" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["基础对话功能", "文心4.0 Turbo模型", "每日限量调用"] },
+      { name: "专业会员", price: "59元/月", features: ["高级模型优先访问", "更高调用频率", "图像生成功能"] }
+    ],
+    similarTools: [
+      { name: "通义千问", slug: "tongyi-qianwen" },
+      { name: "讯飞星火", slug: "xunfei-xinghuo" },
+      { name: "ChatGPT", slug: "chatgpt" }
+    ],
+  },
+  {
+    id: "tongyi-qianwen",
+    slug: "tongyi-qianwen",
+    name: `通义千问`,
+    tagline: `阿里巴巴出品的国产大模型AI助手`,
+    description: `通义千问是阿里巴巴推出的大语言模型AI助手，支持多轮对话、文本创作、代码生成、图像理解等功能。基于自研大模型技术，提供中文优化体验，免费版即可使用核心功能，广泛适用于办公、学习和开发场景。`,
+    category: "chat",
+    tags: ["阿里AI", "国产大模型", "免费"],
+    website: "https://tongyi.aliyun.com",
+    logoUrl: "https://logo.clearbit.com/tongyi.aliyun.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `免费版可用 / 专业版按Token计费，新用户有免费额度`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `通义千问 - 阿里国产大模型AI助手免费使用`,
+    metaDescription: `通义千问是阿里巴巴推出的免费国产AI大模型，支持对话、写作、代码、图像理解，中文体验优秀，立即免费使用。`,
+    heroTitle: `通义千问，国产AI免费用`,
+    heroSubtitle: `阿里巴巴自研大模型，中文理解强，支持对话写作代码图像多种能力`,
+    features: ["多轮智能对话", "中文写作与润色", "代码生成与调试", "图片内容理解", "长文档阅读摘要"],
+    pros: ["免费版功能完整，无需付费即可体验", "中文理解能力强，本土化优秀", "阿里生态集成，办公场景适配好"],
+    cons: ["高峰期响应速度偶有延迟", "部分敏感话题回答受限", "高级模型需付费解锁"],
+    useCases: ["日常问答与信息查询", "职场文案写作与润色", "编程辅助与代码调试"],
+    faqs: [
+    { question: "通义千问完全免费吗？", answer: "基础版免费使用，高级模型如Qwen-Max按Token计费，新用户注册可获赠免费额度。" },
+    { question: "通义千问支持哪些功能？", answer: "支持多轮对话、文本创作、代码生成、图像理解、文档摘要等，覆盖办公学习开发多种场景。" }
+  ],
+    howToSteps: [
+    { name: "注册登录", text: "访问tongyi.aliyun.com，使用手机号或淘宝账号注册登录即可。" },
+    { name: "输入问题", text: "在对话框中输入你的问题或任务，支持文字、图片等多种输入方式。" },
+    { name: "获取回答", text: "AI实时生成回答，可继续追问或要求修改，支持多轮连续对话。" }
+  ],
+    introduction: `通义千问是阿里巴巴达摩院研发的大语言模型，于2023年正式向公众开放。凭借千亿级参数规模和海量中文语料训练，在中文理解与生成方面表现突出，是国内主流AI助手之一。
+
+产品支持文本对话、代码编写、图像识别、长文档处理等多项能力，并持续迭代升级模型版本。Qwen系列模型已在多项国际评测中取得优异成绩，技术实力获业界认可。
+
+通义千问深度融合阿里云生态，企业用户可通过API接入自有业务系统，个人用户则可直接在网页或App端免费体验，适合各类用户群体。`,
+    targetUsers: [
+      { type: "职场办公人员", description: "快速生成报告、邮件、PPT文案，提升工作效率" },
+      { type: "开发工程师", description: "辅助代码编写、调试和技术文档撰写" },
+      { type: "学生与研究者", description: "辅助学习、资料整理和论文写作润色" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["基础对话模型", "每日有限次数调用", "图片理解功能"] },
+      { name: "专业版", price: "按量计费", features: ["Qwen-Max高级模型", "更高并发与速率", "API接口调用权限"] }
+    ],
+    similarTools: [
+      { name: "文心一言", slug: "wenxin-yiyan" },
+      { name: "讯飞星火", slug: "xunfei-xinghuo" },
+      { name: "ChatGPT", slug: "chatgpt" }
+    ],
+  },
+  {
+    id: "即梦ai",
+    slug: "即梦ai",
+    name: `即梦AI`,
+    tagline: `字节跳动出品，免费国产AI绘图与视频创作平台`,
+    description: `即梦AI是字节跳动旗下的AI创作平台，支持文生图、图生图及AI视频生成。用户只需输入文字描述，即可快速生成高质量图像或短视频。平台提供丰富的风格模板，操作简单，免费可用，适合设计师、创作者及普通用户日常创意使用。`,
+    category: "image",
+    tags: ["AI绘图", "文生图", "国产AI", "字节跳动", "免费"],
+    website: "https://jimeng.jianying.com",
+    logoUrl: "https://logo.clearbit.com/jimeng.jianying.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `基础功能免费，高级功能消耗积分，可购买积分包`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `即梦AI测评：字节国产免费AI绘图工具`,
+    metaDescription: `即梦AI是字节跳动推出的免费国产AI绘图平台，支持文生图、图生图和AI视频，操作简单，适合设计师和创作者使用。`,
+    heroTitle: `即梦AI：国产免费AI绘图神器`,
+    heroSubtitle: `字节跳动出品，文字一键生成高质量图像与视频，创作从未如此简单`,
+    features: ["文字描述一键生成图像", "支持图生图风格转换", "AI视频生成功能", "多种艺术风格模板", "高清图像下载导出"],
+    pros: ["完全免费使用，无需付费订阅", "字节跳动背书，模型质量稳定", "中文提示词支持友好"],
+    cons: ["免费版每日生成次数有限制", "视频生成功能较基础", "高级功能需消耗积分"],
+    useCases: ["社交媒体配图与内容创作", "设计师快速出图原型参考", "短视频封面与素材制作"],
+    faqs: [
+    { question: "即梦AI完全免费吗？", answer: "基础文生图功能免费使用，每日有一定免费次数。高级功能和更多生成次数需消耗积分，积分可通过签到获取或付费购买。" },
+    { question: "即梦AI支持中文提示词吗？", answer: "完全支持中文提示词输入，是其相比海外工具的核心优势之一，中文描述理解准确，生成效果自然。" }
+  ],
+    howToSteps: [
+    { name: "登录平台", text: "访问jimeng.jianying.com，使用抖音或手机号账号登录即梦AI平台。" },
+    { name: "输入描述词", text: "在创作页面输入中文或英文图像描述，选择风格、比例等参数。" },
+    { name: "生成并下载", text: "点击生成按钮，等待数秒后预览结果，满意后下载高清图像。" }
+  ],
+    introduction: `即梦AI是字节跳动于2024年推出的AI创作平台，依托其强大的算法研发能力，提供文生图、图生图和AI视频生成三大核心功能。平台对中文提示词有出色的理解能力，降低了普通用户的使用门槛。
+
+与海外同类工具相比，即梦AI在国内网络环境下访问稳定，无需翻墙，且基础功能完全免费。平台内置多种艺术风格，包括写实、动漫、油画等，满足不同创作需求。
+
+即梦AI适合内容创作者、自媒体运营者和设计师使用，可快速产出社交媒体配图、营销素材和创意插画，显著提升创作效率。`,
+    targetUsers: [
+      { type: "自媒体创作者", description: "快速生成高质量配图，提升内容发布效率" },
+      { type: "平面设计师", description: "用于快速出图和创意原型参考，节省初稿时间" },
+      { type: "普通用户", description: "免费体验AI绘图乐趣，无技术门槛即可上手" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["每日免费生成次数", "基础文生图功能", "标准画质下载"] },
+      { name: "积分包", price: "按需购买", features: ["更多生成次数", "高清图像导出", "优先生成队列"] }
+    ],
+    similarTools: [
+      { name: "Midjourney", slug: "midjourney" },
+      { name: "Stable Diffusion", slug: "stable-diffusion" },
+      { name: "文心一格", slug: "wenxin-yige" }
+    ],
+  },
+  {
+    id: "tongyi-wanxiang",
+    slug: "tongyi-wanxiang",
+    name: `通义万相`,
+    tagline: `阿里出品的国产AI绘图工具，一句话生成精美图像`,
+    description: `通义万相是阿里云推出的AI图像生成工具，支持文字生成图片、图片风格转换等功能。依托阿里强大的算法能力，生成效果细腻，支持多种艺术风格，适合设计师、创作者及普通用户快速生成高质量图像内容。`,
+    category: "image",
+    tags: ["阿里AI", "国产AI绘图", "文生图"],
+    website: "https://tongyi.aliyun.com/wanxiang",
+    logoUrl: "https://logo.clearbit.com/tongyi.aliyun.com/wanxiang",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `免费版每日有限额度，付费版按积分充值使用`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `通义万相 - 阿里国产AI绘图工具，文生图一键生成`,
+    metaDescription: `通义万相是阿里云旗下AI绘图工具，支持文生图、风格转换，国产AI绘图首选，免费体验高质量图像生成。`,
+    heroTitle: `通义万相：国产AI绘图利器`,
+    heroSubtitle: `阿里云出品，输入文字即可生成精美图像，多风格自由切换`,
+    features: ["文字描述一键生成图像", "多种艺术风格可选", "图片风格迁移转换", "支持中文提示词输入", "高分辨率图像输出"],
+    pros: ["支持中文提示词，上手门槛低", "阿里云背书，服务稳定可靠", "免费额度充足，适合轻度用户"],
+    cons: ["高级功能需付费或消耗积分", "生成速度高峰期较慢", "部分复杂场景细节还原有限"],
+    useCases: ["设计师快速生成创意素材", "自媒体配图与封面制作", "电商产品场景图生成"],
+    faqs: [
+    { question: "通义万相是否完全免费？", answer: "提供免费每日额度，超出后需充值积分或开通付费套餐，适合不同频率的用户需求。" },
+    { question: "通义万相支持中文提示词吗？", answer: "完全支持中文提示词输入，是其相比海外工具的核心优势之一，降低使用门槛。" }
+  ],
+    howToSteps: [
+    { name: "注册登录", text: "访问通义万相官网，使用阿里云或淘宝账号一键登录，无需额外注册。" },
+    { name: "输入提示词", text: "在输入框中用中文描述想要生成的图像内容，选择风格和尺寸参数。" },
+    { name: "生成并下载", text: "点击生成按钮，等待数秒后预览结果，满意后下载保存到本地。" }
+  ],
+    introduction: `通义万相是阿里云旗下的AI图像生成平台，基于自研的大规模视觉生成模型构建。用户只需输入中文文字描述，即可快速生成高质量图像，极大降低了AI绘图的使用门槛。
+
+平台支持多种创作模式，包括文生图、图生图、风格迁移等，覆盖写实、动漫、油画等多种艺术风格。依托阿里云强大的算力基础设施，生成速度和稳定性均有保障。
+
+作为国产AI绘图的代表产品，通义万相在中文语义理解上表现出色，适合国内设计师、内容创作者及企业用户日常使用。`,
+    targetUsers: [
+      { type: "平面设计师", description: "快速生成创意草图和素材，提升设计效率" },
+      { type: "自媒体创作者", description: "一键生成文章配图、封面，降低图片成本" },
+      { type: "电商运营人员", description: "生成产品场景图和营销素材，节省拍摄费用" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["每日限量生成额度", "基础风格选择", "标准分辨率输出"] },
+      { name: "付费版", price: "按积分充值", features: ["不限量生成次数", "高分辨率输出", "优先队列处理"] }
+    ],
+    similarTools: [
+      { name: "Midjourney", slug: "midjourney" },
+      { name: "Stable Diffusion", slug: "stable-diffusion" },
+      { name: "文心一格", slug: "wenxin-yige" }
+    ],
+  },
+  {
+    id: "秘塔写作猫",
+    slug: "秘塔写作猫",
+    name: `秘塔写作猫`,
+    tagline: `专为中文写作设计的AI智能写作助手`,
+    description: `秘塔写作猫是国产AI写作工具，支持智能写作、文章润色、语法纠错、改写扩写等功能。基于大语言模型，深度优化中文语境，适合学生、职场人士和内容创作者提升写作效率与质量。`,
+    category: "writing",
+    tags: ["中文写作", "AI润色", "国产AI"],
+    website: "https://xiezuocat.com",
+    logoUrl: "https://logo.clearbit.com/xiezuocat.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `免费版可用 / 专业版约99元/月，支持更多AI字数`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `秘塔写作猫 - 国产AI中文写作润色工具`,
+    metaDescription: `秘塔写作猫是专业的国产AI写作助手，提供中文润色、纠错、改写、扩写功能，助力高效创作。`,
+    heroTitle: `AI驱动的中文写作助手`,
+    heroSubtitle: `智能润色、纠错改写，让每一篇中文内容更专业、更流畅`,
+    features: ["AI智能润色与改写", "中文语法纠错检测", "文章扩写与缩写", "多场景写作模板", "实时协作文档编辑"],
+    pros: ["深度优化中文语境，理解更准确", "功能全面，覆盖写作全流程", "界面简洁，上手门槛低"],
+    cons: ["免费版每日使用次数有限制", "高级功能需付费订阅", "对英文内容支持较弱"],
+    useCases: ["学生论文润色与语法检查", "职场公文与邮件优化", "自媒体内容创作与改写"],
+    faqs: [
+    { question: "秘塔写作猫免费版有哪些限制？", answer: "免费版每日AI使用字数有上限，部分高级功能如深度润色、长文改写需升级专业版才能使用。" },
+    { question: "写作猫适合哪些写作场景？", answer: "适合学术论文、职场文案、新媒体文章、小说创作等多种中文写作场景，支持润色、纠错、扩写等操作。" }
+  ],
+    howToSteps: [
+    { name: "注册登录账号", text: "访问xiezuocat.com，使用手机号或微信快速注册并登录账号。" },
+    { name: "粘贴或输入文本", text: "在编辑器中输入或粘贴需要润色、纠错或改写的中文内容。" },
+    { name: "选择AI功能处理", text: "点击润色、纠错或改写按钮，AI自动生成优化结果，一键采纳或手动调整。" }
+  ],
+    introduction: `秘塔写作猫是由秘塔科技推出的国产AI写作助手，专注于中文写作场景的智能化辅助。依托先进的大语言模型，能够精准理解中文语义，提供润色、纠错、改写、扩写等核心功能。
+
+与通用AI工具相比，写作猫在中文语境下表现更为出色，能识别语病、逻辑问题及表达不当之处，并给出自然流畅的修改建议。内置多种写作模板，覆盖公文、学术、营销等场景。
+
+产品采用在线文档形式，支持多人实时协作，适合团队内容生产。免费版即可体验核心功能，专业版解锁更高字数上限与高级AI能力，性价比较高。`,
+    targetUsers: [
+      { type: "学生群体", description: "用于论文润色、作文修改，提升中文写作规范性与表达质量" },
+      { type: "职场人士", description: "优化公文、报告、邮件等职场文本，提高沟通效率" },
+      { type: "内容创作者", description: "快速改写扩写文章，提升自媒体内容产出效率" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["每日限量AI字数", "基础润色纠错", "在线文档编辑"] },
+      { name: "专业版", price: "约99元/月", features: ["大幅提升AI字数上限", "深度润色与改写", "优先处理速度"] }
+    ],
+    similarTools: [
+      { name: "讯飞写作", slug: "xunfei-writing" },
+      { name: "火山写作", slug: "huoshan-writing" },
+      { name: "Grammarly", slug: "grammarly" }
+    ],
+  },
+  {
+    id: "huoshan-xiezuo",
+    slug: "huoshan-xiezuo",
+    name: `火山写作`,
+    tagline: `字节跳动出品的智能中文写作助手`,
+    description: `火山写作是字节跳动旗下的AI中文写作工具，基于大语言模型技术，支持文章续写、润色、改写、摘要等多种写作辅助功能。适合学生、职场人士及内容创作者提升写作效率，界面简洁，中文语境理解能力强，是国产AI写作工具的代表之一。`,
+    category: "writing",
+    tags: ["字节跳动", "中文写作", "国产AI"],
+    website: "https://www.writingo.net",
+    logoUrl: "https://logo.clearbit.com/www.writingo.net",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `提供免费基础版，会员版约19-39元/月`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `火山写作 - 字节跳动AI中文写作助手 | 智能润色改写`,
+    metaDescription: `火山写作是字节跳动推出的AI中文写作工具，支持智能续写、润色、改写和摘要，帮助用户快速提升写作质量与效率。`,
+    heroTitle: `火山写作，让中文写作更轻松`,
+    heroSubtitle: `字节跳动出品的AI写作助手，智能润色、续写、改写，全面提升你的写作效率`,
+    features: ["智能续写与补全", "文章润色与语法纠错", "一键改写与风格调整", "长文摘要提炼", "多场景写作模板"],
+    pros: ["中文语境理解准确，输出自然流畅", "字节跳动背书，产品稳定可靠", "操作界面简洁，上手门槛低"],
+    cons: ["免费额度有限，高频使用需付费", "部分高级功能仅限会员使用", "创意写作场景表现有待提升"],
+    useCases: ["学生撰写论文与作业润色", "职场人士起草报告与邮件", "内容创作者快速生成文章"],
+    faqs: [
+    { question: "火山写作是免费的吗？", answer: "火山写作提供免费基础功能，每日有一定使用额度。如需无限次使用及高级功能，需订阅会员套餐。" },
+    { question: "火山写作适合哪些人使用？", answer: "适合学生、职场人士、自媒体创作者等有中文写作需求的用户，尤其擅长润色和改写场景。" }
+  ],
+    howToSteps: [
+    { name: "注册登录账号", text: "访问writingo.net，使用手机号或字节系账号快速注册登录。" },
+    { name: "输入写作内容", text: "在编辑框中粘贴或输入需要润色、续写或改写的文本内容。" },
+    { name: "选择功能生成", text: "选择润色、续写、改写等功能，点击生成即可获得AI优化后的文本。" }
+  ],
+    introduction: `火山写作是字节跳动旗下推出的AI中文写作辅助工具，依托其自研大语言模型，专为中文写作场景深度优化。无论是语法纠错、文风润色还是内容续写，均能给出自然流畅的中文输出。
+
+产品覆盖学术写作、职场文档、自媒体内容等多种场景，提供丰富的写作模板与智能提示，帮助用户快速突破写作瓶颈。相比通用AI工具，火山写作对中文语境的理解更为精准，输出内容更符合中文表达习惯。
+
+作为国产AI写作工具的代表，火山写作持续迭代更新，用户数量增长迅速，是目前中文AI写作领域值得关注的主流产品之一。`,
+    targetUsers: [
+      { type: "学生群体", description: "用于论文润色、作业改写，提升文章质量与表达规范性" },
+      { type: "职场人士", description: "快速起草报告、邮件及方案，节省写作时间" },
+      { type: "内容创作者", description: "辅助自媒体文章生成与优化，提高内容产出效率" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["每日基础使用额度", "润色与语法纠错", "简单续写功能"] },
+      { name: "会员版", price: "约19-39元/月", features: ["无限次使用", "高级改写与风格调整", "长文摘要与模板库"] }
+    ],
+    similarTools: [
+      { name: "秘塔写作猫", slug: "mita-xiezuomao" },
+      { name: "讯飞写作", slug: "xunfei-xiezuo" },
+      { name: "Notion AI", slug: "notion-ai" }
+    ],
+  },
+  {
+    id: "即梦视频",
+    slug: "即梦视频",
+    name: `即梦视频`,
+    tagline: `字节出品，免费AI视频生成工具，一键文字转视频`,
+    description: `即梦视频是字节跳动旗下的国产AI视频生成平台，支持文字、图片转视频，提供多种风格模板。用户无需专业技能，即可快速生成高质量短视频，适合内容创作者、营销人员及普通用户使用，免费额度慷慨，上手门槛极低。`,
+    category: "video",
+    tags: ["字节跳动", "国产AI", "免费视频生成"],
+    website: "https://jimeng.jianying.com",
+    logoUrl: "https://logo.clearbit.com/jimeng.jianying.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `免费版每日有限次数 / 会员版解锁更多生成次数及高级功能`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `即梦视频 - 字节跳动免费AI视频生成工具`,
+    metaDescription: `即梦视频是字节跳动推出的免费国产AI视频生成平台，支持文字转视频、图片转视频，操作简单，适合内容创作者快速出片。`,
+    heroTitle: `即梦视频：字节AI免费生成视频`,
+    heroSubtitle: `字节跳动出品，输入文字或图片，秒级生成高质量AI视频内容`,
+    features: ["文字一键转视频", "图片动态化生成视频", "多风格模板可选", "支持自定义画面比例", "与剪映生态无缝联动"],
+    pros: ["字节官方出品，稳定可靠", "免费额度充足，新手友好", "与剪映深度集成，编辑方便"],
+    cons: ["免费版每日生成次数有限", "视频时长较短，最长约10秒", "复杂场景还原度有待提升"],
+    useCases: ["短视频创作者快速生成素材", "电商商家制作产品展示视频", "普通用户将照片制作成动态视频"],
+    faqs: [
+    { question: "即梦视频完全免费吗？", answer: "即梦视频提供免费使用额度，每日可免费生成一定数量视频。如需更多次数或高级功能，可升级会员套餐。" },
+    { question: "即梦视频生成的视频有水印吗？", answer: "免费版生成的视频可能带有水印，升级会员后可去除水印并导出更高清晰度的视频。" }
+  ],
+    howToSteps: [
+    { name: "登录平台", text: "访问即梦视频官网，使用抖音或字节账号一键登录，无需额外注册。" },
+    { name: "输入创作内容", text: "在创作框中输入文字描述，或上传图片，选择视频风格和比例。" },
+    { name: "生成并导出", text: "点击生成按钮，等待数秒即可预览视频，满意后下载或同步至剪映继续编辑。" }
+  ],
+    introduction: `即梦视频是字节跳动推出的国产AI视频生成工具，依托强大的视觉大模型能力，支持用户通过文字描述或图片素材快速生成短视频，极大降低了视频创作门槛。
+
+平台与剪映深度打通，生成的视频可直接导入剪映进行二次编辑，形成完整的创作闭环。无论是社交媒体内容、电商素材还是个人创意表达，即梦视频都能高效满足需求。
+
+作为国产免费AI视频工具，即梦视频在数据安全和本土化体验上具备明显优势，持续迭代更新，是国内内容创作者的优质选择。`,
+    targetUsers: [
+      { type: "短视频创作者", description: "快速生成视频素材，提升内容产出效率" },
+      { type: "电商运营人员", description: "低成本制作产品展示和营销推广视频" },
+      { type: "普通用户", description: "将照片或想法轻松转化为有趣的动态视频" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["每日限量生成次数", "基础风格模板", "标准清晰度导出"] },
+      { name: "会员版", price: "按月订阅", features: ["更多每日生成次数", "去除水印", "高清视频导出"] }
+    ],
+    similarTools: [
+      { name: "Sora", slug: "sora" },
+      { name: "Runway", slug: "runway" },
+      { name: "可灵AI", slug: "可灵ai" }
+    ],
+  },
+  {
+    id: "可灵ai",
+    slug: "可灵ai",
+    name: `可灵AI`,
+    tagline: `快手出品国产AI视频生成平台，文字秒变高质量视频`,
+    description: `可灵AI是快手推出的国产AI视频生成工具，支持文生视频和图生视频。用户输入文字描述或上传图片，即可生成高质量短视频。支持最长3分钟视频输出，画面流畅自然，是国内领先的AI视频创作平台。`,
+    category: "video",
+    tags: ["视频生成", "文生视频", "国产AI", "快手"],
+    website: "https://klingai.com",
+    logoUrl: "https://logo.clearbit.com/klingai.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `免费版每日有限次数 / 标准版约66元/月 / 专业版约99元/月`,
+    rating: 4.5,
+    reviewCount: 1280,
+    title: `可灵AI评测：快手国产文生视频工具使用指南`,
+    metaDescription: `可灵AI是快手推出的国产AI视频生成工具，支持文生视频、图生视频，最长3分钟输出，免费可用，适合创作者和企业使用。`,
+    heroTitle: `可灵AI：国产顶级AI视频生成`,
+    heroSubtitle: `快手出品，文字或图片一键生成高质量视频，支持最长3分钟创作`,
+    features: ["文生视频，输入描述自动生成", "图生视频，静态图转动态视频", "最长支持3分钟视频输出", "多种画面比例与风格选择", "运动幅度与镜头控制调节"],
+    pros: ["国产平台，中文支持友好", "免费额度充足，上手门槛低", "视频时长领先同类产品"],
+    cons: ["高峰期生成排队等待较长", "免费版每日生成次数有限", "复杂动作场景还原度有待提升"],
+    useCases: ["短视频创作者快速生成素材", "品牌营销制作产品宣传视频", "影视从业者生成分镜预览"],
+    faqs: [
+    { question: "可灵AI完全免费吗？", answer: "可灵AI提供免费额度，注册后每日可免费生成一定数量视频。如需更多生成次数和更高画质，可升级付费套餐。" },
+    { question: "可灵AI生成视频最长多久？", answer: "可灵AI支持生成最长3分钟的视频，是目前国内AI视频工具中支持时长较长的平台之一。" }
+  ],
+    howToSteps: [
+    { name: "注册登录账号", text: "访问klingai.com，使用手机号或快手账号注册登录，即可获得免费生成额度。" },
+    { name: "输入创作描述", text: "在文生视频框中输入中文描述，选择视频时长、画面比例和运动幅度等参数。" },
+    { name: "生成并下载视频", text: "点击生成按钮，等待AI处理完成后预览视频效果，满意后下载保存到本地。" }
+  ],
+    introduction: `可灵AI是由快手科技推出的国产AI视频生成平台，于2024年正式上线。依托快手在视频领域多年的技术积累，可灵AI在视频生成质量和时长方面表现突出，支持最长3分钟的连续视频输出。
+
+平台提供文生视频和图生视频两大核心功能，用户只需输入中文描述或上传参考图片，系统即可自动生成流畅自然的视频内容。支持多种画面比例、风格模式和镜头运动控制，满足不同创作需求。
+
+作为国产AI视频工具的代表，可灵AI在中文语义理解方面具有明显优势，免费版提供每日生成额度，付费版解锁更高画质和优先生成队列，适合个人创作者和企业用户使用。`,
+    targetUsers: [
+      { type: "短视频创作者", description: "快速生成视频素材，降低内容创作成本和时间" },
+      { type: "品牌营销人员", description: "制作产品宣传和广告视频，提升内容生产效率" },
+      { type: "影视从业者", description: "生成分镜头预览和概念视频，辅助项目前期规划" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["每日限量生成次数", "标准画质输出", "基础文生视频功能"] },
+      { name: "标准版", price: "约66元/月", features: ["更多每月生成次数", "优先生成队列", "高清画质输出"] },
+      { name: "专业版", price: "约99元/月", features: ["大量每月生成次数", "最高画质与最长时长", "商业授权使用"] }
+    ],
+    similarTools: [
+      { name: "Sora", slug: "sora" },
+      { name: "Runway", slug: "runway" },
+      { name: "即梦AI", slug: "jimeng-ai" }
+    ],
+  },
+  {
+    id: "wangyi-tianyin",
+    slug: "wangyi-tianyin",
+    name: `网易天音`,
+    tagline: `网易出品的AI智能作曲平台，一键生成原创音乐`,
+    description: `网易天音是网易云音乐推出的AI作曲工具，支持用户输入歌词或主题，自动生成完整的旋律、编曲和人声。依托网易海量音乐数据训练，覆盖多种曲风，适合音乐创作者、内容博主及普通用户快速产出原创音乐作品。`,
+    category: "audio",
+    tags: ["AI作曲", "音乐生成", "国产AI"],
+    website: "https://tianyin.music.163.com",
+    logoUrl: "https://logo.clearbit.com/tianyin.music.163.com",
+    imageUrl: "/images/tools/placeholder.png",
+    pricing: "freemium",
+    pricingDetail: `基础功能免费，高级曲风及商用授权需开通会员`,
+    rating: 4.3,
+    reviewCount: 1280,
+    title: `网易天音评测：国产AI作曲工具，一键生成原创音乐`,
+    metaDescription: `网易天音是网易云音乐旗下AI作曲平台，支持歌词转音乐、多风格生成，适合创作者快速产出原创歌曲。`,
+    heroTitle: `网易天音：AI智能作曲神器`,
+    heroSubtitle: `输入歌词或主题，AI自动生成旋律编曲，轻松创作属于你的原创音乐`,
+    features: ["歌词一键转歌曲", "多曲风风格选择", "AI自动编曲配器", "人声合成与混音", "作品一键发布至网易云音乐"],
+    pros: ["依托网易云音乐生态，数据积累丰富", "操作门槛低，无需乐理基础", "支持直接发布，传播链路完整"],
+    cons: ["生成风格以流行为主，小众曲风较弱", "高级功能需付费解锁", "自定义编辑空间相对有限"],
+    useCases: ["内容创作者为短视频制作原创BGM", "普通用户将心情写成一首歌", "独立音乐人快速生成Demo小样"],
+    faqs: [
+    { question: "网易天音生成的音乐版权归谁？", answer: "平台规则下用户享有一定使用权，商用场景建议开通会员获取完整授权，具体以官方最新协议为准。" },
+    { question: "没有音乐基础可以使用吗？", answer: "完全可以，只需输入歌词或描述主题，AI会自动完成作曲、编曲和人声合成，无需任何乐理知识。" }
+  ],
+    howToSteps: [
+    { name: "登录并创建项目", text: "使用网易账号登录天音平台，点击新建创作，选择作曲模式。" },
+    { name: "输入歌词或主题", text: "在编辑框中输入歌词内容，或描述想要的音乐主题和情绪风格。" },
+    { name: "生成并发布音乐", text: "点击生成，AI自动完成编曲，试听满意后可下载或一键发布到网易云音乐。" }
+  ],
+    introduction: `网易天音是网易云音乐于2021年推出的AI智能作曲平台，依托网易多年积累的海量音乐数据与深度学习技术，实现从歌词到完整歌曲的自动化创作流程。
+
+平台支持流行、民谣、电子等多种主流曲风，用户只需输入歌词或描述创作意图，系统即可自动生成旋律、编曲、混音及AI人声，整个过程无需专业音乐知识。
+
+天音与网易云音乐深度打通，创作完成后可直接发布至平台，帮助普通用户和内容创作者低门槛实现音乐创作与传播，是目前国内生态最完整的AI作曲工具之一。`,
+    targetUsers: [
+      { type: "内容创作者", description: "快速生成原创BGM，避免版权风险，提升内容质量" },
+      { type: "音乐爱好者", description: "无需乐理基础，将创意和情感转化为真实歌曲" },
+      { type: "独立音乐人", description: "快速生成Demo验证创作思路，提升工作效率" }
+    ],
+    pricingTiers: [
+      { name: "免费版", price: "免费", features: ["基础曲风生成", "有限次数创作", "平台内发布"] },
+      { name: "会员版", price: "会员订阅", features: ["全曲风解锁", "无限次生成", "商用授权支持"] }
+    ],
+    similarTools: [
+      { name: "Suno AI", slug: "suno-ai" },
+      { name: "Udio", slug: "udio" },
+      { name: "昆仑万维天工音乐", slug: "tiangong-music" }
+    ],
   },
 ];
 
