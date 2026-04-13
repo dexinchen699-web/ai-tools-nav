@@ -188,6 +188,21 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               <p className="text-gray-600 text-sm leading-relaxed">{tool.description}</p>
             </div>
 
+            {/* Screenshot */}
+            {(tool.screenshotUrl || (tool.imageUrl && !tool.imageUrl.includes('clearbit'))) && (
+              <div className="card p-6">
+                <h2 className="section-title mb-4">产品截图</h2>
+                <div className="rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
+                  <img
+                    src={tool.screenshotUrl || tool.imageUrl}
+                    alt={`${tool.name} 界面截图`}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            )}
+
             {/* Features */}
             {tool.features?.length > 0 && (
               <div className="card p-6">

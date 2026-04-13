@@ -33,6 +33,7 @@ export interface GeneratedTool {
   howToSteps: { name: string; text: string }[];
   // Media
   imageUrl?: string;
+  screenshotUrl?: string;
   logoUrl?: string;
 }
 
@@ -68,6 +69,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/chat.openai.com',
     logoUrl: 'https://logo.clearbit.com/chat.openai.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://chat.openai.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Claude` ,
@@ -100,6 +102,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/claude.ai',
     logoUrl: 'https://logo.clearbit.com/claude.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://claude.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Gemini` ,
@@ -132,6 +135,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/gemini.google.com',
     logoUrl: 'https://logo.clearbit.com/gemini.google.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://gemini.google.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Perplexity` ,
@@ -164,6 +168,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/perplexity.ai',
     logoUrl: 'https://logo.clearbit.com/perplexity.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.perplexity.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `You.com` ,
@@ -196,6 +201,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/you.com',
     logoUrl: 'https://logo.clearbit.com/you.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://you.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Phind` ,
@@ -228,6 +234,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.phind.com',
     logoUrl: 'https://logo.clearbit.com/www.phind.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.phind.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Exa AI` ,
@@ -260,6 +267,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/exa.ai',
     logoUrl: 'https://logo.clearbit.com/exa.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://exa.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Grok` ,
@@ -292,6 +300,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/grok.x.ai',
     logoUrl: 'https://logo.clearbit.com/grok.x.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://grok.x.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Kimi` ,
@@ -324,6 +333,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/kimi.moonshot.cn',
     logoUrl: 'https://logo.clearbit.com/kimi.moonshot.cn',
+    screenshotUrl: 'https://api.microlink.io/?url=https://kimi.moonshot.cn&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `DeepSeek` ,
@@ -356,6 +366,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/chat.deepseek.com',
     logoUrl: 'https://logo.clearbit.com/chat.deepseek.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://chat.deepseek.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `豆包` ,
@@ -388,6 +399,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.doubao.com',
     logoUrl: 'https://logo.clearbit.com/www.doubao.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.doubao.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `文心一言` ,
@@ -420,6 +432,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/yiyan.baidu.com',
     logoUrl: 'https://logo.clearbit.com/yiyan.baidu.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://yiyan.baidu.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `通义千问` ,
@@ -452,6 +465,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/tongyi.aliyun.com',
     logoUrl: 'https://logo.clearbit.com/tongyi.aliyun.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://tongyi.aliyun.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Midjourney` ,
@@ -484,6 +498,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/midjourney.com',
     logoUrl: 'https://logo.clearbit.com/midjourney.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.midjourney.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Stable Diffusion` ,
@@ -516,6 +531,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/stability.ai',
     logoUrl: 'https://logo.clearbit.com/stability.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://stability.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `DALL-E 3` ,
@@ -548,6 +564,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/openai.com',
     logoUrl: 'https://logo.clearbit.com/openai.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://openai.com/dall-e-3&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Adobe Firefly` ,
@@ -580,6 +597,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/firefly.adobe.com',
     logoUrl: 'https://logo.clearbit.com/firefly.adobe.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://firefly.adobe.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Ideogram` ,
@@ -612,6 +630,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/ideogram.ai',
     logoUrl: 'https://logo.clearbit.com/ideogram.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://ideogram.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Leonardo AI` ,
@@ -644,6 +663,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/leonardo.ai',
     logoUrl: 'https://logo.clearbit.com/leonardo.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://leonardo.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Flux` ,
@@ -676,6 +696,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/blackforestlabs.ai',
     logoUrl: 'https://logo.clearbit.com/blackforestlabs.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://blackforestlabs.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Canva AI` ,
@@ -708,6 +729,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.canva.com',
     logoUrl: 'https://logo.clearbit.com/www.canva.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.canva.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Figma AI` ,
@@ -740,6 +762,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.figma.com',
     logoUrl: 'https://logo.clearbit.com/www.figma.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.figma.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Framer AI` ,
@@ -772,6 +795,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.framer.com',
     logoUrl: 'https://logo.clearbit.com/www.framer.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.framer.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Uizard` ,
@@ -804,6 +828,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/uizard.io',
     logoUrl: 'https://logo.clearbit.com/uizard.io',
+    screenshotUrl: 'https://api.microlink.io/?url=https://uizard.io&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Looka` ,
@@ -836,6 +861,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/looka.com',
     logoUrl: 'https://logo.clearbit.com/looka.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://looka.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `即梦AI` ,
@@ -868,6 +894,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/jimeng.jianying.com',
     logoUrl: 'https://logo.clearbit.com/jimeng.jianying.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://jimeng.jianying.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `通义万相` ,
@@ -900,6 +927,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/tongyi.aliyun.com',
     logoUrl: 'https://logo.clearbit.com/tongyi.aliyun.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://tongyi.aliyun.com/wanxiang&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `GitHub Copilot` ,
@@ -932,6 +960,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/github.com',
     logoUrl: 'https://logo.clearbit.com/github.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://github.com/features/copilot&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Cursor` ,
@@ -964,6 +993,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/cursor.sh',
     logoUrl: 'https://logo.clearbit.com/cursor.sh',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.cursor.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Windsurf` ,
@@ -996,6 +1026,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/codeium.com',
     logoUrl: 'https://logo.clearbit.com/codeium.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://codeium.com/windsurf&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Tabnine` ,
@@ -1028,6 +1059,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.tabnine.com',
     logoUrl: 'https://logo.clearbit.com/www.tabnine.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.tabnine.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Codeium` ,
@@ -1060,6 +1092,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/codeium.com',
     logoUrl: 'https://logo.clearbit.com/codeium.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://codeium.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Replit AI` ,
@@ -1092,6 +1125,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/replit.com',
     logoUrl: 'https://logo.clearbit.com/replit.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://replit.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Bolt.new` ,
@@ -1124,6 +1158,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/bolt.new',
     logoUrl: 'https://logo.clearbit.com/bolt.new',
+    screenshotUrl: 'https://api.microlink.io/?url=https://bolt.new&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Devin` ,
@@ -1156,6 +1191,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/devin.ai',
     logoUrl: 'https://logo.clearbit.com/devin.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://devin.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Notion AI` ,
@@ -1188,6 +1224,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/notion.so',
     logoUrl: 'https://logo.clearbit.com/notion.so',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.notion.so&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Jasper` ,
@@ -1220,6 +1257,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.jasper.ai',
     logoUrl: 'https://logo.clearbit.com/www.jasper.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.jasper.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Copy.ai` ,
@@ -1252,6 +1290,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.copy.ai',
     logoUrl: 'https://logo.clearbit.com/www.copy.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.copy.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Writesonic` ,
@@ -1284,6 +1323,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/writesonic.com',
     logoUrl: 'https://logo.clearbit.com/writesonic.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://writesonic.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Grammarly` ,
@@ -1316,6 +1356,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.grammarly.com',
     logoUrl: 'https://logo.clearbit.com/www.grammarly.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.grammarly.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `QuillBot` ,
@@ -1348,6 +1389,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/quillbot.com',
     logoUrl: 'https://logo.clearbit.com/quillbot.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://quillbot.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Sudowrite` ,
@@ -1380,6 +1422,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.sudowrite.com',
     logoUrl: 'https://logo.clearbit.com/www.sudowrite.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.sudowrite.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `秘塔写作猫` ,
@@ -1412,6 +1455,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/xiezuocat.com',
     logoUrl: 'https://logo.clearbit.com/xiezuocat.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://xiezuomao.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `火山写作` ,
@@ -1444,6 +1488,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.writingo.net',
     logoUrl: 'https://logo.clearbit.com/www.writingo.net',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.volcengine.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `MindOS` ,
@@ -1476,6 +1521,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/mindos.com',
     logoUrl: 'https://logo.clearbit.com/mindos.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://mindos.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Sora` ,
@@ -1508,6 +1554,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/sora.com',
     logoUrl: 'https://logo.clearbit.com/sora.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://sora.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Runway` ,
@@ -1540,6 +1587,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/runwayml.com',
     logoUrl: 'https://logo.clearbit.com/runwayml.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://runwayml.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Pika` ,
@@ -1572,6 +1620,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/pika.art',
     logoUrl: 'https://logo.clearbit.com/pika.art',
+    screenshotUrl: 'https://api.microlink.io/?url=https://pika.art&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Kling AI` ,
@@ -1604,6 +1653,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/klingai.com',
     logoUrl: 'https://logo.clearbit.com/klingai.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://kling.kuaishou.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `即梦视频` ,
@@ -1636,6 +1686,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/jimeng.jianying.com',
     logoUrl: 'https://logo.clearbit.com/jimeng.jianying.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://jimeng.jianying.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `HeyGen` ,
@@ -1668,6 +1719,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.heygen.com',
     logoUrl: 'https://logo.clearbit.com/www.heygen.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.heygen.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Synthesia` ,
@@ -1700,6 +1752,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.synthesia.io',
     logoUrl: 'https://logo.clearbit.com/www.synthesia.io',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.synthesia.io&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `CapCut AI` ,
@@ -1732,6 +1785,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.capcut.com',
     logoUrl: 'https://logo.clearbit.com/www.capcut.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.capcut.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Luma AI` ,
@@ -1764,6 +1818,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/lumalabs.ai',
     logoUrl: 'https://logo.clearbit.com/lumalabs.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://lumalabs.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `ElevenLabs` ,
@@ -1796,6 +1851,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/elevenlabs.io',
     logoUrl: 'https://logo.clearbit.com/elevenlabs.io',
+    screenshotUrl: 'https://api.microlink.io/?url=https://elevenlabs.io&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Whisper` ,
@@ -1828,6 +1884,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/openai.com',
     logoUrl: 'https://logo.clearbit.com/openai.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://openai.com/research/whisper&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Adobe Podcast` ,
@@ -1860,6 +1917,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/podcast.adobe.com',
     logoUrl: 'https://logo.clearbit.com/podcast.adobe.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://podcast.adobe.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Murf AI` ,
@@ -1892,6 +1950,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/murf.ai',
     logoUrl: 'https://logo.clearbit.com/murf.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://murf.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `网易天音` ,
@@ -1924,6 +1983,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/tianyin.music.163.com',
     logoUrl: 'https://logo.clearbit.com/tianyin.music.163.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://tianyin.163.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Aiva` ,
@@ -1956,6 +2016,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.aiva.ai',
     logoUrl: 'https://logo.clearbit.com/www.aiva.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.aiva.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Descript` ,
@@ -1988,6 +2049,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.descript.com',
     logoUrl: 'https://logo.clearbit.com/www.descript.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.descript.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Surfer SEO` ,
@@ -2020,6 +2082,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/surferseo.com',
     logoUrl: 'https://logo.clearbit.com/surferseo.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://surferseo.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Semrush AI` ,
@@ -2052,6 +2115,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.semrush.com',
     logoUrl: 'https://logo.clearbit.com/www.semrush.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.semrush.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Ahrefs` ,
@@ -2084,6 +2148,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/ahrefs.com',
     logoUrl: 'https://logo.clearbit.com/ahrefs.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://ahrefs.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Clearscope` ,
@@ -2116,6 +2181,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.clearscope.io',
     logoUrl: 'https://logo.clearbit.com/www.clearscope.io',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.clearscope.io&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `MarketMuse` ,
@@ -2148,6 +2214,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.marketmuse.com',
     logoUrl: 'https://logo.clearbit.com/www.marketmuse.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.marketmuse.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Frase` ,
@@ -2180,6 +2247,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.frase.io',
     logoUrl: 'https://logo.clearbit.com/www.frase.io',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.frase.io&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `NeuronWriter` ,
@@ -2212,6 +2280,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/neuronwriter.com',
     logoUrl: 'https://logo.clearbit.com/neuronwriter.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://neuronwriter.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `RankMath AI` ,
@@ -2244,6 +2313,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/rankmath.com',
     logoUrl: 'https://logo.clearbit.com/rankmath.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://rankmath.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Otter.ai` ,
@@ -2276,6 +2346,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/otter.ai',
     logoUrl: 'https://logo.clearbit.com/otter.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://otter.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Fireflies.ai` ,
@@ -2308,6 +2379,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/fireflies.ai',
     logoUrl: 'https://logo.clearbit.com/fireflies.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://fireflies.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Make` ,
@@ -2340,6 +2412,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.make.com',
     logoUrl: 'https://logo.clearbit.com/www.make.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.make.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Gamma` ,
@@ -2372,6 +2445,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/gamma.app',
     logoUrl: 'https://logo.clearbit.com/gamma.app',
+    screenshotUrl: 'https://api.microlink.io/?url=https://gamma.app&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Beautiful.ai` ,
@@ -2404,6 +2478,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.beautiful.ai',
     logoUrl: 'https://logo.clearbit.com/www.beautiful.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.beautiful.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Tome` ,
@@ -2436,6 +2511,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/tome.app',
     logoUrl: 'https://logo.clearbit.com/tome.app',
+    screenshotUrl: 'https://api.microlink.io/?url=https://tome.app&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Mem.ai` ,
@@ -2468,6 +2544,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/mem.ai',
     logoUrl: 'https://logo.clearbit.com/mem.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://mem.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Taskade` ,
@@ -2500,6 +2577,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/www.taskade.com',
     logoUrl: 'https://logo.clearbit.com/www.taskade.com',
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.taskade.com&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     name: `Reclaim AI` ,
@@ -2532,6 +2610,7 @@ export const generatedTools: GeneratedTool[] = [
   ],
     imageUrl: 'https://logo.clearbit.com/reclaim.ai',
     logoUrl: 'https://logo.clearbit.com/reclaim.ai',
+    screenshotUrl: 'https://api.microlink.io/?url=https://reclaim.ai&screenshot=true&meta=false&embed=screenshot.url',
   },
   {
     id: "searchgpt",
@@ -2543,6 +2622,7 @@ export const generatedTools: GeneratedTool[] = [
     tags: ["AI搜索", "实时信息", "OpenAI"],
     website: "https://chatgpt.com/search",
     logoUrl: "https://logo.clearbit.com/chatgpt.com/search",
+    screenshotUrl: 'https://api.microlink.io/?url=https://chatgpt.com/search&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: "/images/tools/placeholder.png",
     pricing: "freemium",
     pricingDetail: `免费版可用 / ChatGPT Plus $20/月，解锁更多搜索次数`,
@@ -2576,6 +2656,7 @@ export const generatedTools: GeneratedTool[] = [
     tags: ["全栈应用生成", "AI编程", "无代码"],
     website: "https://lovable.dev",
     logoUrl: "https://logo.clearbit.com/lovable.dev",
+    screenshotUrl: 'https://api.microlink.io/?url=https://lovable.dev&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: "/images/tools/placeholder.png",
     pricing: "freemium",
     pricingDetail: `免费版可用 / Pro $20/月 / Teams方案按需定价`,
@@ -2609,6 +2690,7 @@ export const generatedTools: GeneratedTool[] = [
     tags: ["AI作曲", "音乐生成", "歌曲创作"],
     website: "https://suno.ai",
     logoUrl: "https://logo.clearbit.com/suno.ai",
+    screenshotUrl: 'https://api.microlink.io/?url=https://suno.com&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: "/images/tools/placeholder.png",
     pricing: "freemium",
     pricingDetail: `免费版每日50积分 / Pro $8/月 / Premier $24/月`,
@@ -2642,6 +2724,7 @@ export const generatedTools: GeneratedTool[] = [
     tags: ["AI音乐生成", "作曲", "歌词创作"],
     website: "https://www.udio.com",
     logoUrl: "https://logo.clearbit.com/www.udio.com",
+    screenshotUrl: 'https://api.microlink.io/?url=https://www.udio.com&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: "/images/tools/placeholder.png",
     pricing: "freemium",
     pricingDetail: `免费版每月约10首 / Pro $10/月 / Premier $30/月`,
@@ -2675,6 +2758,7 @@ export const generatedTools: GeneratedTool[] = [
     tags: ["自动化", "工作流", "无代码集成"],
     website: "https://zapier.com",
     logoUrl: "https://logo.clearbit.com/zapier.com",
+    screenshotUrl: 'https://api.microlink.io/?url=https://zapier.com&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: "/images/tools/placeholder.png",
     pricing: "freemium",
     pricingDetail: `免费版每月100任务；付费版从约20美元/月起，按任务量阶梯定价。`,
@@ -2708,6 +2792,7 @@ export const generatedTools: GeneratedTool[] = [
     tags: ["UI生成", "React", "前端"],
     website: "https://v0.dev",
     logoUrl: "https://logo.clearbit.com/v0.dev",
+    screenshotUrl: 'https://api.microlink.io/?url=https://v0.dev&screenshot=true&meta=false&embed=screenshot.url',
     imageUrl: "/images/tools/placeholder.png",
     pricing: "freemium",
     pricingDetail: `免费有限额度，Pro版按月付费`,

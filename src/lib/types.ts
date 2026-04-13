@@ -20,6 +20,7 @@ export interface AITool {
   faqs: FAQ[]
   howToSteps: HowToStep[]
   imageUrl?: string
+  screenshotUrl?: string
   logoUrl?: string
   createdAt: string        // ISO date string
   updatedAt: string        // ISO date string
