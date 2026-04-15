@@ -22,11 +22,16 @@ export interface AITool {
   imageUrl?: string
   screenshotUrl?: string
   logoUrl?: string
+  title?: string
+  metaDescription?: string
+  heroTitle?: string
+  heroSubtitle?: string
   introduction?: string
   targetUsers?: { type: string; description: string }[]
   pricingTiers?: { name: string; price: string; features: string[] }[]
-  createdAt: string        // ISO date string
-  updatedAt: string        // ISO date string
+  similarTools?: { name: string; slug: string }[]
+  createdAt?: string       // ISO date string
+  updatedAt?: string       // ISO date string
   isFeatured?: boolean
   isNew?: boolean
 }
