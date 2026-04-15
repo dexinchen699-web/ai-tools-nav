@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: '/category/writing',      label: 'AI写作' },
   { href: '/category/video',        label: 'AI视频' },
   { href: '/category/productivity', label: 'AI效率' },
+  { href: '/news',                  label: 'AI资讯' },
 ]
 
 export function Header() {

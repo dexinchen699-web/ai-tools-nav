@@ -1,5 +1,6 @@
-import { AITool, Category, Comparison } from './types'
+import { AITool, Category, Comparison, NewsItem, NewsCategory } from './types'
 import { generatedTools } from '../data/generated_data'
+import newsData from '../data/news.json'
 
 // ── Category definitions ──────────────────────────────────────────────────────
 // All 10 categories — 6 original + 4 new from pipeline expansion
@@ -188,6 +189,27 @@ export async function getComparisonBySlug(slug: string): Promise<Comparison | nu
 
 export async function getFeaturedTools(): Promise<AITool[]> {
   return TOOLS.filter((t) => t.isFeatured)
+}
+
+// ── News data access functions ────────────────────────────────────────────────
+const NEWS: NewsItem[] = (newsData as NewsItem[]).sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+)
+
+export async function getAllNews(): Promise<NewsItem[]> {
+  return NEWS
+}
+
+export async function getNewsBySlug(slug: string): Promise<NewsItem | null> {
+  return NEWS.find((n) => n.slug === slug) ?? null
+}
+
+export async function getNewsByCategory(category: NewsCategory): Promise<NewsItem[]> {
+  return NEWS.filter((n) => n.category === category)
+}
+
+export async function getLatestNews(limit = 10): Promise<NewsItem[]> {
+  return NEWS.slice(0, limit)
 }
 
 export async function getRelatedTools(slug: string, limit = 4): Promise<AITool[]> {
