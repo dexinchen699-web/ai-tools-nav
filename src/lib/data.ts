@@ -1,5 +1,5 @@
 import { AITool, Category, Comparison } from './types'
-import { generatedTools, GeneratedTool } from '../data/generated_data'
+import { generatedTools } from '../data/generated_data'
 
 // ── Category definitions ──────────────────────────────────────────────────────
 // All 10 categories — 6 original + 4 new from pipeline expansion
