@@ -5,13 +5,52 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 const NAV_LINKS = [
-  { href: '/category/chat',         label: 'AI对话' },
-  { href: '/category/image',        label: 'AI绘图' },
-  { href: '/category/coding',       label: 'AI编程' },
-  { href: '/category/writing',      label: 'AI写作' },
-  { href: '/category/video',        label: 'AI视频' },
-  { href: '/category/productivity', label: 'AI效率' },
-  { href: '/news',                  label: 'AI资讯' },
+  {
+    href: '/news',
+    label: 'AI资讯',
+    icon: (
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 4v4h4M9 12h6M9 16h4" />
+      </svg>
+    ),
+  },
+  {
+    href: '/tutorials',
+    label: 'AI教程',
+    icon: (
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+      </svg>
+    ),
+  },
+  {
+    href: '/about',
+    label: '关于我们',
+    icon: (
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+  },
+  {
+    href: '/submit',
+    label: '提交工具',
+    icon: (
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+      </svg>
+    ),
+  },
+  {
+    href: '/feedback',
+    label: '问题反馈',
+    icon: (
+      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    ),
+  },
 ]
 
 export function Header() {
@@ -27,7 +66,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="container-content lg:pl-56">
+      <div className="container-content">
         <div className="flex items-center gap-4 h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
@@ -53,18 +92,18 @@ export function Header() {
           </form>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {NAV_LINKS.map(link => (
-              <Link key={link.href} href={link.href} className="btn-ghost text-xs font-medium">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="btn-ghost text-xs font-medium"
+              >
+                {link.icon}
                 {link.label}
               </Link>
             ))}
           </nav>
-
-          {/* Submit tool CTA */}
-          <Link href="/submit" className="btn-primary hidden sm:inline-flex flex-shrink-0 text-xs">
-            提交工具
-          </Link>
 
           {/* Mobile menu toggle */}
           <button
@@ -94,12 +133,10 @@ export function Header() {
                 className="btn-ghost text-sm"
                 onClick={() => setMenuOpen(false)}
               >
+                {link.icon}
                 {link.label}
               </Link>
             ))}
-            <Link href="/submit" className="btn-primary text-xs ml-auto" onClick={() => setMenuOpen(false)}>
-              提交工具
-            </Link>
           </nav>
         )}
       </div>
