@@ -2,7 +2,7 @@
 // Generated: 2026-04-15T11:33:26.414457
 // Tools: 85
 
-import type { AITool } from "@/types/tool";
+import type { AITool } from "@/lib/types";
 
 export const generatedTools: AITool[] = [
   {
