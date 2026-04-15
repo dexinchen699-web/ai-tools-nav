@@ -128,7 +128,7 @@ def fetch_aibase() -> list[dict]:
 
         title = title_el.get_text(strip=True) if title_el else ""
         summary = summary_el.get_text(strip=True) if summary_el else ""
-        pub_raw = time_el.get("datetime") or (time_el.get_text(strip=True) if time_el else "")
+        pub_raw = (time_el.get("datetime") or time_el.get_text(strip=True)) if time_el else ""
 
         if not title:
             continue
