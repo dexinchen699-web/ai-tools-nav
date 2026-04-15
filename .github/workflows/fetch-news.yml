@@ -1,0 +1,39 @@
+name: Fetch AI News
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # 每天 UTC 02:00（北京时间 10:00）
+  workflow_dispatch:        # 支持手动触发
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install feedparser requests openai beautifulsoup4 python-slugify
+
+      - name: Run news pipeline
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          NEWS_MODEL: ${{ secrets.NEWS_MODEL }}
+        run: python pipeline/fetch_news.py
+
+      - name: Commit updated news.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/news.json
+          git diff --cached --quiet || git commit -m "chore: update news.json [skip ci]"
+          git push
