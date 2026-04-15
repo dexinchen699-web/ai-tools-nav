@@ -29,7 +29,7 @@ const NEW_SLUGS = new Set([
 ])
 
 // ── Adapter: GeneratedTool → AITool ──────────────────────────────────────────
-function adaptTool(t: GeneratedTool, index: number): AITool {
+function adaptTool(t: AITool, index: number): AITool {
   // Use Google favicon service for logos; fall back to placeholder
   const hostname = (() => {
     try { return new URL(t.website).hostname } catch { return '' }
