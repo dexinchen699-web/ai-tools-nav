@@ -76,3 +76,25 @@ export interface BreadcrumbItem {
   name: string
   url: string
 }
+
+// ── News / 资讯 ───────────────────────────────────────────────────────────────
+export type NewsCategory =
+  | '行业动态'
+  | '产品发布'
+  | '研究论文'
+  | '公司新闻'
+  | '政策法规'
+
+export interface NewsItem {
+  id: string
+  slug: string             // URL-safe identifier, e.g. "openai-gpt5-2026-04-15"
+  title: string
+  summary: string          // 1-2 sentence excerpt shown in list cards
+  content: string          // full article body (markdown or plain text)
+  source: string           // display name, e.g. "TechCrunch"
+  sourceUrl: string        // original article URL
+  publishedAt: string      // ISO date string
+  category: NewsCategory
+  tags: string[]
+  imageUrl?: string
+}
