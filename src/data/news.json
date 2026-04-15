@@ -1,5 +1,91 @@
 [
   {
+    "id": "88cfc8df",
+    "slug": "liu-lan-qi-yuan-di-bian-long-xia-chromeshang-xian-skills-ji-2026-04-15",
+    "title": "浏览器原地变龙虾！Chrome上线Skills，技能一键复用帮你干活",
+    "summary": "浏览器纷纷Agent化",
+    "content": "浏览器纷纷Agent化",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401389.html",
+    "publishedAt": "2026-04-15T05:46:10Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "746f3f2b",
+    "slug": "xin-vidu-q3can-kao-sheng-zhe-shi-chong-zhao-ju-lai-de-mo-wu-2026-04-15",
+    "title": "Vidu Q3 发布：新参考生功能全面升级，剧集创作场景全覆盖",
+    "summary": "生数科技旗下视频生成模型 Vidu 推出 Q3 版本，新参考生功能支持特效、音效、场景等多维度参考输入，进一步突破自身纪录。",
+    "content": "生数科技旗下 AI 视频生成平台 Vidu 近日发布 Q3 版本，重点升级了「参考生」功能。此次更新的核心亮点在于将参考能力从单一角色或画面扩展至特效、音效、场景等多个维度，真正实现「万物皆可参考」。\n\n新版本明显针对影视剧集创作场景进行了深度优化。用户可以上传参考素材，让模型在保持风格一致性的同时生成符合剧情需求的视频片段，大幅降低长篇叙事内容的制作门槛。特效参考功能允许创作者复现特定视觉风格，音效参考则帮助保持场景氛围的连贯性，场景参考进一步确保镜头切换时的空间一致性。\n\n从产品演进角度来看，Vidu Q3 是在此前参考生能力基础上的自我超越，延续了 Vidu 在可控性生成方向上的持续投入。这一方向与当前影视工业对 AI 辅助创作工具的核心诉求高度契合——创作者需要的不仅是「生成」，更是「可控地生成」。\n\n目前 AI 视频生成赛道竞争激烈，Vidu 此次聚焦剧集制作场景的差异化定位，或将帮助其在专业创作者群体中建立更稳固的用户心智。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401367.html",
+    "publishedAt": "2026-04-15T05:06:17Z",
+    "category": "产品发布",
+    "tags": [
+      "Vidu",
+      "AI视频生成",
+      "影视创作"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "55f859e6",
+    "slug": "huang-ren-xun-lu-xian-kai-yuan-liang-zi-aida-mo-xing-2026-04-15",
+    "title": "黄仁勋率先开源量子AI大模型",
+    "summary": "“AI会是量子计算机的操作系统”",
+    "content": "“AI会是量子计算机的操作系统”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401351.html",
+    "publishedAt": "2026-04-15T04:45:55Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "4d7e5d01",
+    "slug": "si-di-bao-liao-shi-hen-openainei-bu-xin-yin-yang-claudeying-2026-04-15",
+    "title": "OpenAI内部信泄露：质疑Anthropic年化收入虚高80亿美元",
+    "summary": "一封据称来自OpenAI内部的信件遭到泄露，信中指控竞争对手Anthropic的年化收入数据存在注水问题，涉及金额高达80亿美元。",
+    "content": "近日，一封据称出自OpenAI内部人士之手的信件在业内流传，内容直指竞争对手Anthropic的营收数据存在严重虚报问题。信件称，Anthropic对外公布的年化收入（ARR）中存在约80亿美元的水分，暗示其实际业务规模与对外宣称的数字存在较大出入。\n\n此次事件的特殊之处在于，OpenAI与Anthropic本就渊源颇深——Anthropic创始人Dario Amodei及多位核心成员均曾供职于OpenAI，双方长期处于直接竞争关系。内部信的泄露使两家公司之间的竞争摩擦再度浮出水面。\n\n年化收入（ARR）是科技公司融资时常用的关键指标，直接影响估值与投资者信心。若相关指控属实，将对Anthropic的市场声誉及后续融资产生重大影响。目前Anthropic方面尚未就此事作出公开回应，信件的真实来源与具体内容的准确性也有待进一步核实。\n\n此事件再次引发外界对AI独角兽企业营收披露透明度的关注，业内人士指出，在大模型商业化竞争日趋激烈的背景下，各家公司的数据口径与统计方式差异较大，投资者在参考ARR等指标时需保持审慎态度。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401333.html",
+    "publishedAt": "2026-04-15T03:22:09Z",
+    "category": "公司新闻",
+    "tags": [
+      "OpenAI",
+      "Anthropic",
+      "AI竞争"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "4381e7a4",
+    "slug": "rong-yao-pcjia-zu-da-bao-fa-rong-yao-da-zhou-ben-yang-xia-be-2026-04-15",
+    "title": "荣耀PC家族大爆发！荣耀“打洲本”“养虾本”集中亮相",
+    "summary": "首创“养虾本”，荣耀AI PC迈入3.0时代",
+    "content": "首创“养虾本”，荣耀AI PC迈入3.0时代",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401202.html",
+    "publishedAt": "2026-04-14T13:12:17Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "d1685e5c",
+    "slug": "jiao-yu-bu-deng-wu-bu-men-guan-yu-yin-fa-ren-gong-zhi-neng-j-2026-04-15",
+    "title": "教育部等五部门关于印发《“人工智能+教育”行动计划》的通知",
+    "summary": "推进人工智能人才培养和应用创新，统筹谋划基础环境和创新生态建设，系统构建智能时代的教育体系。",
+    "content": "推进人工智能人才培养和应用创新，统筹谋划基础环境和创新生态建设，系统构建智能时代的教育体系。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401190.html",
+    "publishedAt": "2026-04-14T10:19:19Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "1",
     "slug": "openai-gpt5-release-2026-04",
     "title": "OpenAI 正式发布 GPT-5，推理能力大幅提升",
@@ -9,7 +95,74 @@
     "sourceUrl": "https://openai.com/blog",
     "publishedAt": "2026-04-14T10:00:00Z",
     "category": "产品发布",
-    "tags": ["OpenAI", "GPT-5", "大语言模型", "ChatGPT"],
+    "tags": [
+      "OpenAI",
+      "GPT-5",
+      "大语言模型",
+      "ChatGPT"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "fea44bd6",
+    "slug": "shi-yao-excelzhe-han-shu-na-gong-shi-wo-qian-wen-yong-yuan-y-2026-04-15",
+    "title": "什么Excel这函数那公式，我千问永远一步搞定",
+    "summary": "手机电脑全打通，随时随地大白话改表格",
+    "content": "手机电脑全打通，随时随地大白话改表格",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401127.html",
+    "publishedAt": "2026-04-14T08:36:36Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "c731bb21",
+    "slug": "si-tan-fu-nian-du-jie-lun-zhong-mei-da-mo-xing-yi-mei-chai-j-2026-04-15",
+    "title": "斯坦福年度报告：中美大模型差距已消除",
+    "summary": "斯坦福大学年度AI报告指出，中美两国在大型语言模型能力上已基本持平，全球AI普及率正在经历历史性加速增长。",
+    "content": "据量子位报道，斯坦福大学发布的年度人工智能报告得出重要结论：中美两国在大模型领域的技术差距已基本消除。报告显示，以中国头部AI企业为代表的大模型产品，在多项主流评测基准上的表现已与美国同类模型相当，标志着全球AI竞争格局正在发生深刻变化。\n\n报告同时指出，AI技术的普及率正在经历历史性加速。越来越多的企业和个人用户将AI工具融入日常工作流程，推动了全球范围内AI应用的快速渗透。这一趋势在教育、医疗、软件开发等多个垂直领域尤为明显。\n\n斯坦福AI报告是业界公认的权威年度参考文献，其对中美大模型能力趋同的判断，反映出近年来中国在基础模型研发、算法创新及工程落地方面持续加大投入所取得的成果。分析人士认为，这一结论将进一步推动全球AI产业的多极化发展，也意味着未来的竞争将更多聚焦于应用生态、数据资源以及行业解决方案的深度整合。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401094.html",
+    "publishedAt": "2026-04-14T05:58:59Z",
+    "category": "研究论文",
+    "tags": [
+      "斯坦福报告",
+      "中美大模型",
+      "AI普及",
+      "大语言模型",
+      "AI竞争格局"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "42730627",
+    "slug": "li-kai-fu-lu-qi-zhong-cang-tong-yi-jia-harnesszhi-neng-ti-go-2026-04-15",
+    "title": "李开复陆奇重仓同一家Harness智能体公司，李笛带队，4个月2轮融资3-5年粮草",
+    "summary": "团队即将发布最新成果",
+    "content": "团队即将发布最新成果",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401065.html",
+    "publishedAt": "2026-04-14T05:39:06Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "5eda8ba9",
+    "slug": "bu-zhi-shi-mai-fu-wu-qi-zhong-xing-tong-xun-xiang-zuo-aishi-2026-04-15",
+    "title": "中兴通讯布局AI基础设施，推出OpenClaw企业级解决方案",
+    "summary": "中兴通讯正从传统服务器销售商向AI时代基础设施提供商转型，推出OpenClaw产品，面向企业机房场景提供一体化AI算力解决方案。",
+    "content": "随着AI大模型应用加速落地，企业对本地化AI算力的需求持续增长，中兴通讯正抓住这一窗口期，推动自身业务定位从硬件设备供应商向AI基础设施整体解决方案商转型。\n\n中兴通讯推出的OpenClaw产品，旨在将AI推理与训练能力直接部署进企业自有机房，帮助企业在数据安全、合规要求较高的场景下，实现对大模型能力的私有化使用。相比单纯采购服务器硬件，OpenClaw更强调软硬件一体化的交付模式，降低企业自建AI基础设施的技术门槛。\n\n在市场背景上，国内企业对数据本地化部署的诉求日益强烈，叠加信创政策推动，具备自主可控能力的国产AI基础设施产品正迎来较大市场空间。中兴通讯凭借在电信设备领域积累的硬件研发与系统集成能力，具备切入这一赛道的基础优势。\n\n此次战略转型也反映出通信设备厂商在AI浪潮下的普遍选择——不再满足于作为算力硬件的搬运工，而是向上延伸至平台层与解决方案层，争夺企业AI采购链条中更高价值的环节。中兴通讯能否在华为、浪潮等竞争对手已深度布局的市场中建立差异化优势，仍有待市场验证。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401047.html",
+    "publishedAt": "2026-04-14T04:31:03Z",
+    "category": "行业动态",
+    "tags": [
+      "中兴通讯",
+      "AI基础设施",
+      "企业私有化部署"
+    ],
     "imageUrl": ""
   },
   {
@@ -22,7 +175,12 @@
     "sourceUrl": "https://deepmind.google",
     "publishedAt": "2026-04-13T08:30:00Z",
     "category": "产品发布",
-    "tags": ["Google", "Gemini", "多模态", "基准测试"],
+    "tags": [
+      "Google",
+      "Gemini",
+      "多模态",
+      "基准测试"
+    ],
     "imageUrl": ""
   },
   {
@@ -35,7 +193,12 @@
     "sourceUrl": "https://anthropic.com",
     "publishedAt": "2026-04-12T14:00:00Z",
     "category": "研究论文",
-    "tags": ["Anthropic", "Claude", "AI安全", "宪法AI"],
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "AI安全",
+      "宪法AI"
+    ],
     "imageUrl": ""
   },
   {
@@ -48,7 +211,12 @@
     "sourceUrl": "https://www.cac.gov.cn",
     "publishedAt": "2026-04-11T09:00:00Z",
     "category": "政策法规",
-    "tags": ["AI监管", "中国", "生成式AI", "合规"],
+    "tags": [
+      "AI监管",
+      "中国",
+      "生成式AI",
+      "合规"
+    ],
     "imageUrl": ""
   },
   {
@@ -61,7 +229,12 @@
     "sourceUrl": "https://mistral.ai",
     "publishedAt": "2026-04-10T11:00:00Z",
     "category": "公司新闻",
-    "tags": ["Mistral AI", "欧洲", "企业AI", "数据主权"],
+    "tags": [
+      "Mistral AI",
+      "欧洲",
+      "企业AI",
+      "数据主权"
+    ],
     "imageUrl": ""
   },
   {
@@ -74,7 +247,12 @@
     "sourceUrl": "https://deepseek.com",
     "publishedAt": "2026-04-09T06:00:00Z",
     "category": "产品发布",
-    "tags": ["DeepSeek", "开源", "大语言模型", "中国AI"],
+    "tags": [
+      "DeepSeek",
+      "开源",
+      "大语言模型",
+      "中国AI"
+    ],
     "imageUrl": ""
   },
   {
@@ -87,7 +265,12 @@
     "sourceUrl": "https://gartner.com",
     "publishedAt": "2026-04-08T10:00:00Z",
     "category": "行业动态",
-    "tags": ["AI Agent", "市场报告", "企业AI", "行业趋势"],
+    "tags": [
+      "AI Agent",
+      "市场报告",
+      "企业AI",
+      "行业趋势"
+    ],
     "imageUrl": ""
   },
   {
@@ -100,7 +283,12 @@
     "sourceUrl": "https://openai.com/sora",
     "publishedAt": "2026-04-07T16:00:00Z",
     "category": "产品发布",
-    "tags": ["OpenAI", "Sora", "视频生成", "AI视频"],
+    "tags": [
+      "OpenAI",
+      "Sora",
+      "视频生成",
+      "AI视频"
+    ],
     "imageUrl": ""
   }
 ]
