@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const toolRoutes: MetadataRoute.Sitemap = tools.map((tool) => ({
     url: `${BASE_URL}/tools/${tool.slug}`,
-    lastModified: new Date(tool.updatedAt),
+    lastModified: tool.updatedAt ? new Date(tool.updatedAt) : new Date(),
     changeFrequency: 'weekly',
     priority: tool.isFeatured ? 0.9 : 0.8,
   }))
@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const comparisonRoutes: MetadataRoute.Sitemap = comparisons.map((cmp) => ({
     url: `${BASE_URL}/compare/${cmp.slug}`,
-    lastModified: new Date(cmp.updatedAt),
+    lastModified: cmp.updatedAt ? new Date(cmp.updatedAt) : new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
