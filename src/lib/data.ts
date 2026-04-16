@@ -326,9 +326,8 @@ function rowToComparison(row: any): Comparison {
 export async function getAllComparisons(): Promise<Comparison[]> {
   try {
     const { data, error } = await supabase
-      .from('pages')
+      .from('comparisons')
       .select('*')
-      .eq('page_type', 'comparison')
       .order('created_at', { ascending: false })
     if (error || !data?.length) return COMPARISONS
     return data.map(rowToComparison)
@@ -340,9 +339,8 @@ export async function getAllComparisons(): Promise<Comparison[]> {
 export async function getComparisonBySlug(slug: string): Promise<Comparison | null> {
   try {
     const { data, error } = await supabase
-      .from('pages')
+      .from('comparisons')
       .select('*')
-      .eq('page_type', 'comparison')
       .eq('slug', slug)
       .single()
     if (error || !data) return COMPARISONS.find((c) => c.slug === slug) ?? null
