@@ -32,9 +32,9 @@ function adaptTool(t: AITool, index: number): AITool {
   const hostname = (() => {
     try { return new URL(t.website).hostname } catch { return '' }
   })()
-  const logoUrl = hostname
-    ? `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`
-    : '/images/tools/placeholder.png'
+  const logoUrl = t.logoUrl || (hostname
+    ? `https://logo.clearbit.com/${hostname}`
+    : '/images/tools/placeholder.png')
 
   return {
     ...t,
@@ -83,7 +83,7 @@ function rowToTool(row: any): AITool {
     imageUrl: row.image_url || '/images/tools/placeholder.png',
     screenshotUrl: row.screenshot_url,
     logoUrl: row.logo_url || (hostname
-      ? `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`
+      ? `https://logo.clearbit.com/${hostname}`
       : '/images/tools/placeholder.png'),
     title: row.title,
     metaDescription: row.meta_description,
