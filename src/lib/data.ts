@@ -303,12 +303,49 @@ export async function getToolsByCategory(categorySlug: string): Promise<AITool[]
   }
 }
 
+
+// -- Supabase row -> Comparison mapper
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function rowToComparison(row: any): Comparison {
+  return {
+    id: String(row.id),
+    slug: row.slug,
+    toolASlug: row.tool_a_slug ?? '',
+    toolBSlug: row.tool_b_slug ?? '',
+    title: row.title ?? '',
+    description: row.summary ?? row.description ?? '',
+    verdict: row.verdict ?? '',
+    faqs: row.faq ?? [],
+    updatedAt: row.updated_at ?? new Date().toISOString(),
+  }
+}
 export async function getAllComparisons(): Promise<Comparison[]> {
-  return COMPARISONS
+  try {
+    const { data, error } = await supabase
+      .from('pages')
+      .select('*')
+      .eq('page_type', 'comparison')
+      .order('created_at', { ascending: false })
+    if (error || !data?.length) return COMPARISONS
+    return data.map(rowToComparison)
+  } catch {
+    return COMPARISONS
+  }
 }
 
 export async function getComparisonBySlug(slug: string): Promise<Comparison | null> {
-  return COMPARISONS.find((c) => c.slug === slug) ?? null
+  try {
+    const { data, error } = await supabase
+      .from('pages')
+      .select('*')
+      .eq('page_type', 'comparison')
+      .eq('slug', slug)
+      .single()
+    if (error || !data) return COMPARISONS.find((c) => c.slug === slug) ?? null
+    return rowToComparison(data)
+  } catch {
+    return COMPARISONS.find((c) => c.slug === slug) ?? null
+  }
 }
 
 export async function getFeaturedTools(): Promise<AITool[]> {
