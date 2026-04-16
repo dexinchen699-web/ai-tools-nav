@@ -305,13 +305,17 @@ export async function getToolsByCategory(categorySlug: string): Promise<AITool[]
 
 
 // -- Supabase row -> Comparison mapper
+// pages 表没有 tool_a_slug / tool_b_slug 字段，从 slug 解析（格式：toolA-vs-toolB）
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rowToComparison(row: any): Comparison {
+  const parts = (row.slug as string).split('-vs-')
+  const toolASlug = row.tool_a_slug ?? parts[0] ?? ''
+  const toolBSlug = row.tool_b_slug ?? parts.slice(1).join('-vs-') ?? ''
   return {
-    id: String(row.id),
+    id: String(row.id ?? row.slug),
     slug: row.slug,
-    toolASlug: row.tool_a_slug ?? '',
-    toolBSlug: row.tool_b_slug ?? '',
+    toolASlug,
+    toolBSlug,
     title: row.title ?? '',
     description: row.summary ?? row.description ?? '',
     verdict: row.verdict ?? '',
