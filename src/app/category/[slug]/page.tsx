@@ -8,6 +8,8 @@ import { CategoryNavSidebar } from '@/components/CategoryNavSidebar'
 import { ToolCard } from '@/components/ToolCard'
 import type { AITool } from '@/lib/types'
 
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   const categories = await getAllCategories()
   return categories.map(c => ({ slug: c.slug }))

@@ -8,9 +8,10 @@ interface ToolLogoProps {
   width: number
   height: number
   className?: string
+  priority?: boolean
 }
 
-export function ToolLogo({ src, alt, width, height, className }: ToolLogoProps) {
+export function ToolLogo({ src, alt, width, height, className, priority = false }: ToolLogoProps) {
   const [imgSrc, setImgSrc] = useState(src)
   return (
     <Image
@@ -19,7 +20,8 @@ export function ToolLogo({ src, alt, width, height, className }: ToolLogoProps) 
       width={width}
       height={height}
       className={className}
-      unoptimized
+      loading={priority ? 'eager' : 'lazy'}
+      sizes={`${width}px`}
       onError={() => setImgSrc('/images/tools/placeholder.png')}
     />
   )

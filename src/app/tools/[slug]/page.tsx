@@ -1,13 +1,20 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllTools, getToolBySlug, getCategoryBySlug, getRelatedTools, getAllComparisons } from '@/lib/data'
+import { supabase } from '@/lib/supabase'
 import { JsonLd } from '@/components/JsonLd'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { ToolLogo } from '@/components/ToolLogo'
+import { generatedTools } from '@/data/generated_data'
+
+export const revalidate = 3600
 
 export async function generateStaticParams() {
-  const tools = await getAllTools()
-  return tools.map(t => ({ slug: t.slug }))
+  try {
+    const { data } = await supabase.from('tools').select('slug')
+    if (data?.length) return data.map((r: { slug: string }) => ({ slug: r.slug }))
+  } catch { /* fall through */ }
+  return generatedTools.map(t => ({ slug: t.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -443,11 +450,12 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                       href={`/tools/${st.slug}`}
                       className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
                     >
-                      <img
+                      <ToolLogo
                         src={`https://logo.clearbit.com/${st.slug}.com`}
                         alt={st.name}
+                        width={24}
+                        height={24}
                         className="w-6 h-6 rounded"
-                        onError={(e) => { (e.target as HTMLImageElement).src = '/images/tools/placeholder.png' }}
                       />
                       <span className="text-sm text-gray-700 group-hover:text-blue-600">{st.name}</span>
                     </Link>

@@ -1,6 +1,6 @@
 import { AITool, Category } from './types'
 
-const SITE_URL = 'https://ai-tools-nav-two.vercel.app'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ai-tools-nav-two.vercel.app'
 const SITE_NAME = 'AI工具导航'
 
 export function buildWebSiteSchema() {
@@ -9,6 +9,14 @@ export function buildWebSiteSchema() {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 }
 

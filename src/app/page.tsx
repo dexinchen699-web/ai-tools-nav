@@ -4,6 +4,8 @@ import { CategoryNavSidebar } from '@/components/CategoryNavSidebar'
 import { ToolCard } from '@/components/ToolCard'
 import type { AITool, Category } from '@/lib/types'
 
+export const revalidate = 3600
+
 // ── Section header ────────────────────────────────────────────────────────────
 
 function SectionHeader({

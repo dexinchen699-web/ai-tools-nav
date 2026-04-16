@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 const SITE_NAME = 'AI工具导航'
-const SITE_URL = 'https://ai-tools-nav.vercel.app'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ai-tools-nav-two.vercel.app'
 const SITE_DESCRIPTION = '发现最好用的AI工具，涵盖AI对话、绘图、编程、写作、视频等10大分类，持续更新。'
 
 export function buildMetadata({
@@ -17,6 +17,7 @@ export function buildMetadata({
 }): Metadata {
   const url = `${SITE_URL}${path}`
   const ogImage = image ?? `${SITE_URL}/og-default.png`
+  // og-default.png should exist at /public/og-default.png (1200×630)
 
   return {
     title: `${title} | ${SITE_NAME}`,
