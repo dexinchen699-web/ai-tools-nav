@@ -116,11 +116,26 @@ export default async function ComparisonDetailPage({ params }: Props) {
   const cmp = await getComparisonBySlug(slug)
   if (!cmp) notFound()
 
-  const [toolA, toolB] = await Promise.all([
+  const [toolARaw, toolBRaw] = await Promise.all([
     getToolBySlug(cmp.toolASlug),
     getToolBySlug(cmp.toolBSlug),
   ])
-  if (!toolA || !toolB) notFound()
+
+  // Build minimal stub for tools not yet in the database
+  function toolStub(slug: string): AITool {
+    const name = slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    return {
+      id: slug, slug, name, tagline: '', description: '',
+      category: '', tags: [], website: `https://${slug.replace(/-/g, '')}.com`,
+      pricing: 'freemium', pricingDetail: '', rating: 0, reviewCount: 0,
+      features: [], pros: [], cons: [], useCases: [], faqs: [], howToSteps: [],
+      imageUrl: '/images/tools/placeholder.png', logoUrl: '/images/tools/placeholder.png',
+      createdAt: '', updatedAt: '', isFeatured: false, isNew: false,
+    }
+  }
+
+  const toolA = toolARaw ?? toolStub(cmp.toolASlug)
+  const toolB = toolBRaw ?? toolStub(cmp.toolBSlug)
 
   const schema = buildComparisonSchema({
     title: cmp.title,
