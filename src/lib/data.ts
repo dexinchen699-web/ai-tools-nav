@@ -1,9 +1,10 @@
+import { unstable_cache } from 'next/cache'
 import { AITool, Category, Comparison, NewsItem, NewsCategory } from './types'
+import { supabase } from './supabase'
 import { generatedTools } from '../data/generated_data'
 import newsData from '../data/news.json'
 
-// ── Category definitions ──────────────────────────────────────────────────────
-// All 10 categories — 6 original + 4 new from pipeline expansion
+// ── Category definitions (static fallback) ───────────────────────────────────
 const CATEGORY_DEFS: Omit<Category, 'toolCount'>[] = [
   { id: '1',  slug: 'chat',         name: 'AI对话',   description: 'AI聊天机器人和智能助手',             iconName: 'ChatBubbleIcon',      icon: '💬' },
   { id: '2',  slug: 'image',        name: 'AI绘图',   description: 'AI图像生成、编辑和设计工具',         iconName: 'PhotoIcon',           icon: '🎨' },
@@ -17,21 +18,17 @@ const CATEGORY_DEFS: Omit<Category, 'toolCount'>[] = [
   { id: '10', slug: 'productivity', name: 'AI效率',   description: 'AI驱动的自动化、会议和项目管理工具', iconName: 'BoltIcon',            icon: '⚡' },
 ]
 
-// ── Featured & New tool slugs ─────────────────────────────────────────────────
 const FEATURED_SLUGS = new Set([
   'chatgpt', 'claude', 'gemini', 'midjourney', 'cursor', 'deepseek',
-  'github-copilot', 'perplexity', 'stable-diffusion', 'canva-ai',
-  'suno', 'runway',
+  'github-copilot', 'perplexity', 'stable-diffusion', 'canva-ai', 'suno', 'runway',
 ])
 
-// Tools added/updated recently — shown in "最新收录" section
 const NEW_SLUGS = new Set([
   'deepseek', 'grok', 'flux', 'suno', 'windsurf', 'ideogram',
 ])
 
-// ── Adapter: GeneratedTool → AITool ──────────────────────────────────────────
+// ── Static fallback data ──────────────────────────────────────────────────────
 function adaptTool(t: AITool, index: number): AITool {
-  // Use Google favicon service for logos; fall back to placeholder
   const hostname = (() => {
     try { return new URL(t.website).hostname } catch { return '' }
   })()
@@ -40,30 +37,10 @@ function adaptTool(t: AITool, index: number): AITool {
     : '/images/tools/placeholder.png'
 
   return {
+    ...t,
     id: String(index + 1),
-    slug: t.slug,
-    name: t.name,
-    tagline: t.tagline,
-    description: t.description,
-    category: t.category,
-    tags: t.tags,
-    website: t.website,
-    pricing: t.pricing,
-    pricingDetail: t.pricingDetail,
-    rating: t.rating,
-    reviewCount: t.reviewCount,
-    features: t.features,
-    pros: t.pros,
-    cons: t.cons,
-    useCases: t.useCases,
-    faqs: t.faqs,
-    howToSteps: t.howToSteps,
     imageUrl: t.imageUrl || '/images/tools/placeholder.png',
-    screenshotUrl: t.screenshotUrl,
     logoUrl,
-    introduction: t.introduction,
-    targetUsers: t.targetUsers,
-    pricingTiers: t.pricingTiers,
     createdAt: '2026-04-09T00:00:00Z',
     updatedAt: '2026-04-09T00:00:00Z',
     isFeatured: FEATURED_SLUGS.has(t.slug),
@@ -71,15 +48,59 @@ function adaptTool(t: AITool, index: number): AITool {
   }
 }
 
-// ── Build TOOLS and CATEGORIES from generated data ────────────────────────────
-export const TOOLS: AITool[] = generatedTools.map(adaptTool)
+const STATIC_TOOLS: AITool[] = generatedTools.map(adaptTool)
 
-export const CATEGORIES: Category[] = CATEGORY_DEFS.map((def) => ({
+const STATIC_CATEGORIES: Category[] = CATEGORY_DEFS.map((def) => ({
   ...def,
-  toolCount: TOOLS.filter((t) => t.category === def.slug).length,
+  toolCount: STATIC_TOOLS.filter((t) => t.category === def.slug).length,
 }))
 
-// ── Comparisons (hand-authored, not generated) ────────────────────────────────
+// ── Supabase row → AITool mapper ──────────────────────────────────────────────
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function rowToTool(row: any): AITool {
+  const hostname = (() => {
+    try { return new URL(row.website).hostname } catch { return '' }
+  })()
+  return {
+    id: String(row.id),
+    slug: row.slug,
+    name: row.name,
+    tagline: row.tagline ?? '',
+    description: row.description ?? '',
+    category: row.category_slug ?? row.category ?? '',
+    tags: row.tags ?? [],
+    website: row.website ?? '',
+    pricing: row.pricing ?? 'free',
+    pricingDetail: row.pricing_detail ?? '',
+    rating: row.rating ?? 0,
+    reviewCount: row.review_count ?? 0,
+    features: row.features ?? [],
+    pros: row.pros ?? [],
+    cons: row.cons ?? [],
+    useCases: row.use_cases ?? [],
+    faqs: row.faqs ?? [],
+    howToSteps: row.how_to_steps ?? [],
+    imageUrl: row.image_url || '/images/tools/placeholder.png',
+    screenshotUrl: row.screenshot_url,
+    logoUrl: row.logo_url || (hostname
+      ? `https://www.google.com/s2/favicons?domain=${hostname}&sz=128`
+      : '/images/tools/placeholder.png'),
+    title: row.title,
+    metaDescription: row.meta_description,
+    heroTitle: row.hero_title,
+    heroSubtitle: row.hero_subtitle,
+    introduction: row.introduction,
+    targetUsers: row.target_users ?? [],
+    pricingTiers: row.pricing_tiers ?? [],
+    similarTools: row.similar_tools ?? [],
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+    isFeatured: row.is_featured ?? false,
+    isNew: row.is_new ?? false,
+  }
+}
+
+// ── Comparisons (static) ─────────────────────────────────────────────────────
 export const COMPARISONS: Comparison[] = [
   {
     id: '1',
@@ -156,27 +177,130 @@ export const COMPARISONS: Comparison[] = [
   },
 ]
 
+// ── Cached Supabase queries ───────────────────────────────────────────────────
+// Cache TTL: 1 hour for tools/categories, 10 min for news
+
+const _fetchAllTools = unstable_cache(
+  async (): Promise<AITool[]> => {
+    const { data, error } = await supabase
+      .from('tools')
+      .select('*')
+      .order('rating', { ascending: false })
+    if (error || !data?.length) return STATIC_TOOLS
+    return data.map(rowToTool)
+  },
+  ['all-tools'],
+  { revalidate: 3600, tags: ['tools'] }
+)
+
+const _fetchAllCategories = unstable_cache(
+  async (): Promise<Category[]> => {
+    const { data, error } = await supabase
+      .from('categories')
+      .select('*')
+      .order('id', { ascending: true })
+    if (error || !data?.length) return STATIC_CATEGORIES
+    return data.map((row) => ({
+      id: String(row.id),
+      slug: row.slug,
+      name: row.name,
+      description: row.description ?? '',
+      iconName: row.icon_name ?? '',
+      icon: row.icon ?? '',
+      toolCount: row.tool_count ?? 0,
+    }))
+  },
+  ['all-categories'],
+  { revalidate: 3600, tags: ['categories'] }
+)
+
+const _fetchFeaturedTools = unstable_cache(
+  async (): Promise<AITool[]> => {
+    const { data, error } = await supabase
+      .from('tools')
+      .select('*')
+      .eq('is_featured', true)
+      .order('rating', { ascending: false })
+    if (error || !data?.length) return STATIC_TOOLS.filter((t) => t.isFeatured)
+    return data.map(rowToTool)
+  },
+  ['featured-tools'],
+  { revalidate: 3600, tags: ['tools'] }
+)
+
+const _fetchLatestNews = unstable_cache(
+  async (limit: number): Promise<NewsItem[]> => {
+    const { data, error } = await supabase
+      .from('news')
+      .select('*')
+      .order('published_at', { ascending: false })
+      .limit(limit)
+    if (error || !data?.length) return STATIC_NEWS.slice(0, limit)
+    return data.map(rowToNews)
+  },
+  ['latest-news'],
+  { revalidate: 600, tags: ['news'] }
+)
+
+const _fetchAllNews = unstable_cache(
+  async (): Promise<NewsItem[]> => {
+    const { data, error } = await supabase
+      .from('news')
+      .select('*')
+      .order('published_at', { ascending: false })
+      .limit(100)
+    if (error || !data?.length) return STATIC_NEWS
+    return data.map(rowToNews)
+  },
+  ['all-news'],
+  { revalidate: 600, tags: ['news'] }
+)
+
 // ── Data access functions ─────────────────────────────────────────────────────
-// Swap these for Supabase queries in Phase 2
 
 export async function getAllTools(): Promise<AITool[]> {
-  return TOOLS
+  try { return await _fetchAllTools() } catch { return STATIC_TOOLS }
 }
 
 export async function getToolBySlug(slug: string): Promise<AITool | null> {
-  return TOOLS.find((t) => t.slug === slug) ?? null
+  try {
+    const { data, error } = await supabase
+      .from('tools')
+      .select('*')
+      .eq('slug', slug)
+      .single()
+    if (error || !data) return STATIC_TOOLS.find((t) => t.slug === slug) ?? null
+    return rowToTool(data)
+  } catch {
+    return STATIC_TOOLS.find((t) => t.slug === slug) ?? null
+  }
 }
 
 export async function getAllCategories(): Promise<Category[]> {
-  return CATEGORIES
+  try { return await _fetchAllCategories() } catch { return STATIC_CATEGORIES }
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
-  return CATEGORIES.find((c) => c.slug === slug) ?? null
+  try {
+    const cats = await _fetchAllCategories()
+    return cats.find((c) => c.slug === slug) ?? null
+  } catch {
+    return STATIC_CATEGORIES.find((c) => c.slug === slug) ?? null
+  }
 }
 
 export async function getToolsByCategory(categorySlug: string): Promise<AITool[]> {
-  return TOOLS.filter((t) => t.category === categorySlug)
+  try {
+    const { data, error } = await supabase
+      .from('tools')
+      .select('*')
+      .eq('category', categorySlug)
+      .order('rating', { ascending: false })
+    if (error || !data?.length) return STATIC_TOOLS.filter((t) => t.category === categorySlug)
+    return data.map(rowToTool)
+  } catch {
+    return STATIC_TOOLS.filter((t) => t.category === categorySlug)
+  }
 }
 
 export async function getAllComparisons(): Promise<Comparison[]> {
@@ -188,40 +312,98 @@ export async function getComparisonBySlug(slug: string): Promise<Comparison | nu
 }
 
 export async function getFeaturedTools(): Promise<AITool[]> {
-  return TOOLS.filter((t) => t.isFeatured)
+  try { return await _fetchFeaturedTools() } catch { return STATIC_TOOLS.filter((t) => t.isFeatured) }
 }
 
-// ── News data access functions ────────────────────────────────────────────────
-const NEWS: NewsItem[] = (newsData as NewsItem[]).sort(
+// ── News ──────────────────────────────────────────────────────────────────────
+const STATIC_NEWS: NewsItem[] = (newsData as NewsItem[]).sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 )
 
+function rowToNews(row: Record<string, unknown>): NewsItem {
+  return {
+    id: row.id as string,
+    slug: row.slug as string,
+    title: row.title as string,
+    summary: row.summary as string,
+    content: row.content as string,
+    source: row.source as string,
+    sourceUrl: row.source_url as string,
+    publishedAt: row.published_at as string,
+    category: row.category as NewsCategory,
+    tags: (row.tags as string[]) ?? [],
+    imageUrl: (row.image_url as string) ?? undefined,
+  }
+}
+
 export async function getAllNews(): Promise<NewsItem[]> {
-  return NEWS
+  try { return await _fetchAllNews() } catch { return STATIC_NEWS }
 }
 
 export async function getNewsBySlug(slug: string): Promise<NewsItem | null> {
-  return NEWS.find((n) => n.slug === slug) ?? null
+  try {
+    const { data, error } = await supabase
+      .from('news')
+      .select('*')
+      .eq('slug', slug)
+      .single()
+    if (error || !data) return STATIC_NEWS.find((n) => n.slug === slug) ?? null
+    return rowToNews(data)
+  } catch {
+    return STATIC_NEWS.find((n) => n.slug === slug) ?? null
+  }
 }
 
 export async function getNewsByCategory(category: NewsCategory): Promise<NewsItem[]> {
-  return NEWS.filter((n) => n.category === category)
+  try {
+    const { data, error } = await supabase
+      .from('news')
+      .select('*')
+      .eq('category', category)
+      .order('published_at', { ascending: false })
+      .limit(50)
+    if (error || !data?.length) return STATIC_NEWS.filter((n) => n.category === category)
+    return data.map(rowToNews)
+  } catch {
+    return STATIC_NEWS.filter((n) => n.category === category)
+  }
 }
 
 export async function getLatestNews(limit = 10): Promise<NewsItem[]> {
-  return NEWS.slice(0, limit)
+  try { return await _fetchLatestNews(limit) } catch { return STATIC_NEWS.slice(0, limit) }
 }
 
 export async function getRelatedTools(slug: string, limit = 4): Promise<AITool[]> {
-  const tool = TOOLS.find((t) => t.slug === slug)
+  const tool = STATIC_TOOLS.find((t) => t.slug === slug)
   if (!tool) return []
 
   const tagSet = new Set(tool.tags ?? [])
 
-  return TOOLS
+  try {
+    const { data, error } = await supabase
+      .from('tools')
+      .select('*')
+      .eq('category', tool.category)
+      .neq('slug', slug)
+      .order('rating', { ascending: false })
+      .limit(limit * 2)
+    if (!error && data?.length) {
+      const scored = data
+        .map((row) => {
+          const t = rowToTool(row)
+          const tagOverlap = (t.tags ?? []).filter((tag) => tagSet.has(tag)).length
+          return { tool: t, score: 10 + tagOverlap * 2 + (t.isFeatured ? 1 : 0) }
+        })
+        .sort((a, b) => b.score - a.score || b.tool.rating - a.tool.rating)
+        .slice(0, limit)
+        .map(({ tool: t }) => t)
+      if (scored.length) return scored
+    }
+  } catch { /* fall through */ }
+
+  return STATIC_TOOLS
     .filter((t) => t.slug !== slug)
     .map((t) => {
-      // same category = 10 pts, each shared tag = 2 pts, featured = 1 pt
       const tagOverlap = (t.tags ?? []).filter((tag) => tagSet.has(tag)).length
       const score =
         (t.category === tool.category ? 10 : 0) +
