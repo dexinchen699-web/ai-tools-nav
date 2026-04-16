@@ -6,10 +6,11 @@ export async function GET() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-  // 2. 查询 comparisons 表
+  // 2. 查询 pages 表（page_type = comparison）
   const { data, error, count } = await supabase
-    .from('comparisons')
-    .select('slug, tool_a_slug, tool_b_slug, title', { count: 'exact' })
+    .from('pages')
+    .select('slug, title, page_type', { count: 'exact' })
+    .eq('page_type', 'comparison')
     .limit(5)
 
   return NextResponse.json({
