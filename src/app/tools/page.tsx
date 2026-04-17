@@ -38,7 +38,7 @@ function ToolCard({ tool }: { tool: AITool }) {
     <Link href={`/tools/${tool.slug}`} className="card p-4 flex flex-col gap-3 group">
       <div className="flex items-start gap-3">
         <ToolLogo
-          src={tool.logoUrl || tool.imageUrl || '/images/tools/placeholder.png'}
+          website={tool.website}
           alt={tool.name}
           width={40}
           height={40}

@@ -144,7 +144,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             <div className="card p-6">
               <div className="flex items-start gap-4">
                 <ToolLogo
-                  src={logoSrc}
+                  website={tool.website}
                   alt={tool.name}
                   width={64}
                   height={64}
@@ -444,14 +444,14 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
                 <h3 className="font-bold text-gray-900 mb-3">类似工具</h3>
                 <div className="space-y-2">
-                  {(tool as any).similarTools.map((st: { name: string; slug: string }, i: number) => (
+                  {(tool as any).similarTools.map((st: { name: string; slug: string; website?: string }, i: number) => (
                     <Link
                       key={i}
                       href={`/tools/${st.slug}`}
                       className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
                     >
                       <ToolLogo
-                        src={`https://logo.clearbit.com/${st.slug}.com`}
+                        website={st.website}
                         alt={st.name}
                         width={24}
                         height={24}

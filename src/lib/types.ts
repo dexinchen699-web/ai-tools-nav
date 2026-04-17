@@ -29,7 +29,7 @@ export interface AITool {
   introduction?: string
   targetUsers?: { type: string; description: string }[]
   pricingTiers?: { name: string; price: string; features: string[] }[]
-  similarTools?: { name: string; slug: string }[]
+  similarTools?: { name: string; slug: string; website?: string }[]
   createdAt?: string       // ISO date string
   updatedAt?: string       // ISO date string
   isFeatured?: boolean

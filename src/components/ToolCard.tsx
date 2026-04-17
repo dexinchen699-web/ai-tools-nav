@@ -11,35 +11,38 @@ const PRICING_BADGE: Record<string, string> = {
 
 const PRICING_LABEL: Record<string, string> = {
   free:       '免费',
-  freemium:   '免费+付费',
+  freemium:   '免费+',
   paid:       '付费',
-  enterprise: '企业版',
+  enterprise: '企业',
 }
 
 export function ToolCard({ tool }: { tool: AITool }) {
   return (
-    <Link
-      href={`/tools/${tool.slug}`}
-      className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-0.5 hover:border-brand-200 transition-all duration-200 p-4"
-    >
-      {/* Logo + badges row */}
-      <div className="flex items-start justify-between mb-3">
+    <Link href={`/tools/${tool.slug}`} className="tool-card group">
+      {/* Top row: logo + badges */}
+      <div className="flex items-start justify-between">
         <ToolLogo
-          src={tool.logoUrl || '/images/tools/placeholder.png'}
+          website={tool.website}
           alt={tool.name}
-          width={48}
-          height={48}
-          className="tool-logo w-12 h-12 rounded-xl shrink-0"
+          width={40}
+          height={40}
+          className="w-10 h-10 rounded-lg shrink-0 object-cover"
         />
-        <div className="flex gap-1 flex-wrap justify-end">
+        <div className="flex items-center gap-1 flex-wrap justify-end">
           {tool.isNew && (
-            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-rose-500 text-white leading-none">NEW</span>
+            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-sm"
+              style={{ background: '#ef4444', color: '#fff' }}>
+              NEW
+            </span>
           )}
           {tool.isFeatured && (
-            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-400 text-white leading-none">精选</span>
+            <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-sm"
+              style={{ background: '#f59e0b', color: '#fff' }}>
+              精选
+            </span>
           )}
           {tool.pricing && (
-            <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${PRICING_BADGE[tool.pricing] ?? 'badge-free'}`}>
+            <span className={`${PRICING_BADGE[tool.pricing] ?? 'badge-free'}`}>
               {PRICING_LABEL[tool.pricing] ?? tool.pricing}
             </span>
           )}
@@ -47,12 +50,14 @@ export function ToolCard({ tool }: { tool: AITool }) {
       </div>
 
       {/* Name */}
-      <span className="block text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors leading-tight mb-1">
+      <span className="block text-sm font-semibold leading-tight"
+        style={{ color: 'var(--text-primary)', transition: 'color 0.15s' }}>
         {tool.name}
       </span>
 
       {/* Description */}
-      <span className="block text-xs text-gray-500 leading-relaxed line-clamp-2">
+      <span className="block text-xs leading-relaxed line-clamp-2"
+        style={{ color: 'var(--text-secondary)' }}>
         {tool.tagline || tool.description}
       </span>
     </Link>
