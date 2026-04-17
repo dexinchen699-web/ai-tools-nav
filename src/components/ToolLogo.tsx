@@ -12,7 +12,7 @@ interface ToolLogoProps {
 }
 
 // Deterministic color palette based on first char
-const COLORS = [
+const COLORS: [string, string][] = [
   ['#3B82F6', '#1D4ED8'], // blue
   ['#8B5CF6', '#6D28D9'], // violet
   ['#EC4899', '#BE185D'], // pink
