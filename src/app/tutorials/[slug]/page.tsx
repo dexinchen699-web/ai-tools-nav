@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 import { buildMetadata } from '@/lib/metadata'
-import Breadcrumb from '@/components/Breadcrumb'
+import { Breadcrumb } from '@/components/Breadcrumb'
 
 interface Step {
   title: string
@@ -86,8 +86,8 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
     <main>
       <Breadcrumb
         items={[
-          { label: '教程', href: '/tutorials' },
-          { label: tutorial.title },
+          { name: '教程', url: '/tutorials' },
+          { name: tutorial.title, url: `/tutorials/${tutorial.slug}` },
         ]}
       />
 
