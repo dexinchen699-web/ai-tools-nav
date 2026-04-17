@@ -133,8 +133,13 @@ export default async function ComparisonDetailPage({ params }: Props) {
     faqs: cmp.faqs,
   })
 
-  const hasProsConsA = toolA.pros.length > 0 || toolA.cons.length > 0
-  const hasProsConsB = toolB.pros.length > 0 || toolB.cons.length > 0
+  const prosA = cmp.pros_cons?.tool1_pros ?? toolA.pros
+  const consA = cmp.pros_cons?.tool1_cons ?? toolA.cons
+  const prosB = cmp.pros_cons?.tool2_pros ?? toolB.pros
+  const consB = cmp.pros_cons?.tool2_cons ?? toolB.cons
+
+  const hasProsConsA = prosA.length > 0 || consA.length > 0
+  const hasProsConsB = prosB.length > 0 || consB.length > 0
 
   return (
     <>
@@ -358,7 +363,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               {/* Tool A pros/cons */}
               <div className="space-y-3">
                 {/* A pros */}
-                {toolA.pros.length > 0 && (
+                {prosA.length > 0 && (
                   <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 overflow-hidden">
                     <div className="flex items-center gap-2 px-4 py-2.5 border-b border-emerald-100 bg-emerald-50">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -366,7 +371,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                       <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">{toolA.name} · 优势</span>
                     </div>
                     <ul className="px-4 py-3 space-y-2">
-                      {toolA.pros.slice(0, 4).map((p) => (
+                      {prosA.slice(0, 4).map((p) => (
                         <li key={p} className="flex items-start gap-2 text-xs text-emerald-800 leading-snug">
                           <span className="mt-0.5 text-emerald-500 shrink-0">✓</span>
                           {p}
@@ -376,7 +381,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                   </div>
                 )}
                 {/* A cons */}
-                {toolA.cons.length > 0 && (
+                {consA.length > 0 && (
                   <div className="rounded-xl border border-rose-200 bg-rose-50/60 overflow-hidden">
                     <div className="flex items-center gap-2 px-4 py-2.5 border-b border-rose-100 bg-rose-50">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -384,7 +389,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                       <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">{toolA.name} · 劣势</span>
                     </div>
                     <ul className="px-4 py-3 space-y-2">
-                      {toolA.cons.slice(0, 4).map((c) => (
+                      {consA.slice(0, 4).map((c) => (
                         <li key={c} className="flex items-start gap-2 text-xs text-rose-800 leading-snug">
                           <span className="mt-0.5 text-rose-400 shrink-0">✗</span>
                           {c}
@@ -398,7 +403,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
               {/* Tool B pros/cons */}
               <div className="space-y-3">
                 {/* B pros */}
-                {toolB.pros.length > 0 && (
+                {prosB.length > 0 && (
                   <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 overflow-hidden">
                     <div className="flex items-center gap-2 px-4 py-2.5 border-b border-emerald-100 bg-emerald-50">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -406,7 +411,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                       <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">{toolB.name} · 优势</span>
                     </div>
                     <ul className="px-4 py-3 space-y-2">
-                      {toolB.pros.slice(0, 4).map((p) => (
+                      {prosB.slice(0, 4).map((p) => (
                         <li key={p} className="flex items-start gap-2 text-xs text-emerald-800 leading-snug">
                           <span className="mt-0.5 text-emerald-500 shrink-0">✓</span>
                           {p}
@@ -416,7 +421,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                   </div>
                 )}
                 {/* B cons */}
-                {toolB.cons.length > 0 && (
+                {consB.length > 0 && (
                   <div className="rounded-xl border border-rose-200 bg-rose-50/60 overflow-hidden">
                     <div className="flex items-center gap-2 px-4 py-2.5 border-b border-rose-100 bg-rose-50">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -424,7 +429,7 @@ export default async function ComparisonDetailPage({ params }: Props) {
                       <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">{toolB.name} · 劣势</span>
                     </div>
                     <ul className="px-4 py-3 space-y-2">
-                      {toolB.cons.slice(0, 4).map((c) => (
+                      {consB.slice(0, 4).map((c) => (
                         <li key={c} className="flex items-start gap-2 text-xs text-rose-800 leading-snug">
                           <span className="mt-0.5 text-rose-400 shrink-0">✗</span>
                           {c}

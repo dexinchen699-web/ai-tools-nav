@@ -48,6 +48,13 @@ export interface Category {
   toolCount?: number
 }
 
+export interface ComparisonProsCons {
+  tool1_pros: string[]
+  tool1_cons: string[]
+  tool2_pros: string[]
+  tool2_cons: string[]
+}
+
 export interface Comparison {
   id: string
   slug: string             // e.g. "chatgpt-vs-claude"
@@ -58,6 +65,7 @@ export interface Comparison {
   verdict?: string         // recommendation text
   faqs: FAQ[]
   updatedAt: string
+  pros_cons?: ComparisonProsCons  // comparative pros/cons, preferred over tools.pros/cons
 }
 
 export interface FAQ {

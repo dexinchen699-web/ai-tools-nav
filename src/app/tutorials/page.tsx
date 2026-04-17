@@ -1,54 +1,60 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { supabase } from '@/lib/supabase'
 
 export const metadata: Metadata = {
   title: 'AI教程 — AI工具导航',
   description: '精选 AI 工具使用教程，从入门到进阶，帮你快速掌握 ChatGPT、Midjourney、Claude 等热门 AI 工具。',
 }
 
-const TUTORIALS = [
-  {
-    category: 'AI 对话',
-    emoji: '💬',
-    items: [
-      { title: 'ChatGPT 完全入门指南', desc: '从注册到高级 Prompt 技巧，10 分钟上手 ChatGPT', level: '入门', mins: 10 },
-      { title: '如何写出高质量的 Prompt', desc: '掌握提示词工程核心原则，让 AI 输出更精准', level: '进阶', mins: 15 },
-      { title: 'Claude vs ChatGPT 使用对比', desc: '两大 AI 助手的优劣势分析与适用场景', level: '入门', mins: 8 },
-    ],
-  },
-  {
-    category: 'AI 绘图',
-    emoji: '🎨',
-    items: [
-      { title: 'Midjourney 新手快速上手', desc: '从第一张图到风格控制，Midjourney 完整教程', level: '入门', mins: 12 },
-      { title: 'Stable Diffusion 本地部署', desc: '免费在本地运行 AI 绘图，完整安装配置指南', level: '进阶', mins: 20 },
-      { title: 'AI 绘图 Prompt 关键词大全', desc: '收录 200+ 常用风格词汇，快速提升出图质量', level: '入门', mins: 6 },
-    ],
-  },
-  {
-    category: 'AI 编程',
-    emoji: '💻',
-    items: [
-      { title: 'GitHub Copilot 使用技巧', desc: '10 个让 Copilot 效率翻倍的实用技巧', level: '进阶', mins: 10 },
-      { title: '用 Cursor 构建全栈应用', desc: '从零开始，用 AI 编辑器完成一个完整项目', level: '进阶', mins: 25 },
-    ],
-  },
-  {
-    category: 'AI 效率',
-    emoji: '⚡',
-    items: [
-      { title: 'Notion AI 办公自动化', desc: '用 Notion AI 处理会议记录、写报告、整理知识库', level: '入门', mins: 8 },
-      { title: '用 AI 工具打造个人知识库', desc: '结合 ChatGPT + Obsidian 构建第二大脑', level: '进阶', mins: 18 },
-    ],
-  },
-]
-
-const LEVEL_STYLE: Record<string, string> = {
-  '入门': 'bg-emerald-50 text-emerald-700 border border-emerald-200',
-  '进阶': 'bg-amber-50 text-amber-700 border border-amber-200',
+const CATEGORY_META: Record<string, { emoji: string; label: string }> = {
+  'AI对话': { emoji: '💬', label: 'AI 对话' },
+  'AI绘图': { emoji: '🎨', label: 'AI 绘图' },
+  'AI编程': { emoji: '💻', label: 'AI 编程' },
+  'AI效率': { emoji: '⚡', label: 'AI 效率' },
 }
 
-export default function TutorialsPage() {
+const DIFFICULTY_STYLE: Record<string, string> = {
+  beginner:     'bg-emerald-50 text-emerald-700 border border-emerald-200',
+  intermediate: 'bg-amber-50 text-amber-700 border border-amber-200',
+  advanced:     'bg-rose-50 text-rose-700 border border-rose-200',
+}
+
+const DIFFICULTY_LABEL: Record<string, string> = {
+  beginner: '入门',
+  intermediate: '进阶',
+  advanced: '高级',
+}
+
+interface TutorialRow {
+  slug: string
+  title: string
+  summary: string | null
+  category: string
+  difficulty: string
+  duration_minutes: number | null
+  is_featured: boolean
+}
+
+export default async function TutorialsPage() {
+  const { data: tutorials } = await supabase
+    .from('tutorials')
+    .select('slug, title, summary, category, difficulty, duration_minutes, is_featured')
+    .eq('is_published', true)
+    .order('is_featured', { ascending: false })
+    .order('created_at', { ascending: false })
+
+  const rows: TutorialRow[] = tutorials ?? []
+
+  // Group by category, preserving order
+  const grouped = Object.keys(CATEGORY_META).reduce<Record<string, TutorialRow[]>>((acc, cat) => {
+    acc[cat] = rows.filter(r => r.category === cat)
+    return acc
+  }, {})
+
+  const featured = rows.filter(r => r.is_featured).slice(0, 3)
+  const totalCount = rows.length
+
   return (
     <div>
       {/* Hero */}
@@ -58,52 +64,91 @@ export default function TutorialsPage() {
           <p className="text-brand-100 text-sm max-w-lg mx-auto">
             精选实用教程，帮你快速掌握各类 AI 工具，从入门到进阶一站搞定
           </p>
+          {totalCount > 0 && (
+            <p className="mt-3 text-brand-200 text-xs">共 {totalCount} 篇教程</p>
+          )}
         </div>
       </section>
 
-      {/* Coming soon banner */}
-      <div className="container-content py-4">
-        <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 text-sm text-blue-700 flex items-center gap-2">
-          <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          教程内容持续更新中，以下为预览目录。欢迎
-          <Link href="/feedback" className="underline underline-offset-2 font-medium">提交建议</Link>
-          告诉我们你想学什么。
-        </div>
-      </div>
+      <div className="container-content py-8 pb-16 space-y-12">
 
-      {/* Tutorial list */}
-      <div className="container-content py-6 space-y-10 pb-16">
-        {TUTORIALS.map(section => (
-          <div key={section.category}>
-            <h2 className="section-title flex items-center gap-2 mb-4">
-              <span>{section.emoji}</span>
-              {section.category}
-            </h2>
+        {/* Featured */}
+        {featured.length > 0 && (
+          <section>
+            <h2 className="section-title mb-4">⭐ 精选教程</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {section.items.map(item => (
-                <div key={item.title} className="card p-5 flex flex-col gap-3 opacity-80 cursor-default">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-sm font-semibold text-gray-900 leading-snug">{item.title}</h3>
-                    <span className={`badge flex-shrink-0 ${LEVEL_STYLE[item.level]}`}>{item.level}</span>
-                  </div>
-                  <p className="text-xs text-gray-500 flex-1">{item.desc}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400 flex items-center gap-1">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      约 {item.mins} 分钟
-                    </span>
-                    <span className="text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">即将上线</span>
-                  </div>
-                </div>
+              {featured.map(t => (
+                <TutorialCard key={t.slug} tutorial={t} />
               ))}
             </div>
+          </section>
+        )}
+
+        {/* By category */}
+        {Object.entries(grouped).map(([cat, items]) => {
+          if (items.length === 0) return null
+          const meta = CATEGORY_META[cat]
+          return (
+            <section key={cat}>
+              <h2 className="section-title flex items-center gap-2 mb-4">
+                <span>{meta.emoji}</span>
+                {meta.label}
+                <span className="text-sm font-normal text-gray-400 ml-1">({items.length})</span>
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {items.map(t => (
+                  <TutorialCard key={t.slug} tutorial={t} />
+                ))}
+              </div>
+            </section>
+          )
+        })}
+
+        {/* Empty state */}
+        {totalCount === 0 && (
+          <div className="text-center py-20 text-gray-400">
+            <p className="text-4xl mb-4">📚</p>
+            <p className="text-sm">教程内容即将上线，敬请期待</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
+  )
+}
+
+function TutorialCard({ tutorial }: { tutorial: TutorialRow }) {
+  const diffStyle = DIFFICULTY_STYLE[tutorial.difficulty] ?? DIFFICULTY_STYLE.beginner
+  const diffLabel = DIFFICULTY_LABEL[tutorial.difficulty] ?? '入门'
+
+  return (
+    <Link
+      href={`/tutorials/${tutorial.slug}`}
+      className="card p-5 flex flex-col gap-3 hover:shadow-md transition-shadow group"
+    >
+      <div className="flex items-start justify-between gap-2">
+        <h3 className="text-sm font-semibold text-gray-900 leading-snug group-hover:text-indigo-600 transition-colors">
+          {tutorial.title}
+        </h3>
+        <span className={`badge flex-shrink-0 text-xs px-2 py-0.5 rounded-full border ${diffStyle}`}>
+          {diffLabel}
+        </span>
+      </div>
+
+      {tutorial.summary && (
+        <p className="text-xs text-gray-500 flex-1 line-clamp-2">{tutorial.summary}</p>
+      )}
+
+      <div className="flex items-center justify-between mt-auto">
+        {tutorial.duration_minutes != null ? (
+          <span className="text-xs text-gray-400 flex items-center gap-1">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            约 {tutorial.duration_minutes} 分钟
+          </span>
+        ) : <span />}
+        <span className="text-xs text-indigo-500 font-medium group-hover:underline">阅读 →</span>
+      </div>
+    </Link>
   )
 }
