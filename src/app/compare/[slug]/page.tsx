@@ -214,32 +214,6 @@ export default async function ComparisonDetailPage({ params }: Props) {
                   b={<CheckList items={toolB.features.slice(0, 4)} />}
                 />
                 <CompareRow
-                  label="优点"
-                  a={<CheckList items={toolA.pros.slice(0, 3)} />}
-                  b={<CheckList items={toolB.pros.slice(0, 3)} />}
-                />
-                <CompareRow
-                  label="缺点"
-                  a={
-                    <ul className="space-y-1">
-                      {toolA.cons.slice(0, 3).map((c, i) => (
-                        <li key={i} className="flex gap-1.5 text-xs text-gray-700">
-                          <span className="text-red-400 mt-0.5">✗</span>{c}
-                        </li>
-                      ))}
-                    </ul>
-                  }
-                  b={
-                    <ul className="space-y-1">
-                      {toolB.cons.slice(0, 3).map((c, i) => (
-                        <li key={i} className="flex gap-1.5 text-xs text-gray-700">
-                          <span className="text-red-400 mt-0.5">✗</span>{c}
-                        </li>
-                      ))}
-                    </ul>
-                  }
-                />
-                <CompareRow
                   label="适用场景"
                   a={<CheckList items={toolA.useCases.slice(0, 3)} />}
                   b={<CheckList items={toolB.useCases.slice(0, 3)} />}
@@ -248,6 +222,84 @@ export default async function ComparisonDetailPage({ params }: Props) {
             </table>
           </div>
         </section>
+
+        {/* Pros / Cons */}
+        {(toolA.pros.length > 0 || toolB.pros.length > 0 || toolA.cons.length > 0 || toolB.cons.length > 0) && (
+          <section className="mb-10">
+            <h2 className="font-semibold text-base mb-4">优势 &amp; 劣势对比</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {/* Tool A */}
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-2 mb-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={faviconUrl(toolA.website)} alt={toolA.name} width={20} height={20} className="rounded" />
+                  <span className="font-semibold text-sm">{toolA.name}</span>
+                </div>
+                {toolA.pros.length > 0 && (
+                  <div className="card card-p border-l-4 border-green-400 bg-green-50">
+                    <p className="text-xs font-semibold text-green-700 mb-2 uppercase tracking-wide">优势</p>
+                    <ul className="space-y-1.5">
+                      {toolA.pros.slice(0, 4).map((item, i) => (
+                        <li key={i} className="flex gap-2 text-xs text-gray-700">
+                          <span className="text-green-500 shrink-0 mt-0.5">✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {toolA.cons.length > 0 && (
+                  <div className="card card-p border-l-4 border-red-300 bg-red-50">
+                    <p className="text-xs font-semibold text-red-600 mb-2 uppercase tracking-wide">劣势</p>
+                    <ul className="space-y-1.5">
+                      {toolA.cons.slice(0, 4).map((item, i) => (
+                        <li key={i} className="flex gap-2 text-xs text-gray-700">
+                          <span className="text-red-400 shrink-0 mt-0.5">✗</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Tool B */}
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-2 mb-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={faviconUrl(toolB.website)} alt={toolB.name} width={20} height={20} className="rounded" />
+                  <span className="font-semibold text-sm">{toolB.name}</span>
+                </div>
+                {toolB.pros.length > 0 && (
+                  <div className="card card-p border-l-4 border-green-400 bg-green-50">
+                    <p className="text-xs font-semibold text-green-700 mb-2 uppercase tracking-wide">优势</p>
+                    <ul className="space-y-1.5">
+                      {toolB.pros.slice(0, 4).map((item, i) => (
+                        <li key={i} className="flex gap-2 text-xs text-gray-700">
+                          <span className="text-green-500 shrink-0 mt-0.5">✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {toolB.cons.length > 0 && (
+                  <div className="card card-p border-l-4 border-red-300 bg-red-50">
+                    <p className="text-xs font-semibold text-red-600 mb-2 uppercase tracking-wide">劣势</p>
+                    <ul className="space-y-1.5">
+                      {toolB.cons.slice(0, 4).map((item, i) => (
+                        <li key={i} className="flex gap-2 text-xs text-gray-700">
+                          <span className="text-red-400 shrink-0 mt-0.5">✗</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Verdict */}
         {cmp.verdict && (
