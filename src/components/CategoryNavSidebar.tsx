@@ -13,19 +13,15 @@ interface Props {
 export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props) {
   const [activeAnchor, setActiveAnchor] = useState<string>('')
 
-  // Highlight the section currently in viewport
   useEffect(() => {
     const sectionIds = ['featured', 'new-tools', ...categories.map(c => `cat-${c.slug}`)]
 
     const observer = new IntersectionObserver(
       entries => {
-        // Pick the topmost visible section
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-        if (visible.length > 0) {
-          setActiveAnchor(visible[0].target.id)
-        }
+        if (visible.length > 0) setActiveAnchor(visible[0].target.id)
       },
       { rootMargin: '-10% 0px -70% 0px', threshold: 0 }
     )
@@ -41,124 +37,197 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     if (!el) return
-    const offset = 72 // header height (56px) + a little breathing room
-    const top = el.getBoundingClientRect().top + window.scrollY - offset
+    const top = el.getBoundingClientRect().top + window.scrollY - 72
     window.scrollTo({ top, behavior: 'smooth' })
     setActiveAnchor(id)
   }
 
+  const navItem = (
+    id: string,
+    icon: string,
+    label: string,
+    count?: number,
+    iconBg = 'rgba(255,255,255,0.06)'
+  ) => {
+    const isActive = activeAnchor === id || (!activeAnchor && id === `cat-${activeSlug}`)
+    return (
+      <button
+        key={id}
+        onClick={() => scrollTo(id)}
+        style={{
+          position: 'relative',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0.45rem 1rem',
+          fontSize: '0.82rem',
+          fontWeight: isActive ? 600 : 400,
+          cursor: 'pointer',
+          textAlign: 'left',
+          background: isActive ? 'rgba(139,92,246,0.12)' : 'transparent',
+          color: isActive ? 'var(--accent-purple)' : 'var(--text-secondary)',
+          border: 'none',
+          transition: 'background 0.15s, color 0.15s',
+        }}
+        onMouseEnter={e => {
+          if (!isActive) {
+            (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'
+            ;(e.currentTarget as HTMLElement).style.color = 'var(--text-primary)'
+          }
+        }}
+        onMouseLeave={e => {
+          if (!isActive) {
+            (e.currentTarget as HTMLElement).style.background = 'transparent'
+            ;(e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'
+          }
+        }}
+      >
+        {/* Active indicator */}
+        {isActive && (
+          <span style={{
+            position: 'absolute',
+            left: 0,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '2px',
+            height: '1.25rem',
+            background: 'var(--accent-purple)',
+            borderRadius: '0 2px 2px 0',
+          }} />
+        )}
+
+        <span style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', minWidth: 0 }}>
+          <span style={{
+            width: '1.75rem',
+            height: '1.75rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '7px',
+            background: isActive ? 'rgba(139,92,246,0.2)' : iconBg,
+            fontSize: '0.9rem',
+            flexShrink: 0,
+          }}>
+            {icon}
+          </span>
+          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            {label}
+          </span>
+        </span>
+
+        {count !== undefined && (
+          <span style={{
+            fontSize: '0.65rem',
+            fontVariantNumeric: 'tabular-nums',
+            flexShrink: 0,
+            marginLeft: '0.25rem',
+            padding: '0.1rem 0.4rem',
+            borderRadius: '999px',
+            background: isActive ? 'rgba(139,92,246,0.2)' : 'rgba(255,255,255,0.06)',
+            color: isActive ? 'var(--accent-purple)' : 'var(--text-muted)',
+          }}>
+            {count}
+          </span>
+        )}
+      </button>
+    )
+  }
+
   return (
     <>
-      {/* Fixed sidebar — full viewport height, left-aligned */}
-      <aside className="hidden lg:flex flex-col fixed left-0 top-14 bottom-0 w-56 bg-white border-r border-gray-200 shadow-sm z-40">
-
+      <aside style={{
+        display: 'none',
+        position: 'fixed',
+        left: 0,
+        top: '3.5rem',
+        bottom: 0,
+        width: '14rem',
+        background: 'var(--bg-secondary)',
+        borderRight: '1px solid rgba(255,255,255,0.06)',
+        zIndex: 40,
+        flexDirection: 'column',
+      }}
+        className="lg-sidebar"
+      >
         {/* Header */}
-        <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/80 shrink-0 flex items-center justify-between">
-          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">工具分类</span>
-          <span className="text-[10px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full">{categories.length}</span>
+        <div style={{
+          padding: '0.75rem 1rem',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexShrink: 0,
+        }}>
+          <span style={{
+            fontSize: '0.65rem',
+            fontWeight: 700,
+            color: 'var(--text-muted)',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            fontFamily: 'var(--font-display)',
+          }}>
+            工具分类
+          </span>
+          <span style={{
+            fontSize: '0.65rem',
+            color: 'var(--text-muted)',
+            background: 'rgba(255,255,255,0.06)',
+            padding: '0.1rem 0.4rem',
+            borderRadius: '999px',
+          }}>
+            {categories.length}
+          </span>
         </div>
 
-        {/* Nav list — scrollable */}
-        <nav className="flex-1 overflow-y-auto py-1.5 scrollbar-hide">
+        {/* Scrollable nav */}
+        <nav style={{ flex: 1, overflowY: 'auto', padding: '0.375rem 0' }}>
+          {navItem('featured', '⭐', '精选推荐', undefined, 'rgba(245,158,11,0.12)')}
+          {navItem('new-tools', '🆕', '最新收录', undefined, 'rgba(236,72,153,0.1)')}
 
-          {/* Featured */}
-          <button
-            onClick={() => scrollTo('featured')}
-            className={`relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left ${
-              activeAnchor === 'featured'
-                ? 'bg-brand-50 text-brand-700 font-semibold'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-            }`}
-          >
-            {activeAnchor === 'featured' && (
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-500 rounded-r-full" />
-            )}
-            <span className="flex items-center gap-2.5">
-              <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-amber-50 text-base shrink-0">⭐</span>
-              <span>精选推荐</span>
-            </span>
-          </button>
+          <div style={{ margin: '0.375rem 1rem', height: '1px', background: 'rgba(255,255,255,0.06)' }} />
 
-          {/* New tools */}
-          <button
-            onClick={() => scrollTo('new-tools')}
-            className={`relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left ${
-              activeAnchor === 'new-tools'
-                ? 'bg-brand-50 text-brand-700 font-semibold'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-            }`}
-          >
-            {activeAnchor === 'new-tools' && (
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-500 rounded-r-full" />
-            )}
-            <span className="flex items-center gap-2.5">
-              <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-rose-50 text-base shrink-0">🆕</span>
-              <span>最新收录</span>
-            </span>
-          </button>
+          {navItem('cat-' + (categories[0]?.slug ?? ''), '🔥', '全部工具', totalCount, 'rgba(239,68,68,0.1)')}
 
-          {/* Divider */}
-          <div className="mx-4 my-1 border-t border-gray-100" />
+          <div style={{ margin: '0.375rem 1rem', height: '1px', background: 'rgba(255,255,255,0.06)' }} />
 
-          {/* All tools anchor */}
-          <button
-            onClick={() => scrollTo(`cat-${categories[0]?.slug}`)}
-            className="relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-          >
-            <span className="flex items-center gap-2.5">
-              <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-base shrink-0">🔥</span>
-              <span className="font-medium">全部工具</span>
-            </span>
-            <span className="text-[11px] tabular-nums shrink-0 ml-1 px-1.5 py-0.5 rounded-full bg-gray-100 text-gray-400 group-hover:bg-gray-200">
-              {totalCount}
-            </span>
-          </button>
-
-          {/* Divider */}
-          <div className="mx-4 my-1 border-t border-gray-100" />
-
-          {/* Category items */}
-          {categories.map(cat => {
-            const anchorId = `cat-${cat.slug}`
-            const isActive = activeAnchor === anchorId || (!activeAnchor && cat.slug === activeSlug)
-            return (
-              <button
-                key={cat.slug}
-                onClick={() => scrollTo(anchorId)}
-                className={`relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left ${
-                  isActive
-                    ? 'bg-brand-50 text-brand-700 font-semibold'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                }`}
-              >
-                {isActive && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-500 rounded-r-full" />
-                )}
-                <span className="flex items-center gap-2.5 min-w-0">
-                  <span className={`w-7 h-7 flex items-center justify-center rounded-lg text-base shrink-0 transition-colors ${
-                    isActive ? 'bg-brand-100' : 'bg-gray-100 group-hover:bg-gray-200'
-                  }`}>
-                    {cat.icon}
-                  </span>
-                  <span className="truncate">{cat.name}</span>
-                </span>
-                {cat.toolCount !== undefined && (
-                  <span className={`text-[11px] tabular-nums shrink-0 ml-1 px-1.5 py-0.5 rounded-full ${
-                    isActive ? 'bg-brand-100 text-brand-600' : 'bg-gray-100 text-gray-400 group-hover:bg-gray-200'
-                  }`}>
-                    {cat.toolCount}
-                  </span>
-                )}
-              </button>
-            )
-          })}
+          {categories.map(cat =>
+            navItem(`cat-${cat.slug}`, cat.icon ?? '🔧', cat.name, cat.toolCount)
+          )}
         </nav>
 
         {/* Footer CTA */}
-        <div className="px-3 py-3 border-t border-gray-100 bg-gray-50/80 shrink-0">
+        <div style={{
+          padding: '0.75rem',
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          flexShrink: 0,
+        }}>
           <Link
             href="/submit"
-            className="flex items-center justify-center gap-1.5 w-full text-xs font-medium text-brand-600 hover:text-white py-2 rounded-lg hover:bg-brand-500 border border-brand-200 hover:border-brand-500 transition-all duration-150"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.375rem',
+              width: '100%',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: 'var(--accent-purple)',
+              padding: '0.5rem',
+              borderRadius: '8px',
+              border: '1px solid rgba(139,92,246,0.3)',
+              background: 'rgba(139,92,246,0.08)',
+              textDecoration: 'none',
+              transition: 'background 0.15s, border-color 0.15s',
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(139,92,246,0.18)'
+              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(139,92,246,0.5)'
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.background = 'rgba(139,92,246,0.08)'
+              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(139,92,246,0.3)'
+            }}
           >
             <span>＋</span>
             <span>提交工具</span>
@@ -166,8 +235,15 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
         </div>
       </aside>
 
-      {/* Spacer — pushes main content right by sidebar width on lg+ */}
+      {/* Spacer */}
       <div className="hidden lg:block w-56 shrink-0" />
+
+      {/* Inline style to show aside on lg+ */}
+      <style>{`
+        @media (min-width: 1024px) {
+          .lg-sidebar { display: flex !important; }
+        }
+      `}</style>
     </>
   )
 }

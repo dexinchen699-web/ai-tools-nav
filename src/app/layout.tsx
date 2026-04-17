@@ -1,12 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Syne, Noto_Sans_SC } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const notoSansSC = Noto_Sans_SC({
+  variable: "--font-noto-sc",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ai-tools-nav-two.vercel.app'
 
@@ -35,9 +46,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const baiduId = process.env.NEXT_PUBLIC_BAIDU_TONGJI_ID
   return (
     <html lang="zh-CN">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${syne.variable} ${notoSansSC.variable} antialiased`}
+        style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main style={{ flex: 1 }}>{children}</main>
         <Footer />
         {baiduId && (
           <Script id="baidu-tongji" strategy="afterInteractive">

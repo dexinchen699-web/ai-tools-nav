@@ -1,73 +1,12 @@
 import Link from 'next/link'
-import { ToolLogo } from '@/components/ToolLogo'
 import type { Metadata } from 'next'
 import { getAllTools, getAllCategories } from '@/lib/data'
-import { Breadcrumb } from '@/components/Breadcrumb'
+import { ToolCard } from '@/components/ToolCard'
 import type { AITool } from '@/lib/types'
 
 export const metadata: Metadata = {
   title: '全部AI工具 — AI工具导航',
   description: '浏览收录的全部AI工具，支持按分类、定价筛选，按评分和最新排序。',
-}
-
-const PRICING_BADGE: Record<string, string> = {
-  free: 'badge-free',
-  freemium: 'badge-freemium',
-  paid: 'badge-paid',
-  enterprise: 'badge-enterprise',
-}
-
-const PRICING_LABEL: Record<string, string> = {
-  free: '免费',
-  freemium: '免费+付费',
-  paid: '付费',
-  enterprise: '企业版',
-}
-
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <span className="flex items-center gap-0.5 text-amber-400 text-xs">
-      {'★'.repeat(Math.round(rating))}{'☆'.repeat(5 - Math.round(rating))}
-      <span className="text-gray-500 ml-1">{rating.toFixed(1)}</span>
-    </span>
-  )
-}
-
-function ToolCard({ tool }: { tool: AITool }) {
-  return (
-    <Link href={`/tools/${tool.slug}`} className="card p-4 flex flex-col gap-3 group">
-      <div className="flex items-start gap-3">
-        <ToolLogo
-          website={tool.website}
-          alt={tool.name}
-          width={40}
-          height={40}
-          className="tool-logo w-10 h-10"
-        />
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="font-semibold text-gray-900 text-sm group-hover:text-brand-600 transition-colors truncate">
-              {tool.name}
-            </h3>
-            {tool.isNew && (
-              <span className="badge bg-rose-50 text-rose-600 border border-rose-200 text-[10px]">NEW</span>
-            )}
-            {tool.isFeatured && (
-              <span className="badge bg-amber-50 text-amber-600 border border-amber-200 text-[10px]">精选</span>
-            )}
-          </div>
-          <span className={`${PRICING_BADGE[tool.pricing]} mt-0.5`}>
-            {PRICING_LABEL[tool.pricing]}
-          </span>
-        </div>
-      </div>
-      <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed flex-1">{tool.tagline}</p>
-      <div className="pt-2 border-t border-gray-50 flex items-center justify-between">
-        <StarRating rating={tool.rating} />
-        <span className="text-xs text-brand-600 font-medium group-hover:underline">查看详情 →</span>
-      </div>
-    </Link>
-  )
 }
 
 type SortKey = 'rating' | 'newest' | 'reviews'
@@ -90,7 +29,6 @@ export default async function AllToolsPage({ searchParams }: PageProps) {
 
   const [allTools, categories] = await Promise.all([getAllTools(), getAllCategories()])
 
-  // Filter
   let tools = allTools
   if (query) {
     tools = tools.filter(t =>
@@ -99,20 +37,14 @@ export default async function AllToolsPage({ searchParams }: PageProps) {
       t.tags.some(tag => tag.toLowerCase().includes(query))
     )
   }
-  if (catFilter !== 'all') {
-    tools = tools.filter(t => t.category === catFilter)
-  }
-  if (pricingFilter !== 'all') {
-    tools = tools.filter(t => t.pricing === pricingFilter)
-  }
+  if (catFilter !== 'all') tools = tools.filter(t => t.category === catFilter)
+  if (pricingFilter !== 'all') tools = tools.filter(t => t.pricing === pricingFilter)
 
-  // Sort
   if (sortKey === 'rating') {
     tools = [...tools].sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount)
   } else if (sortKey === 'reviews') {
     tools = [...tools].sort((a, b) => b.reviewCount - a.reviewCount)
-  } else if (sortKey === 'newest') {
-    // isNew first, then isFeatured, then by rating
+  } else {
     tools = [...tools].sort((a, b) => {
       if (a.isNew !== b.isNew) return a.isNew ? -1 : 1
       return b.rating - a.rating
@@ -136,75 +68,119 @@ export default async function AllToolsPage({ searchParams }: PageProps) {
   ]
 
   const pricingOptions = [
-    { key: 'all', label: '全部定价' },
+    { key: 'all', label: '全部' },
     { key: 'free', label: '免费' },
-    { key: 'freemium', label: '免费+付费' },
+    { key: 'freemium', label: '免费+' },
     { key: 'paid', label: '付费' },
-    { key: 'enterprise', label: '企业版' },
+    { key: 'enterprise', label: '企业' },
   ]
 
   return (
     <div className="animate-fade-in">
       {/* Page header */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="container-content py-8">
-          <Breadcrumb items={[{ name: '首页', url: '/' }, { name: '全部工具', url: '/tools' }]} />
-          <div className="mt-4">
-            <h1 className="text-2xl font-bold text-gray-900">全部AI工具</h1>
-            <p className="text-gray-500 text-sm mt-1">
-              共收录 <strong className="text-gray-900">{allTools.length}</strong> 款AI工具，覆盖 {categories.length} 个分类
-            </p>
-          </div>
+      <div style={{
+        background: 'var(--bg-secondary)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div className="glow-orb glow-orb-purple" style={{ top: -60, right: '10%', width: 300, height: 300, opacity: 0.12 }} />
+        <div className="container-content" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem', position: 'relative', zIndex: 1 }}>
+          <p className="section-label">TOOLS DIRECTORY</p>
+          <h1 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '0.5rem' }}>全部 AI 工具</h1>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>
+            共收录 <strong style={{ color: 'var(--text-primary)' }}>{allTools.length}</strong> 款 AI 工具，覆盖 {categories.length} 个分类
+          </p>
         </div>
       </div>
 
-      <div className="container-content py-6">
-        {/* Filter bar */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-6">
-          {/* Category tabs — scrollable on mobile */}
-          <div className="flex gap-2 overflow-x-auto pb-1 flex-1 min-w-0">
+      <div className="container-content" style={{ paddingTop: '1.5rem', paddingBottom: '3rem' }}>
+        {/* Category pills */}
+        <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.75rem', marginBottom: '0.75rem' }}>
+          <Link
+            href={buildUrl({ cat: 'all' })}
+            style={{
+              flexShrink: 0,
+              padding: '0.375rem 0.875rem',
+              borderRadius: 999,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              transition: 'all 0.15s',
+              background: catFilter === 'all' ? 'var(--accent-purple)' : 'var(--bg-card)',
+              color: catFilter === 'all' ? '#fff' : 'var(--text-secondary)',
+              border: catFilter === 'all' ? '1px solid transparent' : '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            🔥 全部 ({allTools.length})
+          </Link>
+          {categories.map(cat => (
             <Link
-              href={buildUrl({ cat: 'all' })}
-              className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-                catFilter === 'all'
-                  ? 'bg-brand-600 text-white border-brand-600'
-                  : 'bg-white text-gray-600 border-gray-200 hover:border-brand-300 hover:text-brand-600'
-              }`}
+              key={cat.slug}
+              href={buildUrl({ cat: cat.slug })}
+              style={{
+                flexShrink: 0,
+                padding: '0.375rem 0.875rem',
+                borderRadius: 999,
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                textDecoration: 'none',
+                transition: 'all 0.15s',
+                background: catFilter === cat.slug ? 'var(--accent-purple)' : 'var(--bg-card)',
+                color: catFilter === cat.slug ? '#fff' : 'var(--text-secondary)',
+                border: catFilter === cat.slug ? '1px solid transparent' : '1px solid rgba(255,255,255,0.08)',
+              }}
             >
-              全部 ({allTools.length})
+              {cat.icon} {cat.name} ({cat.toolCount})
             </Link>
-            {categories.map(cat => (
+          ))}
+        </div>
+
+        {/* Filter + sort row */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
+          {/* Pricing */}
+          <div style={{ display: 'flex', gap: '0.375rem', flexWrap: 'wrap' }}>
+            {pricingOptions.map(opt => (
               <Link
-                key={cat.slug}
-                href={buildUrl({ cat: cat.slug })}
-                className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
-                  catFilter === cat.slug
-                    ? 'bg-brand-600 text-white border-brand-600'
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-brand-300 hover:text-brand-600'
-                }`}
+                key={opt.key}
+                href={buildUrl({ pricing: opt.key })}
+                style={{
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  transition: 'all 0.15s',
+                  background: pricingFilter === opt.key ? 'rgba(255,255,255,0.1)' : 'transparent',
+                  color: pricingFilter === opt.key ? 'var(--text-primary)' : 'var(--text-muted)',
+                  border: pricingFilter === opt.key ? '1px solid rgba(255,255,255,0.15)' : '1px solid transparent',
+                }}
               >
-                {cat.icon} {cat.name} ({cat.toolCount})
+                {opt.label}
               </Link>
             ))}
           </div>
 
-          {/* Pricing + Sort — right side */}
-          <div className="flex gap-2 shrink-0">
-            <select
-              disabled
-              className="text-xs border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 bg-white hidden"
-            />
-            {/* Pricing filter as links */}
-            <div className="flex gap-1">
-              {pricingOptions.map(opt => (
+          {/* Sort + count */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              找到 <strong style={{ color: 'var(--text-secondary)' }}>{tools.length}</strong> 款
+            </span>
+            <div style={{ display: 'flex', gap: '0.25rem' }}>
+              {sortOptions.map(opt => (
                 <Link
                   key={opt.key}
-                  href={buildUrl({ pricing: opt.key })}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-                    pricingFilter === opt.key
-                      ? 'bg-gray-900 text-white border-gray-900'
-                      : 'bg-white text-gray-600 border-gray-200 hover:border-gray-400'
-                  }`}
+                  href={buildUrl({ sort: opt.key })}
+                  style={{
+                    padding: '0.25rem 0.625rem',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.75rem',
+                    fontWeight: sortKey === opt.key ? 600 : 400,
+                    textDecoration: 'none',
+                    transition: 'all 0.15s',
+                    background: sortKey === opt.key ? 'rgba(139,92,246,0.15)' : 'transparent',
+                    color: sortKey === opt.key ? 'var(--accent-purple)' : 'var(--text-muted)',
+                  }}
                 >
                   {opt.label}
                 </Link>
@@ -213,39 +189,21 @@ export default async function AllToolsPage({ searchParams }: PageProps) {
           </div>
         </div>
 
-        {/* Sort bar */}
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-sm text-gray-500">
-            找到 <strong className="text-gray-900">{tools.length}</strong> 款工具
-          </p>
-          <div className="flex gap-1">
-            {sortOptions.map(opt => (
-              <Link
-                key={opt.key}
-                href={buildUrl({ sort: opt.key })}
-                className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
-                  sortKey === opt.key
-                    ? 'bg-brand-50 text-brand-700 font-semibold'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-              >
-                {opt.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
         {/* Grid */}
         {tools.length === 0 ? (
-          <div className="text-center py-20 text-gray-400">
-            <span className="text-5xl block mb-4">🔍</span>
-            <p>没有找到符合条件的工具</p>
-            <Link href="/tools" className="mt-4 inline-block text-sm text-brand-600 hover:underline">
+          <div style={{ textAlign: 'center', padding: '5rem 0', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '3rem', display: 'block', marginBottom: '1rem' }}>🔍</span>
+            <p style={{ marginBottom: '1rem' }}>没有找到符合条件的工具</p>
+            <Link href="/tools" style={{ fontSize: '0.875rem', color: 'var(--accent-purple)', textDecoration: 'none' }}>
               清除筛选
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+            gap: '0.75rem',
+          }}>
             {tools.map(tool => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}

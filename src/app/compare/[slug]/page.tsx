@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
-import type { Metadata } from 'next'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getAllComparisons, getComparisonBySlug, getToolBySlug } from '@/lib/data'
 import { buildMetadata } from '@/lib/metadata'
 import { JsonLd } from '@/components/JsonLd'
@@ -8,515 +8,427 @@ import { Breadcrumb } from '@/components/Breadcrumb'
 import { buildComparisonSchema } from '@/lib/schema'
 import type { AITool } from '@/lib/types'
 
-interface Props {
-  params: Promise<{ slug: string }>
-}
-
 export async function generateStaticParams() {
   const comparisons = await getAllComparisons()
   return comparisons.map((c) => ({ slug: c.slug }))
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const cmp = await getComparisonBySlug(slug)
   if (!cmp) return {}
   return buildMetadata({
     title: cmp.title,
     description: cmp.description,
-    path: `/compare/${cmp.slug}`,
+    path: `/compare/${slug}`,
   })
-}
-
-// ── helpers ───────────────────────────────────────────────────────────────────
-
-const pricingLabel: Record<string, string> = {
-  free: '免费',
-  freemium: '免费+付费',
-  paid: '付费',
-  enterprise: '企业版',
-}
-
-const pricingColor: Record<string, string> = {
-  free:       'bg-emerald-100 text-emerald-700 border-emerald-200',
-  freemium:   'bg-amber-100 text-amber-700 border-amber-200',
-  paid:       'bg-rose-100 text-rose-700 border-rose-200',
-  enterprise: 'bg-violet-100 text-violet-700 border-violet-200',
-}
-
-function faviconUrl(website: string) {
-  try {
-    return `https://www.google.com/s2/favicons?domain=${new URL(website).hostname}&sz=64`
-  } catch {
-    return '/images/tools/placeholder.png'
-  }
 }
 
 function toolStub(slug: string): AITool {
   const name = slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
   return {
-    id: slug, slug, name, tagline: '', description: '',
-    category: '', tags: [], website: `https://${slug.replace(/-/g, '')}.com`,
-    pricing: 'freemium', pricingDetail: '', rating: 0, reviewCount: 0,
-    features: [], pros: [], cons: [], useCases: [], faqs: [], howToSteps: [],
-    imageUrl: '/images/tools/placeholder.png', logoUrl: '/images/tools/placeholder.png',
-    createdAt: '', updatedAt: '', isFeatured: false, isNew: false,
-  }
+    slug,
+    name,
+    tagline: '',
+    description: '',
+    category: '',
+    pricing: 'freemium',
+    rating: 0,
+    tags: [],
+    pros: [],
+    cons: [],
+    features: [],
+    useCases: [],
+    website: '',
+    logoUrl: '',
+    isFeatured: false,
+    isNew: false,
+  } as AITool
 }
 
-// ── RatingBar ─────────────────────────────────────────────────────────────────
+const KNOWN_DOMAINS: Record<string, string> = {
+  chatgpt: 'chat.openai.com',
+  openai: 'openai.com',
+  claude: 'claude.ai',
+  gemini: 'gemini.google.com',
+  deepseek: 'deepseek.com',
+  midjourney: 'midjourney.com',
+  'dall-e': 'openai.com',
+  'stable-diffusion': 'stability.ai',
+  perplexity: 'perplexity.ai',
+  cursor: 'cursor.sh',
+  'github-copilot': 'github.com',
+  copilot: 'github.com',
+  grok: 'x.ai',
+  llama: 'meta.com',
+  mistral: 'mistral.ai',
+  notion: 'notion.so',
+  grammarly: 'grammarly.com',
+  jasper: 'jasper.ai',
+  runway: 'runwayml.com',
+  sora: 'openai.com',
+  pika: 'pika.art',
+  elevenlabs: 'elevenlabs.io',
+  synthesia: 'synthesia.io',
+  heygen: 'heygen.com',
+  kling: 'klingai.com',
+}
 
-function RatingBar({ rating, max = 5 }: { rating: number; max?: number }) {
-  const pct = Math.round((rating / max) * 100)
-  const color = rating >= 4.5 ? '#10b981' : rating >= 4.0 ? '#4f46e5' : rating >= 3.0 ? '#f59e0b' : '#ef4444'
+function toolFavicon(slug: string) {
+  const domain = KNOWN_DOMAINS[slug] ?? `${slug.replace(/-/g, '')}.com`
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`
+}
+
+function pricingLabel(p: string) {
+  const map: Record<string, string> = {
+    free: '免费',
+    freemium: '免费+付费',
+    paid: '付费',
+    enterprise: '企业版',
+  }
+  return map[p] ?? p
+}
+
+function pricingColor(p: string) {
+  const map: Record<string, string> = {
+    free: 'var(--accent-cyan)',
+    freemium: 'var(--accent-purple)',
+    paid: 'var(--accent-pink)',
+    enterprise: '#f59e0b',
+  }
+  return map[p] ?? 'var(--text-secondary)'
+}
+
+function RatingBar({ value }: { value: number }) {
+  const pct = Math.round((value / 5) * 100)
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-        <div
-          className="h-full rounded-full transition-all duration-700"
-          style={{ width: `${pct}%`, background: color }}
-        />
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div style={{
+        flex: 1,
+        height: 6,
+        borderRadius: 999,
+        background: 'rgba(255,255,255,0.08)',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          width: `${pct}%`,
+          height: '100%',
+          borderRadius: 999,
+          background: 'var(--grad-brand)',
+        }} />
       </div>
-      <span className="text-xs font-bold tabular-nums" style={{ color }}>
-        {rating > 0 ? rating.toFixed(1) : '—'}
+      <span style={{ fontSize: '0.8125rem', fontWeight: 700, color: 'var(--text-primary)', minWidth: '2rem' }}>
+        {value > 0 ? value.toFixed(1) : '—'}
       </span>
     </div>
   )
 }
 
-// ── StatPill ──────────────────────────────────────────────────────────────────
-
-function StatPill({ label, value, sub }: { label: string; value: string; sub?: string }) {
-  return (
-    <div className="flex flex-col gap-0.5">
-      <span className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">{label}</span>
-      <span className="text-sm font-bold text-gray-900">{value}</span>
-      {sub && <span className="text-[11px] text-gray-400">{sub}</span>}
-    </div>
-  )
-}
-
-// ── FeatureCell ───────────────────────────────────────────────────────────────
-
-function FeatureCell({ value }: { value: boolean | string | undefined }) {
-  if (value === true)
-    return <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 text-sm font-bold">✓</span>
-  if (value === false)
-    return <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-50 text-gray-300 text-sm">✗</span>
-  if (typeof value === 'string' && value)
-    return <span className="text-xs text-gray-700 leading-snug">{value}</span>
-  return <span className="text-gray-200 text-sm">—</span>
-}
-
-
-// ── Page ──────────────────────────────────────────────────────────────────────
-
-export default async function ComparisonDetailPage({ params }: Props) {
+export default async function CompareDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const cmp = await getComparisonBySlug(slug)
   if (!cmp) notFound()
 
-  const [toolARaw, toolBRaw] = await Promise.all([
-    getToolBySlug(cmp.toolASlug),
-    getToolBySlug(cmp.toolBSlug),
-  ])
+  const toolA = (await getToolBySlug(cmp.toolASlug)) ?? toolStub(cmp.toolASlug)
+  const toolB = (await getToolBySlug(cmp.toolBSlug)) ?? toolStub(cmp.toolBSlug)
 
-  const toolA = toolARaw ?? toolStub(cmp.toolASlug)
-  const toolB = toolBRaw ?? toolStub(cmp.toolBSlug)
+  const prosA: string[] = cmp.pros_cons?.tool1_pros ?? toolA.pros ?? []
+  const consA: string[] = cmp.pros_cons?.tool1_cons ?? toolA.cons ?? []
+  const prosB: string[] = cmp.pros_cons?.tool2_pros ?? toolB.pros ?? []
+  const consB: string[] = cmp.pros_cons?.tool2_cons ?? toolB.cons ?? []
 
-  const schema = buildComparisonSchema({
-    title: cmp.title,
-    description: cmp.description,
-    slug: cmp.slug,
-    toolAName: toolA.name,
-    toolBName: toolB.name,
-    faqs: cmp.faqs,
-  })
+  const allFeatures = Array.from(
+    new Set([...(toolA.features ?? []), ...(toolB.features ?? [])])
+  )
 
-  const prosA = cmp.pros_cons?.tool1_pros ?? toolA.pros
-  const consA = cmp.pros_cons?.tool1_cons ?? toolA.cons
-  const prosB = cmp.pros_cons?.tool2_pros ?? toolB.pros
-  const consB = cmp.pros_cons?.tool2_cons ?? toolB.cons
+  const schema = buildComparisonSchema(cmp, toolA, toolB)
 
-  const hasProsConsA = prosA.length > 0 || consA.length > 0
-  const hasProsConsB = prosB.length > 0 || consB.length > 0
+  const breadcrumbs = [
+    { label: '首页', href: '/' },
+    { label: 'AI工具对比', href: '/compare' },
+    { label: cmp.title },
+  ]
 
   return (
     <>
       <JsonLd data={schema} />
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="bg-[#0f0f12] relative overflow-hidden">
-        {/* subtle grid */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-          }}
-        />
-        {/* glow blobs */}
-        <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-indigo-600/10 blur-3xl pointer-events-none" />
-        <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-violet-600/10 blur-3xl pointer-events-none" />
+      {/* ── Hero ── */}
+      <div style={{
+        background: 'var(--bg-secondary)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        position: 'relative',
+        overflow: 'hidden',
+        paddingTop: '2.5rem',
+        paddingBottom: '2.5rem',
+      }}>
+        {/* Grid background */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          pointerEvents: 'none',
+        }} />
+        <div className="glow-orb glow-orb-purple" style={{ top: -80, left: '10%', width: 320, height: 320, opacity: 0.12 }} />
+        <div className="glow-orb glow-orb-blue" style={{ bottom: -80, right: '10%', width: 280, height: 280, opacity: 0.1 }} />
 
-        <div className="container-content relative py-10 pb-12">
-          <Breadcrumb
-            items={[
-              { name: '首页', url: '/' },
-              { name: '工具对比', url: '/compare' },
-              { name: cmp.title, url: `/compare/${cmp.slug}` },
-            ]}
-          />
+        <div className="container-content" style={{ position: 'relative', zIndex: 1 }}>
+          <Breadcrumb items={breadcrumbs} />
 
-          {/* Tool icons + VS badge */}
-          <div className="flex items-center justify-center gap-5 mt-8 mb-6">
-            <div className="flex flex-col items-center gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={faviconUrl(toolA.website)}
-                alt={toolA.name}
-                width={64}
-                height={64}
-                className="rounded-2xl ring-2 ring-white/10 shadow-xl"
-              />
-              <span className="text-white/90 font-bold text-sm tracking-tight">{toolA.name}</span>
-            </div>
-
-            <div className="flex flex-col items-center gap-1">
-              <span
-                className="text-[11px] font-black tracking-[0.2em] uppercase px-3 py-1 rounded-full border"
-                style={{
-                  background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
-                  borderColor: 'rgba(99,102,241,0.4)',
-                  color: '#fff',
-                  boxShadow: '0 0 20px rgba(99,102,241,0.35)',
-                }}
-              >
-                VS
+          {/* VS row */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1.5rem',
+            marginTop: '1.5rem',
+            flexWrap: 'wrap',
+          }}>
+            {[toolA, toolB].map((tool, i) => (
+              <span key={tool.slug} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                {i > 0 && (
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.1em',
+                    padding: '0.25rem 0.625rem',
+                    borderRadius: 999,
+                    background: 'rgba(139,92,246,0.2)',
+                    color: 'var(--accent-purple)',
+                    border: '1px solid rgba(139,92,246,0.35)',
+                  }}>VS</span>
+                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={toolFavicon(tool.slug)}
+                  alt={tool.name}
+                  width={40}
+                  height={40}
+                  style={{ borderRadius: 10, background: 'rgba(255,255,255,0.06)', padding: 4 }}
+                />
+                <span style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>{tool.name}</span>
               </span>
-            </div>
-
-            <div className="flex flex-col items-center gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={faviconUrl(toolB.website)}
-                alt={toolB.name}
-                width={64}
-                height={64}
-                className="rounded-2xl ring-2 ring-white/10 shadow-xl"
-              />
-              <span className="text-white/90 font-bold text-sm tracking-tight">{toolB.name}</span>
-            </div>
+            ))}
           </div>
 
-          <h1 className="text-center text-white font-extrabold text-2xl md:text-3xl tracking-tight leading-tight mb-3">
-            {cmp.title}
-          </h1>
-          {cmp.description && (
-            <p className="text-center text-white/50 text-sm max-w-xl mx-auto leading-relaxed">
-              {cmp.description}
-            </p>
-          )}
+          <h1 style={{
+            textAlign: 'center',
+            fontSize: '1.125rem',
+            fontWeight: 500,
+            color: 'var(--text-secondary)',
+            marginTop: '0.75rem',
+            fontFamily: 'var(--font-body)',
+          }}>{cmp.title}</h1>
         </div>
       </div>
 
-      {/* ── Main content ─────────────────────────────────────────────────── */}
-      <main className="container-content py-10 space-y-10">
+      <div className="container-content" style={{ paddingTop: '2rem', paddingBottom: '3rem' }}>
 
-        {/* ── Quick Stats ──────────────────────────────────────────────── */}
-        <section>
-          <div className="grid grid-cols-2 gap-4">
-            {/* Tool A stats card */}
-            <div className="card p-5 space-y-4">
-              <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
+        {/* ── Quick Stats ── */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '0.875rem',
+          marginBottom: '2rem',
+        }}>
+          {[
+            { tool: toolA, slug: cmp.toolASlug },
+            { tool: toolB, slug: cmp.toolBSlug },
+          ].map(({ tool }) => (
+            <div key={tool.slug} className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={faviconUrl(toolA.website)} alt={toolA.name} width={28} height={28} className="rounded-lg" />
-                <span className="font-bold text-sm text-gray-900">{toolA.name}</span>
-                <span className={`ml-auto text-[10px] font-semibold px-2 py-0.5 rounded border ${pricingColor[toolA.pricing] ?? 'bg-gray-100 text-gray-600 border-gray-200'}`}>
-                  {pricingLabel[toolA.pricing]}
-                </span>
+                <img src={toolFavicon(tool.slug)} alt={tool.name} width={24} height={24} style={{ borderRadius: 6 }} />
+                <span style={{ fontWeight: 700, fontSize: '0.9375rem', color: 'var(--text-primary)' }}>{tool.name}</span>
               </div>
 
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">综合评分</span>
-                    <span className="text-[10px] text-gray-400">({toolA.reviewCount} 评价)</span>
-                  </div>
-                  <RatingBar rating={toolA.rating} />
-                </div>
-
-                {toolA.pricingDetail && (
-                  <StatPill label="价格详情" value={toolA.pricingDetail} />
-                )}
-
-                {toolA.tagline && (
-                  <p className="text-xs text-gray-500 leading-relaxed italic">&ldquo;{toolA.tagline}&rdquo;</p>
-                )}
+              {/* Rating */}
+              <div>
+                <p style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', marginBottom: '0.375rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>综合评分</p>
+                <RatingBar value={tool.rating ?? 0} />
               </div>
 
-              <div className="flex gap-2 pt-1">
-                <Link href={`/tools/${toolA.slug}`} className="flex-1 text-center text-xs font-medium py-1.5 rounded-lg border border-gray-200 text-gray-600 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">
+              {/* Pricing */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>定价</span>
+                <span style={{
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  padding: '0.125rem 0.5rem',
+                  borderRadius: 999,
+                  background: `${pricingColor(tool.pricing ?? '')}18`,
+                  color: pricingColor(tool.pricing ?? ''),
+                  border: `1px solid ${pricingColor(tool.pricing ?? '')}30`,
+                }}>{pricingLabel(tool.pricing ?? '')}</span>
+              </div>
+
+              {/* Tagline */}
+              {tool.tagline && (
+                <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.5, fontFamily: 'var(--font-body)' }}>
+                  {tool.tagline}
+                </p>
+              )}
+
+              {/* Buttons */}
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: 'auto', flexWrap: 'wrap' }}>
+                {tool.website && (
+                  <a href={tool.website} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: '0.75rem', padding: '0.375rem 0.875rem' }}>
+                    访问官网
+                  </a>
+                )}
+                <Link href={`/tools/${tool.slug}`} className="btn-secondary" style={{ fontSize: '0.75rem', padding: '0.375rem 0.875rem' }}>
                   查看详情
-                </Link>
-                <Link href={toolA.website} target="_blank" rel="noopener noreferrer" className="flex-1 text-center text-xs font-semibold py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors">
-                  访问官网 ↗
                 </Link>
               </div>
             </div>
+          ))}
+        </div>
 
-            {/* Tool B stats card */}
-            <div className="card p-5 space-y-4">
-              <div className="flex items-center gap-2.5 pb-3 border-b border-gray-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={faviconUrl(toolB.website)} alt={toolB.name} width={28} height={28} className="rounded-lg" />
-                <span className="font-bold text-sm text-gray-900">{toolB.name}</span>
-                <span className={`ml-auto text-[10px] font-semibold px-2 py-0.5 rounded border ${pricingColor[toolB.pricing] ?? 'bg-gray-100 text-gray-600 border-gray-200'}`}>
-                  {pricingLabel[toolB.pricing]}
-                </span>
-              </div>
-
-              <div className="space-y-3">
-                <div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">综合评分</span>
-                    <span className="text-[10px] text-gray-400">({toolB.reviewCount} 评价)</span>
-                  </div>
-                  <RatingBar rating={toolB.rating} />
-                </div>
-
-                {toolB.pricingDetail && (
-                  <StatPill label="价格详情" value={toolB.pricingDetail} />
-                )}
-
-                {toolB.tagline && (
-                  <p className="text-xs text-gray-500 leading-relaxed italic">&ldquo;{toolB.tagline}&rdquo;</p>
-                )}
-              </div>
-
-              <div className="flex gap-2 pt-1">
-                <Link href={`/tools/${toolB.slug}`} className="flex-1 text-center text-xs font-medium py-1.5 rounded-lg border border-gray-200 text-gray-600 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-colors">
-                  查看详情
-                </Link>
-                <Link href={toolB.website} target="_blank" rel="noopener noreferrer" className="flex-1 text-center text-xs font-semibold py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors">
-                  访问官网 ↗
-                </Link>
-              </div>
+        {/* ── Feature Comparison Grid ── */}
+        {allFeatures.length > 0 && (
+          <div className="glass-card" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem' }}>功能对比</h2>
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem' }}>
+                <thead>
+                  <tr>
+                    <th style={{ textAlign: 'left', padding: '0.5rem 0.75rem', color: 'var(--text-muted)', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>功能</th>
+                    {[toolA, toolB].map((t) => (
+                      <th key={t.slug} style={{ textAlign: 'center', padding: '0.5rem 0.75rem', color: 'var(--text-primary)', fontWeight: 700, borderBottom: '1px solid rgba(255,255,255,0.06)', minWidth: 100 }}>
+                        {t.name}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {allFeatures.map((feat, i) => (
+                    <tr key={feat} style={{ background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.02)' }}>
+                      <td style={{ padding: '0.5rem 0.75rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>{feat}</td>
+                      {[toolA, toolB].map((t) => (
+                        <td key={t.slug} style={{ textAlign: 'center', padding: '0.5rem 0.75rem' }}>
+                          {(t.features ?? []).includes(feat)
+                            ? <span style={{ color: 'var(--accent-cyan)', fontSize: '1rem' }}>✓</span>
+                            : <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>—</span>
+                          }
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
-        </section>
-
-
-        {/* ── Feature Comparison Grid ───────────────────────────────────── */}
-        {(toolA.features.length > 0 || toolB.features.length > 0) && (() => {
-          // Build unified feature list
-          const allFeatures = Array.from(new Set([...toolA.features, ...toolB.features]))
-          const setA = new Set(toolA.features)
-          const setB = new Set(toolB.features)
-          return (
-            <section>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="section-label">⚡ 功能对比</span>
-              </div>
-              <div className="card overflow-hidden">
-                {/* header row */}
-                <div className="grid grid-cols-[1fr_80px_80px] bg-gray-50 border-b border-gray-100 px-4 py-2.5">
-                  <span className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">功能</span>
-                  <div className="flex items-center gap-1.5 justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={faviconUrl(toolA.website)} alt={toolA.name} width={14} height={14} className="rounded" />
-                    <span className="text-[10px] font-bold text-gray-600 truncate">{toolA.name}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={faviconUrl(toolB.website)} alt={toolB.name} width={14} height={14} className="rounded" />
-                    <span className="text-[10px] font-bold text-gray-600 truncate">{toolB.name}</span>
-                  </div>
-                </div>
-                {allFeatures.slice(0, 12).map((feat, i) => (
-                  <div
-                    key={feat}
-                    className={`grid grid-cols-[1fr_80px_80px] px-4 py-2.5 items-center ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'} border-b border-gray-50 last:border-0`}
-                  >
-                    <span className="text-xs text-gray-700 leading-snug">{feat}</span>
-                    <div className="flex justify-center">
-                      <FeatureCell value={setA.has(feat)} />
-                    </div>
-                    <div className="flex justify-center">
-                      <FeatureCell value={setB.has(feat)} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )
-        })()}
-
-        {/* ── Pros & Cons ───────────────────────────────────────────────── */}
-        {(hasProsConsA || hasProsConsB) && (
-          <section>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="section-label">⚖️ 优势 &amp; 劣势对比</span>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {/* Tool A pros/cons */}
-              <div className="space-y-3">
-                {/* A pros */}
-                {prosA.length > 0 && (
-                  <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 overflow-hidden">
-                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-emerald-100 bg-emerald-50">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={faviconUrl(toolA.website)} alt={toolA.name} width={14} height={14} className="rounded" />
-                      <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">{toolA.name} · 优势</span>
-                    </div>
-                    <ul className="px-4 py-3 space-y-2">
-                      {prosA.slice(0, 4).map((p) => (
-                        <li key={p} className="flex items-start gap-2 text-xs text-emerald-800 leading-snug">
-                          <span className="mt-0.5 text-emerald-500 shrink-0">✓</span>
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {/* A cons */}
-                {consA.length > 0 && (
-                  <div className="rounded-xl border border-rose-200 bg-rose-50/60 overflow-hidden">
-                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-rose-100 bg-rose-50">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={faviconUrl(toolA.website)} alt={toolA.name} width={14} height={14} className="rounded" />
-                      <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">{toolA.name} · 劣势</span>
-                    </div>
-                    <ul className="px-4 py-3 space-y-2">
-                      {consA.slice(0, 4).map((c) => (
-                        <li key={c} className="flex items-start gap-2 text-xs text-rose-800 leading-snug">
-                          <span className="mt-0.5 text-rose-400 shrink-0">✗</span>
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              {/* Tool B pros/cons */}
-              <div className="space-y-3">
-                {/* B pros */}
-                {prosB.length > 0 && (
-                  <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 overflow-hidden">
-                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-emerald-100 bg-emerald-50">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={faviconUrl(toolB.website)} alt={toolB.name} width={14} height={14} className="rounded" />
-                      <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">{toolB.name} · 优势</span>
-                    </div>
-                    <ul className="px-4 py-3 space-y-2">
-                      {prosB.slice(0, 4).map((p) => (
-                        <li key={p} className="flex items-start gap-2 text-xs text-emerald-800 leading-snug">
-                          <span className="mt-0.5 text-emerald-500 shrink-0">✓</span>
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {/* B cons */}
-                {consB.length > 0 && (
-                  <div className="rounded-xl border border-rose-200 bg-rose-50/60 overflow-hidden">
-                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-rose-100 bg-rose-50">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={faviconUrl(toolB.website)} alt={toolB.name} width={14} height={14} className="rounded" />
-                      <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">{toolB.name} · 劣势</span>
-                    </div>
-                    <ul className="px-4 py-3 space-y-2">
-                      {consB.slice(0, 4).map((c) => (
-                        <li key={c} className="flex items-start gap-2 text-xs text-rose-800 leading-snug">
-                          <span className="mt-0.5 text-rose-400 shrink-0">✗</span>
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
-          </section>
         )}
 
+        {/* ── Pros & Cons ── */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.875rem', marginBottom: '2rem' }}>
+          {[
+            { tool: toolA, pros: prosA, cons: consA },
+            { tool: toolB, pros: prosB, cons: consB },
+          ].map(({ tool, pros, cons }) => (
+            <div key={tool.slug} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {/* Pros */}
+              <div className="glass-card" style={{ padding: '1.25rem', borderColor: 'rgba(6,182,212,0.2)' }}>
+                <h3 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--accent-cyan)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                  <span>✦</span> {tool.name} 优点
+                </h3>
+                {pros.length > 0 ? (
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {pros.map((p, i) => (
+                      <li key={i} style={{ display: 'flex', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', lineHeight: 1.5 }}>
+                        <span style={{ color: 'var(--accent-cyan)', flexShrink: 0, marginTop: 2 }}>+</span>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>暂无数据</p>
+                )}
+              </div>
 
-        {/* ── Verdict ───────────────────────────────────────────────────── */}
+              {/* Cons */}
+              <div className="glass-card" style={{ padding: '1.25rem', borderColor: 'rgba(236,72,153,0.2)' }}>
+                <h3 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--accent-pink)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+                  <span>✦</span> {tool.name} 缺点
+                </h3>
+                {cons.length > 0 ? (
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {cons.map((c, i) => (
+                      <li key={i} style={{ display: 'flex', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', lineHeight: 1.5 }}>
+                        <span style={{ color: 'var(--accent-pink)', flexShrink: 0, marginTop: 2 }}>−</span>
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>暂无数据</p>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Verdict ── */}
         {cmp.verdict && (
-          <section>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="section-label">🏆 编辑结论</span>
-            </div>
-            <div
-              className="relative rounded-2xl overflow-hidden p-6"
-              style={{
-                background: 'linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%)',
-                border: '1px solid #c7d2fe',
-              }}
-            >
-              {/* decorative quote mark */}
-              <span
-                className="absolute top-3 right-5 text-7xl font-black leading-none select-none pointer-events-none"
-                style={{ color: 'rgba(99,102,241,0.08)' }}
-              >
-                &ldquo;
-              </span>
-              <div className="flex items-start gap-3 relative">
-                <span className="text-2xl shrink-0 mt-0.5">🏆</span>
-                <p className="text-sm text-indigo-900 leading-relaxed font-medium">{cmp.verdict}</p>
-              </div>
-            </div>
-          </section>
+          <div style={{
+            padding: '1.5rem',
+            borderRadius: '1rem',
+            background: 'linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(59,130,246,0.12) 100%)',
+            border: '1px solid rgba(139,92,246,0.25)',
+            marginBottom: '2rem',
+          }}>
+            <h2 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--accent-purple)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span>⚖️</span> 总结
+            </h2>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'var(--font-body)' }}>
+              {cmp.verdict}
+            </p>
+          </div>
         )}
 
-        {/* ── FAQ ───────────────────────────────────────────────────────── */}
-        {cmp.faqs && cmp.faqs.length > 0 && (
-          <section>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="section-label">💬 常见问题</span>
-            </div>
-            <div className="space-y-3">
-              {cmp.faqs.map((faq, i) => (
-                <details
-                  key={i}
-                  className="group card overflow-hidden"
-                >
-                  <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none hover:bg-gray-50/80 transition-colors">
-                    <span className="text-sm font-semibold text-gray-800 leading-snug">{faq.question}</span>
-                    <span className="shrink-0 w-5 h-5 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center text-xs font-bold transition-transform group-open:rotate-180">
-                      ▾
-                    </span>
+        {/* ── FAQ ── */}
+        {cmp.faq && cmp.faq.length > 0 && (
+          <div className="glass-card" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem' }}>常见问题</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              {cmp.faq.map((item, i) => (
+                <details key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.5rem' }}>
+                  <summary style={{
+                    cursor: 'pointer',
+                    padding: '0.625rem 0',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    color: 'var(--text-primary)',
+                    fontFamily: 'var(--font-body)',
+                    listStyle: 'none',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}>
+                    {item.question}
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>▾</span>
                   </summary>
-                  <div className="px-5 pb-4 pt-0">
-                    <div className="h-px bg-gray-100 mb-3" />
-                    <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
-                  </div>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.7, padding: '0.5rem 0 0.25rem', fontFamily: 'var(--font-body)' }}>
+                    {item.answer}
+                  </p>
                 </details>
               ))}
             </div>
-          </section>
+          </div>
         )}
 
-        {/* ── Back link ─────────────────────────────────────────────────── */}
-        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-          <Link
-            href="/compare"
-            className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-indigo-600 transition-colors font-medium"
-          >
+        {/* ── Footer row ── */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <Link href="/compare" style={{ fontSize: '0.8125rem', color: 'var(--accent-purple)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             ← 返回对比列表
           </Link>
-          <div className="flex items-center gap-2 text-xs text-gray-400">
-            <span>更新于</span>
-            <span className="font-medium text-gray-500">
-              {cmp.updatedAt ? new Date(cmp.updatedAt).toLocaleDateString('zh-CN') : '—'}
+          {cmp.updatedAt && (
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
+              更新于 {new Date(cmp.updatedAt).toLocaleDateString('zh-CN')}
             </span>
-          </div>
+          )}
         </div>
-
-      </main>
+      </div>
     </>
   )
 }
