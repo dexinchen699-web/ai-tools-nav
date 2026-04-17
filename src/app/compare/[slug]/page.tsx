@@ -146,7 +146,14 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
     new Set([...(toolA.features ?? []), ...(toolB.features ?? [])])
   )
 
-  const schema = buildComparisonSchema(cmp, toolA, toolB)
+  const schema = buildComparisonSchema({
+    title: cmp.title,
+    description: cmp.description,
+    slug: cmp.slug,
+    toolAName: toolA.name,
+    toolBName: toolB.name,
+    faqs: cmp.faq,
+  })
 
   const breadcrumbs = [
     { label: '首页', href: '/' },
