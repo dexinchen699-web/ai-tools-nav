@@ -27,18 +27,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function toolStub(slug: string): AITool {
   const name = slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
   return {
+    id: '',
     slug,
     name,
     tagline: '',
     description: '',
     category: '',
     pricing: 'freemium',
+    pricingDetail: '',
     rating: 0,
+    reviewCount: 0,
     tags: [],
     pros: [],
     cons: [],
     features: [],
     useCases: [],
+    faqs: [],
+    howToSteps: [],
     website: '',
     logoUrl: '',
     isFeatured: false,
