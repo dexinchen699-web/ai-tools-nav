@@ -18,7 +18,7 @@ const RSS_SOURCES: { url: string; source: string; category: NewsCategory }[] = [
     category: '产品发布',
   },
   {
-    url: 'https://www.theverge.com/ai-artificial-intelligence/rss/index.xml',
+    url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml',
     source: 'The Verge AI',
     category: '行业动态',
   },
