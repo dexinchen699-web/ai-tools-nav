@@ -355,6 +355,7 @@ function rowToComparison(row: any): Comparison {
     verdict: row.verdict ?? '',
     faqs: row.faq ?? [],
     updatedAt: row.updated_at ?? new Date().toISOString(),
+    pros_cons: row.pros_cons ?? undefined,
   }
 }
 export async function getAllComparisons(): Promise<Comparison[]> {
