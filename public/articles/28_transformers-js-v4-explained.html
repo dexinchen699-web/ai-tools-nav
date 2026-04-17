@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('ai-article-theme')||'light');</script>
+  <title>浏览器里跑 AI 大模型？Transformers.js v4 让这件事变成了现实｜AI前沿</title>
+  <meta name="description" content="Transformers.js v4 让 AI 模型直接在浏览器里运行，不需要服务器、不花一分钱 API 费、数据完全不出你的电脑。5 分钟读懂它能做什么、会影响谁。">
+  <link rel="canonical" href="https://cc-newplayer.github.io/seo-farm/articles/28_transformers-js-v4-explained.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "浏览器里跑 AI 大模型？Transformers.js v4 让这件事变成了现实",
+    "description": "Transformers.js v4 让 AI 模型直接在浏览器里运行，不需要服务器、不花一分钱 API 费、数据完全不出你的电脑。5 分钟读懂它能做什么、会影响谁。",
+    "datePublished": "2026-04-03",
+    "author": { "@type": "Organization", "name": "AI前沿" },
+    "publisher": { "@type": "Organization", "name": "AI前沿" }
+  }
+  </script>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="浏览器里跑 AI 大模型？Transformers.js v4 让这件事变成了现实" />
+  <meta property="og:description" content="Transformers.js v4 让 AI 模型直接在浏览器里运行，不需要服务器、不花一分钱 API 费、数据完全不出你的电脑。5 分钟读懂它能做什么、会影响谁。" />
+  <meta property="og:url" content="https://cc-newplayer.github.io/seo-farm/articles/28_transformers-js-v4-explained.html" />
+  <meta property="og:site_name" content="AI前沿" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="浏览器里跑 AI 大模型？Transformers.js v4 让这件事变成了现实" />
+  <meta name="twitter:description" content="Transformers.js v4 让 AI 模型直接在浏览器里运行，不需要服务器、不花一分钱 API 费、数据完全不出你的电脑。5 分钟读懂它能做什么、会影响谁。" />
+  <meta property="og:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/28_img1_transformers-js-cover.jpg" />
+  <meta name="twitter:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/28_img1_transformers-js-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="article-common.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-logo">⚡ AI<span class="accent">前沿</span></a>
+    <div class="site-nav-links">
+      <a href="../index.html">首页</a>
+      <a href="../news.html">AI资讯</a>
+      <a href="../tools.html">AI工具</a>
+      <a href="../articles.html">AI文章</a>
+      <a href="../glossary.html">术语表</a>
+      <a href="../about.html">关于</a>
+      <button id="themeToggle" class="theme-btn" aria-label="切换主题">🌙</button>
+    </div>
+  </div>
+</nav>
+<aside class="toc-sidebar" id="tocSidebar">
+  <div class="toc-label">📑 本文目录</div>
+  <ul class="toc-list" id="tocList"></ul>
+</aside>
+<div class="page-wrapper">
+
+  <header class="article-header">
+    <div class="badge-row">
+      <span class="badge badge-popular">🌐 大众科普</span>
+      <span class="badge badge-meta">⏱ 约 5 分钟阅读</span>
+      <span class="badge badge-meta">AI 工具</span>
+    </div>
+    <h1>浏览器里跑 AI 大模型？Transformers.js v4 让这件事变成了现实</h1>
+    <p class="article-lead">你每次用 ChatGPT 或者 Claude，你的问题都要先飞到美国的服务器，等 AI 处理完再飞回来。但现在有一个工具，能让 AI 直接在你的浏览器里运行——不联网、不花钱、数据不出你的电脑。</p>
+  </header>
+
+  <div class="article-body">
+    <img src="images/28_img1_transformers-js-cover.jpg" alt="Transformers.js v4 浏览器本地运行 AI 模型" style="width:100%;border-radius:12px;margin-bottom:24px;">
+
+    <h2>它能帮你做什么：3 个最直接的场景</h2>
+    <p>先不讲原理，先说你能用它做什么：</p>
+    <p><strong>场景一：隐私敏感的文字处理</strong><br>
+    假设你是律师，需要用 AI 帮你整理合同里的关键条款。但你不敢把客户合同上传到 ChatGPT——万一数据泄露怎么办？用 Transformers.js，AI 在你的浏览器里跑，合同内容一个字都不会离开你的电脑。</p>
+    <p><strong>场景二：离线使用 AI</strong><br>
+    在飞机上、地铁里、网络不好的地方，你照样能用 AI 翻译、总结、问答。模型第一次加载后会缓存在浏览器里，之后完全离线可用。</p>
+    <p><strong>场景三：前端开发者的新玩法</strong><br>
+    如果你是做网页的，以前想在网站里加 AI 功能，必须搭后端服务器、申请 API、处理密钥安全……现在可以直接在前端页面里嵌入 AI，用户打开网页就能用，你不需要付一分钱服务器费。</p>
+
+    <h2>Transformers.js v4 到底是什么</h2>
+    <p>一句话版本：<strong>它是一个让 AI 模型在浏览器里运行的 JavaScript 库</strong>，由 Hugging Face（全球最大的开源 AI 模型平台）开发和维护。</p>
+    <p>类比一下：你可以把它想象成一个"AI 翻译官"。原来的 AI 模型是用 Python 写的，只能在服务器上跑；Transformers.js 把这些模型"翻译"成浏览器能理解的格式，让它们直接在你的 Chrome 或 Edge 里运行。</p>
+    <p>v4 版本最大的变化是引入了 <strong>WebGPU</strong> 加速。WebGPU 是浏览器调用显卡的新标准（就像游戏用显卡渲染画面，现在 AI 也能用显卡加速计算）。有了 WebGPU，浏览器里跑 AI 的速度比之前快了 3-5 倍，终于到了"实际可用"的水平。</p>
+
+    <h2>为什么现在突然这么多人在讲它</h2>
+    <p>两个原因：</p>
+    <p><strong>第一，WebGPU 终于普及了。</strong> Chrome 113（2023 年）开始默认支持 WebGPU，Edge 紧随其后。到 2026 年，全球超过 80% 的桌面浏览器都支持 WebGPU。这意味着 Transformers.js 的用户基础从"少数尝鲜者"变成了"几乎所有人"。</p>
+    <p><strong>第二，AI 模型越来越小。</strong> 以前在浏览器里跑 AI 是天方夜谭，因为模型动辄几十 GB。但现在有了 Gemma 4（<a href="25_gemma4-open-source-explained.html">我们之前写过它</a>）、Qwen 等小参数模型，几百 MB 就能跑出不错的效果，浏览器完全装得下。</p>
+    <p>这两个条件同时成熟，让"浏览器 AI"从实验室玩具变成了真正可用的工具。</p>
+
+    <h2>它会影响谁</h2>
+    <p><strong>对普通用户：</strong> 短期内影响不大，你还是会用 ChatGPT 和 Claude——它们的模型更大、能力更强。但你会越来越多地遇到"不需要登录、直接在网页里用 AI"的产品，背后很可能就是 Transformers.js。</p>
+    <p><strong>对前端开发者：</strong> 这是一个很大的机会。以前做 AI 产品必须懂后端，现在纯前端也能做。如果你会写 HTML 和 JavaScript，你已经具备了做一个完整 AI 应用的所有技能。</p>
+    <p><strong>对隐私敏感的行业：</strong> 医疗、法律、金融这些行业，数据合规是大问题。"AI 在本地跑、数据不出门"这个特性，对他们来说价值极高。预计会有越来越多的企业内部工具采用这个方案。</p>
+    <p><strong>可能的担忧：</strong> 浏览器里的 AI 能力终究有限，复杂任务还是需要云端大模型。另外，第一次加载模型需要下载几百 MB 的文件，网速慢的用户体验不好。</p>
+
+    <h2>现在你可以做什么</h2>
+    <p>如果你只是好奇，可以去 Hugging Face 的演示页面（huggingface.co/spaces）搜索"transformers.js"，有很多直接在浏览器里跑的 AI 演示，不需要注册账号，打开就能玩。</p>
+    <p>如果你是开发者，Transformers.js 的 GitHub 仓库（github.com/huggingface/transformers.js）有完整的入门文档，从"在网页里加一个情感分析功能"到"搭建完整的本地聊天机器人"都有示例代码。</p>
+    <p>如果你对本地跑 AI 感兴趣，也可以看看<a href="19_ollama-local-llm-tutorial.html">这篇 Ollama 教程</a>——Ollama 是在电脑本地跑大模型的另一种方式，适合想要更强能力的用户。</p>
+
+    <p style="margin-top: 2em; font-style: italic; color: var(--text-muted);">AI 正在从"云端服务"变成"本地能力"。Transformers.js v4 不是终点，而是这个趋势的一个信号。</p>
+
+  </div>
+
+  <footer class="article-footer">
+    <p>本文由 AI前沿 整理发布 · <a href="../articles.html">查看更多文章</a></p>
+  </footer>
+
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-logo">⚡ AI<span class="accent">前沿</span></span>
+    <span>© 2026 AI前沿 · 原创内容</span>
+    <div class="site-footer-links">
+      <a href="../news.html">AI资讯</a>
+      <a href="../articles.html">AI科普</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var headings = document.querySelectorAll('.article-body h2');
+  var tocList  = document.getElementById('tocList');
+  if (tocList && headings.length) {
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'toc-link';
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          tocList.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('toc-active'); });
+          var active = tocList.querySelector('a[href="#' + id + '"]');
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-5% 0px -75% 0px' });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+  var btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ai-article-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('ai-article-theme')||'light');</script>
+  <meta name="description" content="token 是 AI 计费的最小单位，也决定了 AI 能记住多少内容。一篇讲清楚 token 是什么、怎么算钱、怎么省钱的大众科普。">
+  <title>你每次问 AI，到底花了多少钱？</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .dialogue-wrap {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.1em 1.2em 0.9em;
+      margin: 1.3em 0;
+    }
+    .dialogue-label {
+      font-size: 0.75em;
+      color: #9ca3af;
+      margin-bottom: 0.8em;
+      letter-spacing: 0.04em;
+    }
+    .dialogue { display: flex; flex-direction: column; gap: 0.65em; }
+    .dl { display: flex; align-items: flex-start; gap: 0.55em; }
+    .dl.r { flex-direction: row-reverse; }
+    .dl-av {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15em; flex-shrink: 0; line-height: 1;
+    }
+    .av-xb { background: #dbeafe; }
+    .av-lq { background: #ede9fe; }
+    .dl-content { max-width: 82%; }
+    .dl-name { font-size: 0.7em; color: #9ca3af; margin-bottom: 0.18em; font-weight: 500; }
+    .dl.r .dl-name { text-align: right; }
+    .dl-bubble {
+      display: inline-block; padding: 0.5em 0.85em;
+      border-radius: 10px; font-size: 0.93em; line-height: 1.65; color: #1f2937;
+    }
+    .dl:not(.r) .dl-bubble { background: #eff6ff; border-top-left-radius: 2px; }
+    .dl.r .dl-bubble { background: #f3f0ff; border-top-right-radius: 2px; }
+  </style>
+  <link rel="canonical" href="https://cc-newplayer.github.io/seo-farm/articles/21_ai-token-explained.html">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="你每次问 AI，到底花了多少钱？" />
+  <meta property="og:description" content="token 是 AI 计费的最小单位，也决定了 AI 能记住多少内容。一篇讲清楚 token 是什么、怎么算钱、怎么省钱的大众科普。" />
+  <meta property="og:url" content="https://cc-newplayer.github.io/seo-farm/articles/21_ai-token-explained.html" />
+  <meta property="og:site_name" content="AI前沿" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/21_img1_token-cover.jpg" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="你每次问 AI，到底花了多少钱？" />
+  <meta name="twitter:description" content="token 是 AI 计费的最小单位，也决定了 AI 能记住多少内容。一篇讲清楚 token 是什么、怎么算钱、怎么省钱的大众科普。" />
+  <meta name="twitter:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/21_img1_token-cover.jpg" />
+
+  <!-- ===== Article Schema ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "你每次问 AI，到底花了多少钱？",
+    "description": "token 是 AI 计费的最小单位，也决定了 AI 能记住多少内容。一篇讲清楚 token 是什么、怎么算钱、怎么省钱的大众科普。",
+    "url": "https://cc-newplayer.github.io/seo-farm/articles/21_ai-token-explained.html",
+    "datePublished": "2026-03-29",
+    "author": { "@type": "Organization", "name": "AI前沿" },
+    "publisher": { "@type": "Organization", "name": "AI前沿", "url": "https://cc-newplayer.github.io/seo-farm/" },
+    "image": "https://cc-newplayer.github.io/seo-farm/articles/images/21_img1_token-cover.jpg"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="article-common.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-logo">⚡ AI<span class="accent">前沿</span></a>
+    <div class="site-nav-links">
+      <a href="../index.html">首页</a>
+      <a href="../news.html">AI资讯</a>
+      <a href="../tools.html">AI工具</a>
+      <a href="../articles.html">AI文章</a>
+      <a href="../glossary.html">术语表</a>
+      <a href="../about.html">关于</a>
+      <button id="themeToggle" class="theme-btn" aria-label="切换主题">🌙</button>
+    </div>
+  </div>
+</nav>
+<aside class="toc-sidebar" id="tocSidebar">
+  <div class="toc-label">📑 本文目录</div>
+  <ul class="toc-list" id="tocList"></ul>
+</aside>
+<div class="page-wrapper">
+
+  <header class="article-header">
+    <div class="badge-row">
+      <span class="badge badge-tutorial">🌐 大众科普</span>
+      <span class="badge badge-meta">⏱ 约 6 分钟阅读</span>
+      <span class="badge badge-meta">token</span>
+      <span class="badge badge-meta">AI 计费</span>
+    </div>
+    <h1>你每次问 AI，到底花了多少钱？</h1>
+    <p class="article-lead">token 是 AI 世界的计费单位，也是决定 AI 能记住多少内容的关键。读完这篇，你会明白 AI 的钱是怎么算的，以及怎么用得更聪明。</p>
+  </header>
+
+  <div class="article-body">
+
+    <img src="images/21_img1_token-cover.jpg" alt="AI token 计费概念图" style="width:100%;border-radius:8px;margin-bottom:24px;">
+
+    <p>你有没有想过，每次你打开 ChatGPT 或者 Claude，输入一段话，按下发送——这背后，有一个计费器在悄悄转动？</p>
+    <p>不是说你的会员费。是更底层的东西：<strong>token</strong>。</p>
+    <p>它是 AI 世界里真正的"货币"。你用 AI 的每一秒，都在消耗它。</p>
+
+    <h2>一、token 跟你有什么关系</h2>
+
+    <p>如果你只是用 ChatGPT 或 Claude 的免费版聊天，token 这件事你感知不到——平台帮你付了。</p>
+    <p>但如果你是以下任何一种人，token 就直接影响你的钱包：</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">💼</span>
+      <div class="callout-body">
+        <strong>你在用 AI 帮公司做事</strong><br>
+        写方案、整理会议记录、批量处理文件——每一次调用都在花钱，token 用多了，账单就高了。
+      </div>
+    </div>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">💻</span>
+      <div class="callout-body">
+        <strong>你在开发 AI 产品</strong><br>
+        接了 API，每个用户的每次对话都是成本。选错模型，可能比竞争对手贵 35 倍。
+      </div>
+    </div>
+
+    <div class="callout callout-warning">
+      <span class="callout-icon">📄</span>
+      <div class="callout-body">
+        <strong>你在用 AI 处理长文档</strong><br>
+        上传一份 100 页的合同让 AI 分析，你会发现有时候 AI 突然"忘了"前面说的内容——这就是 token 限制在作怪。
+      </div>
+    </div>
+
+    <h2>二、token 到底是什么</h2>
+
+    <div class="dialogue-wrap">
+      <div class="dialogue-label">💬 什么是 token？</div>
+      <div class="dialogue">
+        <div class="dl">
+          <div class="dl-av av-xb">🙋</div>
+          <div class="dl-content">
+            <div class="dl-name">小白</div>
+            <div class="dl-bubble">token 是什么？听起来像加密货币……</div>
+          </div>
+        </div>
+        <div class="dl r">
+          <div class="dl-av av-lq">🤖</div>
+          <div class="dl-content">
+            <div class="dl-name">老Q</div>
+            <div class="dl-bubble">跟加密货币没关系。AI 读文字不是一个字一个字读的，而是把文字切成一小块一小块来处理，每一块就叫一个 token。</div>
+          </div>
+        </div>
+        <div class="dl">
+          <div class="dl-av av-xb">🙋</div>
+          <div class="dl-content">
+            <div class="dl-name">小白</div>
+            <div class="dl-bubble">怎么切？比如"人工智能"是几个 token？</div>
+          </div>
+        </div>
+        <div class="dl r">
+          <div class="dl-av av-lq">🤖</div>
+          <div class="dl-content">
+            <div class="dl-name">老Q</div>
+            <div class="dl-bubble">中文大概 2～4 个 token，英文单词"understanding"会被拆成 under / stand / ing 三块。<strong>记住一个数字就够了：1000 个 token ≈ 500 个中文字。</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>你现在读的这篇文章，大概是 2000 个 token 左右。</p>
+
+    <p>顺带一提，AI 会"说错话"也跟 token 有关——它是按概率一个 token 一个 token 往外"猜"的，想了解这个可以看 <a href="16_rag-explained.html">AI 为什么会说错话</a>。</p>
+
+    <h2>三、为什么 AI 要按 token 收费</h2>
+
+    <p>想象一家翻译公司，按字数收费——字越多，钱越多。AI 公司的逻辑一样：你发给 AI 的内容越长，AI 回复你的内容越长，消耗的算力越多，成本越高。</p>
+    <p>所以 token 就是计量单位。<strong>你发出去的叫"输入 token"，AI 回给你的叫"输出 token"，两个分开计费。</strong></p>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        输出通常比输入贵——因为 AI 生成文字比读懂文字更费算力。所以让 AI 写长文，比让它读长文花钱更多。
+      </div>
+    </div>
+
+    <h2>四、现在各家 AI 的价格是多少</h2>
+
+    <p>这是 2026 年主流模型的价格，单位是每处理 100 万个 token 的费用：</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>模型</th><th>输入价格</th><th>输出价格</th><th>适合场景</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Claude Sonnet 4.6</td><td>$3.00</td><td>$15.00</td><td>日常工作，性价比最优</td></tr>
+          <tr><td>GPT-5.4</td><td>$2.50</td><td>$15.00</td><td>通用任务</td></tr>
+          <tr><td>Gemini 2.5 Pro</td><td>$1.25</td><td>$5.00</td><td>长文档处理</td></tr>
+          <tr><td>Claude Haiku 4.5</td><td>$1.00</td><td>$5.00</td><td>简单任务，速度快</td></tr>
+          <tr><td>DeepSeek V3</td><td>$0.14</td><td>—</td><td>极致省钱</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>看起来都很便宜？换算一下就有感觉了：</p>
+    <p>用 Claude Sonnet 写 100 篇 500 字的文章，成本大约是 <strong>1 块钱人民币</strong>。</p>
+    <p>但如果你每天要处理 10 万条用户消息，选最贵的模型和选 DeepSeek，<strong>一个月的账单差距可以超过 10 万元</strong>。</p>
+
+    <h2>五、还有一件事：context window</h2>
+
+    <img src="images/21_img2_context-window.jpg" alt="context window 上下文窗口示意图" style="width:100%;border-radius:8px;margin:16px 0 24px;">
+
+    <p>你有没有遇到过这种情况：跟 AI 聊了很久，它突然"忘了"你之前说的话？</p>
+    <p>这就是 <strong>context window</strong>（上下文窗口）的限制。</p>
+
+    <div class="dialogue-wrap">
+      <div class="dialogue-label">💬 context window 是什么？</div>
+      <div class="dialogue">
+        <div class="dl">
+          <div class="dl-av av-xb">🙋</div>
+          <div class="dl-content">
+            <div class="dl-name">小白</div>
+            <div class="dl-bubble">AI 为什么会"忘事"？它不是很聪明吗？</div>
+          </div>
+        </div>
+        <div class="dl r">
+          <div class="dl-av av-lq">🤖</div>
+          <div class="dl-content">
+            <div class="dl-name">老Q</div>
+            <div class="dl-bubble">AI 每次对话能"看到"的内容是有上限的，这个上限叫 context window，用 token 来衡量。超过了，它就开始遗忘最早的内容。</div>
+          </div>
+        </div>
+        <div class="dl">
+          <div class="dl-av av-xb">🙋</div>
+          <div class="dl-content">
+            <div class="dl-name">小白</div>
+            <div class="dl-bubble">上限有多大？</div>
+          </div>
+        </div>
+        <div class="dl r">
+          <div class="dl-av av-lq">🤖</div>
+          <div class="dl-content">
+            <div class="dl-name">老Q</div>
+            <div class="dl-bubble">GPT-4o 是 12.8 万 token（约 10 万中文字），Gemini 2.5 是 200 万 token（相当于两三本长篇小说）。<strong>上限越大，AI 能"记住"的对话越长，但费用也越高。</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>所以你上传一份超长文件让 AI 分析，它有时候答非所问，不是它变笨了，是它的"工作台"放不下了。这也是 <a href="05_agent-architecture.html">AI Agent 记忆模块</a>要解决的核心问题之一。</p>
+
+    <h2>六、普通用户现在可以做什么</h2>
+
+    <p>如果你只是日常用 ChatGPT 或 Claude 的网页版，不需要担心 token——平台已经帮你处理好了。</p>
+    <p>但如果你想更聪明地用 AI：</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>任务简单，就用便宜的模型</h4>
+          <p>问天气、写短文案、翻译几句话，用 Haiku 或 DeepSeek 就够了，没必要每次都开最贵的。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>长对话记得"清空上下文"</h4>
+          <p>很多 AI 工具有"新建对话"按钮，定期开新对话，避免 token 堆积导致 AI 越来越"糊涂"。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>提问要精准</h4>
+          <p>废话越少，token 越省，AI 的回答也往往更准。"帮我写一篇关于猫的文章"不如"帮我写一篇 300 字的猫咪科普，面向 6 岁小孩"。</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>结语</h2>
+
+    <p>token 不是什么神秘的技术词。它就是 AI 处理语言的计量单位，就像电费按度数算、流量按 GB 算一样。</p>
+    <p>你每次问 AI 一个问题，大概花了几分钱的算力。听起来很少——但当 AI 真正融入你的工作流，这个数字会变得很重要。</p>
+    <p>现在你知道了，下次看到"token 不足"的报错，至少不会一脸懵了。</p>
+
+    <div class="next-steps">
+      <h3>🔗 延伸阅读</h3>
+      <ul>
+        <li><a href="16_rag-explained.html">AI 为什么会自信地说错话？让它变聪明的秘密叫 RAG</a></li>
+        <li><a href="05_agent-architecture.html">AI Agent 凭什么能"自主干活"？从四大模块拆解它的内核</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer class="article-footer">
+    参考来源：
+    <a href="https://nebius.com/blog/posts/what-is-token-in-ai" target="_blank">Nebius Blog: What is a token in AI</a> ·
+    <a href="https://www.datacamp.com/blog/context-window" target="_blank">DataCamp: Context Window Explained</a> ·
+    <a href="https://docs.anthropic.com/en/docs/about-claude/pricing" target="_blank">Anthropic Claude API Pricing（官方文档）</a> ·
+    <a href="https://www.tldl.io/resources/llm-api-pricing-2026" target="_blank">tldl.io: LLM API Pricing 2026</a>
+  </footer>
+
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-logo">⚡ AI<span class="accent">前沿</span></span>
+    <span>© 2026 AI前沿 · 原创内容</span>
+    <div class="site-footer-links">
+      <a href="../news.html">AI资讯</a>
+      <a href="../articles.html">AI科普</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var headings = document.querySelectorAll('.article-body h2');
+  var tocList  = document.getElementById('tocList');
+  if (tocList && headings.length) {
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'toc-link';
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          tocList.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('toc-active'); });
+          var active = tocList.querySelector('a[href="#' + id + '"]');
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-5% 0px -75% 0px' });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+  var btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ai-article-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('ai-article-theme')||'light');</script>
+  <title>Gemma 4 开源模型完全解析：用 1/20 参数打败 20 倍对手｜AI前沿</title>
+  <meta name="description" content="Gemma 4 刚发布，谷歌用 310 亿参数在全球真人盲测排第 3，比它强的模型参数量是它的 10-22 倍。Apache 2.0 完全开源，可商用，本文 5 分钟讲清楚它是什么、能做什么、怎么免费试用。">
+  <link rel="canonical" href="https://cc-newplayer.github.io/seo-farm/articles/25_gemma4-open-source-explained.html">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    .dialogue-wrap {
+      background: #fafafa; border: 1px solid #e5e7eb;
+      border-radius: 12px; padding: 1.1em 1.2em 0.9em; margin: 1.3em 0;
+    }
+    .dialogue-label { font-size: 0.75em; color: #9ca3af; margin-bottom: 0.8em; letter-spacing: 0.04em; }
+    .dialogue { display: flex; flex-direction: column; gap: 0.65em; }
+    .dl { display: flex; align-items: flex-start; gap: 0.55em; }
+    .dl.r { flex-direction: row-reverse; }
+    .dl-av { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.15em; flex-shrink: 0; line-height: 1; }
+    .av-xb { background: #dbeafe; }
+    .av-lq { background: #ede9fe; }
+    .dl-content { max-width: 82%; }
+    .dl-name { font-size: 0.7em; color: #9ca3af; margin-bottom: 0.18em; font-weight: 500; }
+    .dl.r .dl-name { text-align: right; }
+    .dl-bubble { display: inline-block; padding: 0.5em 0.85em; border-radius: 10px; font-size: 0.93em; line-height: 1.65; color: #1f2937; }
+    .dl:not(.r) .dl-bubble { background: #eff6ff; border-top-left-radius: 2px; }
+    .dl.r .dl-bubble { background: #f3f0ff; border-top-right-radius: 2px; }
+  </style>
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Gemma 4 开源模型完全解析：用 1/20 参数打败 20 倍对手" />
+  <meta property="og:description" content="Gemma 4 刚发布，谷歌用 310 亿参数在全球真人盲测排第 3，比它强的模型参数量是它的 10-22 倍。Apache 2.0 完全开源，可商用，本文 5 分钟讲清楚它是什么、能做什么、怎么免费试用。" />
+  <meta property="og:url" content="https://cc-newplayer.github.io/seo-farm/articles/25_gemma4-open-source-explained.html" />
+  <meta property="og:site_name" content="AI前沿" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gemma 4 开源模型完全解析：用 1/20 参数打败 20 倍对手" />
+  <meta name="twitter:description" content="Gemma 4 刚发布，谷歌用 310 亿参数在全球真人盲测排第 3，比它强的模型参数量是它的 10-22 倍。Apache 2.0 完全开源，可商用，本文 5 分钟讲清楚它是什么、能做什么、怎么免费试用。" />
+
+  <!-- ===== Article Schema ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gemma 4 开源模型完全解析：用 1/20 参数打败 20 倍对手",
+    "description": "Gemma 4 刚发布，谷歌用 310 亿参数在全球真人盲测排第 3，比它强的模型参数量是它的 10-22 倍。Apache 2.0 完全开源，可商用，本文 5 分钟讲清楚它是什么、能做什么、怎么免费试用。",
+    "url": "https://cc-newplayer.github.io/seo-farm/articles/25_gemma4-open-source-explained.html",
+    "datePublished": "2026-04-03",
+    "author": { "@type": "Organization", "name": "AI前沿" },
+    "publisher": { "@type": "Organization", "name": "AI前沿", "url": "https://cc-newplayer.github.io/seo-farm/" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="article-common.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-logo">⚡ AI<span class="accent">前沿</span></a>
+    <div class="site-nav-links">
+      <a href="../index.html">首页</a>
+      <a href="../news.html">AI资讯</a>
+      <a href="../tools.html">AI工具</a>
+      <a href="../articles.html">AI文章</a>
+      <a href="../glossary.html">术语表</a>
+      <a href="../about.html">关于</a>
+      <button id="themeToggle" class="theme-btn" aria-label="切换主题">🌙</button>
+    </div>
+  </div>
+</nav>
+<aside class="toc-sidebar" id="tocSidebar">
+  <div class="toc-label">📑 本文目录</div>
+  <ul class="toc-list" id="tocList"></ul>
+</aside>
+<div class="page-wrapper">
+
+  <header class="article-header">
+    <div class="badge-row">
+      <span class="badge" style="background:#F0FDF4;color:#166534;font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;">🌐 大众科普</span>
+      <span class="badge badge-meta">⏱ 约 6 分钟阅读</span>
+      <span class="badge badge-meta">Gemma 4 · 开源模型 · Google</span>
+    </div>
+    <h1>谷歌昨天悄悄扔了一颗炸弹：Gemma 4 用 1/20 的参数，干掉了大它 20 倍的对手</h1>
+    <p class="article-lead">昨天（4月2日）凌晨，谷歌发布了 Gemma 4。没有发布会，没有预热，直接上线。但这件事可能比你想象的重要得多——它意味着一个普通人也能在自己电脑甚至手机上，免费跑一个"Gemini 级别"的 AI 模型。</p>
+  </header>
+  <div class="article-cover">
+    <span class="cover-icon">💎</span>
+    <span class="cover-tagline">Gemma 4 · 谷歌开源大模型</span>
+  </div>
+
+  <div class="article-body">
+
+    <h2>Gemma 4 发布了什么：这次有多炸</h2>
+
+    <img src="images/25_img1_gemma4_hero.jpg" alt="Gemma 4 开源模型发布，310亿参数全球排名第3" style="width:100%;border-radius:8px;margin:16px 0;">
+
+    <p>你可能听说过 DeepSeek——那个用很少的钱训练出来、把 OpenAI 吓了一跳的中国模型。Gemma 4 做的事情有点类似，但方向不同：</p>
+
+    <p><strong>它用 310 亿个参数，在真人盲测排行榜上打到了全球第 3 名。</strong></p>
+
+    <p>这有什么了不起？因为排在它前面的那些模型，参数量是它的 10 到 22 倍。换句话说，谷歌用一辆轿车的发动机，跑出了卡车的速度。</p>
+
+    <p>更重要的是：它完全开源，任何人都可以免费下载、免费使用、免费拿去做商业产品，没有任何限制。</p>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>参数是什么？</strong>
+        你可以把参数理解成 AI 的"脑细胞数量"。一般来说参数越多，模型越聪明，但也越耗电、越贵、越难在普通设备上运行。Gemma 4 的突破在于：用更少的脑细胞，做到了更聪明的事。
+      </div>
+    </div>
+
+    <h2>Gemma 4 和 Gemini 有什么区别</h2>
+
+    <div class="dialogue-wrap">
+      <div class="dialogue-label">💬 什么是 Gemma 4？</div>
+      <div class="dialogue">
+        <div class="dl">
+          <div class="dl-av av-xb">🙋</div>
+          <div class="dl-content">
+            <div class="dl-name">小白</div>
+            <div class="dl-bubble">Gemma 4 和 Gemini 是什么关系？谷歌不是已经有 Gemini 了吗？</div>
+          </div>
+        </div>
+        <div class="dl r">
+          <div class="dl-av av-lq">🤖</div>
+          <div class="dl-content">
+            <div class="dl-name" style="text-align:right">老Q</div>
+            <div class="dl-bubble">Gemini 是谷歌的"旗舰 AI"，要收费、要联网、要通过谷歌的服务器才能用。Gemma 4 是用同一套技术研究成果做出来的"开源版本"——你可以把它下载到自己电脑上，断网也能跑，谷歌管不着你怎么用。<strong>Gemini 是餐厅，Gemma 是食谱。</strong></div>
+          </div>
+        </div>
+        <div class="dl">
+          <div class="dl-av av-xb">🙋</div>
+          <div class="dl-content">
+            <div class="dl-name">小白</div>
+            <div class="dl-bubble">那之前的 Gemma 3 呢？这次升级了什么？</div>
+          </div>
+        </div>
+        <div class="dl r">
+          <div class="dl-av av-lq">🤖</div>
+          <div class="dl-content">
+            <div class="dl-name" style="text-align:right">老Q</div>
+            <div class="dl-bubble">两个最大的变化：第一，推理能力暴涨——数学竞赛题的正确率从 20% 跳到了 89%；第二，<strong>换成了 Apache 2.0 许可证，这是开源界最宽松的协议，意味着你可以拿它做任何商业产品，谷歌不能反悔。</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Gemma 4 四个版本对比：从手机到服务器都能跑</h2>
+
+    <p>Gemma 4 这次一口气发布了四个版本，覆盖了从手机到工作站的所有场景：</p>
+
+    <div class="chart-container" style="max-width:600px;margin:24px auto;">
+      <div class="chart-title">Gemma 4 四个版本对比</div>
+      <canvas id="versionsChart" height="220"></canvas>
+    </div>
+    <script>
+    new Chart(document.getElementById('versionsChart'), {
+      type: 'bar',
+      data: {
+        labels: ['E2B（超轻量）', 'E4B（轻量）', '26B MoE（高效）', '31B Dense（旗舰）'],
+        datasets: [{
+          label: '参数量（B）',
+          data: [2.3, 4, 26, 31],
+          backgroundColor: ['#BFDBFE', '#93C5FD', '#7C3AED', '#2563EB'],
+          borderRadius: 4,
+          borderSkipped: false,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, border: { display: false }, ticks: { color: '#374151', font: { size: 12 } } },
+          y: { grid: { color: '#F3F4F6' }, border: { display: false }, ticks: { color: '#6B7280', font: { size: 12 } } }
+        }
+      }
+    });
+    </script>
+
+    <table>
+      <thead><tr><th>版本</th><th>能在哪跑</th><th>上下文窗口</th><th>特点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>E2B</strong></td><td>手机、树莓派</td><td>128K</td><td>支持图像+音频输入</td></tr>
+        <tr><td><strong>E4B</strong></td><td>轻薄本、Jetson</td><td>128K</td><td>性价比最高的小模型</td></tr>
+        <tr><td><strong>26B MoE</strong></td><td>普通游戏电脑（8GB显存）</td><td>256K</td><td>只激活 3.8B 参数，省电省钱</td></tr>
+        <tr><td><strong>31B Dense</strong></td><td>工作站（16GB显存）</td><td>256K</td><td>全球排名第 3，最强版本</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>26B MoE 是什么意思？</strong>
+        MoE（混合专家）是一种聪明的架构：模型有 26B 个参数，但每次回答问题时只调用其中 3.8B 个"专家"。就像一家公司有 100 个员工，但每个项目只需要 15 个人上阵——效率高，成本低。
+      </div>
+    </div>
+
+    <h2>Apache 2.0 开源协议意味着什么</h2>
+
+    <p>如果你不是开发者，这部分可能听起来很无聊。但它其实是这次发布里最值得关注的事情之一。</p>
+
+    <p>之前谷歌的开源模型用的是自己定制的"Gemma 许可证"，里面有一些模糊的限制条款，让很多公司的法务部门头疼——"我们能不能拿这个做商业产品？万一谷歌哪天改规则怎么办？"</p>
+
+    <p>这次换成 Apache 2.0，相当于谷歌签了一份不可撤销的承诺：<strong>你可以拿去做任何事，包括商业产品，我永远不会来找你麻烦。</strong></p>
+
+    <p>这对创业公司和独立开发者来说是个大礼包。以前用 Gemma 做产品要先咨询律师，现在不用了。</p>
+
+    <h2>Gemma 4 能做什么，跟你有什么关系</h2>
+
+    <img src="images/25_img2_gemma4_usecase.jpg" alt="Gemma 4 本地部署运行场景，数据不出本地保护隐私" style="width:100%;border-radius:8px;margin:16px 0;">
+
+    <p>说几个最直接的场景：</p>
+
+    <p><strong>场景一：你的数据不用上传给任何人</strong></p>
+    <p>现在很多人用 ChatGPT 或者 Kimi 处理工作文件，但公司文件上传到别人的服务器，总是有点不放心。Gemma 4 可以完全在你自己的电脑上运行，数据不出本地，没有任何隐私风险。</p>
+
+    <p><strong>场景二：开发者可以免费造产品</strong></p>
+    <p>如果你或者你认识的人在做 AI 相关的应用，以前要么付费调用 API，要么用能力较弱的开源模型。现在有了 Gemma 4 31B，全球排名第 3 的能力，零成本，随便用。</p>
+
+    <p><strong>场景三：手机上的离线 AI 助手</strong></p>
+    <p>E2B 和 E4B 版本可以在手机上运行。这意味着未来你的手机 AI 助手不需要联网，不需要订阅，断网也能用，而且没有人能看到你问了什么问题。</p>
+
+    <h2>怎么免费试用 Gemma 4</h2>
+
+    <p>如果你想马上体验，最简单的方式是直接去 <strong>Google AI Studio</strong>（aistudio.google.com），免费，不用下载任何东西，打开浏览器就能用 31B 版本。</p>
+
+    <p>如果你是开发者，想在本地跑：</p>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>用 Ollama 本地部署 Gemma 4（最简单）</strong><br>
+        安装 Ollama 之后，一行命令搞定：<br>
+        <code>ollama pull gemma4:4b</code>（轻量版，普通笔记本可跑）<br>
+        <code>ollama pull gemma4:31b</code>（旗舰版，需要 16GB 显存）
+      </div>
+    </div>
+
+    <p>模型权重在 Hugging Face 上可以直接下载，搜索 <code>google/gemma-4-31B-it</code> 就能找到。</p>
+
+    <h2>Gemma 4 的短板：中文能力和硬件要求</h2>
+
+    <p>有，而且要说清楚：</p>
+
+    <p><strong>中文能力不是它的强项。</strong>Gemma 4 支持 140 多种语言，但中文的优化程度不如 Qwen（通义千问）或 DeepSeek。如果你的主要需求是中文写作、中文问答，国产模型可能更适合你。</p>
+
+    <p><strong>最强版本对硬件有要求。</strong>31B 版本需要至少 16GB 显存，普通笔记本跑不动。但 E4B 版本在大多数电脑上都能跑，能力也不差。</p>
+
+    <p><strong>它不是 Gemini。</strong>Gemma 4 是开源版本，没有谷歌搜索集成，没有实时联网，没有 Google Workspace 的深度整合。如果你需要这些，还是得用 Gemini。</p>
+
+    <div class="callout callout-warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>一个值得关注的趋势</strong>
+        Gemma 4 的发布，加上之前的 DeepSeek、Llama 4、Qwen 3.5，开源模型的能力正在快速追上闭源模型。这对普通用户是好事——未来你用的 AI 工具，背后的模型可能越来越多是免费的开源版本，而不是你每月付费订阅的那个。
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>🔗 延伸阅读</h3>
+      <ul>
+        <li><strong>想在本地跑大模型？</strong>看看 <a href="19_ollama-local-llm-tutorial.html">Ollama 保姆级入门教程</a>，从安装到运行一步到位</li>
+        <li><strong>想了解 AI 模型背后的原理？</strong><a href="21_ai-token-explained.html">你每次问 AI，到底花了多少钱？</a> 讲清楚了模型运行的基本逻辑</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer class="article-footer">
+    参考来源：<a href="https://deepmind.google/models/gemma/gemma-4/" target="_blank">Google DeepMind 官方</a> · <a href="https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/" target="_blank">Ars Technica</a> · <a href="https://9to5google.com/2026/04/02/google-gemma-4/" target="_blank">9to5Google</a> · <a href="https://huggingface.co/blog/gemma4" target="_blank">Hugging Face Blog</a>
+  </footer>
+
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-logo">⚡ AI<span class="accent">前沿</span></span>
+    <span>© 2026 AI前沿 · 原创内容</span>
+    <div class="site-footer-links">
+      <a href="../news.html">AI资讯</a>
+      <a href="../articles.html">AI科普</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  var headings = document.querySelectorAll('.article-body h2');
+  var tocList  = document.getElementById('tocList');
+  if (tocList && headings.length) {
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'toc-link';
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          tocList.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('toc-active'); });
+          var active = tocList.querySelector('a[href="#' + id + '"]');
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-5% 0px -75% 0px' });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+  var btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ai-article-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
+</body>
+</html>

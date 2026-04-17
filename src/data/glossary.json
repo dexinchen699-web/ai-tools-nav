@@ -1,0 +1,207 @@
+[
+  {
+    "term": "Token",
+    "oneliner": "AI的最小处理单位，也是计费依据；大约1个中文字≈1.5 Token",
+    "keywords": "token 计费 单位 上下文 费用"
+  },
+  {
+    "term": "Context Window（上下文窗口）",
+    "oneliner": "AI一次能\"看到\"的最大文本量，决定它能记住多少对话内容",
+    "keywords": "context window 上下文 记忆 长度 限制"
+  },
+  {
+    "term": "Prompt（提示词）",
+    "oneliner": "你发给AI的指令或问题；写得越清晰，输出质量越高",
+    "keywords": "prompt 提示词 指令 输入"
+  },
+  {
+    "term": "幻觉（Hallucination）",
+    "oneliner": "AI一本正经地编造不存在内容的现象，是大模型最主要的缺陷之一",
+    "keywords": "幻觉 hallucination 编造 错误 一本正经"
+  },
+  {
+    "term": "Temperature（温度）",
+    "oneliner": "控制AI回复随机程度的参数：低温保守严谨，高温发散创意",
+    "keywords": "temperature 温度 随机性 创意 保守"
+  },
+  {
+    "term": "微调（Fine-tuning）",
+    "oneliner": "在已有大模型基础上，用专属数据再训练，让它精通特定领域",
+    "keywords": "微调 fine-tuning 训练 定制 专业"
+  },
+  {
+    "term": "参数（Parameters）",
+    "oneliner": "模型的\"记忆量\"，70B = 700亿参数；越大能力越强，但也越吃算力",
+    "keywords": "参数 parameters 70b 7b 规模"
+  },
+  {
+    "term": "量化（Quantization）",
+    "oneliner": "压缩模型体积的技术，让大模型能在消费级设备上本地运行",
+    "keywords": "量化 quantization int4 int8 压缩 本地"
+  },
+  {
+    "term": "MoE（混合专家架构）",
+    "oneliner": "每次推理只激活部分参数，大幅降低计算成本",
+    "keywords": "moe mixture of experts 混合专家 激活 deepseek"
+  },
+  {
+    "term": "Transformer",
+    "oneliner": "几乎所有主流大模型的底层架构，2017年谷歌提出",
+    "keywords": "transformer 注意力机制 attention 架构"
+  },
+  {
+    "term": "RLHF（人类反馈强化学习）",
+    "oneliner": "让模型学会\"人类偏好\"的训练方法，是ChatGPT变好用的关键技术",
+    "keywords": "rlhf 强化学习 人类反馈 对齐 偏好"
+  },
+  {
+    "term": "LLM（大语言模型）",
+    "oneliner": "在海量文本上训练的超大规模语言模型，GPT、Claude、Gemini都属于LLM",
+    "keywords": "llm 大语言模型 large language model"
+  },
+  {
+    "term": "多模态（Multimodal）",
+    "oneliner": "能同时处理文字、图片、音频、视频等多种信息形式的AI模型",
+    "keywords": "多模态 multimodal 图片 音频 视频 视觉"
+  },
+  {
+    "term": "蒸馏（Knowledge Distillation）",
+    "oneliner": "用大模型的输出训练小模型，让小模型继承大模型的能力",
+    "keywords": "蒸馏 distillation 知识蒸馏 小模型"
+  },
+  {
+    "term": "Zero-shot / Few-shot",
+    "oneliner": "Zero-shot直接问不给例子；Few-shot给几个示例再问，后者通常更准",
+    "keywords": "zero-shot few-shot 零样本 少样本 示例"
+  },
+  {
+    "term": "AI Agent（智能体）",
+    "oneliner": "能自主规划、调用工具、完成多步任务的AI系统，不只聊天，而是干活",
+    "keywords": "ai agent 智能体 自主 任务 规划 工具"
+  },
+  {
+    "term": "MCP（模型上下文协议）",
+    "oneliner": "Anthropic提出的AI连接外部工具的标准协议，六个月装机9700万次",
+    "keywords": "mcp model context protocol 协议 工具 标准"
+  },
+  {
+    "term": "RAG（检索增强生成）",
+    "oneliner": "让AI先查资料再回答，大幅减少幻觉，也能接入你的私有知识库",
+    "keywords": "rag 检索增强 知识库 幻觉 文档 向量"
+  },
+  {
+    "term": "Tool Use / Function Calling",
+    "oneliner": "AI调用外部函数或API的能力，让模型从\"说\"变成\"做\"",
+    "keywords": "tool use function calling 工具调用 函数 api"
+  },
+  {
+    "term": "ReAct",
+    "oneliner": "AI Agent的核心推理框架：交替思考→行动→观察结果，循环直到完成任务",
+    "keywords": "react 推理 行动 思考 框架 agent"
+  },
+  {
+    "term": "Multi-Agent（多智能体）",
+    "oneliner": "多个AI Agent分工协作完成任务，类似\"AI团队\"",
+    "keywords": "multi-agent 多智能体 协作 mas 分工"
+  },
+  {
+    "term": "Prompt注入",
+    "oneliner": "通过恶意输入操控AI执行非预期指令的攻击方式",
+    "keywords": "prompt注入 prompt injection 攻击 安全 漏洞"
+  },
+  {
+    "term": "Human-in-the-Loop",
+    "oneliner": "在AI工作流关键节点加入人工确认环节，控制风险",
+    "keywords": "human in the loop 人工确认 审核 风险"
+  },
+  {
+    "term": "沙箱（Sandbox）",
+    "oneliner": "让AI在隔离环境中执行代码，出了问题不影响真实系统",
+    "keywords": "沙箱 sandbox 隔离 安全 执行环境"
+  },
+  {
+    "term": "向量数据库",
+    "oneliner": "专门存储和检索Embedding向量的数据库，是RAG系统的核心存储层",
+    "keywords": "向量数据库 vector database pinecone chroma rag"
+  },
+  {
+    "term": "GPU",
+    "oneliner": "AI训练和推理的核心算力硬件，英伟达H100/H200是最主流的AI训练芯片",
+    "keywords": "gpu 显卡 算力 nvidia 英伟达 训练 推理"
+  },
+  {
+    "term": "API",
+    "oneliner": "程序调用AI模型能力的接口，有了API Key就能用代码接入GPT、Claude",
+    "keywords": "api 接口 调用 key 开发 代码"
+  },
+  {
+    "term": "KV Cache",
+    "oneliner": "大模型推理时缓存中间计算结果的机制，让长对话不需要每次重算",
+    "keywords": "kv cache 缓存 推理 内存 速度 优化"
+  },
+  {
+    "term": "Ollama",
+    "oneliner": "3条命令在本地跑DeepSeek/Llama，数据不出机，完全免费",
+    "keywords": "ollama 本地 部署 llama deepseek 免费 离线"
+  },
+  {
+    "term": "LangChain / LangGraph",
+    "oneliner": "构建AI应用和Agent工作流的主流Python框架",
+    "keywords": "langchain langgraph 框架 agent 工作流 开发"
+  },
+  {
+    "term": "Embedding（向量嵌入）",
+    "oneliner": "把文字转成一串数字，让计算机能计算文本之间的语义相似度",
+    "keywords": "embedding 向量 嵌入 语义 搜索 rag"
+  },
+  {
+    "term": "Benchmark（基准测试）",
+    "oneliner": "评测AI模型能力的标准化测试集，用于横向比较不同模型的水平",
+    "keywords": "benchmark 基准测试 评测 排行 能力"
+  },
+  {
+    "term": "SWE-bench",
+    "oneliner": "评测AI代码能力的权威基准：给模型真实GitHub Issue，看它能否修复",
+    "keywords": "swe-bench 代码 编程 软件工程 测评"
+  },
+  {
+    "term": "开源 vs 闭源",
+    "oneliner": "模型权重是否公开：开源可本地部署，闭源只能通过API访问",
+    "keywords": "开源 闭源 权重 商用 许可证"
+  },
+  {
+    "term": "Apache 2.0",
+    "oneliner": "最常见的开源许可证之一，允许免费商用，AI开源模型最喜欢用这个",
+    "keywords": "apache 2.0 许可证 商用 免费 协议"
+  },
+  {
+    "term": "具身智能（Embodied AI）",
+    "oneliner": "能感知物理世界并与之交互的AI，简单说就是给机器人装上能思考的大脑",
+    "keywords": "具身智能 embodied ai 机器人 物理 感知"
+  },
+  {
+    "term": "推理模型（Reasoning Model）",
+    "oneliner": "回答前先\"想一想\"的模型，通过延长思考过程大幅提升复杂问题准确率",
+    "keywords": "推理模型 reasoning model 思维链 chain of thought 深度思考"
+  },
+  {
+    "term": "对齐（Alignment）",
+    "oneliner": "让AI行为符合人类价值观和意图的研究方向，是AI安全领域的核心课题",
+    "keywords": "对齐 alignment 安全 价值观 有害"
+  },
+  {
+    "term": "AGI（通用人工智能）",
+    "oneliner": "能在所有认知任务上达到或超越人类水平的AI，目前尚未实现",
+    "keywords": "agi 通用人工智能 general artificial intelligence 超级 强ai"
+  },
+  {
+    "term": "Scaling Law（规模定律）",
+    "oneliner": "模型越大、数据越多、算力越多，性能就越好——这个规律驱动了AI的爆炸式进步",
+    "keywords": "scaling law 规模定律 更大 更多 算力 数据"
+  },
+  {
+    "term": "MMLU",
+    "oneliner": "评测AI综合知识广度的权威基准，覆盖57个学科，从数学到法律到医学",
+    "keywords": "mmlu 综合知识 多学科 评测 大学 考试"
+  }
+]

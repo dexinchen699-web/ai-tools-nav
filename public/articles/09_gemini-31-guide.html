@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('ai-article-theme')||'light');</script>
+  <meta name="description" content="手把手教你免费用上 Gemini 3.1 Pro：逻辑推理得分翻倍、16 项 benchmark 领先 13 项，零代码 10 分钟上手教程，含 AI Studio 免费 API 获取方法。">
+  <title>手把手教你免费用上 Gemini 3.1 Pro——2026 推理最强 AI，10 分钟零代码上手</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <link rel="canonical" href="https://cc-newplayer.github.io/seo-farm/articles/09_gemini-31-guide.html">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="手把手教你免费用上 Gemini 3.1 Pro——2026 推理最强 AI，10 分钟零代码上手" />
+  <meta property="og:description" content="手把手教你免费用上 Gemini 3.1 Pro：逻辑推理得分翻倍、16 项 benchmark 领先 13 项，零代码 10 分钟上手教程，含 AI Studio 免费 API 获取方法。" />
+  <meta property="og:url" content="https://cc-newplayer.github.io/seo-farm/articles/09_gemini-31-guide.html" />
+  <meta property="og:site_name" content="AI前沿" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="手把手教你免费用上 Gemini 3.1 Pro——2026 推理最强 AI，10 分钟零代码上手" />
+  <meta name="twitter:description" content="手把手教你免费用上 Gemini 3.1 Pro：逻辑推理得分翻倍、16 项 benchmark 领先 13 项，零代码 10 分钟上手教程，含 AI Studio 免费 API 获取方法。" />
+
+  <!-- ===== Article Schema ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "手把手教你免费用上 Gemini 3.1 Pro——2026 推理最强 AI，10 分钟零代码上手",
+    "description": "手把手教你免费用上 Gemini 3.1 Pro：逻辑推理得分翻倍、16 项 benchmark 领先 13 项，零代码 10 分钟上手教程，含 AI Studio 免费 API 获取方法。",
+    "url": "https://cc-newplayer.github.io/seo-farm/articles/09_gemini-31-guide.html",
+    "datePublished": "2026-02-25",
+    "author": { "@type": "Organization", "name": "AI前沿" },
+    "publisher": { "@type": "Organization", "name": "AI前沿", "url": "https://cc-newplayer.github.io/seo-farm/" }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="article-common.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-logo">⚡ AI<span class="accent">前沿</span></a>
+    <div class="site-nav-links">
+      <a href="../index.html">首页</a>
+      <a href="../news.html">AI资讯</a>
+      <a href="../tools.html">AI工具</a>
+      <a href="../articles.html">AI文章</a>
+      <a href="../glossary.html">术语表</a>
+      <a href="../about.html">关于</a>
+      <button id="themeToggle" class="theme-btn" aria-label="切换主题">🌙</button>
+    </div>
+  </div>
+</nav>
+<aside class="toc-sidebar" id="tocSidebar">
+  <div class="toc-label">📑 本文目录</div>
+  <ul class="toc-list" id="tocList"></ul>
+</aside>
+<div class="page-wrapper">
+
+  <header class="article-header">
+    <div class="badge-row">
+      <span class="badge badge-tutorial">📘 保姆级教程</span>
+      <span class="badge badge-meta">⏱ 约 10 分钟阅读</span>
+      <span class="badge badge-meta">🟢 零代码</span>
+      <span class="badge badge-meta">📊 含图表对比</span>
+    </div>
+    <h1>手把手教你免费用上 Gemini 3.1 Pro<br>——2026 推理最强 AI，10 分钟零代码上手</h1>
+    <p class="article-lead">
+      读完本文你能做到：用谷歌账号打开网页，直接上手 Gemini 3.1 Pro，掌握文件上传、深度研究、联网搜索三个核心功能，全程零代码。<br>
+      <strong>前置条件：</strong>一个谷歌账号（Gmail 即可）；国内部分地区访问需要科学上网。
+    </p>
+  </header>
+  <div class="article-cover">
+    <span class="cover-icon">✨</span>
+    <span class="cover-tagline">Gemini 3.1 · 谷歌推理旗舰</span>
+  </div>
+
+  <div class="article-body">
+
+    <!-- 一、升级幅度 -->
+    <h2>🔥 这次升级有多大？先看两张图</h2>
+    <p>2026 年 2 月 19 日，Google 正式发布 Gemini 3.1 Pro。先不讲功能，直接看一个数字：</p>
+
+    <div class="chart-container">
+      <div class="chart-title">ARC-AGI-2 逻辑推理得分：Gemini 前代 vs 3.1 Pro（来源：Google 官方博客）</div>
+      <canvas id="iterationChart" height="160"></canvas>
+    </div>
+
+    <p>ARC-AGI-2 是目前公认最难的 AI 推理测试，专门测试「举一反三」——死记硬背没有用，必须真的理解规则。从 <strong>35% 到 77.1%，直接翻了一倍多</strong>。官方数据显示，16 项主流 benchmark 中 Gemini 3.1 Pro 领先其中 13 项。</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>另外两个关键数字</strong>
+        <p>GPQA Diamond（研究生级科学题）达到 <strong>94.3%</strong>，目前行业最高。AA-Omniscience 事实准确度 <strong>33 分</strong>，第二名不足 14 分。</p>
+      </div>
+    </div>
+
+    <p>性能有了，再看价格。下图横向对比了目前主流模型的 API 输入定价：</p>
+
+    <div class="chart-container">
+      <div class="chart-title">主流模型 API 输入价格对比（$/百万 token，越低越经济；来源：各模型官方定价页）</div>
+      <canvas id="priceChart" height="200"></canvas>
+    </div>
+
+    <p>Gemini 3.1 Pro 的 API 定价是 Claude / Grok 的 <strong>约 40%</strong>，比 GPT-4.5 便宜 <strong>60 倍</strong>。对个人用户来说，Google AI Studio 还提供完全免费的 API 接口，每天 300 万 token 上限，轻量开发完全够用。</p>
+
+    <!-- 二、选哪个入口 -->
+    <h2>📋 准备工作：选对使用入口</h2>
+    <p>Gemini 3.1 Pro 有三种使用方式，根据你的需求选一个：</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>渠道</th><th>适合谁</th><th>费用</th><th>地址</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>gemini.google.com</strong></td>
+            <td>普通用户，日常对话 / 文件处理</td>
+            <td>免费（有每日限额）</td>
+            <td><a href="https://gemini.google.com" target="_blank">gemini.google.com</a></td>
+          </tr>
+          <tr>
+            <td><strong>Google AI Pro</strong></td>
+            <td>高频用户，需要更多使用量</td>
+            <td>$19.99 / 月</td>
+            <td>在 gemini.google.com 内订阅</td>
+          </tr>
+          <tr>
+            <td><strong>Google AI Studio</strong></td>
+            <td>开发者 / 研究者，需要 API</td>
+            <td><strong>完全免费</strong>，300 万 token / 天</td>
+            <td><a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>选哪个？一句话建议</strong>
+        <p>第一次用：直接去 <strong>gemini.google.com</strong>，免费、最直观。想接 API 做自己的项目：去 <strong>Google AI Studio</strong>，免费额度更多，不需要绑定信用卡。</p>
+      </div>
+    </div>
+
+    <!-- 三、流程总览 -->
+    <h2>🗺️ 上手路径总览</h2>
+
+    <div class="diagram">
+      <div class="diagram-title">Gemini 3.1 Pro 完整上手流程</div>
+      <div class="mermaid">
+flowchart LR
+    A["📧 Step 1\n登录谷歌账号\ngmail.com"] --> B["🌐 Step 2\n打开 Gemini\ngemini.google.com"]
+    B --> C["⚙️ Step 3\n切换到 3.1 Pro 版本"]
+    C --> D["💬 Step 4\n发第一条消息"]
+    D --> E{"想做什么？"}
+    E -->|"处理文档 / 图片"| F["📎 Step 5A\n上传文件"]
+    E -->|"生成研究报告"| G["🔬 Step 5B\n开启 Deep Research"]
+    E -->|"开发者 / API"| H["🔧 Step 5C\nGoogle AI Studio"]
+
+    style A fill:#EFF6FF,stroke:#2563EB,color:#1D4ED8
+    style F fill:#F0FDF4,stroke:#16A34A,color:#166534
+    style G fill:#F0FDF4,stroke:#16A34A,color:#166534
+    style H fill:#F0FDF4,stroke:#16A34A,color:#166534
+    style E fill:#FFFBEB,stroke:#D97706,color:#92400E
+      </div>
+    </div>
+
+    <!-- 四、Step by Step -->
+    <h2>🚀 Step by Step 详细操作</h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>确认谷歌账号已登录</h4>
+          <p>打开浏览器，访问 <a href="https://gmail.com" target="_blank">gmail.com</a>，确认右上角显示你的头像说明已登录。没有账号的话点「创建账号」，填邮箱和密码，约 2 分钟注册完成。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>打开 Gemini 主界面</h4>
+          <p>访问 <a href="https://gemini.google.com" target="_blank">gemini.google.com</a>，页面会自动用你的谷歌账号登录，进入对话界面——一个干净的输入框加左侧边栏。</p>
+          <div class="callout callout-warning" style="margin-top:10px">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-body"><p>国内部分地区需要科学上网才能访问。如果打不开，可以先用 <a href="https://chat.deepseek.com" target="_blank">DeepSeek（免费、无需梯子）</a>作为替代方案。</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>切换到 Gemini 3.1 Pro</h4>
+          <p>在页面顶部找到模型名称（默认可能显示「Gemini」），点击下拉菜单，选择 <strong>Gemini 3.1 Pro</strong>。免费账号有一定的 3.1 Pro 使用额度，用完后会提示升级或自动回退基础版。</p>
+          <div class="callout callout-tip" style="margin-top:10px">
+            <span class="callout-icon">💡</span>
+            <div class="callout-body"><p>看不到 3.1 Pro 选项？当前区域可能还未全量开放，先用最新的 Gemini 版本体验，核心功能差异不大。</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>发第一条消息，感受推理能力</h4>
+          <p>在底部输入框粘贴下面这条消息，按 Enter 发送：</p>
+          <pre><code>用三步解释量子纠缠是什么，每步用一个生活场景类比，最后一句话给出结论</code></pre>
+          <p>此时你应该看到：<strong>3–5 秒内</strong>出现结构清晰、有标题有分段的回答，类比生动，逻辑层次比普通 AI 回答明显更好。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5A</div>
+        <div class="step-content">
+          <h4>上传文件（PDF / 图片 / 视频）</h4>
+          <p>点击输入框左侧的 <strong>「+」图标</strong>（或回形针图标），选择本地文件上传。支持 PDF、Word、图片、视频等格式，上下文窗口高达 1M token（约 75 万字）。</p>
+          <p>上传后发送：</p>
+          <pre><code>帮我用 5 条要点总结这份文档，每条不超过 2 句话</code></pre>
+          <p>此时你应该看到：Gemini 读取文档内容，输出结构化要点列表。遇到 50 页以上的 PDF，速度和准确率明显优于其他模型。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5B</div>
+        <div class="step-content">
+          <h4>开启 Deep Research（深度研究报告）</h4>
+          <p>在输入框下方找到 <strong>「🔬 深度研究」按钮</strong>，点击激活，然后输入研究主题，例如：</p>
+          <pre><code>2026 年全球储能行业现状与主要技术路线对比</code></pre>
+          <p>Gemini 会自动进行多轮联网搜索，整理成带引用链接的研究报告，通常需要 <strong>3–8 分钟</strong>。报告生成完成后可以一键导出到 Google Docs。</p>
+          <div class="callout callout-tip" style="margin-top:10px">
+            <span class="callout-icon">💡</span>
+            <div class="callout-body"><p>Deep Research 适合写行业调研、竞品分析、论文综述，比手动搜索整理效率高 5–10 倍。生成的报告会列出所有引用来源，方便核实。</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5C</div>
+        <div class="step-content">
+          <h4>（开发者）获取 Google AI Studio 免费 API</h4>
+          <p>打开 <a href="https://aistudio.google.com" target="_blank">aistudio.google.com</a>，用同一个 Google 账号登录，点击右上角 <strong>「Get API key」→「Create API key」</strong>，复制生成的密钥字符串。</p>
+          <p>免费额度：每天 <strong>300 万 token</strong>，每分钟 <strong>5 次请求</strong>，用于个人项目和测试完全够用，不需要绑定任何付款方式。</p>
+          <div class="callout callout-info" style="margin-top:10px">
+            <span class="callout-icon">ℹ️</span>
+            <div class="callout-body"><p>只是日常使用的话，跳过这一步。这一步专门给想把 Gemini 接入自己工具、脚本或 Agent 的开发者用的。</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 五、必试场景 -->
+    <h2>🎯 5 个必试使用场景</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>场景</th><th>参考 Prompt</th><th>预期效果</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>长文档摘要</strong></td>
+            <td>上传 PDF + 「用 5 条要点总结，每条一句话」</td>
+            <td>结构化要点，准确率高</td>
+          </tr>
+          <tr>
+            <td><strong>代码 Debug</strong></td>
+            <td>粘贴报错代码 + 「找出问题并给出修复后的完整代码」</td>
+            <td>直接输出可用的修复版本</td>
+          </tr>
+          <tr>
+            <td><strong>复杂推理</strong></td>
+            <td>「这道逻辑题：……（粘贴题目）请一步步推导」</td>
+            <td>逐步推导过程 + 最终答案</td>
+          </tr>
+          <tr>
+            <td><strong>多图对比</strong></td>
+            <td>上传两张图 + 「对比两图的主要差异，用表格列出」</td>
+            <td>表格形式的差异分析</td>
+          </tr>
+          <tr>
+            <td><strong>联网实时查询</strong></td>
+            <td>「查一下今天 [某行业] 的最新动态，整理成 3 条要点」</td>
+            <td>带来源链接的实时信息</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 六、效果验证 -->
+    <div class="verify-box">
+      <h3>✅ 效果验证</h3>
+      <ul>
+        <li>在 gemini.google.com 登录并看到对话界面 ✓</li>
+        <li>切换到 Gemini 3.1 Pro，发一条消息，10 秒内收到格式化回答 ✓</li>
+        <li>上传一份 PDF，收到结构化摘要 ✓</li>
+        <li>打开 Deep Research，提交主题，5 分钟内看到带引用链接的报告 ✓</li>
+        <li>（进阶）在 AI Studio 拿到免费 API Key ✓</li>
+      </ul>
+    </div>
+
+    <!-- 七、FAQ -->
+    <h2>❓ 常见问题</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">国内用户需要梯子吗？</div>
+        <div class="faq-a">访问 gemini.google.com 在国内大部分地区需要科学上网。Google AI Studio 部分地区可以直连。如果两者都无法访问，可以暂时用 <a href="https://chat.deepseek.com" target="_blank">DeepSeek</a> 作为替代——完全免费、无需梯子、MIT 开源。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">免费版每天能用多少？</div>
+        <div class="faq-a">免费版没有公开具体次数，轻度使用（10–20 次问答）通常不受影响。重度使用可能触达每日限额，届时会提示升级。AI Studio 免费 API 是每天 300 万 token、每分钟 5 次请求，轻量开发完全够用。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">和 ChatGPT 相比，哪个更好用？</div>
+        <div class="faq-a">各有侧重：Gemini 3.1 Pro 在逻辑推理、长文档处理（1M 上下文）、Google 生态集成（Docs / Gmail / Drive）上更强；GPT-4.5 在对话自然度和幻觉控制上有优势，但 API 贵 60 倍。处理长文档或做研究选 Gemini，日常闲聊两者都行。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">上传的文件会被 Google 拿去训练模型吗？</div>
+        <div class="faq-a">gemini.google.com 的对话内容默认可能被用于产品改进。进入「账号设置 → Gemini Apps Activity」关闭该选项即可避免。Google AI Studio 的 API 调用数据不会被用于训练，更适合处理敏感文件。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Deep Research 生成的报告准确吗？</div>
+        <div class="faq-a">整体准确率较高，但所有 AI 工具一样，数字和具体事实建议点开引用链接交叉验证。把它定位为「帮你做初步信息聚合」的工具，最终判断自己做，效果最好。</div>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>🔗 下一步可以尝试</h3>
+      <ul>
+        <li><strong>接入 Google Workspace</strong>：在 Gmail / Docs / Drive 里直接调用 Gemini，处理邮件和文档不用切换页面</li>
+        <li><strong>AI Studio 搭建小工具</strong>：用免费 API + Python 脚本把 Gemini 接入自己的工作流，比如自动汇总每天的行业新闻</li>
+        <li><strong>Gemini vs Perplexity 实测</strong>：两个联网 AI 对同一主题的深度研究报告输出有什么差别，亲自跑一下对比</li>
+        <li><strong>探索多模态视频理解</strong>：上传一段视频（最长支持约 2 小时），让 Gemini 分析视频内容、生成摘要或回答具体问题</li>
+      </ul>
+    
+      <p style="margin-top:16px;font-size:14px;font-weight:600;color:#374151;">📚 延伸阅读</p>
+      <ul>
+        <li><a href="36_gemini-cli-tutorial.html">免费用上谷歌 AI 编程助手！Gemini CLI 保姆级入门教程</a> — Gemini 的终端版本，程序员必备</li>
+        <li><a href="07_agent-platforms-guide.html">2026年最热门 AI Agent 搭建平台横评</a> — 了解 Gemini 之外的更多 AI 平台</li>
+        <li><a href="30_llama4-tutorial.html">免费跑最强开源大模型！Llama 4 保姆级入门教程</a> — 想要免费本地运行？Llama 4 是好选择</li>
+      </ul>
+</div>
+
+  </div>
+
+  <footer class="article-footer">
+    参考来源：
+    <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/" target="_blank">Google 官方博客 — Gemini 3.1 Pro 发布（2026-02-19）</a> ·
+    <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank">Google AI Studio 定价文档</a> ·
+    <a href="https://www.helicone.ai/blog/gemini-2.5-full-developer-guide" target="_blank">Helicone — Gemini 开发者指南</a> ·
+    <a href="https://lmcouncil.ai/benchmarks" target="_blank">LM Council 综合 Benchmark 排行</a> ·
+    <a href="https://zhuanlan.zhihu.com/p/2008475216876179853" target="_blank">知乎《2026 年 AI 模型选用攻略》</a>
+  </footer>
+
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-logo">⚡ AI<span class="accent">前沿</span></span>
+    <span>© 2026 AI前沿 · 原创内容</span>
+    <div class="site-footer-links">
+      <a href="../news.html">AI资讯</a>
+      <a href="../articles.html">AI科普</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>var _mt = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: _mt, flowchart: { curve: 'basis', useMaxWidth: true, htmlLabels: true } });</script>
+
+<script>
+// ── Chart 1：迭代对比 — Gemini 前代 vs 3.1 Pro（ARC-AGI-2）────
+new Chart(document.getElementById('iterationChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Gemini 3 Pro（前代）', 'Gemini 3.1 Pro（最新）'],
+    datasets: [{
+      data: [35, 77.1],
+      backgroundColor: ['#BFDBFE', '#2563EB'],
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.raw}%` } }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        border: { display: false },
+        ticks: { color: '#374151', font: { size: 13 } }
+      },
+      y: {
+        min: 0, max: 100,
+        grid: { color: '#F3F4F6' },
+        border: { display: false },
+        ticks: { color: '#6B7280', font: { size: 12 }, callback: v => v + '%' }
+      }
+    }
+  }
+});
+
+// ── Chart 2：API 价格横评（横向条形图）────────────────────────
+new Chart(document.getElementById('priceChart'), {
+  type: 'bar',
+  data: {
+    labels: ['GPT-4.5', 'Grok 3', 'Claude Sonnet 4.6', 'Gemini 3.1 Pro'],
+    datasets: [{
+      data: [75, 3, 3, 1.25],
+      backgroundColor: ['#BFDBFE', '#DDD6FE', '#BBF7D0', '#2563EB'],
+      borderRadius: 4,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` $${ctx.raw} / 百万 token` } }
+    },
+    scales: {
+      x: {
+        grid: { color: '#F3F4F6' },
+        border: { display: false },
+        ticks: { color: '#6B7280', font: { size: 12 }, callback: v => '$' + v }
+      },
+      y: {
+        grid: { display: false },
+        border: { display: false },
+        ticks: { color: '#374151', font: { size: 13 } }
+      }
+    }
+  }
+});
+</script>
+
+<script>
+(function () {
+  var headings = document.querySelectorAll('.article-body h2');
+  var tocList  = document.getElementById('tocList');
+  if (tocList && headings.length) {
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'toc-link';
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          tocList.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('toc-active'); });
+          var active = tocList.querySelector('a[href="#' + id + '"]');
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-5% 0px -75% 0px' });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+  var btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ai-article-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
+</body>
+</html>

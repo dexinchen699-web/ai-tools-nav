@@ -1,0 +1,98 @@
+[
+  {
+    "rank": 1,
+    "name": "Claude Opus 4.6",
+    "maker": "Anthropic",
+    "score": 99,
+    "context": "200K",
+    "params": "未公开",
+    "multimodal": true,
+    "reasoning": true,
+    "code": true,
+    "free": false
+  },
+  {
+    "rank": 2,
+    "name": "GPT-5.4",
+    "maker": "OpenAI",
+    "score": 98,
+    "context": "128K",
+    "params": "未公开",
+    "multimodal": true,
+    "reasoning": true,
+    "code": true,
+    "free": false
+  },
+  {
+    "rank": 3,
+    "name": "Gemini 3.1 Ultra",
+    "maker": "Google",
+    "score": 96,
+    "context": "1M",
+    "params": "未公开",
+    "multimodal": true,
+    "reasoning": true,
+    "code": true,
+    "free": false
+  },
+  {
+    "rank": 4,
+    "name": "Grok-3",
+    "maker": "xAI",
+    "score": 92,
+    "context": "131K",
+    "params": "未公开",
+    "multimodal": true,
+    "reasoning": true,
+    "code": true,
+    "free": false
+  },
+  {
+    "rank": 5,
+    "name": "DeepSeek-V3",
+    "maker": "DeepSeek",
+    "score": 91,
+    "context": "128K",
+    "params": "671B",
+    "multimodal": false,
+    "reasoning": true,
+    "code": true,
+    "free": true
+  },
+  {
+    "rank": 6,
+    "name": "Llama 4 Maverick",
+    "maker": "Meta",
+    "score": 89,
+    "context": "10M",
+    "params": "400B",
+    "multimodal": true,
+    "reasoning": true,
+    "code": true,
+    "free": true
+  },
+  {
+    "rank": 7,
+    "name": "Qwen3-235B",
+    "maker": "阿里云",
+    "score": 87,
+    "context": "128K",
+    "params": "235B",
+    "multimodal": false,
+    "reasoning": true,
+    "code": true,
+    "free": true
+  },
+  {
+    "rank": 8,
+    "name": "Gemma 4-27B",
+    "maker": "Google",
+    "score": 81,
+    "context": "128K",
+    "params": "27B",
+    "multimodal": true,
+    "reasoning": true,
+    "code": true,
+    "free": true
+  }
+]

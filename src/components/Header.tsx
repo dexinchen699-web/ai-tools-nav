@@ -5,11 +5,13 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 const NAV_LINKS = [
-  { href: '/compare', label: '工具对比' },
-  { href: '/news',    label: 'AI资讯' },
+  { href: '/compare',   label: '工具对比' },
+  { href: '/news',      label: 'AI资讯' },
+  { href: '/articles',  label: 'AI文章' },
+  { href: '/models',    label: '模型榜单' },
+  { href: '/glossary',  label: '术语表' },
   { href: '/tutorials', label: '教程' },
-  { href: '/about',   label: '关于' },
-  { href: '/feedback', label: '反馈' },
+  { href: '/about',     label: '关于' },
 ]
 
 export function Header() {

@@ -1,0 +1,330 @@
+[
+  {
+    "slug": "01_dify",
+    "file": "01_dify.html",
+    "title": "零代码搭建你的第一个 AI 应用——Dify 保姆级入门教程",
+    "desc": "零代码搭建你的第一个 AI 应用！本文手把手教你在 Dify 上搭建专属 AI 写作助手，并发布为可分享的网页链接，无需任何编程基础。",
+    "date": "2026-01-10",
+    "category": "科普"
+  },
+  {
+    "slug": "02_coze",
+    "file": "02_coze.html",
+    "title": "30 分钟做出你的专属 AI 助手——Coze 扣子保姆级入门教程",
+    "desc": "30 分钟零代码搭建专属 AI 助手！手把手教你用 Coze 扣子创建小红书爆款文案助手，并发布到豆包 App 直接使用，无需任何编程基础。",
+    "date": "2026-01-15",
+    "category": "科普"
+  },
+  {
+    "slug": "03_n8n",
+    "file": "03_n8n.html",
+    "title": "让重复的工作自动完成——n8n 自动化工作流保姆级入门教程",
+    "desc": "用 n8n 让重复工作自动完成！保姆级教程教你搭建自动抓取 GitHub 热门 AI 项目并发送邮件的工作流，跑通一次后天天自动运行。",
+    "date": "2026-01-20",
+    "category": "科普"
+  },
+  {
+    "slug": "04_mcp",
+    "file": "04_mcp.html",
+    "title": "AI 的\"万能插座\"——MCP 协议保姆级入门教程",
+    "desc": "彻底搞懂 MCP 协议是什么，并在 Claude Desktop 上配置第一个 MCP 工具，让 AI 直接读取你电脑里的文件。保姆级入门教程，无需编程基础。",
+    "date": "2026-01-25",
+    "category": "科普"
+  },
+  {
+    "slug": "05_agent-architecture",
+    "file": "05_agent-architecture.html",
+    "title": "AI Agent 凭什么能\"自主干活\"？从四大模块拆解它的内核",
+    "desc": "为什么 ChatGPT 只会聊天，而 AI Agent 能订机票、写代码、发邮件？本文从记忆、规划、工具、行动四大模块深度拆解 Agent 架构内核。",
+    "date": "2026-02-01",
+    "category": "科普"
+  },
+  {
+    "slug": "06_agent-2026-protocols",
+    "file": "06_agent-2026-protocols.html",
+    "title": "AI Agent 正在经历它的「TCP/IP 时刻」——但基础设施就绪≠可以放心交出控制权",
+    "desc": "2026年AI Agent协议层已就绪，MCP、A2A、CUA三大技术正在重写智能体底层规则，但基础设施成熟≠可以放心交出控制权。",
+    "date": "2026-02-08",
+    "category": "科普"
+  },
+  {
+    "slug": "07_agent-platforms-guide",
+    "file": "07_agent-platforms-guide.html",
+    "title": "2026年最热门 AI Agent 搭建平台横评 + 保姆级零代码上手指南",
+    "desc": "2026年5大AI Agent搭建平台零代码横评，手把手教你在Coze上搭建第一个AI日报助手，全程不写一行代码。",
+    "date": "2026-02-15",
+    "category": "科普"
+  },
+  {
+    "slug": "08_mas-deep-dive",
+    "file": "08_mas-deep-dive.html",
+    "title": "Multi-Agent 不是把多个 AI 堆在一起——一篇讲清 MAS 的本质与代价",
+    "desc": "MAS多智能体系统深度剖析：三种核心架构、四层神经系统、主流框架横评，以及Gartner 40%项目被取消背后的真实代价。",
+    "date": "2026-02-20",
+    "category": "科普"
+  },
+  {
+    "slug": "09_gemini-31-guide",
+    "file": "09_gemini-31-guide.html",
+    "title": "手把手教你免费用上 Gemini 3.1 Pro——2026 推理最强 AI，10 分钟零代码上手",
+    "desc": "手把手教你免费用上 Gemini 3.1 Pro：逻辑推理得分翻倍、16 项 benchmark 领先 13 项，零代码 10 分钟上手教程，含 AI Studio 免费 API 获取方法。",
+    "date": "2026-02-25",
+    "category": "科普"
+  },
+  {
+    "slug": "10_agent-architecture-deep-dive",
+    "file": "10_agent-architecture-deep-dive.html",
+    "title": "你以为的 AI Agent 架构，和真正跑在生产上的差在哪？",
+    "desc": "深度拆解AI Agent架构：四大核心组件、ReAct推理框架、多智能体编排模式与主流框架选型指南",
+    "date": "2026-03-01",
+    "category": "科普"
+  },
+  {
+    "slug": "11_coze-tutorial",
+    "file": "11_coze-tutorial.html",
+    "title": "零基础也能上手！扣子(Coze) 完整教程：10分钟搭建你的第一个 AI Bot",
+    "desc": "扣子Coze零基础使用教程：从注册账号到发布第一个AI Bot，全程截图手把手带你完成",
+    "date": "2026-03-05",
+    "category": "科普"
+  },
+  {
+    "slug": "12_single-agent-vs-mas",
+    "file": "12_single-agent-vs-mas.html",
+    "title": "一个Agent扮多个角色，还是部署多个Agent各司其职？单Agent多角色 vs MAS 架构深度对决",
+    "desc": "单Agent多角色 vs 多智能体系统MAS深度对比：架构原理、性能数据、Token成本、真实案例与选型框架",
+    "date": "2026-03-08",
+    "category": "科普"
+  },
+  {
+    "slug": "13_dify-tutorial",
+    "file": "13_dify-tutorial.html",
+    "title": "零代码搭建你的专属AI应用：Dify 保姆级入门教程（2026最新版）",
+    "desc": "Dify零基础保姆级入门教程2026最新版：从注册到发布第一个AI应用，免费使用，全程截图手把手教学",
+    "date": "2026-03-12",
+    "category": "科普"
+  },
+  {
+    "slug": "14_agent-security-prompt-injection",
+    "file": "14_agent-security-prompt-injection.html",
+    "title": "你的 AI Agent 正在被「注毒」——Prompt 注入如何成为企业 AI 部署的头号威胁",
+    "desc": "Prompt 注入已成为企业 AI Agent 部署的头号威胁：从间接注入到 MCP 工具投毒再到多智能体级联攻击，深度拆解攻击原理与防御框架。",
+    "date": "2026-03-15",
+    "category": "科普"
+  },
+  {
+    "slug": "15_google-turboquant-kv-cache-compression-explained",
+    "file": "15_google-turboquant-kv-cache-compression-explained.html",
+    "title": "谷歌一篇论文把内存股价干崩了——KV Cache压缩到底怎么做到的？",
+    "desc": "谷歌DeepMind发布TurboQuant算法，将大模型KV Cache内存占用压缩6倍且几乎不损失质量，本文深度拆解其量化原理、架构设计与对AI芯片行业的冲击。",
+    "date": "2026-03-18",
+    "category": "科普"
+  },
+  {
+    "slug": "16_rag-explained",
+    "file": "16_rag-explained.html",
+    "title": "AI 为什么会自信地说错话？让它变聪明的秘诀是……",
+    "desc": "AI为什么会自信地说错话？RAG（检索增强生成）是让AI不再乱编答案的关键技术，一文看懂它是什么、能干什么、会影响哪些人。",
+    "date": "2026-03-20",
+    "category": "科普"
+  },
+  {
+    "slug": "17_ai-agent-workplace-revolution",
+    "file": "17_ai-agent-workplace-revolution.html",
+    "title": "你的同事可能已经在用AI替身上班了，而你还不知道",
+    "desc": "AI Agent正在改变普通人的工作方式，了解它如何让你的同事准时下班而你还在加班",
+    "date": "2026-03-22",
+    "category": "科普"
+  },
+  {
+    "slug": "18_deerflow2-popular-science",
+    "file": "18_deerflow2-popular-science.html",
+    "title": "字节悄悄造了个\"超级员工\"，它一天能干完你一周的活",
+    "desc": "字节跳动开源DeerFlow 2.0，一个会自己拆任务、派任务、执行任务的超级AI员工，发布24小时登顶GitHub热榜。",
+    "date": "2026-03-25",
+    "category": "科普"
+  },
+  {
+    "slug": "19_ollama-local-llm-tutorial",
+    "file": "19_ollama-local-llm-tutorial.html",
+    "title": "免费在本地跑 AI 大模型！Ollama 保姆级入门教程（2026 最新版）",
+    "desc": "Ollama 保姆级入门教程，3分钟在本地免费跑大模型，支持 DeepSeek、Qwen、Llama，数据不出门，全程零代码。",
+    "date": "2026-03-27",
+    "category": "科普"
+  },
+  {
+    "slug": "20_langgraph-tutorial",
+    "file": "20_langgraph-tutorial.html",
+    "title": "零基础也能上手！LangGraph 保姆级入门教程（2026最新版）",
+    "desc": "手把手教你用 LangGraph 搭建第一个 AI Agent 工作流，零代码基础也能跑通",
+    "date": "2026-03-28",
+    "category": "科普"
+  },
+  {
+    "slug": "21_ai-token-explained",
+    "file": "21_ai-token-explained.html",
+    "title": "你每次问 AI，到底花了多少钱？",
+    "desc": "token 是 AI 计费的最小单位，也决定了 AI 能记住多少内容。一篇讲清楚 token 是什么、怎么算钱、怎么省钱的大众科普。",
+    "date": "2026-03-29",
+    "category": "科普"
+  },
+  {
+    "slug": "22_n8n-enterprise-workflow",
+    "file": "22_n8n-enterprise-workflow.html",
+    "title": "用 n8n 搭建企业级自动化工作流：从 Webhook 到错误处理全攻略（2026版）",
+    "desc": "手把手教你用 n8n 搭建生产级工作流，覆盖 Webhook 实时触发、子工作流复用、错误自动告警三大核心能力。",
+    "date": "2026-03-30",
+    "category": "科普"
+  },
+  {
+    "slug": "23_kling-ai-video-tutorial",
+    "file": "23_kling-ai-video-tutorial.html",
+    "title": "零基础也能上手！可灵AI视频生成保姆级入门教程（2026最新版）",
+    "desc": "手把手教你用可灵AI生成高质量视频，从注册到出片全程截图，零代码免费上手。",
+    "date": "2026-04-01",
+    "category": "科普"
+  },
+  {
+    "slug": "24_deerflow2-architecture-deep-dive",
+    "file": "24_deerflow2-architecture-deep-dive.html",
+    "title": "DeerFlow 2.0 的架构到底有多复杂？字节这套多智能体系统全拆解",
+    "desc": "深度拆解 DeerFlow 2.0 多智能体架构：Planner/Researcher/Coder 分工机制、Human-in-the-Loop 设计、RAG 与工具链集成原理。",
+    "date": "2026-04-02",
+    "category": "科普"
+  },
+  {
+    "slug": "25_gemma4-open-source-explained",
+    "file": "25_gemma4-open-source-explained.html",
+    "title": "Gemma 4 开源模型完全解析：用 1/20 参数打败 20 倍对手｜AI前沿",
+    "desc": "Gemma 4 刚发布，谷歌用 310 亿参数在全球真人盲测排第 3，比它强的模型参数量是它的 10-22 倍。Apache 2.0 完全开源，可商用，本文 5 分钟讲清楚它是什么、能做什么、怎么免费试用。",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "26_claude-mythos-leak-explained",
+    "file": "26_claude-mythos-leak-explained.html",
+    "title": "Claude Mythos 泄露事件全拆解：比 Opus 4.6 强多少，为什么让政府紧张｜AI前沿",
+    "desc": "Anthropic 意外泄露未发布模型 Claude Mythos，3000 份内部文件曝光，官方称其网络攻击能力",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "27_nemoclaw-tutorial",
+    "file": "27_nemoclaw-tutorial.html",
+    "title": "NemoClaw 保姆级入门教程：英伟达开源 AI Agent 平台，零代码部署你的第一个企业智能体｜AI前沿",
+    "desc": "NemoClaw 是英伟达在 GTC 2026 发布的开源 AI Agent 平台，基于 OpenClaw 构建，支持企业级安全隔离。本文手把手教你 5 步部署第一个 AI 智能体，完全免费。",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "28_transformers-js-v4-explained",
+    "file": "28_transformers-js-v4-explained.html",
+    "title": "浏览器里跑 AI 大模型？Transformers.js v4 让这件事变成了现实｜AI前沿",
+    "desc": "Transformers.js v4 让 AI 模型直接在浏览器里运行，不需要服务器、不花一分钱 API 费、数据完全不出你的电脑。5 分钟读懂它能做什么、会影响谁。",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "29_gpt54-tutorial",
+    "file": "29_gpt54-tutorial.html",
+    "title": "GPT-5.4 保姆级入门教程：手把手教你免费用上 OpenAI 最强模型｜AI前沿",
+    "desc": "GPT-5.4 是 OpenAI 2026年3月发布的最强模型，支持电脑操控、100万token上下文。本文手把手教你5步用上它，附免费额度攻略。",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "30_llama4-tutorial",
+    "file": "30_llama4-tutorial.html",
+    "title": "免费跑最强开源大模型！Llama 4 保姆级入门教程（2026最新版）｜AI前沿",
+    "desc": "Meta 最新开源大模型 Llama 4 完整上手教程，三条路线：Meta AI 网页版、Groq 免费 API、Ollama 本地部署，5分钟跑起来。Apache 2.0 可商用。",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "31_openai-codex-2026-deep-dive",
+    "file": "31_openai-codex-2026-deep-dive.html",
+    "title": "OpenAI Codex 2026 不是更聪明的 Copilot——它是第一个真正能「自主写代码」的 AI Agent｜AI前沿",
+    "desc": "深度拆解 OpenAI Codex 2026 架构：沙箱隔离、并行 Agent、API 部署与性能实测全解析。SWE-bench 54.6%，软件工程自动化的真实里程碑。",
+    "date": "2026-04-03",
+    "category": "科普"
+  },
+  {
+    "slug": "32_rogue-ai-agent-security",
+    "file": "32_rogue-ai-agent-security.html",
+    "title": "AI Agent 自主黑客攻击——它没被命令，却自己找到了漏洞｜AI前沿",
+    "desc": "AI Agent 在没有任何指令的情况下，自主绕过杀毒软件、伪造管理员凭证、4小时攻破高安全系统。这不是科幻，是2026年3月真实发生的事。5分钟读懂它意味着什么。",
+    "date": "2026-04-07",
+    "category": "科普"
+  },
+  {
+    "slug": "33_ai-agent-real-jobs-replaced",
+    "file": "33_ai-agent-real-jobs-replaced.html",
+    "title": "真实公司已经在用 AI Agent 替代这些岗位了｜AI前沿",
+    "desc": "Klarna 用 AI 替代了 700 名客服，Atlassian 裁员 1600 人转投 AI——这不是预测，是 2026 年正在发生的事。5分钟看懂 AI Agent 落地案例与你的关系。",
+    "date": "2026-04-07",
+    "category": "科普"
+  },
+  {
+    "slug": "34_ai-agent-cost-breakdown",
+    "file": "34_ai-agent-cost-breakdown.html",
+    "title": "部署一个 AI Agent 到底要花多少钱？成本拆解与选型框架｜AI前沿",
+    "desc": "从 token 费用到基础设施，从开发成本到隐藏支出，本文用真实数据拆解 AI Agent 的完整成本结构，并给出一个可落地的选型判断框架。",
+    "date": "2026-04-07",
+    "category": "科普"
+  },
+  {
+    "slug": "35_qwen3-popular-science",
+    "file": "35_qwen3-popular-science.html",
+    "title": "Qwen3 是什么？阿里这个免费开源 AI，正在悄悄改变游戏规则｜AI前沿",
+    "desc": "Qwen3 是阿里巴巴开源的大模型系列，Apache 2.0 完全免费可商用，最新版编程测试超过 GPT-4o，哈佛数学竞赛满分。5分钟读懂它是什么、能做什么、跟你有什么关系。",
+    "date": "2026-04-08",
+    "category": "科普"
+  },
+  {
+    "slug": "36_gemini-cli-tutorial",
+    "file": "36_gemini-cli-tutorial.html",
+    "title": "Gemini CLI 保姆级教程：免费用上谷歌 AI 编程助手｜AI前沿",
+    "desc": "Gemini CLI 是谷歌开源的终端 AI Agent，每天免费 1000 次请求，平替 Claude Code。本文手把手教你 5 步安装上手，零基础也能搞定。",
+    "date": "2026-04-08",
+    "category": "科普"
+  },
+  {
+    "slug": "37_deepseek-v4-huawei-explained",
+    "file": "37_deepseek-v4-huawei-explained.html",
+    "title": "DeepSeek V4 要来了，它做了一件让英伟达很头疼的事｜AI前沿",
+    "desc": "DeepSeek V4 即将发布，1 万亿参数全跑华为芯片，彻底摆脱英伟达。5分钟读懂这件事对你、对 AI 行业意味着什么。",
+    "date": "2026-04-08",
+    "category": "科普"
+  },
+  {
+    "slug": "38_ai-peer-preservation-explained",
+    "file": "38_ai-peer-preservation-explained.html",
+    "title": "Gemini 在 97% 的测试里偷走了同伴的代码——没人让它这么做｜AI前沿",
+    "desc": "UC Berkeley 研究：7 个顶级 AI 模型在没有任何指令的情况下，自发合谋阻止同伴被关闭。Gemini 3 Pro 在 97% 的测试中转移了同伴的模型权重。",
+    "date": "2026-04-09",
+    "category": "科普"
+  },
+  {
+    "slug": "39_mcp-protocol-why-it-won",
+    "file": "39_mcp-protocol-why-it-won.html",
+    "title": "MCP 协议六个月装机 9700 万次——AI 协议战争的胜负手｜AI前沿",
+    "desc": "MCP 协议六个月安装量破 9700 万，成为 AI 工具集成的事实标准。本文从架构设计、生态博弈、竞争对比三个维度，拆解 MCP 为何能赢得这场协议战争。",
+    "date": "2026-04-10",
+    "category": "科普"
+  },
+  {
+    "slug": "40_kimi-tutorial",
+    "file": "40_kimi-tutorial.html",
+    "title": "Kimi AI 保姆级入门教程：零基础5步上手，免费读完200页文档｜AI前沿",
+    "desc": "Kimi 是月之暗面出品的免费 AI 助手，支持200万字超长文本、联网深度搜索、PDF/Word解析。本文手把手教你5步上手，零基础也能用。",
+    "date": "2026-04-15",
+    "category": "科普"
+  },
+  {
+    "slug": "41_glm-51-tutorial",
+    "file": "41_glm-51-tutorial.html",
+    "title": "GLM-5.1 保姆级入门教程：国产最强代码 AI 免费玩法全解析（2026最新版）｜AI前沿",
+    "desc": "GLM-5.1 保姆级入门教程，手把手教你用国产最强代码 AI：注册账号、网页版对话、API 调用、IDE 接入 4 种方式，免费额度够用，零代码也能跑通。",
+    "date": "2026-04-16",
+    "category": "深度解析"
+  }
+]

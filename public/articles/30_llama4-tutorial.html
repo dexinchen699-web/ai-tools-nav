@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('ai-article-theme')||'light');</script>
+  <title>免费跑最强开源大模型！Llama 4 保姆级入门教程（2026最新版）｜AI前沿</title>
+  <meta name="description" content="Meta 最新开源大模型 Llama 4 完整上手教程，三条路线：Meta AI 网页版、Groq 免费 API、Ollama 本地部署，5分钟跑起来。Apache 2.0 可商用。">
+  <link rel="canonical" href="https://cc-newplayer.github.io/seo-farm/articles/30_llama4-tutorial.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "免费跑最强开源大模型！Llama 4 保姆级入门教程（2026最新版）",
+    "description": "Meta 最新开源大模型 Llama 4 完整上手教程，三条路线：Meta AI 网页版、Groq 免费 API、Ollama 本地部署，5分钟跑起来。",
+    "datePublished": "2026-04-03",
+    "author": { "@type": "Organization", "name": "AI前沿" },
+    "publisher": { "@type": "Organization", "name": "AI前沿" }
+  }
+  </script>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="免费跑最强开源大模型！Llama 4 保姆级入门教程（2026最新版）" />
+  <meta property="og:description" content="Meta 最新开源大模型 Llama 4 完整上手教程，三条路线：Meta AI 网页版、Groq 免费 API、Ollama 本地部署，5分钟跑起来。" />
+  <meta property="og:url" content="https://cc-newplayer.github.io/seo-farm/articles/30_llama4-tutorial.html" />
+  <meta property="og:site_name" content="AI前沿" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/30_img1_llama4_cover.jpg" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="免费跑最强开源大模型！Llama 4 保姆级入门教程（2026最新版）" />
+  <meta name="twitter:description" content="Meta 最新开源大模型 Llama 4 完整上手教程，三条路线：Meta AI 网页版、Groq 免费 API、Ollama 本地部署，5分钟跑起来。" />
+  <meta name="twitter:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/30_img1_llama4_cover.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="article-common.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-logo">⚡ AI<span class="accent">前沿</span></a>
+    <div class="site-nav-links">
+      <a href="../index.html">首页</a>
+      <a href="../news.html">AI资讯</a>
+      <a href="../tools.html">AI工具</a>
+      <a href="../articles.html">AI文章</a>
+      <a href="../glossary.html">术语表</a>
+      <a href="../about.html">关于</a>
+      <button id="themeToggle" class="theme-btn" aria-label="切换主题">🌙</button>
+    </div>
+  </div>
+</nav>
+<aside class="toc-sidebar" id="tocSidebar">
+  <div class="toc-label">📑 本文目录</div>
+  <ul class="toc-list" id="tocList"></ul>
+</aside>
+<div class="page-wrapper">
+
+  <header class="article-header">
+    <div class="badge-row">
+      <span class="badge badge-tutorial">📘 保姆级教程</span>
+      <span class="badge badge-meta">⏱ 约 8 分钟阅读</span>
+      <span class="badge badge-meta">开源大模型</span>
+    </div>
+    <h1>免费跑最强开源大模型！Llama 4 保姆级入门教程（2026最新版）</h1>
+    <p class="article-lead">读完本文，你能用上 Llama 4——三条路线任选：网页直接聊、Groq 免费 API、Ollama 本地跑。前置条件：一台能上网的电脑，仅此而已。</p>
+  </header>
+
+  <div class="article-body">
+    <img src="images/30_img1_llama4_cover.jpg" alt="Llama 4 保姆级入门教程封面图" style="width:100%;border-radius:12px;margin-bottom:24px;">
+
+    <h2>Llama 4 是什么？先用 1 分钟搞清楚</h2>
+    <p>Llama 4 是 Meta（Facebook 母公司）开源的大语言模型家族，2025 年 4 月发布。它有三个主要版本：</p>
+
+    <table>
+      <thead><tr><th>版本</th><th>参数量</th><th>适合场景</th><th>本地跑得动吗？</th></tr></thead>
+      <tbody>
+        <tr><td>Llama 4 Scout</td><td>17B（激活参数）</td><td>日常对话、文档处理</td><td>✅ 16GB 内存可跑</td></tr>
+        <tr><td>Llama 4 Maverick</td><td>17B（激活参数）</td><td>图文理解、复杂推理</td><td>✅ 需要 GPU</td></tr>
+        <tr><td>Llama 4 Behemoth</td><td>288B（激活参数）</td><td>顶级推理任务</td><td>❌ 需要数据中心级硬件</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body"><strong>小白解释</strong>：参数量就像模型的"脑细胞数量"，越多越聪明，但也越吃硬件。Llama 4 用了 MoE（混合专家）架构，每次只调用一部分参数来回答问题，所以实际运行比参数总量看起来轻得多。</div>
+    </div>
+
+    <p>Llama 4 的几个亮点：</p>
+    <ul>
+      <li><strong>多模态</strong>：能看图、理解图片内容（Maverick 版本）</li>
+      <li><strong>超长上下文</strong>：Scout 支持 10M token 上下文窗口，相当于能一次性读完几十本书</li>
+      <li><strong>Apache 2.0 协议</strong>：可以免费商用，不用担心版权问题</li>
+    </ul>
+
+    <h2>选哪种方式上手？</h2>
+
+    <img src="images/30_img2_llama4_paths.jpg" alt="Llama 4 三种使用路径示意图" style="width:100%;border-radius:12px;margin-bottom:24px;">
+
+    <p>根据你的情况，有 3 条路可以走：</p>
+    <ul>
+      <li>想直接聊天，不折腾？→ <strong>路线 1：Meta AI 网页版</strong>（最简单）</li>
+      <li>想免费调 API，做点小应用？→ <strong>路线 2：Groq 云端 API</strong>（免费额度）</li>
+      <li>想完全本地跑，数据不出门？→ <strong>路线 3：Ollama 本地部署</strong></li>
+    </ul>
+
+    <h2>路线 1：Meta AI 网页版（5 分钟上手）</h2>
+    <p>这是最快的方式，打开浏览器就能用。</p>
+
+    <h3>Step 1：打开 Meta AI 官网</h3>
+    <p>访问 <code>meta.ai</code>，点击右上角 <strong>「Sign in」</strong> 登录。用 Facebook 或 Instagram 账号授权即可。</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">此时你应该看到一个简洁的对话界面，左侧有历史记录栏，中间是输入框。</div>
+    </div>
+
+    <h3>Step 2：选择模型</h3>
+    <p>在输入框上方，点击模型选择下拉菜单，选择 <strong>「Llama 4」</strong>（默认已经是 Llama 4 Maverick）。</p>
+
+    <h3>Step 3：开始对话</h3>
+    <p>直接在输入框里打字提问就行了。点击输入框左侧的 📎 图标可以上传图片，让 Llama 4 帮你分析图片内容。</p>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>小技巧</strong>：Meta AI 网页版在中国大陆访问需要科学上网。如果访问不稳定，推荐直接跳到路线 2 或路线 3。</div>
+    </div>
+
+    <h2>路线 2：Groq 免费 API（开发者友好）</h2>
+    <p>Groq 是一家提供超高速 AI 推理服务的平台，目前免费托管了 Llama 4 Scout 和 Maverick，速度极快（每秒输出 800+ token），而且有免费额度。</p>
+
+    <h3>Step 1：注册 Groq 账号</h3>
+    <p>访问 <code>console.groq.com</code>，点击 <strong>「Sign Up」</strong> 注册账号，支持 Google 账号一键登录。</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">注册完成后，你会进入 Groq Console 控制台，左侧菜单有「Playground」和「API Keys」两个核心入口。</div>
+    </div>
+
+    <h3>Step 2：在 Playground 里直接试用</h3>
+    <p>点击左侧 <strong>「Playground」</strong>，在右上角的模型选择框里找到：</p>
+    <ul>
+      <li><code>meta-llama/llama-4-scout-17b-16e-instruct</code>（文字对话）</li>
+      <li><code>meta-llama/llama-4-maverick-17b-128e-instruct</code>（支持图片）</li>
+    </ul>
+    <p>选好模型后，在底部输入框里直接提问，点击发送。</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">此时你应该看到模型以极快的速度流式输出回答，Groq 的推理速度比普通云端 API 快 5-10 倍，这是它的核心卖点。</div>
+    </div>
+
+    <h3>Step 3：获取 API Key（可选，用于接入自己的应用）</h3>
+    <p>点击左侧 <strong>「API Keys」</strong> → <strong>「Create API Key」</strong>，给 Key 起个名字，点击创建。</p>
+
+    <div class="callout callout-warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body"><strong>注意</strong>：API Key 只会显示一次，创建后立刻复制保存到安全的地方。关掉弹窗后就再也看不到完整的 Key 了。</div>
+    </div>
+
+    <p>拿到 API Key 之后，你就可以在 Dify、n8n 等工具里接入 Llama 4 了。具体接入方法可以参考<a href="01_dify.html">用 Dify 搭建自己的 AI 应用</a>这篇教程。</p>
+
+    <p><strong>免费额度参考</strong>（2026年4月数据，以官网为准）：</p>
+    <ul>
+      <li>Llama 4 Scout：每天 14,400 次请求，每分钟 30 次</li>
+      <li>Llama 4 Maverick：每天 14,400 次请求，每分钟 30 次</li>
+    </ul>
+
+    <h2>路线 3：Ollama 本地部署（数据完全不出门）</h2>
+    <p>如果你对数据隐私有要求，或者想在没有网络的环境下使用，本地部署是最好的选择。</p>
+
+    <div class="callout callout-warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body"><strong>注意</strong>：本地跑 Llama 4 Scout（量化版）至少需要 16GB 内存，推荐 32GB。如果你的电脑内存不够，建议选路线 1 或路线 2。</div>
+    </div>
+
+    <p>关于 Ollama 的完整安装和使用方法，我们之前已经写了一篇非常详细的 <a href="19_ollama-local-llm-tutorial.html">Ollama 保姆级入门教程</a>，这里只补充 Llama 4 专属的部分。</p>
+
+    <h3>Step 1：安装 Ollama</h3>
+    <p>访问 <code>ollama.com</code>，下载对应系统的安装包：</p>
+    <ul>
+      <li>Windows：下载 <code>.exe</code> 安装包，双击安装</li>
+      <li>Mac：下载 <code>.dmg</code>，拖入 Applications</li>
+      <li>Linux：终端运行 <code>curl -fsSL https://ollama.com/install.sh | sh</code></li>
+    </ul>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">此时你应该在系统托盘（Windows 右下角 / Mac 顶部菜单栏）看到一个羊驼图标，说明 Ollama 已经在后台运行了。</div>
+    </div>
+
+    <h3>Step 2：拉取 Llama 4 模型</h3>
+    <p>打开终端，输入：</p>
+    <pre><code># 拉取 Llama 4 Scout（推荐，约 10GB）
+ollama pull llama4:scout
+
+# 或者拉取 Maverick（支持图片，约 24GB）
+ollama pull llama4:maverick</code></pre>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body"><strong>小技巧</strong>：模型文件比较大，下载时间取决于你的网速。如果下载中断，重新运行同一条命令会从断点续传。</div>
+    </div>
+
+    <h3>Step 3：启动对话</h3>
+    <p>模型下载完成后，直接在终端运行：</p>
+    <pre><code>ollama run llama4:scout</code></pre>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">此时你应该看到终端出现 <code>>>></code> 提示符，说明模型已经加载完毕，可以直接输入问题开始对话了。输入 <code>/bye</code> 可以退出对话。</div>
+    </div>
+
+    <h3>Step 4：用 Open WebUI 获得更好的界面（可选）</h3>
+    <p>命令行对话体验不太好？可以安装 Open WebUI，给 Ollama 套一个漂亮的网页界面。确保你已经安装了 Docker，然后运行：</p>
+    <pre><code>docker run -d -p 3000:8080 \
+  --add-host=host.docker.internal:host-gateway \
+  -v open-webui:/app/backend/data \
+  --name open-webui \
+  ghcr.io/open-webui/open-webui:main</code></pre>
+    <p>运行完成后，打开浏览器访问 <code>http://localhost:3000</code>，就能看到类似 ChatGPT 的界面，并且已经自动连接到你本地的 Llama 4 了。</p>
+
+    <h2>效果验证：怎么确认跑起来了？</h2>
+    <p>不管用哪条路线，可以用这几个问题测试一下效果：</p>
+    <p><strong>测试 1：基础对话</strong></p>
+    <blockquote>用中文介绍一下你自己，你是什么模型？</blockquote>
+    <p>正常情况下，Llama 4 会用流畅的中文回答，并说明自己是 Meta 的 Llama 4 模型。</p>
+    <p><strong>测试 2：长文本处理</strong>（Scout 的强项）</p>
+    <blockquote>帮我总结以下内容的要点：[粘贴一篇长文章]</blockquote>
+    <p><strong>测试 3：图片理解</strong>（Maverick 专属）</p>
+    <blockquote>这张图片里有什么？请详细描述。</blockquote>
+
+    <h2>常见问题 FAQ</h2>
+    <p><strong>Q：Llama 4 中文能力怎么样？</strong><br>
+    A：Llama 4 的中文能力相比 Llama 3 有明显提升，日常对话和文档处理没有问题。但在中文创作和细腻表达上，和专门针对中文优化的模型（如 Qwen、DeepSeek）相比还有差距。</p>
+
+    <p><strong>Q：本地跑 Llama 4 需要 GPU 吗？</strong><br>
+    A：不是必须的。Scout 的量化版本（Q4）在纯 CPU 模式下也能跑，只是速度会慢一些（每秒 5-15 个 token）。有 GPU 的话速度会快很多。</p>
+
+    <p><strong>Q：Groq 的免费额度够用吗？</strong><br>
+    A：对于个人日常使用完全够用。每天 14,400 次请求，相当于每分钟可以发 10 条消息，普通用户根本用不完。</p>
+
+    <p><strong>Q：Llama 4 和 GPT-4o、Claude 3.5 比怎么样？</strong><br>
+    A：在多项基准测试中，Llama 4 Maverick 的综合得分接近 GPT-4o，在某些任务上甚至超过。最大的优势是完全免费、可商用、可本地部署。</p>
+
+    <p><strong>Q：ollama pull 下载太慢怎么办？</strong><br>
+    A：可以尝试配置国内镜像源，或者在网络条件好的时候（比如深夜）下载。也可以直接用路线 2 的 Groq 云端方案，完全不需要下载模型文件。</p>
+
+    <h2>下一步：用 Llama 4 做更多事</h2>
+    <p>跑起来之后，你可以：</p>
+    <ol>
+      <li><strong>接入 Dify 搭建知识库问答</strong>：把 Llama 4 作为底层模型，配合 RAG 技术让它回答你的私有文档问题，参考<a href="01_dify.html">用 Dify 搭建自己的 AI 应用</a></li>
+      <li><strong>了解 AI Agent 的工作原理</strong>：搞清楚大模型是怎么被组装成一个能自主干活的 Agent 的，可以看<a href="05_agent-architecture.html">AI Agent 的四大核心模块</a></li>
+      <li><strong>用 Groq API 接入 n8n 自动化工作流</strong>：让 Llama 4 帮你自动处理邮件、生成报告</li>
+    </ol>
+
+    <h2>参考来源</h2>
+    <ul>
+      <li><a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank" rel="noopener">Meta Llama 4 官方博客</a> — Meta AI, 2025-04</li>
+      <li><a href="https://github.com/meta-llama/llama-models" target="_blank" rel="noopener">Llama 4 官方 GitHub</a> — Meta, 2025</li>
+      <li><a href="https://console.groq.com/docs/models" target="_blank" rel="noopener">Groq 官方文档 - Llama 4 支持说明</a> — Groq, 2025</li>
+      <li><a href="https://ollama.com/library/llama4" target="_blank" rel="noopener">Ollama 官方文档</a> — Ollama, 2025</li>
+    </ul>
+  </div>
+
+  <footer class="article-footer">
+    <p>本文由 AI前沿 整理发布 · <a href="../articles.html">查看更多文章</a></p>
+  </footer>
+
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-logo">⚡ AI<span class="accent">前沿</span></span>
+    <span>© 2026 AI前沿 · 原创内容</span>
+    <div class="site-footer-links">
+      <a href="../news.html">AI资讯</a>
+      <a href="../articles.html">AI科普</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</footer>
+<script>
+</script>
+<script>
+(function () {
+  var headings = document.querySelectorAll('.article-body h2');
+  var tocList  = document.getElementById('tocList');
+  if (tocList && headings.length) {
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'toc-link';
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          tocList.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('toc-active'); });
+          var active = tocList.querySelector('a[href="#' + id + '"]');
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-5% 0px -75% 0px' });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+  var btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ai-article-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('ai-article-theme')||'light');</script>
+  <meta name="description" content="Dify零基础保姆级入门教程2026最新版：从注册到发布第一个AI应用，免费使用，全程截图手把手教学">
+  <title>零代码搭建你的专属AI应用：Dify 保姆级入门教程（2026最新版）</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .screenshot {
+      display: none; /* 截图待补充时隐藏 */
+    }
+    .screenshot-placeholder {
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      margin: 16px 0 6px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .screenshot-placeholder .icon { font-size: 28px; display: block; margin-bottom: 6px; }
+    .screenshot-caption {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .price-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+    }
+    .price-card.highlight {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .price-card .plan { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    .price-card .cost { font-size: 22px; font-weight: 800; color: var(--text); margin: 6px 0; }
+    .price-card .features { font-size: 12px; color: var(--text-secondary); line-height: 1.8; text-align: left; }
+    @media (max-width: 600px) { .price-grid { grid-template-columns: 1fr; } }
+  </style>
+  <link rel="canonical" href="https://cc-newplayer.github.io/seo-farm/articles/13_dify-tutorial.html">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="零代码搭建你的专属AI应用：Dify 保姆级入门教程（2026最新版）" />
+  <meta property="og:description" content="Dify零基础保姆级入门教程2026最新版：从注册到发布第一个AI应用，免费使用，全程截图手把手教学" />
+  <meta property="og:url" content="https://cc-newplayer.github.io/seo-farm/articles/13_dify-tutorial.html" />
+  <meta property="og:site_name" content="AI前沿" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/13_dify_01_homepage.png" />
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="零代码搭建你的专属AI应用：Dify 保姆级入门教程（2026最新版）" />
+  <meta name="twitter:description" content="Dify零基础保姆级入门教程2026最新版：从注册到发布第一个AI应用，免费使用，全程截图手把手教学" />
+  <meta name="twitter:image" content="https://cc-newplayer.github.io/seo-farm/articles/images/13_dify_01_homepage.png" />
+
+  <!-- ===== Article Schema ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "零代码搭建你的专属AI应用：Dify 保姆级入门教程（2026最新版）",
+    "description": "Dify零基础保姆级入门教程2026最新版：从注册到发布第一个AI应用，免费使用，全程截图手把手教学",
+    "url": "https://cc-newplayer.github.io/seo-farm/articles/13_dify-tutorial.html",
+    "datePublished": "2026-03-12",
+    "author": { "@type": "Organization", "name": "AI前沿" },
+    "publisher": { "@type": "Organization", "name": "AI前沿", "url": "https://cc-newplayer.github.io/seo-farm/" },
+    "image": "https://cc-newplayer.github.io/seo-farm/articles/images/13_dify_01_homepage.png"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="article-common.css" />
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="../index.html" class="site-nav-logo">⚡ AI<span class="accent">前沿</span></a>
+    <div class="site-nav-links">
+      <a href="../index.html">首页</a>
+      <a href="../news.html">AI资讯</a>
+      <a href="../tools.html">AI工具</a>
+      <a href="../articles.html">AI文章</a>
+      <a href="../glossary.html">术语表</a>
+      <a href="../about.html">关于</a>
+      <button id="themeToggle" class="theme-btn" aria-label="切换主题">🌙</button>
+    </div>
+  </div>
+</nav>
+<aside class="toc-sidebar" id="tocSidebar">
+  <div class="toc-label">📑 本文目录</div>
+  <ul class="toc-list" id="tocList"></ul>
+</aside>
+<div class="page-wrapper">
+
+  <header class="article-header">
+    <div class="badge-row">
+      <span class="badge badge-tutorial">📘 保姆级教程</span>
+      <span class="badge badge-meta">⏱ 约 15 分钟阅读</span>
+      <span class="badge badge-meta">Dify</span>
+      <span class="badge badge-meta">零代码</span>
+    </div>
+    <h1>零代码搭建你的专属AI应用：Dify 保姆级入门教程（2026最新版）</h1>
+    <p class="article-lead">
+      读完本教程，你将能独立完成：注册 Dify 账号 → 连接AI大模型 → 创建并发布第一个AI应用。
+      全程免费，不需要写任何代码，所有关键步骤均有截图对照。<br>
+      <strong>前置条件</strong>：一个邮箱账号，以及任意一个AI模型的API Key（没有的话文中会告诉你如何免费获取）。
+    </p>
+  </header>
+  <div class="article-cover">
+    <span class="cover-icon">🧩</span>
+    <span class="cover-tagline">Dify · 2026 最新零代码教程</span>
+  </div>
+
+  <div class="article-body">
+
+    <!-- 什么是 Dify -->
+    <h2>👋 先用一句话说清楚：Dify 是什么</h2>
+
+    <p>Dify 是一个<strong>零代码AI应用搭建平台</strong>。你可以把它理解成"AI界的乐高"——不用写代码，通过拖拽节点就能搭建出：AI客服、知识库问答机器人、自动化工作流、智能Agent……</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>和其他AI工具有什么不同？</strong>
+        ChatGPT、Claude 是"对话工具"，你只能一问一答。Dify 是"AI应用工厂"，你能把大模型的能力封装成产品，分享给团队或发布给用户使用，还能接入自己的知识库。
+      </div>
+    </div>
+
+    <p>Dify 支持超过 <strong>50+ 个AI模型</strong>（OpenAI、Claude、DeepSeek、本地的Ollama等），文档格式支持 30+（PDF、Word、PPT、Markdown……）。</p>
+
+    <!-- 费用说明 -->
+    <h2>💰 费用说明：新用户完全免费</h2>
+
+    <div class="price-grid">
+      <div class="price-card highlight">
+        <div class="plan">免费版</div>
+        <div class="cost">$0</div>
+        <div class="features">
+          ✅ 200条消息/月<br>
+          ✅ 50份文档<br>
+          ✅ 50MB存储<br>
+          ✅ 社区支持<br>
+          💡 学生可申请<br>　edu邮箱永久专业版
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="plan">专业版</div>
+        <div class="cost">$59<span style="font-size:13px;font-weight:400">/月</span></div>
+        <div class="features">
+          ✅ 5,000条消息/月<br>
+          ✅ 500份文档<br>
+          ✅ 5GB存储<br>
+          ✅ 优先支持
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="plan">团队版</div>
+        <div class="cost">$159<span style="font-size:13px;font-weight:400">/月</span></div>
+        <div class="features">
+          ✅ 10,000条消息/月<br>
+          ✅ 20GB存储<br>
+          ✅ 最多50名成员<br>
+          ✅ 专属支持
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>省钱技巧</strong>
+        免费版的200条消息/月指的是"Dify平台"的消息配额。你自己填入API Key后，消耗的是你的大模型API额度，不计入Dify配额。也就是说，只要你有API Key，就能无限制使用Dify的核心功能。
+      </div>
+    </div>
+
+    <!-- 主流程图 -->
+    <h2>🗺️ 整体流程一览</h2>
+
+    <p>接下来的教程分 <strong>5 个步骤</strong>，每步都有截图对照，跟着做就行。</p>
+
+    <div class="diagram">
+      <div class="diagram-title">Dify 入门全流程</div>
+      <div class="mermaid">
+flowchart LR
+    A["Step 1\n注册账号"]:::start --> B["Step 2\n配置AI模型"]:::node
+    B --> C["Step 3\n创建应用"]:::node
+    C --> D["Step 4\n调试测试"]:::node
+    D --> E["Step 5\n发布上线"]:::end_node
+    style A fill:#EFF6FF,stroke:#2563EB,color:#1D4ED8
+    style B fill:#EFF6FF,stroke:#2563EB,color:#1D4ED8
+    style C fill:#EFF6FF,stroke:#2563EB,color:#1D4ED8
+    style D fill:#EFF6FF,stroke:#2563EB,color:#1D4ED8
+    style E fill:#F0FDF4,stroke:#16A34A,color:#166534
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <h2>🚀 Step 1：注册并登录 Dify</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>打开 Dify 官网</h4>
+          <p>在浏览器中访问 <strong>cloud.dify.ai</strong>，点击页面右上角的「Get Started」或「登录」按钮。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>选择登录方式</h4>
+          <p>Dify 支持 <strong>GitHub 账号</strong>、<strong>Google 账号</strong>或<strong>邮箱注册</strong>三种方式。推荐用 GitHub 登录，一键完成，省去填表步骤。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>创建工作区（Workspace）</h4>
+          <p>首次登录会要求填写工作区名称（随意填，比如"我的AI工作室"），填完点确认即可进入主界面。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screenshot-placeholder"><span class="icon">🖼️</span>Dify 官网首页截图</div>
+    <p class="screenshot-caption">Dify 官网首页，点击右上角「Get Started」开始注册（截图来自 cloud.dify.ai，2026年3月）</p>
+
+    <div class="screenshot-placeholder"><span class="icon">🖼️</span>Dify 工作台（Studio）截图</div>
+    <p class="screenshot-caption">登录后的工作台（Studio），① 左侧边栏为主功能区，② 中央为应用列表</p>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>国内访问提示</strong>
+        cloud.dify.ai 是海外服务器，国内访问速度可能较慢。如果加载慢，建议使用科学上网工具，或者考虑本地部署（Docker版，适合有服务器的用户）。
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <h2>🔑 Step 2：配置你的 AI 模型</h2>
+
+    <p>Dify 本身不提供AI算力，你需要填入自己的大模型API Key，告诉 Dify"用哪个大脑来处理问题"。</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>进入模型供应商设置</h4>
+          <p>点击右上角头像 → 选择「设置（Settings）」→ 在左侧找到「模型供应商（Model Providers）」并点击。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>选择你的模型供应商</h4>
+          <p>Dify 支持 OpenAI、Anthropic、DeepSeek、Ollama（本地模型）等 50+ 种模型。没有 API Key？可以使用 <strong>DeepSeek</strong>（注册即送额度，国内可直接访问）。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>填入 API Key 并验证</h4>
+          <p>点击对应供应商卡片的「设置」，在弹窗中粘贴你的 API Key，点击「验证」，看到绿色✅说明配置成功。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screenshot-placeholder"><span class="icon">🖼️</span>Dify 模型供应商配置页截图</div>
+    <p class="screenshot-caption">模型供应商页面：① 已添加的模型供应商列表；② 点击「设置」填入对应的 API Key</p>
+
+    <div class="callout callout-warning">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>注意：API Key 的安全保管</strong>
+        API Key 是访问大模型的"钥匙"，泄露后会被他人盗用，产生费用由你承担。请不要把 API Key 截图发给他人，也不要写在公开文档里。
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <h2>✨ Step 3：创建你的第一个 AI 应用</h2>
+
+    <p>Dify 支持四种应用类型，先搞清楚选哪个：</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>类型</th><th>适合场景</th><th>推荐入门？</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>聊天助手</strong></td><td>客服、问答、陪伴机器人</td><td>✅ 最简单，推荐入门</td></tr>
+          <tr><td><strong>文本生成</strong></td><td>批量写文章、总结、翻译</td><td>✅ 适合批处理</td></tr>
+          <tr><td><strong>Agent</strong></td><td>自主完成多步骤任务</td><td>⚡ 进阶</td></tr>
+          <tr><td><strong>工作流（Workflow）</strong></td><td>复杂自动化流水线</td><td>⚡ 进阶</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>点击「创建应用」</h4>
+          <p>在工作台主界面，点击左上角的「创建应用」按钮，或者点击右上方的「+ 新建」。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>选择「聊天助手」并命名</h4>
+          <p>在弹出的面板中选择「聊天助手（Chatbot）」，输入应用名称（比如"我的AI助理"），点击「创建」。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>配置提示词（Prompt）</h4>
+          <p>进入编辑器后，在「系统提示词」输入框中写下你想让AI扮演的角色，比如：
+          <em>"你是一位专业的英文翻译助手，请将用户输入的中文准确翻译成英文，保持语气自然流畅。"</em></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>选择模型</h4>
+          <p>在右侧配置面板中，「模型」下拉框选择你在 Step 2 中配置好的那个模型（如 DeepSeek-V3 或 GPT-4o）。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screenshot-placeholder"><span class="icon">🖼️</span>Dify 创建应用弹窗截图</div>
+    <p class="screenshot-caption">创建应用面板：① 选择应用类型（推荐新手选「聊天助手」）；② 填写应用名称</p>
+
+    <div class="screenshot-placeholder"><span class="icon">🖼️</span>Dify 应用编辑器截图</div>
+    <p class="screenshot-caption">应用编辑器：① 系统提示词输入区（告诉AI它的角色）；② 右侧模型配置区；③ 中间实时预览对话区</p>
+
+    <!-- Step 4 -->
+    <h2>🧪 Step 4：在线调试，确认效果</h2>
+
+    <p>别着急发布，先在编辑器里测试效果。编辑器右侧（或右下方）有一个<strong>实时预览对话框</strong>，这就是你的测试区。</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>在预览框里发送测试消息</h4>
+          <p>直接在对话框里输入一句话，点击发送。比如测试翻译助手，就输入"今天天气真好"，看AI是否正确翻译成英文。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>调整提示词优化效果</h4>
+          <p>如果回答不满意，直接修改左侧的系统提示词，然后点击「运行」重新测试。这个过程可以反复迭代，直到满意为止。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>调试小技巧</strong>
+        如果AI回答总是"跑题"，通常是提示词太模糊。试试在提示词里加上"只回答与[主题]相关的问题，其他问题礼貌拒绝"，效果会好很多。
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <h2>🌐 Step 5：发布为公开 WebApp</h2>
+
+    <p>测试满意后，一键把你的AI应用发布成网页，可以分享链接给任何人使用——对方不需要注册Dify账号，直接打开链接就能用。</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>点击右上角「发布」</h4>
+          <p>在编辑器右上角找到「发布（Publish）」按钮，点击后会出现发布选项面板。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>启用「公开访问」</h4>
+          <p>在发布面板中，找到「WebApp」选项，将开关切换为「开启」。系统会自动生成一个公开链接。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>复制链接并分享</h4>
+          <p>复制生成的链接，可以直接发给朋友使用。也可以点击「嵌入网站」，把AI应用内嵌到你自己的网页中。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screenshot-placeholder"><span class="icon">🖼️</span>Dify 发布 WebApp 页面截图</div>
+    <p class="screenshot-caption">发布页面：① 启用「公开访问」开关；② 复制分享链接；③ 可选择嵌入网站或生成API</p>
+
+    <!-- 效果验证 -->
+    <div class="verify-box">
+      <h3>✅ 效果验证——你的应用发布成功了吗？</h3>
+      <ul>
+        <li>浏览器打开生成的公开链接，能看到对话界面 ✓</li>
+        <li>发送一条测试消息，AI正确回复 ✓</li>
+        <li>把链接发给朋友，对方能直接使用（无需登录）✓</li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <h2>❓ 常见问题 FAQ</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">Q：模型验证失败，提示 "Invalid API Key"，怎么办？</div>
+        <div class="faq-a">A：检查三点：① API Key 有没有多余的空格（从官网复制时容易带上）；② 模型供应商选对了吗（OpenAI的Key不能填到Claude里）；③ API Key 是否已过期或被停用（回对应平台检查）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：调试时AI回复很慢，甚至超时，是什么原因？</div>
+        <div class="faq-a">A：最常见原因是网络问题——Dify 需要访问海外的AI模型API，国内网络延迟较高。建议使用科学上网工具，或换用国内可直连的模型（如 DeepSeek）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：免费版200条消息用完了怎么办？</div>
+        <div class="faq-a">A：这200条是"Dify平台配额"，如果你自己配置了 API Key，实际上消耗的是 API 账户余额，不受200条限制。Dify配额主要影响的是使用 Dify 内置模型的情况。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：可以给AI接入自己的文档（知识库）吗？</div>
+        <div class="faq-a">A：可以！在左侧菜单找到「知识库（Knowledge）」，上传你的文档（PDF/Word/TXT等），然后在应用配置中勾选这个知识库。AI就能基于你的文档回答问题了，这就是常说的 RAG（检索增强生成）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q：Dify 和 Coze（扣子）有什么区别，我该选哪个？</div>
+        <div class="faq-a">A：Coze 更易用，适合完全零基础的用户，且可直接发布到微信等社交平台；Dify 更灵活专业，支持接入自定义模型和私有化部署，适合有数据安全需求或需要深度定制的团队。</div>
+      </div>
+    </div>
+
+    <!-- 下一步 -->
+    <div class="next-steps">
+      <h3>🔗 下一步可以尝试</h3>
+      <ul>
+        <li><strong>搭建知识库问答</strong>：上传你的产品文档或FAQ，让AI成为专属客服</li>
+        <li><strong>尝试工作流（Workflow）</strong>：用拖拽节点搭建自动化处理流程，比如自动总结邮件、批量翻译文档</li>
+        <li><strong>接入 API</strong>：把 Dify 应用接入你的网站或App，用 API 调用的方式集成AI能力</li>
+        <li><strong>本地部署</strong>：用 Docker 在自己服务器上运行 Dify，数据完全私有，适合企业场景</li>
+      </ul>
+    
+      <p style="margin-top:16px;font-size:14px;font-weight:600;color:#374151;">📚 延伸阅读</p>
+      <ul>
+        <li><a href="01_dify.html">零代码搭建你的第一个 AI 应用——Dify 保姆级入门教程</a> — 适合完全零基础的快速入门版</li>
+        <li><a href="16_rag-explained.html">AI 为什么会自信地说错话？让它变聪明的秘密叫 RAG</a> — 理解知识库背后的技术原理</li>
+        <li><a href="07_agent-platforms-guide.html">2026年最热门 AI Agent 搭建平台横评</a> — Dify 与其他平台的横向对比</li>
+      </ul>
+</div>
+
+  </div>
+
+  <footer class="article-footer">
+    参考来源：
+    <a href="https://docs.dify.ai/zh-hans">Dify 官方文档 docs.dify.ai</a> ·
+    <a href="https://dify.ai/zh/pricing">Dify 官方定价页面</a> ·
+    CSDN《【2025版】最新Dify入门教程，零基础入门到精通》(leah126) ·
+    知乎《一文入门智能体：dify 超快速构建AI agent》·
+    本文截图来自 Dify 云版本（cloud.dify.ai，2026年3月）
+  </footer>
+
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-logo">⚡ AI<span class="accent">前沿</span></span>
+    <span>© 2026 AI前沿 · 原创内容</span>
+    <div class="site-footer-links">
+      <a href="../news.html">AI资讯</a>
+      <a href="../articles.html">AI科普</a>
+      <a href="../index.html">首页</a>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>var _mt = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: _mt, flowchart: { curve: 'basis', useMaxWidth: true, htmlLabels: true } });</script>
+<script>
+(function () {
+  var headings = document.querySelectorAll('.article-body h2');
+  var tocList  = document.getElementById('tocList');
+  if (tocList && headings.length) {
+    headings.forEach(function (h, i) {
+      if (!h.id) h.id = 'sec-' + i;
+      var li = document.createElement('li');
+      li.className = 'toc-item';
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.className = 'toc-link';
+      a.textContent = h.textContent;
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          tocList.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('toc-active'); });
+          var active = tocList.querySelector('a[href="#' + id + '"]');
+          if (active) active.classList.add('toc-active');
+        }
+      });
+    }, { rootMargin: '-5% 0px -75% 0px' });
+    headings.forEach(function (h) { observer.observe(h); });
+  }
+  var btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('ai-article-theme', next);
+      btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  }
+})();
+</script>
+</body>
+</html>
