@@ -175,6 +175,40 @@ export const COMPARISONS: Comparison[] = [
     ],
     updatedAt: '2026-04-09T00:00:00Z',
   },
+  { id: '6',  slug: 'replit-vs-cursor',                toolASlug: 'replit',            toolBSlug: 'cursor',            title: 'Replit vs Cursor：在线IDE与本地AI编辑器对比',          description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '7',  slug: 'whisper-vs-assemblyai',           toolASlug: 'whisper',           toolBSlug: 'assemblyai',        title: 'Whisper vs AssemblyAI：AI语音转文字对比',              description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '8',  slug: 'chatgpt-vs-github-copilot',       toolASlug: 'chatgpt',           toolBSlug: 'github-copilot',    title: 'ChatGPT vs GitHub Copilot：AI编程助手对比',            description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '9',  slug: 'heygen-vs-synthesia',             toolASlug: 'heygen',            toolBSlug: 'synthesia',         title: 'HeyGen vs Synthesia：AI数字人视频对比',                description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '10', slug: 'cursor-vs-windsurf',              toolASlug: 'cursor',            toolBSlug: 'windsurf',          title: 'Cursor vs Windsurf：AI代码编辑器对比',                 description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '11', slug: 'elevenlabs-vs-murf',              toolASlug: 'elevenlabs',        toolBSlug: 'murf',              title: 'ElevenLabs vs Murf：AI语音合成工具对比',               description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '12', slug: 'github-copilot-vs-tabnine',       toolASlug: 'github-copilot',    toolBSlug: 'tabnine',           title: 'GitHub Copilot vs Tabnine：AI代码补全对比',            description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '13', slug: 'sora-vs-runway',                  toolASlug: 'sora',              toolBSlug: 'runway',            title: 'Sora vs Runway：AI视频生成工具对比',                   description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '14', slug: 'github-copilot-vs-cursor',        toolASlug: 'github-copilot',    toolBSlug: 'cursor',            title: 'GitHub Copilot vs Cursor：AI编程工具对比',             description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '15', slug: 'runway-vs-pika',                  toolASlug: 'runway',            toolBSlug: 'pika',              title: 'Runway vs Pika：AI视频创作工具对比',                   description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '16', slug: 'leonardo-vs-midjourney',          toolASlug: 'leonardo',          toolBSlug: 'midjourney',        title: 'Leonardo AI vs Midjourney：AI绘图工具对比',            description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '17', slug: 'notion-ai-vs-copilot',            toolASlug: 'notion-ai',         toolBSlug: 'github-copilot',    title: 'Notion AI vs Copilot：AI写作与编程助手对比',           description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '18', slug: 'midjourney-vs-firefly',           toolASlug: 'midjourney',        toolBSlug: 'firefly',           title: 'Midjourney vs Adobe Firefly：AI绘图工具对比',          description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '19', slug: 'stable-diffusion-vs-dalle3',      toolASlug: 'stable-diffusion',  toolBSlug: 'dalle3',            title: 'Stable Diffusion vs DALL-E 3：AI图像生成对比',         description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '20', slug: 'grammarly-vs-chatgpt',            toolASlug: 'grammarly',         toolBSlug: 'chatgpt',           title: 'Grammarly vs ChatGPT：AI写作辅助工具对比',             description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '21', slug: 'copy-ai-vs-jasper',               toolASlug: 'copy-ai',           toolBSlug: 'jasper',            title: 'Copy.ai vs Jasper：AI营销文案工具对比',                description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '22', slug: 'midjourney-vs-dalle3',            toolASlug: 'midjourney',        toolBSlug: 'dalle3',            title: 'Midjourney vs DALL-E 3：AI图像生成对比',               description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '23', slug: 'jasper-vs-chatgpt',               toolASlug: 'jasper',            toolBSlug: 'chatgpt',           title: 'Jasper vs ChatGPT：AI内容创作工具对比',                description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '24', slug: 'notion-ai-vs-chatgpt',            toolASlug: 'notion-ai',         toolBSlug: 'chatgpt',           title: 'Notion AI vs ChatGPT：AI效率工具对比',                 description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '25', slug: 'claude-vs-gpt4',                  toolASlug: 'claude',            toolBSlug: 'gpt4',              title: 'Claude vs GPT-4：顶级AI大模型深度对比',               description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '26', slug: 'chatgpt-vs-grok',                 toolASlug: 'chatgpt',           toolBSlug: 'grok',              title: 'ChatGPT vs Grok：OpenAI与xAI的AI助手对比',            description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '27', slug: 'claude-vs-gemini',                toolASlug: 'claude',            toolBSlug: 'gemini',            title: 'Claude vs Gemini：Anthropic与Google AI对比',          description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '28', slug: 'chatgpt-vs-gemini',               toolASlug: 'chatgpt',           toolBSlug: 'gemini',            title: 'ChatGPT vs Gemini：OpenAI与Google AI助手对比',         description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '29', slug: 'suno-vs-mubert',                  toolASlug: 'suno',              toolBSlug: 'mubert',            title: 'Suno vs Mubert：AI音乐生成工具对比',                   description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '30', slug: 'suno-vs-udio',                    toolASlug: 'suno',              toolBSlug: 'udio',              title: 'Suno vs Udio：AI音乐创作平台对比',                     description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '31', slug: 'bolt-vs-cursor',                  toolASlug: 'bolt',              toolBSlug: 'cursor',            title: 'Bolt vs Cursor：AI全栈开发工具对比',                   description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '32', slug: 'cursor-vs-chatgpt',               toolASlug: 'cursor',            toolBSlug: 'chatgpt',           title: 'Cursor vs ChatGPT：AI编程专用 vs 通用助手对比',        description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '33', slug: 'github-copilot-vs-chatgpt',       toolASlug: 'github-copilot',    toolBSlug: 'chatgpt',           title: 'GitHub Copilot vs ChatGPT：AI编程助手对比',            description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '34', slug: 'chatgpt-vs-jasper',               toolASlug: 'chatgpt',           toolBSlug: 'jasper',            title: 'ChatGPT vs Jasper：AI写作工具对比',                    description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '35', slug: 'notion-vs-obsidian',              toolASlug: 'notion',            toolBSlug: 'obsidian',          title: 'Notion vs Obsidian：AI笔记与知识管理工具对比',         description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '36', slug: 'stable-diffusion-vs-flux',        toolASlug: 'stable-diffusion',  toolBSlug: 'flux',              title: 'Stable Diffusion vs Flux：开源AI图像生成对比',         description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '37', slug: 'midjourney-vs-ideogram',          toolASlug: 'midjourney',        toolBSlug: 'ideogram',          title: 'Midjourney vs Ideogram：AI图像生成工具对比',           description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '38', slug: 'midjourney-vs-dall-e',            toolASlug: 'midjourney',        toolBSlug: 'dall-e',            title: 'Midjourney vs DALL-E：AI绘图工具终极对比',             description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
+  { id: '39', slug: 'gemini-vs-deepseek',              toolASlug: 'gemini',            toolBSlug: 'deepseek',          title: 'Gemini vs DeepSeek：Google与国产AI大模型对比',         description: '', verdict: '', faqs: [], updatedAt: '2026-04-09T00:00:00Z' },
 ]
 
 // ── Cached Supabase queries ───────────────────────────────────────────────────
@@ -329,7 +363,7 @@ export async function getAllComparisons(): Promise<Comparison[]> {
       .from('pages')
       .select('*')
       .eq('page_type', 'comparison')
-      .order('created_at', { ascending: false })
+      .order('id', { ascending: false })
     if (error || !data?.length) return COMPARISONS
     return data.map(rowToComparison)
   } catch {

@@ -1,7 +1,13 @@
+# *
 User-agent: *
 Allow: /
 
+# Baiduspider
 User-agent: Baiduspider
 Allow: /
 
+# Host
+Host: https://ai-tools-nav-two.vercel.app
+
+# Sitemaps
 Sitemap: https://ai-tools-nav-two.vercel.app/sitemap.xml
