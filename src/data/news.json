@@ -1,5 +1,157 @@
 [
   {
+    "id": "814fe14e",
+    "slug": "wei-jian-jun-fa-bu-hui-kai-pao-zhuan-shu-dian-dong-che-ping-2026-04-18",
+    "title": "魏建军发布会开炮：专属电动车平台纯粹伪命题，友商回去立马向我们学习",
+    "summary": "不以尺寸定义汽车平台",
+    "content": "不以尺寸定义汽车平台",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402636.html",
+    "publishedAt": "2026-04-18T01:10:09Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "73aa9718",
+    "slug": "11-58mo-quan-xi-lidar-l4tong-yuan-suan-fa-yan-qi-wen-yuan-ba-2026-04-18",
+    "title": "11.58万，全系Lidar+L4同源算法，广汽文远把城区NOA打成白菜价",
+    "summary": "算力只需200TOPS",
+    "content": "算力只需200TOPS",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402440.html",
+    "publishedAt": "2026-04-17T08:24:28Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "173bf60b",
+    "slug": "4-55yi-mei-jin-zhong-guo-ju-shen-zhi-neng-zui-da-dan-bi-rong-2026-04-18",
+    "title": "4.55亿美金！中国具身智能最大单笔融资诞生，高瓴红杉联手押注具身大脑",
+    "summary": "全栈大脑会成为具身智能下一阶段竞赛的胜负手",
+    "content": "全栈大脑会成为具身智能下一阶段竞赛的胜负手",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402388.html",
+    "publishedAt": "2026-04-17T07:37:14Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "f7745d22",
+    "slug": "gu-ge-zui-qiang-ju-shen-da-nao-fa-bu-bo-shi-dun-ji-qi-gou-sh-2026-04-18",
+    "title": "谷歌发布 Gemini Robotics 第三代模型，强化具身空间推理能力",
+    "summary": "谷歌推出 Gemini Robotics 新一代具身智能模型，主打空间推理能力，波士顿动力机器狗等硬件平台因此获得更自然的动作表现。",
+    "content": "谷歌近日发布了 Gemini Robotics 系列的第三代模型，这是其面向具身智能领域的最新进展。该模型的核心突破在于空间推理能力的大幅提升，使机器人能够更准确地理解三维环境、物体位置关系以及任务执行所需的物理逻辑。\n\n在实际演示中，搭载该模型的波士顿动力机器狗展现出更接近自然生物的动作协调性，能够在复杂场景下完成抓取、移动和交互等任务，动作流畅度和适应性相比前代有明显提升。\n\nGemini Robotics 的设计思路是将大语言模型的语义理解能力与机器人的物理执行能力深度融合。第三代模型在感知、规划和控制三个层面进行了协同优化，尤其在处理非结构化环境和开放式指令时表现更为稳健。\n\n这一发布标志着谷歌在具身智能赛道上持续加码，与 OpenAI、Figure AI 等竞争对手的角力进一步加剧。随着基础模型的空间推理能力不断增强，机器人从实验室走向实际应用场景的进程也在提速。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402329.html",
+    "publishedAt": "2026-04-17T07:08:17Z",
+    "category": "产品发布",
+    "tags": [
+      "谷歌",
+      "Gemini Robotics",
+      "具身智能",
+      "空间推理",
+      "波士顿动力"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "7b57852b",
+    "slug": "p0-7fa-bu-vlaya-chu-liao-ji-qi-ren-de-gpt-3shi-ke-2026-04-18",
+    "title": "π0.7发布，VLA押出了机器人的GPT-3时刻",
+    "summary": "π0.7：具有涌现能力的可控模型",
+    "content": "π0.7：具有涌现能力的可控模型",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402189.html",
+    "publishedAt": "2026-04-17T06:57:35Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "8d344438",
+    "slug": "18jia-ju-shen-ding-jian-shi-li-ji-jie-robochallenge-da-zao-q-2026-04-18",
+    "title": "18家顶尖企业集结，RoboChallenge打造全球最大具身模型竞技场",
+    "summary": "RoboChallenge完成第二批生态扩容，星动纪元、地平线等8家企业重磅入驻，累计汇聚18家具身智能领域顶尖势力，共同构建全球最大具身模型竞技平台。",
+    "content": "RoboChallenge近日宣布正式完成第二批生态扩容，星动纪元、极佳视界、地平线、光轮智能、生数科技、中移杭研、长虹、算力自由8家顶尖企业重磅入驻，使平台参与企业总数达到18家，进一步巩固其作为全球最大具身模型竞技场的地位。\n\n具身智能是当前AI领域最受关注的前沿方向之一，涵盖机器人感知、运动控制、多模态交互等核心能力。RoboChallenge作为专注于具身模型评测与竞技的开放平台，致力于通过标准化的竞技机制，推动具身智能技术的快速迭代与生态协同发展。\n\n此次新加入的企业覆盖了具身智能产业链的多个关键环节。地平线在芯片与感知算法领域具有深厚积累，星动纪元专注于具身机器人本体与控制系统研发，生数科技在多模态生成模型方面具备领先优势，中移杭研则代表运营商在算力与网络侧的战略布局，长虹作为传统家电巨头也积极向智能机器人领域延伸。\n\n随着生态阵容持续扩大，RoboChallenge有望成为具身智能领域最具影响力的技术交流与能力验证平台，为行业提供统一的评测基准，加速推动具身大模型从实验室走向实际应用场景。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402186.html",
+    "publishedAt": "2026-04-17T05:52:13Z",
+    "category": "行业动态",
+    "tags": [
+      "具身智能",
+      "RoboChallenge",
+      "机器人大模型"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "3c095f9d",
+    "slug": "kong-jian-zhi-neng-di-yi-gu-kai-pan-bao-zhang-171-li-fei-fei-2026-04-18",
+    "title": "空间智能第一股，开盘暴涨171%！李飞飞押注的赛道，杭州六小龙之一跑通了",
+    "summary": "空间智能的时代，才刚刚开始。",
+    "content": "空间智能的时代，才刚刚开始。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402158.html",
+    "publishedAt": "2026-04-17T03:30:27Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "3a412860",
+    "slug": "imagenetzuo-zhe-su-hao-hui-guo-ren-jiao-fu-dan-li-fei-fei-ga-2026-04-18",
+    "title": "ImageNet作者苏昊回国任教复旦！李飞飞高徒，具身第一高引，出任通用物理AI院长",
+    "summary": "推动“物理智能”的最终实现",
+    "content": "推动“物理智能”的最终实现",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402088.html",
+    "publishedAt": "2026-04-17T02:16:36Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "114eb9b2",
+    "slug": "ppioshang-xian-pphermes-yun-duan-sha-xiang-yi-jian-bu-shu-he-2026-04-18",
+    "title": "PPIO上线PPHermes：云端沙箱一键部署Hermes Agent",
+    "summary": "PPIO推出PPHermes服务，支持用户在云端沙箱环境中一键部署和运行Hermes Agent，大幅降低AI智能体的使用门槛。",
+    "content": "PPIO近日正式上线PPHermes功能，为开发者和企业用户提供基于云端沙箱的Hermes Agent一键部署能力。Hermes Agent是一款具备自主任务执行能力的AI智能体，能够处理复杂的多步骤任务。此前，部署和运行此类Agent往往需要用户自行配置环境、管理依赖，技术门槛较高。PPHermes通过云端沙箱隔离机制，将底层基础设施的复杂性完全屏蔽，用户只需简单操作即可快速启动Agent实例，无需关心环境配置与资源调度问题。沙箱架构还保障了各任务实例之间的安全隔离，避免相互干扰，适合多租户场景下的稳定运行。PPIO作为专注于云计算与AI算力服务的平台，此次推出PPHermes是其在AI Agent基础设施领域的重要布局，旨在为开发者提供更便捷的智能体运行环境，推动AI Agent在实际业务场景中的落地应用。该服务的推出也反映出当前AI行业对Agent易用性与部署效率的持续关注。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/402085.html",
+    "publishedAt": "2026-04-16T13:36:09Z",
+    "category": "产品发布",
+    "tags": [
+      "PPIO",
+      "AI Agent",
+      "云端沙箱",
+      "Hermes",
+      "一键部署"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "9c5f6696",
+    "slug": "72tian-cong-0dao-qian-mo-xiao-shi-chan-neng-zhe-ge-ju-shen-x-2026-04-18",
+    "title": "具身智能新锐72天实现千万小时产能，发布物理AI数据服务平台",
+    "summary": "一家具身智能领域的新兴企业在72天内将产能从零扩展至千万小时级别，并正式发布一站式物理AI数据服务平台，切入AI数据赛道。",
+    "content": "在具身智能数据需求快速增长的背景下，一家新兴企业以72天的极速完成了从零到千万小时数据产能的跨越，展现出强劲的规模化能力。该公司近期正式发布一站式物理AI数据服务平台，面向具身智能、自动驾驶等物理AI应用场景提供系统化的数据采集、标注与管理服务。\n\n物理AI数据与传统互联网数据存在本质差异，其对真实世界三维空间感知、多模态传感器融合以及高精度标注的要求极高，数据生产门槛较高。该平台的推出旨在解决物理AI训练数据供给不足、质量参差不齐的行业痛点，通过一站式服务降低下游机器人及自动化企业的数据获取成本。\n\n千万小时级别的产能意味着该企业已具备工业化规模的数据生产能力，这在具身智能数据领域属于较高水准。随着人形机器人和智能制造赛道持续升温，高质量物理世界数据的稀缺性愈发凸显，数据服务平台的市场空间也随之扩大。\n\n此次发布标志着该企业从数据生产能力建设转向平台化、产品化运营阶段，试图在AI数据服务赛道建立差异化竞争优势。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/401741.html",
+    "publishedAt": "2026-04-16T13:04:18Z",
+    "category": "产品发布",
+    "tags": [
+      "具身智能",
+      "物理AI",
+      "AI数据服务",
+      "机器人",
+      "数据平台"
+    ],
+    "imageUrl": ""
+  },
+  {
     "id": "a55a8774",
     "slug": "reng-diao-ni-de-tokenzhang-dan-ba-rong-yao-yoyo-clawji-zhu-b-2026-04-16",
     "title": "荣耀YOYO Claw技术可节省50% Token，大幅降低AI养虾成本",
