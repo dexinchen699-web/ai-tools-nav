@@ -13,19 +13,15 @@ interface Props {
 export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props) {
   const [activeAnchor, setActiveAnchor] = useState<string>('')
 
-  // Highlight the section currently in viewport
   useEffect(() => {
     const sectionIds = ['featured', 'new-tools', ...categories.map(c => `cat-${c.slug}`)]
 
     const observer = new IntersectionObserver(
       entries => {
-        // Pick the topmost visible section
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-        if (visible.length > 0) {
-          setActiveAnchor(visible[0].target.id)
-        }
+        if (visible.length > 0) setActiveAnchor(visible[0].target.id)
       },
       { rootMargin: '-10% 0px -70% 0px', threshold: 0 }
     )
@@ -41,133 +37,232 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
     if (!el) return
-    const offset = 72 // header height (56px) + a little breathing room
-    const top = el.getBoundingClientRect().top + window.scrollY - offset
+    const top = el.getBoundingClientRect().top + window.scrollY - 72
     window.scrollTo({ top, behavior: 'smooth' })
     setActiveAnchor(id)
   }
 
+  const navItem = (
+    id: string,
+    icon: string,
+    label: string,
+    count?: number,
+  ) => {
+    const isActive = activeAnchor === id || (!activeAnchor && id === `cat-${activeSlug}`)
+    return (
+      <button
+        key={id}
+        onClick={() => scrollTo(id)}
+        className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
+      >
+        {isActive && <span className="nav-indicator" />}
+
+        <span className="nav-item-inner">
+          <span className={`nav-icon ${isActive ? 'nav-icon-active' : ''}`}>
+            {icon}
+          </span>
+          <span className="nav-label">{label}</span>
+        </span>
+
+        {count !== undefined && (
+          <span className={`nav-count ${isActive ? 'nav-count-active' : ''}`}>
+            {count}
+          </span>
+        )}
+      </button>
+    )
+  }
+
   return (
     <>
-      {/* Fixed sidebar — full viewport height, left-aligned */}
-      <aside className="hidden lg:flex flex-col fixed left-0 top-14 bottom-0 w-56 bg-white border-r border-gray-200 shadow-sm z-40">
-
+      <aside className="lg-sidebar">
         {/* Header */}
-        <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/80 shrink-0 flex items-center justify-between">
-          <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">工具分类</span>
-          <span className="text-[10px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full">{categories.length}</span>
+        <div className="sidebar-header">
+          <span className="sidebar-header-label">工具分类</span>
+          <span className="sidebar-header-count">{categories.length}</span>
         </div>
 
-        {/* Nav list — scrollable */}
-        <nav className="flex-1 overflow-y-auto py-1.5 scrollbar-hide">
+        {/* Scrollable nav */}
+        <nav className="sidebar-nav">
+          {navItem('featured', '⭐', '精选推荐')}
+          {navItem('new-tools', '🆕', '最新收录')}
 
-          {/* Featured */}
-          <button
-            onClick={() => scrollTo('featured')}
-            className={`relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left ${
-              activeAnchor === 'featured'
-                ? 'bg-brand-50 text-brand-700 font-semibold'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-            }`}
-          >
-            {activeAnchor === 'featured' && (
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-500 rounded-r-full" />
-            )}
-            <span className="flex items-center gap-2.5">
-              <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-amber-50 text-base shrink-0">⭐</span>
-              <span>精选推荐</span>
-            </span>
-          </button>
+          <div className="sidebar-divider" />
 
-          {/* New tools */}
-          <button
-            onClick={() => scrollTo('new-tools')}
-            className={`relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left ${
-              activeAnchor === 'new-tools'
-                ? 'bg-brand-50 text-brand-700 font-semibold'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-            }`}
-          >
-            {activeAnchor === 'new-tools' && (
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-500 rounded-r-full" />
-            )}
-            <span className="flex items-center gap-2.5">
-              <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-rose-50 text-base shrink-0">🆕</span>
-              <span>最新收录</span>
-            </span>
-          </button>
+          {navItem('cat-' + (categories[0]?.slug ?? ''), '🔥', '全部工具', totalCount)}
 
-          {/* Divider */}
-          <div className="mx-4 my-1 border-t border-gray-100" />
+          <div className="sidebar-divider" />
 
-          {/* All tools anchor */}
-          <button
-            onClick={() => scrollTo(`cat-${categories[0]?.slug}`)}
-            className="relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-          >
-            <span className="flex items-center gap-2.5">
-              <span className="w-7 h-7 flex items-center justify-center rounded-lg bg-orange-50 text-base shrink-0">🔥</span>
-              <span className="font-medium">全部工具</span>
-            </span>
-            <span className="text-[11px] tabular-nums shrink-0 ml-1 px-1.5 py-0.5 rounded-full bg-gray-100 text-gray-400 group-hover:bg-gray-200">
-              {totalCount}
-            </span>
-          </button>
-
-          {/* Divider */}
-          <div className="mx-4 my-1 border-t border-gray-100" />
-
-          {/* Category items */}
-          {categories.map(cat => {
-            const anchorId = `cat-${cat.slug}`
-            const isActive = activeAnchor === anchorId || (!activeAnchor && cat.slug === activeSlug)
-            return (
-              <button
-                key={cat.slug}
-                onClick={() => scrollTo(anchorId)}
-                className={`relative w-full flex items-center justify-between px-4 py-2 text-sm transition-all duration-150 group text-left ${
-                  isActive
-                    ? 'bg-brand-50 text-brand-700 font-semibold'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                }`}
-              >
-                {isActive && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-brand-500 rounded-r-full" />
-                )}
-                <span className="flex items-center gap-2.5 min-w-0">
-                  <span className={`w-7 h-7 flex items-center justify-center rounded-lg text-base shrink-0 transition-colors ${
-                    isActive ? 'bg-brand-100' : 'bg-gray-100 group-hover:bg-gray-200'
-                  }`}>
-                    {cat.icon}
-                  </span>
-                  <span className="truncate">{cat.name}</span>
-                </span>
-                {cat.toolCount !== undefined && (
-                  <span className={`text-[11px] tabular-nums shrink-0 ml-1 px-1.5 py-0.5 rounded-full ${
-                    isActive ? 'bg-brand-100 text-brand-600' : 'bg-gray-100 text-gray-400 group-hover:bg-gray-200'
-                  }`}>
-                    {cat.toolCount}
-                  </span>
-                )}
-              </button>
-            )
-          })}
+          {categories.map(cat =>
+            navItem(`cat-${cat.slug}`, cat.icon ?? '🔧', cat.name, cat.toolCount)
+          )}
         </nav>
 
         {/* Footer CTA */}
-        <div className="px-3 py-3 border-t border-gray-100 bg-gray-50/80 shrink-0">
-          <Link
-            href="/submit"
-            className="flex items-center justify-center gap-1.5 w-full text-xs font-medium text-brand-600 hover:text-white py-2 rounded-lg hover:bg-brand-500 border border-brand-200 hover:border-brand-500 transition-all duration-150"
-          >
+        <div className="sidebar-footer">
+          <Link href="/submit" className="sidebar-submit-btn">
             <span>＋</span>
             <span>提交工具</span>
           </Link>
         </div>
       </aside>
 
-      {/* Spacer — pushes main content right by sidebar width on lg+ */}
+      {/* Spacer */}
       <div className="hidden lg:block w-56 shrink-0" />
+
+      <style>{`
+        @media (min-width: 1024px) {
+          .lg-sidebar { display: flex !important; }
+        }
+        .lg-sidebar {
+          display: none;
+          position: fixed;
+          left: 0;
+          top: 3.5rem;
+          bottom: 0;
+          width: 14rem;
+          background: var(--bg-secondary);
+          border-right: 1px solid var(--border);
+          z-index: 40;
+          flex-direction: column;
+        }
+        .sidebar-header {
+          padding: 0.75rem 1rem;
+          border-bottom: 1px solid var(--border);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-shrink: 0;
+        }
+        .sidebar-header-label {
+          font-size: 0.65rem;
+          font-weight: 700;
+          color: var(--text-muted);
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-family: var(--font-display);
+        }
+        .sidebar-header-count {
+          font-size: 0.65rem;
+          color: var(--text-muted);
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          padding: 0.1rem 0.4rem;
+          border-radius: 999px;
+        }
+        .sidebar-nav {
+          flex: 1;
+          overflow-y: auto;
+          padding: 0.375rem 0;
+        }
+        .sidebar-divider {
+          margin: 0.375rem 1rem;
+          height: 1px;
+          background: var(--border);
+        }
+        .sidebar-footer {
+          padding: 0.75rem;
+          border-top: 1px solid var(--border);
+          flex-shrink: 0;
+        }
+        .sidebar-submit-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.375rem;
+          width: 100%;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--accent-navy);
+          padding: 0.5rem;
+          border-radius: 8px;
+          border: 1px solid rgba(26,47,94,0.25);
+          background: rgba(26,47,94,0.06);
+          text-decoration: none;
+          transition: background 0.15s, border-color 0.15s;
+        }
+        .sidebar-submit-btn:hover {
+          background: rgba(26,47,94,0.12);
+          border-color: rgba(26,47,94,0.4);
+        }
+        .nav-item {
+          position: relative;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.45rem 1rem;
+          font-size: 0.82rem;
+          cursor: pointer;
+          text-align: left;
+          background: transparent;
+          color: var(--text-secondary);
+          border: none;
+          transition: background 0.15s, color 0.15s;
+        }
+        .nav-item:hover {
+          background: rgba(26,47,94,0.05);
+          color: var(--text-primary);
+        }
+        .nav-item-active {
+          font-weight: 600;
+          background: rgba(26,47,94,0.08) !important;
+          color: var(--accent-navy) !important;
+        }
+        .nav-indicator {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2px;
+          height: 1.25rem;
+          background: var(--accent-navy);
+          border-radius: 0 2px 2px 0;
+        }
+        .nav-item-inner {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          min-width: 0;
+        }
+        .nav-icon {
+          width: 1.75rem;
+          height: 1.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 7px;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          font-size: 0.9rem;
+          flex-shrink: 0;
+        }
+        .nav-icon-active {
+          background: rgba(26,47,94,0.1);
+          border-color: rgba(26,47,94,0.2);
+        }
+        .nav-label {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .nav-count {
+          font-size: 0.65rem;
+          font-variant-numeric: tabular-nums;
+          flex-shrink: 0;
+          margin-left: 0.25rem;
+          padding: 0.1rem 0.4rem;
+          border-radius: 999px;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          color: var(--text-muted);
+        }
+        .nav-count-active {
+          background: rgba(26,47,94,0.1);
+          border-color: rgba(26,47,94,0.2);
+          color: var(--accent-navy);
+        }
+      `}</style>
     </>
   )
 }

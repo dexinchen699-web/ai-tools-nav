@@ -35,7 +35,6 @@ export async function generateStaticParams() {
     .from('tutorials')
     .select('slug')
     .eq('is_published', true)
-
   return (data ?? []).map((row: { slug: string }) => ({ slug: row.slug }))
 }
 
@@ -47,19 +46,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     .eq('slug', slug)
     .eq('is_published', true)
     .single()
-
   if (!data) return {}
-
-  return buildMetadata({
-    title: data.title,
-    description: data.meta_description ?? undefined,
-  })
+  return buildMetadata({ title: data.title, description: data.meta_description ?? undefined })
 }
 
-const difficultyMap: Record<string, { label: string; className: string }> = {
-  beginner: { label: '入门', className: 'bg-emerald-100 text-emerald-700' },
-  intermediate: { label: '进阶', className: 'bg-amber-100 text-amber-700' },
-  advanced: { label: '高级', className: 'bg-rose-100 text-rose-700' },
+const DIFFICULTY_CONFIG: Record<string, { label: string; color: string; border: string }> = {
+  beginner:     { label: '入门级', color: 'var(--accent-cyan)',   border: 'rgba(6,182,212,0.25)'   },
+  intermediate: { label: '进阶级', color: '#f59e0b',              border: 'rgba(245,158,11,0.25)'  },
+  advanced:     { label: '高级',   color: 'var(--accent-pink)',   border: 'rgba(236,72,153,0.25)'  },
 }
 
 function simpleMarkdown(md: string): string {
@@ -78,52 +72,106 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
 
   if (!tutorial) notFound()
 
-  const difficulty = tutorial.difficulty ? difficultyMap[tutorial.difficulty] : null
+  const diff = tutorial.difficulty ? DIFFICULTY_CONFIG[tutorial.difficulty] : DIFFICULTY_CONFIG.beginner
   const steps = tutorial.steps ?? []
   const tags = tutorial.tags ?? []
 
-  return (
-    <main>
-      <Breadcrumb
-        items={[
-          { name: '教程', url: '/tutorials' },
-          { name: tutorial.title, url: `/tutorials/${tutorial.slug}` },
-        ]}
-      />
+  const breadcrumbs = [
+    { name: '首页', url: '/' },
+    { name: '教程', url: '/tutorials' },
+    { name: tutorial.category ?? '教程' },
+  ]
 
-      {/* Hero */}
-      <section style={{ backgroundColor: '#0f0f12' }} className="py-12 px-4">
-        <div className="container-content mx-auto">
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            {tutorial.category && (
-              <span className="section-label bg-indigo-100 text-indigo-700 px-2.5 py-0.5 rounded-full text-xs font-medium">
-                {tutorial.category}
-              </span>
-            )}
-            {difficulty && (
-              <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${difficulty.className}`}>
-                {difficulty.label}
+  return (
+    <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
+
+      {/* ── Hero ── */}
+      <section style={{
+        background: 'var(--bg-secondary)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        position: 'relative',
+        overflow: 'hidden',
+        paddingTop: '2.5rem',
+        paddingBottom: '2.5rem',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          pointerEvents: 'none',
+        }} />
+        <div className="glow-orb glow-orb-purple" style={{ top: -80, right: '5%', width: 360, height: 360, opacity: 0.1 }} />
+
+        <div className="container-content" style={{ position: 'relative', zIndex: 1 }}>
+          <Breadcrumb items={breadcrumbs} />
+
+          {/* Meta badges */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '1.25rem', marginBottom: '1rem' }}>
+            {diff && (
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                fontSize: '0.6875rem', padding: '0.25rem 0.75rem',
+                borderRadius: 999, border: `1px solid ${diff.border}`,
+                color: diff.color, fontFamily: 'monospace',
+              }}>
+                <span style={{ width: 5, height: 5, borderRadius: '50%', background: diff.color, display: 'inline-block' }} />
+                {diff.label}
               </span>
             )}
             {tutorial.duration_minutes != null && (
-              <span className="text-gray-400 text-sm">{tutorial.duration_minutes} 分钟</span>
+              <span style={{
+                fontSize: '0.6875rem', padding: '0.25rem 0.75rem',
+                borderRadius: 999, border: '1px solid rgba(255,255,255,0.1)',
+                color: 'var(--text-muted)', fontFamily: 'monospace',
+              }}>
+                ◷ {tutorial.duration_minutes} min
+              </span>
+            )}
+            {steps.length > 0 && (
+              <span style={{
+                fontSize: '0.6875rem', padding: '0.25rem 0.75rem',
+                borderRadius: 999, border: '1px solid rgba(255,255,255,0.1)',
+                color: 'var(--text-muted)', fontFamily: 'monospace',
+              }}>
+                {steps.length} 步骤
+              </span>
             )}
           </div>
 
-          <h1 className="text-3xl font-bold text-white mb-4">{tutorial.title}</h1>
+          <h1 style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
+            fontWeight: 700,
+            color: 'var(--text-primary)',
+            lineHeight: 1.25,
+            letterSpacing: '-0.01em',
+            maxWidth: '720px',
+            marginBottom: '0.875rem',
+          }}>
+            {tutorial.title}
+          </h1>
 
           {tutorial.summary && (
-            <p className="text-gray-300 text-lg max-w-2xl mb-6">{tutorial.summary}</p>
+            <p style={{
+              color: 'var(--text-secondary)',
+              fontSize: '0.9375rem',
+              maxWidth: '600px',
+              lineHeight: 1.7,
+              fontFamily: 'var(--font-body)',
+            }}>
+              {tutorial.summary}
+            </p>
           )}
 
           {tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-white/10 text-gray-300 text-xs px-2.5 py-1 rounded-full"
-                >
-                  {tag}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '1rem' }}>
+              {tags.map(tag => (
+                <span key={tag} style={{
+                  fontSize: '0.6875rem', padding: '0.2rem 0.6rem',
+                  borderRadius: 4, background: 'rgba(255,255,255,0.05)',
+                  color: 'var(--text-muted)', fontFamily: 'monospace',
+                }}>
+                  #{tag}
                 </span>
               ))}
             </div>
@@ -131,54 +179,186 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <div className="container-content mx-auto px-4 py-10 space-y-12">
-        {/* Steps */}
-        {steps.length > 0 && (
-          <section>
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">操作步骤</h2>
-            <ol className="space-y-6">
-              {steps.map((step, index) => (
-                <li key={index} className="card flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-600 text-white text-sm font-bold flex items-center justify-center">
-                    {index + 1}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 mb-1">{step.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{step.content}</p>
-                    {step.image_url && (
-                      <img
-                        src={step.image_url}
-                        alt={step.title}
-                        className="mt-3 rounded-lg border border-gray-200 max-w-full"
-                      />
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
-        )}
+      {/* ── Body ── */}
+      <div className="container-content" style={{ paddingTop: '2rem', paddingBottom: '3rem' }}>
+        <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }}>
 
-        {/* Content */}
-        {tutorial.content_md && (
-          <section>
-            <article
-              className="prose prose-gray max-w-none"
-              dangerouslySetInnerHTML={{ __html: simpleMarkdown(tutorial.content_md) }}
-            />
-          </section>
-        )}
+          {/* ── Sidebar TOC ── */}
+          {steps.length > 0 && (
+            <aside style={{
+              width: '200px',
+              flexShrink: 0,
+              position: 'sticky',
+              top: '2rem',
+              display: 'none',
+            }} className="tut-sidebar">
+              <p style={{
+                fontSize: '0.625rem', color: 'var(--text-muted)',
+                letterSpacing: '0.15em', fontFamily: 'monospace',
+                textTransform: 'uppercase', marginBottom: '0.875rem',
+              }}>
+                CONTENTS
+              </p>
+              <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                {steps.map((step, i) => (
+                  <a key={i} href={`#step-${i}`} style={{
+                    display: 'flex', alignItems: 'flex-start', gap: '0.5rem',
+                    padding: '0.375rem 0.5rem', borderRadius: 6,
+                    textDecoration: 'none', transition: 'background 0.15s',
+                  }} className="toc-link">
+                    <span style={{
+                      flexShrink: 0, width: 18, height: 18,
+                      borderRadius: '50%', border: '1px solid rgba(139,92,246,0.3)',
+                      color: 'var(--accent-purple)', fontSize: '0.5625rem',
+                      fontFamily: 'monospace', fontWeight: 700,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      marginTop: 1,
+                    }}>
+                      {i + 1}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                      {step.title}
+                    </span>
+                  </a>
+                ))}
+              </nav>
+            </aside>
+          )}
 
-        {/* Back link */}
-        <div className="pt-4 border-t border-gray-200">
-          <Link
-            href="/tutorials"
-            className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 text-sm font-medium transition-colors"
-          >
-            ← 返回教程列表
-          </Link>
+          {/* ── Main content ── */}
+          <main style={{ flex: 1, minWidth: 0 }}>
+
+            {/* Steps timeline */}
+            {steps.length > 0 && (
+              <section style={{ marginBottom: '2.5rem' }}>
+                <h2 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1rem', fontWeight: 700,
+                  color: 'var(--text-primary)', marginBottom: '1.75rem',
+                  display: 'flex', alignItems: 'center', gap: '0.625rem',
+                }}>
+                  <span style={{
+                    width: 3, height: '1rem',
+                    background: 'var(--grad-brand)',
+                    borderRadius: 2, display: 'inline-block',
+                  }} />
+                  操作步骤
+                </h2>
+
+                <div style={{ position: 'relative' }}>
+                  {/* vertical line */}
+                  <div aria-hidden style={{
+                    position: 'absolute', left: 19, top: 20,
+                    bottom: 20, width: 1,
+                    background: 'linear-gradient(to bottom, rgba(139,92,246,0.4), rgba(139,92,246,0.05))',
+                  }} />
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                    {steps.map((step, i) => (
+                      <div key={i} id={`step-${i}`} style={{ display: 'flex', gap: '1.125rem', scrollMarginTop: '2rem' }}>
+                        {/* Number bubble */}
+                        <div style={{
+                          flexShrink: 0, width: 38, height: 38,
+                          borderRadius: '50%',
+                          background: 'rgba(139,92,246,0.1)',
+                          border: '1px solid rgba(139,92,246,0.35)',
+                          color: 'var(--accent-purple)',
+                          fontFamily: 'monospace', fontWeight: 700, fontSize: '0.8rem',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          position: 'relative', zIndex: 1,
+                        }}>
+                          {i + 1}
+                        </div>
+
+                        {/* Step card */}
+                        <div className="glass-card step-card" style={{ flex: 1, minWidth: 0, padding: '1.125rem 1.375rem' }}>
+                          <h3 style={{
+                            fontFamily: 'var(--font-body)',
+                            fontSize: '0.875rem', fontWeight: 600,
+                            color: 'var(--text-primary)', marginBottom: '0.5rem',
+                          }}>
+                            {step.title}
+                          </h3>
+                          <p style={{
+                            fontSize: '0.8125rem',
+                            color: 'var(--text-secondary)',
+                            lineHeight: 1.75,
+                            whiteSpace: 'pre-line',
+                            fontFamily: 'var(--font-body)',
+                          }}>
+                            {step.content}
+                          </p>
+                          {step.image_url && (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              src={step.image_url}
+                              alt={step.title}
+                              style={{
+                                marginTop: '0.875rem', borderRadius: 8,
+                                border: '1px solid rgba(255,255,255,0.08)',
+                                maxWidth: '100%',
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* Full content */}
+            {tutorial.content_md && (
+              <section className="glass-card" style={{ padding: '1.75rem', marginBottom: '2rem' }}>
+                <h2 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1rem', fontWeight: 700,
+                  color: 'var(--text-primary)', marginBottom: '1.25rem',
+                  display: 'flex', alignItems: 'center', gap: '0.625rem',
+                }}>
+                  <span style={{
+                    width: 3, height: '1rem',
+                    background: 'linear-gradient(to bottom, var(--accent-purple), var(--accent-blue))',
+                    borderRadius: 2, display: 'inline-block',
+                  }} />
+                  详细说明
+                </h2>
+                <div
+                  style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.8, fontFamily: 'var(--font-body)' }}
+                  dangerouslySetInnerHTML={{ __html: simpleMarkdown(tutorial.content_md) }}
+                />
+              </section>
+            )}
+
+            {/* Footer nav */}
+            <div style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              paddingTop: '1.5rem',
+              borderTop: '1px solid rgba(255,255,255,0.06)',
+            }}>
+              <Link href="/tutorials" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.375rem',
+                fontSize: '0.8125rem', color: 'var(--accent-purple)',
+                textDecoration: 'none',
+              }}>
+                ← 返回教程列表
+              </Link>
+              <span style={{ fontSize: '0.6875rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>
+                {tutorial.category ?? 'TUTORIAL'}
+              </span>
+            </div>
+          </main>
         </div>
       </div>
-    </main>
+
+      <style>{`
+        @media (min-width: 1024px) {
+          .tut-sidebar { display: block !important; }
+        }
+        .toc-link:hover { background: rgba(139,92,246,0.06); }
+        .step-card:hover { border-color: rgba(139,92,246,0.25) !important; }
+      `}</style>
+    </div>
   )
 }

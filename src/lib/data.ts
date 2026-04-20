@@ -278,13 +278,26 @@ const _fetchLatestNews = unstable_cache(
 
 const _fetchAllNews = unstable_cache(
   async (): Promise<NewsItem[]> => {
-    const { data, error } = await supabase
-      .from('news')
-      .select('*')
-      .order('published_at', { ascending: false })
-      .limit(100)
-    if (error || !data?.length) return STATIC_NEWS
-    return data.map(rowToNews)
+    const PAGE_SIZE = 500
+    const allRows: Record<string, unknown>[] = []
+    let from = 0
+
+    // Paginate until all rows are fetched
+    while (true) {
+      const { data, error } = await supabase
+        .from('news')
+        .select('*')
+        .order('published_at', { ascending: false })
+        .range(from, from + PAGE_SIZE - 1)
+      if (error) break
+      if (!data?.length) break
+      allRows.push(...data)
+      if (data.length < PAGE_SIZE) break
+      from += PAGE_SIZE
+    }
+
+    if (!allRows.length) return STATIC_NEWS
+    return allRows.map(rowToNews)
   },
   ['all-news'],
   { revalidate: 600, tags: ['news'] }

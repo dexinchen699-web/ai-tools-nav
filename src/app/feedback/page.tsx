@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -12,6 +11,27 @@ const FEEDBACK_TYPES = [
   { value: 'suggest', label: '💡 功能建议' },
   { value: 'other', label: '💬 其他' },
 ]
+
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  padding: '10px 14px',
+  fontSize: '0.875rem',
+  background: 'rgba(255,255,255,0.05)',
+  border: '1px solid rgba(255,255,255,0.1)',
+  borderRadius: 8,
+  color: 'var(--text-primary)',
+  outline: 'none',
+  transition: 'border-color 0.2s',
+  boxSizing: 'border-box',
+}
+
+const labelStyle: React.CSSProperties = {
+  display: 'block',
+  fontSize: '0.82rem',
+  fontWeight: 600,
+  color: 'var(--text-secondary)',
+  marginBottom: 6,
+}
 
 export default function FeedbackPage() {
   const [form, setForm] = useState({ type: '', content: '', contact: '' })
@@ -26,9 +46,7 @@ export default function FeedbackPage() {
     e.preventDefault()
     setState('submitting')
     setErrorMsg('')
-
     try {
-      // 暂时模拟提交（后续可接入真实 API）
       await new Promise(resolve => setTimeout(resolve, 800))
       setState('success')
     } catch {
@@ -39,18 +57,35 @@ export default function FeedbackPage() {
 
   if (state === 'success') {
     return (
-      <div className="container-content py-16 max-w-lg mx-auto text-center">
-        <div className="card p-10">
-          <div className="text-5xl mb-4">🙏</div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">感谢你的反馈！</h1>
-          <p className="text-gray-500 text-sm mb-6">
+      <div style={{ background: 'var(--bg-primary)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
+        <div style={{
+          background: 'var(--bg-card)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderRadius: 16,
+          padding: '48px 40px',
+          textAlign: 'center',
+          maxWidth: 440,
+          width: '100%',
+        }}>
+          <div style={{ fontSize: 52, marginBottom: 16 }}>🙏</div>
+          <h1 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8 }}>感谢你的反馈！</h1>
+          <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: 28, lineHeight: 1.6 }}>
             我们已收到你的反馈，会尽快处理并改进。
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/" className="btn-primary px-6 py-2.5">返回首页</Link>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/" style={{
+              padding: '9px 22px', borderRadius: 8, fontSize: '0.875rem', fontWeight: 600,
+              background: 'var(--grad-brand)', color: '#fff', textDecoration: 'none',
+            }}>
+              返回首页
+            </Link>
             <button
               onClick={() => { setForm({ type: '', content: '', contact: '' }); setState('idle') }}
-              className="btn-secondary px-6 py-2.5"
+              style={{
+                padding: '9px 22px', borderRadius: 8, fontSize: '0.875rem', fontWeight: 600,
+                background: 'rgba(255,255,255,0.06)', color: 'var(--text-primary)',
+                border: '1px solid rgba(255,255,255,0.12)', cursor: 'pointer',
+              }}
             >
               再提交一条
             </button>
@@ -61,42 +96,63 @@ export default function FeedbackPage() {
   }
 
   return (
-    <div>
+    <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 text-white">
-        <div className="container-content py-10 text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">问题反馈</h1>
-          <p className="text-brand-100 text-sm max-w-md mx-auto">
+      <section style={{
+        background: 'linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(59,130,246,0.15) 50%, rgba(6,182,212,0.1) 100%)',
+        borderBottom: '1px solid rgba(139,92,246,0.25)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+        <div style={{ maxWidth: 640, margin: '0 auto', padding: '48px 24px', textAlign: 'center', position: 'relative' }}>
+          <h1 style={{
+            fontSize: 'clamp(1.4rem, 3.5vw, 1.9rem)',
+            fontWeight: 800,
+            color: 'var(--text-primary)',
+            marginBottom: 8,
+            fontFamily: 'var(--font-display)',
+          }}>
+            问题反馈
+          </h1>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
             遇到问题或有好的建议？告诉我们，帮助我们做得更好
           </p>
         </div>
       </section>
 
-      <div className="container-content py-10 max-w-xl mx-auto pb-16">
-        <form onSubmit={handleSubmit} className="card p-6 sm:p-8 space-y-5">
+      <div style={{ maxWidth: 560, margin: '0 auto', padding: '40px 24px 80px' }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+
           {/* Type */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              反馈类型 <span className="text-rose-500">*</span>
+            <label style={labelStyle}>
+              反馈类型 <span style={{ color: '#f87171' }}>*</span>
             </label>
             <select
               name="type"
               value={form.type}
               onChange={handleChange}
               required
-              className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition bg-white"
+              style={{ ...inputStyle, appearance: 'none' }}
+              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
+              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
             >
-              <option value="">请选择反馈类型</option>
+              <option value="" style={{ background: '#0a0a1a' }}>请选择反馈类型</option>
               {FEEDBACK_TYPES.map(t => (
-                <option key={t.value} value={t.value}>{t.label}</option>
+                <option key={t.value} value={t.value} style={{ background: '#0a0a1a' }}>{t.label}</option>
               ))}
             </select>
           </div>
 
           {/* Content */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              反馈内容 <span className="text-rose-500">*</span>
+            <label style={labelStyle}>
+              反馈内容 <span style={{ color: '#f87171' }}>*</span>
             </label>
             <textarea
               name="content"
@@ -106,29 +162,40 @@ export default function FeedbackPage() {
               rows={5}
               maxLength={1000}
               placeholder="请详细描述你遇到的问题或建议，包括页面地址、操作步骤等..."
-              className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition resize-none"
+              style={{ ...inputStyle, resize: 'none' }}
+              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
+              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
             />
-            <p className="text-xs text-gray-400 mt-1 text-right">{form.content.length}/1000</p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4, textAlign: 'right' }}>
+              {form.content.length}/1000
+            </p>
           </div>
 
           {/* Contact */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              联系方式
-            </label>
+            <label style={labelStyle}>联系方式</label>
             <input
               type="text"
               name="contact"
               value={form.contact}
               onChange={handleChange}
               placeholder="邮箱或微信，方便我们回复你（选填）"
-              className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
+              style={inputStyle}
+              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
+              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
             />
           </div>
 
           {/* Error */}
           {state === 'error' && (
-            <div className="bg-rose-50 border border-rose-200 rounded-lg px-4 py-3 text-sm text-rose-600">
+            <div style={{
+              background: 'rgba(248,113,113,0.1)',
+              border: '1px solid rgba(248,113,113,0.3)',
+              borderRadius: 8,
+              padding: '12px 16px',
+              fontSize: '0.875rem',
+              color: '#f87171',
+            }}>
               ⚠️ {errorMsg}
             </div>
           )}
@@ -137,25 +204,40 @@ export default function FeedbackPage() {
           <button
             type="submit"
             disabled={state === 'submitting'}
-            className="btn-primary w-full justify-center py-3 text-sm font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+            style={{
+              width: '100%',
+              padding: '12px',
+              borderRadius: 8,
+              fontSize: '0.9rem',
+              fontWeight: 600,
+              background: state === 'submitting' ? 'rgba(139,92,246,0.5)' : 'var(--grad-brand)',
+              color: '#fff',
+              border: 'none',
+              cursor: state === 'submitting' ? 'not-allowed' : 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              transition: 'opacity 0.2s',
+            }}
           >
             {state === 'submitting' ? (
-              <span className="flex items-center gap-2">
-                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+              <>
+                <svg style={{ animation: 'spin 1s linear infinite', width: 16, height: 16 }} viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" strokeOpacity="0.25" />
+                  <path fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                 </svg>
                 提交中...
-              </span>
+              </>
             ) : '提交反馈'}
           </button>
         </form>
 
-        <p className="text-center text-xs text-gray-400 mt-4">
+        <p style={{ textAlign: 'center', fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 20 }}>
           也可以直接
-          <Link href="/submit" className="text-brand-500 hover:underline mx-1">提交新工具</Link>
+          <Link href="/submit" style={{ color: 'var(--accent-purple)', textDecoration: 'none', margin: '0 4px' }}>提交新工具</Link>
           或查看
-          <Link href="/tutorials" className="text-brand-500 hover:underline mx-1">AI教程</Link>
+          <Link href="/tutorials" style={{ color: 'var(--accent-purple)', textDecoration: 'none', margin: '0 4px' }}>AI教程</Link>
         </p>
       </div>
     </div>

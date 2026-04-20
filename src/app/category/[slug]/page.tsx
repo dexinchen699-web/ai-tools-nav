@@ -46,8 +46,6 @@ const PRICING_FILTERS = [
 
 type PricingFilter = typeof PRICING_FILTERS[number]['value']
 
-// ── Sort + filter logic (server-side via searchParams) ────────────────────────
-
 function sortTools(tools: AITool[], sort: SortKey): AITool[] {
   return [...tools].sort((a, b) => {
     switch (sort) {
@@ -73,8 +71,6 @@ function filterTools(tools: AITool[], pricing: PricingFilter): AITool[] {
   return tools.filter(t => t.pricing === pricing)
 }
 
-// ── Page ──────────────────────────────────────────────────────────────────────
-
 export default async function CategoryPage({
   params,
   searchParams,
@@ -86,14 +82,10 @@ export default async function CategoryPage({
   const { sort: sortParam, pricing: pricingParam } = await searchParams
 
   const sort: SortKey =
-    SORT_OPTIONS.some(o => o.value === sortParam)
-      ? (sortParam as SortKey)
-      : 'featured'
+    SORT_OPTIONS.some(o => o.value === sortParam) ? (sortParam as SortKey) : 'featured'
 
   const pricing: PricingFilter =
-    PRICING_FILTERS.some(o => o.value === pricingParam)
-      ? (pricingParam as PricingFilter)
-      : 'all'
+    PRICING_FILTERS.some(o => o.value === pricingParam) ? (pricingParam as PricingFilter) : 'all'
 
   const [category, allCategories, allTools, rawTools] = await Promise.all([
     getCategoryBySlug(slug),
@@ -128,53 +120,107 @@ export default async function CategoryPage({
     return `/category/${slug}${qs ? `?${qs}` : ''}`
   }
 
+  // Pill style helpers
+  const pillActive = {
+    background: 'rgba(26,47,94,0.1)',
+    color: 'var(--accent-navy)',
+    border: '1px solid rgba(26,47,94,0.3)',
+  }
+  const pillIdle = {
+    background: 'var(--bg-secondary)',
+    color: 'var(--text-secondary)',
+    border: '1px solid var(--border)',
+  }
+
   return (
     <div className="animate-fade-in">
       <JsonLd data={jsonLd} />
 
-      {/* ── Full-width layout: sidebar + content ── */}
       <div className="container-content">
-        <div className="flex gap-6 items-start">
+        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
 
-          {/* ── Left: full-height sticky category nav ── */}
+          {/* Sidebar */}
           <CategoryNavSidebar
             categories={allCategories}
             totalCount={allTools.length}
             activeSlug={slug}
           />
 
-          {/* ── Right: breadcrumb + hero + filter + grid ── */}
-          <div className="flex-1 min-w-0">
+          {/* Main content */}
+          <div style={{ flex: 1, minWidth: 0 }}>
 
             {/* Breadcrumb */}
-            <div className="py-3 border-b border-gray-100">
+            <div style={{
+              padding: '0.75rem 0',
+              borderBottom: '1px solid var(--border)',
+              marginBottom: '1.25rem',
+            }}>
               <Breadcrumb items={breadcrumbs} />
             </div>
 
             {/* Category hero */}
-            <div className="bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 text-white rounded-xl mt-4 px-6 py-8">
-              <div className="flex items-center gap-4">
-                <span className="text-5xl">{category.icon}</span>
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(26,47,94,0.07) 0%, rgba(37,99,235,0.05) 50%, rgba(201,168,76,0.04) 100%)',
+              border: '1px solid var(--border)',
+              borderRadius: '14px',
+              padding: '1.75rem',
+              marginBottom: '1.5rem',
+              position: 'relative',
+              overflow: 'hidden',
+            }}>
+              {/* Glow */}
+              <div style={{
+                position: 'absolute',
+                top: '-40%',
+                right: '-10%',
+                width: '280px',
+                height: '280px',
+                background: 'radial-gradient(circle, rgba(26,47,94,0.08) 0%, transparent 70%)',
+                pointerEvents: 'none',
+              }} />
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', position: 'relative' }}>
+                <span style={{ fontSize: '3rem', lineHeight: 1 }}>{category.icon}</span>
                 <div>
-                  <h1 className="text-2xl sm:text-3xl font-bold">{category.name}工具大全</h1>
-                  <p className="text-brand-100 text-sm mt-1">{category.description}</p>
-                  <p className="text-brand-200 text-xs mt-1">共收录 {rawTools.length} 款工具</p>
+                  <h1 style={{
+                    fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
+                    fontWeight: 800,
+                    color: 'var(--text-primary)',
+                    fontFamily: 'var(--font-display)',
+                    marginBottom: '0.35rem',
+                  }}>
+                    {category.name}工具大全
+                  </h1>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.25rem' }}>
+                    {category.description}
+                  </p>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                    共收录 <span style={{ color: 'var(--accent-navy)', fontWeight: 600 }}>{rawTools.length}</span> 款工具
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Mobile category pills */}
-            <div className="lg:hidden mt-4">
-              <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="lg:hidden" style={{ marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.5rem' }}>
                 {allCategories.map(cat => (
                   <Link
                     key={cat.slug}
                     href={`/category/${cat.slug}`}
-                    className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                      cat.slug === slug
-                        ? 'bg-brand-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-brand-50 hover:text-brand-600'
-                    }`}
+                    style={{
+                      flexShrink: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.375rem',
+                      padding: '0.375rem 0.875rem',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      transition: 'all 0.15s',
+                      ...(cat.slug === slug ? pillActive : pillIdle),
+                    }}
                   >
                     {cat.icon} {cat.name}
                   </Link>
@@ -183,34 +229,51 @@ export default async function CategoryPage({
             </div>
 
             {/* Filter / sort bar */}
-            <div className="flex flex-col sm:flex-row gap-3 mt-6 mb-4">
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-xs text-gray-500 mr-1">定价：</span>
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '0.75rem',
+              marginBottom: '0.75rem',
+              alignItems: 'center',
+            }}>
+              {/* Pricing */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginRight: '0.125rem' }}>定价：</span>
                 {PRICING_FILTERS.map(opt => (
                   <Link
                     key={opt.value}
                     href={buildUrl(sort, opt.value)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      pricing === opt.value
-                        ? 'bg-brand-600 text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
+                    style={{
+                      padding: '0.3rem 0.75rem',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      transition: 'all 0.15s',
+                      ...(pricing === opt.value ? pillActive : pillIdle),
+                    }}
                   >
                     {opt.label}
                   </Link>
                 ))}
               </div>
-              <div className="flex items-center gap-1.5 sm:ml-auto flex-wrap">
-                <span className="text-xs text-gray-500 mr-1">排序：</span>
+
+              {/* Sort */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', flexWrap: 'wrap', marginLeft: 'auto' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginRight: '0.125rem' }}>排序：</span>
                 {SORT_OPTIONS.map(opt => (
                   <Link
                     key={opt.value}
                     href={buildUrl(opt.value, pricing)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      sort === opt.value
-                        ? 'bg-brand-600 text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
+                    style={{
+                      padding: '0.3rem 0.75rem',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      transition: 'all 0.15s',
+                      ...(sort === opt.value ? pillActive : pillIdle),
+                    }}
                   >
                     {opt.label}
                   </Link>
@@ -219,7 +282,7 @@ export default async function CategoryPage({
             </div>
 
             {/* Result count */}
-            <p className="text-xs text-gray-400 mb-4">
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
               {pricing !== 'all'
                 ? `筛选出 ${filteredTools.length} / ${rawTools.length} 款工具`
                 : `共 ${filteredTools.length} 款工具`}
@@ -227,30 +290,58 @@ export default async function CategoryPage({
 
             {/* Tool grid */}
             {filteredTools.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+                gap: '0.75rem',
+              }}>
                 {filteredTools.map(tool => (
                   <ToolCard key={tool.slug} tool={tool} />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16 text-gray-400">
-                <p className="text-4xl mb-3">🔍</p>
-                <p className="text-sm">该筛选条件下暂无工具</p>
-                <Link href={`/category/${slug}`} className="mt-3 inline-block text-brand-600 text-sm hover:underline">
+              <div style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--text-muted)' }}>
+                <p style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</p>
+                <p style={{ fontSize: '0.875rem', marginBottom: '0.75rem' }}>该筛选条件下暂无工具</p>
+                <Link
+                  href={`/category/${slug}`}
+                  style={{
+                    fontSize: '0.8rem',
+                    color: 'var(--accent-navy)',
+                    textDecoration: 'none',
+                  }}
+                >
                   清除筛选
                 </Link>
               </div>
             )}
 
             {/* CTA */}
-            <div className="mt-10 mb-8 bg-gradient-to-r from-brand-50 to-blue-50 border border-brand-100 rounded-2xl p-8 text-center">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
+            <div style={{
+              margin: '3rem 0 2rem',
+              background: 'linear-gradient(135deg, rgba(26,47,94,0.06) 0%, rgba(37,99,235,0.04) 100%)',
+              border: '1px solid var(--border)',
+              borderRadius: '16px',
+              padding: '2.5rem',
+              textAlign: 'center',
+            }}>
+              <h2 style={{
+                fontSize: '1.1rem',
+                fontWeight: 700,
+                color: 'var(--text-primary)',
+                marginBottom: '0.5rem',
+                fontFamily: 'var(--font-display)',
+              }}>
                 没找到合适的{category.name}工具？
               </h2>
-              <p className="text-gray-500 text-sm mb-5">
+              <p style={{
+                fontSize: '0.875rem',
+                color: 'var(--text-secondary)',
+                marginBottom: '1.5rem',
+              }}>
                 欢迎提交你发现的优质AI工具，帮助更多人找到合适的AI助手
               </p>
-              <Link href="/submit" className="btn-primary px-6 py-2.5">
+              <Link href="/submit" className="btn-primary" style={{ padding: '0.625rem 1.75rem' }}>
                 提交工具
               </Link>
             </div>
