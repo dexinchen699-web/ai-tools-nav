@@ -8,18 +8,18 @@ export const maxDuration = 60
 // ── RSS sources ──────────────────────────────────────────────────────────────
 const RSS_SOURCES: { name: string; url: string; category: NewsCategory }[] = [
   {
-    name: 'AIBase',
-    url: 'https://www.aibase.com/rss.xml',
-    category: '产品发布',
-  },
-  {
-    name: '量子位',
-    url: 'https://www.qbitai.com/feed',
+    name: '36氪',
+    url: 'https://36kr.com/feed',
     category: '行业动态',
   },
   {
+    name: '雷锋网',
+    url: 'https://www.leiphone.com/feed',
+    category: '产品发布',
+  },
+  {
     name: '机器之心',
-    url: 'https://www.jiqizhixin.com/rss',
+    url: 'https://www.jiqizhixin.com/feed',
     category: '研究论文',
   },
 ]
