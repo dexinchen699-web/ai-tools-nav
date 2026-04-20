@@ -152,13 +152,13 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
     slug: cmp.slug,
     toolAName: toolA.name,
     toolBName: toolB.name,
-    faqs: cmp.faq,
+    faqs: cmp.faqs,
   })
 
   const breadcrumbs = [
-    { label: '首页', href: '/' },
-    { label: 'AI工具对比', href: '/compare' },
-    { label: cmp.title },
+    { name: '首页', url: '/' },
+    { name: 'AI工具对比', url: '/compare' },
+    { name: cmp.title, url: '' },
   ]
 
   return (
