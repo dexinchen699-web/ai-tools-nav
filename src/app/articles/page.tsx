@@ -2,6 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { createServiceClient } from '@/lib/supabase'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'AI文章 — AI工具导航',
   description: '精选 AI 领域深度文章，涵盖工具教程、科普入门、技术解析与行业洞察，持续更新。',
