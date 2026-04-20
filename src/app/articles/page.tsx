@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { supabase } from '@/lib/supabase'
+import { createServiceClient } from '@/lib/supabase'
 
 export const metadata: Metadata = {
   title: 'AI文章 — AI工具导航',
@@ -31,7 +31,7 @@ function formatDate(dateStr: string | null): string {
 }
 
 export default async function ArticlesPage() {
-  const { data: articles } = await supabase
+  const { data: articles } = await createServiceClient()
     .from('articles')
     .select('slug, title, summary, category, date_published, cover_image_url, tags')
     .eq('is_published', true)

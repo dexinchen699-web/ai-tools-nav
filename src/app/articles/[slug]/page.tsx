@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { supabase } from '@/lib/supabase'
+import { createServiceClient } from '@/lib/supabase'
 import { buildMetadata } from '@/lib/metadata'
 import { Breadcrumb } from '@/components/Breadcrumb'
 
@@ -32,7 +32,7 @@ function formatDate(dateStr: string | null): string {
 }
 
 export async function generateStaticParams() {
-  const { data } = await supabase
+  const { data } = await createServiceClient()
     .from('articles')
     .select('slug')
     .eq('is_published', true)
@@ -41,7 +41,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const { data } = await supabase
+  const { data } = await createServiceClient()
     .from('articles')
     .select('title, meta_description')
     .eq('slug', slug)
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
-  const { data: article } = await supabase
+  const { data: article } = await createServiceClient()
     .from('articles')
     .select('*')
     .eq('slug', slug)
