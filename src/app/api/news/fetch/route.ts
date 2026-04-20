@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidateTag } from 'next/cache'
 import { createClient } from '@supabase/supabase-js'
 import type { NewsCategory } from '@/lib/types'
 
@@ -8,7 +9,7 @@ export const maxDuration = 60
 // ── RSS sources ───────────────────────────────────────────────────────────────
 const RSS_SOURCES: { url: string; source: string; category: NewsCategory }[] = [
   {
-    url: 'https://feeds.feedburner.com/venturebeat/SZYF',
+    url: 'https://venturebeat.com/category/ai/feed/',
     source: 'VentureBeat AI',
     category: '行业动态',
   },
@@ -88,10 +89,14 @@ function parseRssItems(xml: string): RssItem[] {
 
 // ── Main handler ──────────────────────────────────────────────────────────────
 export async function GET(request: NextRequest) {
-  // Auth check
-  const secret = request.headers.get('x-cron-secret') ?? request.nextUrl.searchParams.get('secret')
-  if (secret !== process.env.CRON_SECRET) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  // Auth check — if CRON_SECRET is not configured, allow Vercel internal cron calls
+  // (Vercel sets x-vercel-cron: 1 on scheduled invocations)
+  const cronSecret = process.env.CRON_SECRET
+  if (cronSecret) {
+    const secret = request.headers.get('x-cron-secret') ?? request.nextUrl.searchParams.get('secret')
+    if (secret !== cronSecret) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
   }
 
   const supabase = createClient(
@@ -118,21 +123,27 @@ export async function GET(request: NextRequest) {
         const publishedAt = item.pubDate ? new Date(item.pubDate).toISOString() : new Date().toISOString()
         const summary = item.description.slice(0, 200)
 
-        const { error } = await supabase.from('news').upsert(
-          {
-            slug,
-            title: item.title,
-            summary,
-            content: item.description,
-            source: source.source,
-            source_url: item.link,
-            published_at: publishedAt,
-            category: source.category,
-            tags: [],
-            image_url: item.imageUrl || null,
-          },
-          { onConflict: 'slug', ignoreDuplicates: true }
-        )
+        // Skip if already in DB (accurate count)
+        const { data: existing } = await supabase
+          .from('news')
+          .select('slug')
+          .eq('slug', slug)
+          .maybeSingle()
+
+        if (existing) continue
+
+        const { error } = await supabase.from('news').insert({
+          slug,
+          title: item.title,
+          summary,
+          content: item.description,
+          source: source.source,
+          source_url: item.link,
+          published_at: publishedAt,
+          category: source.category,
+          tags: [],
+          image_url: item.imageUrl || null,
+        })
 
         if (error) {
           errors.push(`${source.source}: ${error.message}`)
@@ -143,6 +154,11 @@ export async function GET(request: NextRequest) {
     } catch (err) {
       errors.push(`${source.source}: ${String(err)}`)
     }
+  }
+
+  // Bust Next.js cache so news page reflects new data immediately
+  if (totalInserted > 0) {
+    revalidateTag('news')
   }
 
   return NextResponse.json({
