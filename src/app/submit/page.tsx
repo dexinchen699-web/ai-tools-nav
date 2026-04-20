@@ -21,8 +21,8 @@ const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '10px 14px',
   fontSize: '0.875rem',
-  background: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border)',
   borderRadius: 8,
   color: 'var(--text-primary)',
   outline: 'none',
@@ -68,12 +68,13 @@ export default function SubmitPage() {
       <div style={{ background: 'var(--bg-primary)', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
         <div style={{
           background: 'var(--bg-card)',
-          border: '1px solid rgba(255,255,255,0.08)',
+          border: '1px solid var(--border)',
           borderRadius: 16,
           padding: '48px 40px',
           textAlign: 'center',
           maxWidth: 440,
           width: '100%',
+          boxShadow: '0 4px 24px rgba(26,47,94,0.08)',
         }}>
           <div style={{ fontSize: 52, marginBottom: 16 }}>🎉</div>
           <h1 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8 }}>提交成功！</h1>
@@ -81,19 +82,13 @@ export default function SubmitPage() {
             感谢你的推荐，我们会尽快审核并决定是否收录。
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/" style={{
-              padding: '9px 22px', borderRadius: 8, fontSize: '0.875rem', fontWeight: 600,
-              background: 'var(--grad-brand)', color: '#fff', textDecoration: 'none',
-            }}>
+            <Link href="/" className="btn-primary" style={{ padding: '9px 22px', fontSize: '0.875rem' }}>
               返回首页
             </Link>
             <button
               onClick={() => { setForm({ toolName: '', website: '', category: '', pricing: '', tagline: '', description: '', submitterEmail: '' }); setState('idle') }}
-              style={{
-                padding: '9px 22px', borderRadius: 8, fontSize: '0.875rem', fontWeight: 600,
-                background: 'rgba(255,255,255,0.06)', color: 'var(--text-primary)',
-                border: '1px solid rgba(255,255,255,0.12)', cursor: 'pointer',
-              }}
+              className="btn-ghost"
+              style={{ padding: '9px 22px', fontSize: '0.875rem', cursor: 'pointer' }}
             >
               再提交一个
             </button>
@@ -107,14 +102,14 @@ export default function SubmitPage() {
     <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
       {/* Hero */}
       <section style={{
-        background: 'linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(59,130,246,0.15) 50%, rgba(6,182,212,0.1) 100%)',
-        borderBottom: '1px solid rgba(139,92,246,0.25)',
+        background: 'var(--bg-secondary)',
+        borderBottom: '1px solid var(--border)',
         position: 'relative',
         overflow: 'hidden',
       }}>
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(26,47,94,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
         <div style={{ maxWidth: 640, margin: '0 auto', padding: '48px 24px', textAlign: 'center', position: 'relative' }}>
@@ -137,8 +132,8 @@ export default function SubmitPage() {
 
         {/* Guidelines */}
         <div style={{
-          background: 'rgba(59,130,246,0.08)',
-          border: '1px solid rgba(59,130,246,0.2)',
+          background: 'rgba(37,99,235,0.05)',
+          border: '1px solid rgba(37,99,235,0.18)',
           borderRadius: 10,
           padding: '14px 18px',
           marginBottom: 28,
@@ -154,7 +149,7 @@ export default function SubmitPage() {
 
           {/* Tool Name */}
           <div>
-            <label style={labelStyle}>工具名称 <span style={{ color: '#f87171' }}>*</span></label>
+            <label style={labelStyle}>工具名称 <span style={{ color: '#dc2626' }}>*</span></label>
             <input
               type="text"
               name="toolName"
@@ -163,14 +158,14 @@ export default function SubmitPage() {
               required
               placeholder="例如：ChatGPT"
               style={inputStyle}
-              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+              onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+              onBlur={e => (e.target.style.borderColor = 'var(--border)')}
             />
           </div>
 
           {/* Website */}
           <div>
-            <label style={labelStyle}>官方网站 <span style={{ color: '#f87171' }}>*</span></label>
+            <label style={labelStyle}>官方网站 <span style={{ color: '#dc2626' }}>*</span></label>
             <input
               type="url"
               name="website"
@@ -179,44 +174,44 @@ export default function SubmitPage() {
               required
               placeholder="https://example.com"
               style={inputStyle}
-              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+              onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+              onBlur={e => (e.target.style.borderColor = 'var(--border)')}
             />
           </div>
 
           {/* Category + Pricing */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             <div>
-              <label style={labelStyle}>工具分类 <span style={{ color: '#f87171' }}>*</span></label>
+              <label style={labelStyle}>工具分类 <span style={{ color: '#dc2626' }}>*</span></label>
               <select
                 name="category"
                 value={form.category}
                 onChange={handleChange}
                 required
                 style={{ ...inputStyle, appearance: 'none' }}
-                onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-                onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+                onBlur={e => (e.target.style.borderColor = 'var(--border)')}
               >
-                <option value="" style={{ background: '#0a0a1a' }}>选择分类</option>
+                <option value="">选择分类</option>
                 {CATEGORIES.map(c => (
-                  <option key={c} value={c} style={{ background: '#0a0a1a' }}>{c}</option>
+                  <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label style={labelStyle}>定价模式 <span style={{ color: '#f87171' }}>*</span></label>
+              <label style={labelStyle}>定价模式 <span style={{ color: '#dc2626' }}>*</span></label>
               <select
                 name="pricing"
                 value={form.pricing}
                 onChange={handleChange}
                 required
                 style={{ ...inputStyle, appearance: 'none' }}
-                onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-                onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+                onBlur={e => (e.target.style.borderColor = 'var(--border)')}
               >
-                <option value="" style={{ background: '#0a0a1a' }}>选择定价</option>
+                <option value="">选择定价</option>
                 {PRICING_OPTIONS.map(p => (
-                  <option key={p.value} value={p.value} style={{ background: '#0a0a1a' }}>{p.label}</option>
+                  <option key={p.value} value={p.value}>{p.label}</option>
                 ))}
               </select>
             </div>
@@ -224,7 +219,7 @@ export default function SubmitPage() {
 
           {/* Tagline */}
           <div>
-            <label style={labelStyle}>一句话介绍 <span style={{ color: '#f87171' }}>*</span></label>
+            <label style={labelStyle}>一句话介绍 <span style={{ color: '#dc2626' }}>*</span></label>
             <input
               type="text"
               name="tagline"
@@ -233,8 +228,8 @@ export default function SubmitPage() {
               required
               placeholder="用一句话描述这个工具的核心功能"
               style={inputStyle}
-              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+              onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+              onBlur={e => (e.target.style.borderColor = 'var(--border)')}
             />
           </div>
 
@@ -249,8 +244,8 @@ export default function SubmitPage() {
               maxLength={500}
               placeholder="介绍工具的主要功能、适用场景、优缺点等（选填）"
               style={{ ...inputStyle, resize: 'none' }}
-              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+              onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+              onBlur={e => (e.target.style.borderColor = 'var(--border)')}
             />
             <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 4, textAlign: 'right' }}>
               {form.description.length}/500
@@ -267,20 +262,20 @@ export default function SubmitPage() {
               onChange={handleChange}
               placeholder="审核结果通知（选填）"
               style={inputStyle}
-              onFocus={e => (e.target.style.borderColor = 'rgba(139,92,246,0.6)')}
-              onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+              onFocus={e => (e.target.style.borderColor = 'var(--accent-navy)')}
+              onBlur={e => (e.target.style.borderColor = 'var(--border)')}
             />
           </div>
 
           {/* Error */}
           {state === 'error' && (
             <div style={{
-              background: 'rgba(248,113,113,0.1)',
-              border: '1px solid rgba(248,113,113,0.3)',
+              background: 'rgba(239,68,68,0.06)',
+              border: '1px solid rgba(239,68,68,0.25)',
               borderRadius: 8,
               padding: '12px 16px',
               fontSize: '0.875rem',
-              color: '#f87171',
+              color: '#dc2626',
             }}>
               ⚠️ {errorMsg}
             </div>
@@ -296,7 +291,7 @@ export default function SubmitPage() {
               borderRadius: 8,
               fontSize: '0.9rem',
               fontWeight: 600,
-              background: state === 'submitting' ? 'rgba(139,92,246,0.5)' : 'var(--grad-brand)',
+              background: state === 'submitting' ? 'rgba(26,47,94,0.4)' : 'var(--grad-brand)',
               color: '#fff',
               border: 'none',
               cursor: state === 'submitting' ? 'not-allowed' : 'pointer',
@@ -321,7 +316,7 @@ export default function SubmitPage() {
 
         <p style={{ textAlign: 'center', fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: 20 }}>
           有问题？
-          <Link href="/feedback" style={{ color: 'var(--accent-purple)', textDecoration: 'none', margin: '0 4px' }}>联系我们</Link>
+          <Link href="/feedback" style={{ color: 'var(--accent-navy)', textDecoration: 'none', margin: '0 4px' }}>联系我们</Link>
         </p>
       </div>
     </div>

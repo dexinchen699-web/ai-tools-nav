@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 }
 
 const CATEGORY_META: Record<string, { icon: string; label: string; desc: string; accent: string }> = {
-  'AI工具教程':  { icon: '◎', label: 'AI 工具教程', desc: '上手指南 · 实操技巧',   accent: 'var(--accent-purple)' },
-  'AI科普':      { icon: '◈', label: 'AI 科普',     desc: '大众科普 · 入门必读',   accent: 'var(--accent-cyan)'   },
-  'AI技术解析':  { icon: '◉', label: 'AI 技术解析', desc: '原理剖析 · 深度技术',   accent: 'var(--accent-blue)'   },
-  'AI行业洞察':  { icon: '◐', label: 'AI 行业洞察', desc: '趋势分析 · 产业动态',   accent: 'var(--accent-pink)'   },
+  'AI工具教程':  { icon: '◎', label: 'AI 工具教程', desc: '上手指南 · 实操技巧',   accent: 'var(--accent-navy)' },
+  'AI科普':      { icon: '◈', label: 'AI 科普',     desc: '大众科普 · 入门必读',   accent: 'var(--accent-blue)'  },
+  'AI技术解析':  { icon: '◉', label: 'AI 技术解析', desc: '原理剖析 · 深度技术',   accent: 'var(--accent-blue)'  },
+  'AI行业洞察':  { icon: '◐', label: 'AI 行业洞察', desc: '趋势分析 · 产业动态',   accent: 'var(--accent-gold)'  },
 }
 
 interface ArticleRow {
@@ -54,7 +54,7 @@ export default async function ArticlesPage() {
       {/* ── Hero ── */}
       <section style={{
         background: 'var(--bg-secondary)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--border)',
         position: 'relative',
         overflow: 'hidden',
         paddingTop: '3rem',
@@ -62,12 +62,30 @@ export default async function ArticlesPage() {
       }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(26,47,94,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,47,94,0.04) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
           pointerEvents: 'none',
         }} />
-        <div className="glow-orb glow-orb-purple" style={{ top: -100, left: '5%', width: 360, height: 360, opacity: 0.1 }} />
-        <div className="glow-orb glow-orb-blue" style={{ bottom: -80, right: '8%', width: 280, height: 280, opacity: 0.08 }} />
+        <div style={{
+          position: 'absolute',
+          top: -100, left: '5%',
+          width: 360, height: 360,
+          borderRadius: '50%',
+          background: 'var(--accent-navy)',
+          opacity: 0.06,
+          filter: 'blur(80px)',
+          pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: -80, right: '8%',
+          width: 280, height: 280,
+          borderRadius: '50%',
+          background: 'var(--accent-blue)',
+          opacity: 0.06,
+          filter: 'blur(60px)',
+          pointerEvents: 'none',
+        }} />
 
         <div className="container-content" style={{ position: 'relative', zIndex: 1 }}>
           <p className="section-label" style={{ marginBottom: '1rem' }}>ARTICLES / 文章库</p>
@@ -125,7 +143,7 @@ export default async function ArticlesPage() {
         {/* ── Others ── */}
         {others.length > 0 && (
           <section style={{ marginBottom: '2.5rem' }}>
-            <SectionHeading label="更多文章" sub="◎  OTHER" accent="var(--accent-purple)" />
+            <SectionHeading label="更多文章" sub="◎  OTHER" accent="var(--accent-navy)" />
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
@@ -133,7 +151,7 @@ export default async function ArticlesPage() {
               marginTop: '1.125rem',
             }}>
               {others.map(a => (
-                <ArticleCard key={a.slug} article={a} accent="var(--accent-purple)" />
+                <ArticleCard key={a.slug} article={a} accent="var(--accent-navy)" />
               ))}
             </div>
           </section>
@@ -159,7 +177,7 @@ function SectionHeading({ label, sub, accent }: { label: string; sub: string; ac
         fontFamily: 'var(--font-display)',
         fontSize: '1.125rem',
         fontWeight: 700,
-        color: accent ?? 'var(--text-primary)',
+        color: accent ?? 'var(--accent-navy)',
       }}>
         {label}
       </h2>
@@ -186,7 +204,7 @@ function ArticleCard({ article, accent }: { article: ArticleRow; accent: string 
         gap: '0.75rem',
         borderRadius: '0.875rem',
         background: 'var(--bg-card)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        border: '1px solid var(--border)',
         textDecoration: 'none',
         transition: 'border-color 0.2s, background 0.2s, transform 0.2s',
         overflow: 'hidden',
@@ -255,14 +273,14 @@ function ArticleCard({ article, accent }: { article: ArticleRow; accent: string 
               {formatDate(article.date_published)}
             </span>
           ) : <span />}
-          <span style={{ fontSize: '0.6875rem', color: accent, fontFamily: 'monospace', opacity: 0.8 }}>READ →</span>
+          <span style={{ fontSize: '0.6875rem', color: 'var(--accent-navy)', fontFamily: 'monospace', opacity: 0.8 }}>READ →</span>
         </div>
       </div>
 
       <style>{`
         .article-card-item:hover {
-          border-color: rgba(255,255,255,0.14) !important;
-          background: rgba(255,255,255,0.06) !important;
+          border-color: var(--accent-navy) !important;
+          background: var(--bg-secondary) !important;
           transform: translateY(-3px);
         }
       `}</style>

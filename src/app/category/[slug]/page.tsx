@@ -122,14 +122,14 @@ export default async function CategoryPage({
 
   // Pill style helpers
   const pillActive = {
-    background: 'rgba(139,92,246,0.18)',
-    color: 'var(--accent-purple)',
-    border: '1px solid rgba(139,92,246,0.4)',
+    background: 'rgba(26,47,94,0.1)',
+    color: 'var(--accent-navy)',
+    border: '1px solid rgba(26,47,94,0.3)',
   }
   const pillIdle = {
-    background: 'rgba(255,255,255,0.04)',
+    background: 'var(--bg-secondary)',
     color: 'var(--text-secondary)',
-    border: '1px solid rgba(255,255,255,0.08)',
+    border: '1px solid var(--border)',
   }
 
   return (
@@ -152,7 +152,7 @@ export default async function CategoryPage({
             {/* Breadcrumb */}
             <div style={{
               padding: '0.75rem 0',
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
+              borderBottom: '1px solid var(--border)',
               marginBottom: '1.25rem',
             }}>
               <Breadcrumb items={breadcrumbs} />
@@ -160,8 +160,8 @@ export default async function CategoryPage({
 
             {/* Category hero */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(59,130,246,0.15) 50%, rgba(6,182,212,0.1) 100%)',
-              border: '1px solid rgba(139,92,246,0.25)',
+              background: 'linear-gradient(135deg, rgba(26,47,94,0.07) 0%, rgba(37,99,235,0.05) 50%, rgba(201,168,76,0.04) 100%)',
+              border: '1px solid var(--border)',
               borderRadius: '14px',
               padding: '1.75rem',
               marginBottom: '1.5rem',
@@ -175,7 +175,7 @@ export default async function CategoryPage({
                 right: '-10%',
                 width: '280px',
                 height: '280px',
-                background: 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(26,47,94,0.08) 0%, transparent 70%)',
                 pointerEvents: 'none',
               }} />
 
@@ -195,7 +195,7 @@ export default async function CategoryPage({
                     {category.description}
                   </p>
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    共收录 <span style={{ color: 'var(--accent-cyan)', fontWeight: 600 }}>{rawTools.length}</span> 款工具
+                    共收录 <span style={{ color: 'var(--accent-navy)', fontWeight: 600 }}>{rawTools.length}</span> 款工具
                   </p>
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default async function CategoryPage({
                   href={`/category/${slug}`}
                   style={{
                     fontSize: '0.8rem',
-                    color: 'var(--accent-purple)',
+                    color: 'var(--accent-navy)',
                     textDecoration: 'none',
                   }}
                 >
@@ -319,8 +319,8 @@ export default async function CategoryPage({
             {/* CTA */}
             <div style={{
               margin: '3rem 0 2rem',
-              background: 'linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(59,130,246,0.08) 100%)',
-              border: '1px solid rgba(139,92,246,0.2)',
+              background: 'linear-gradient(135deg, rgba(26,47,94,0.06) 0%, rgba(37,99,235,0.04) 100%)',
+              border: '1px solid var(--border)',
               borderRadius: '16px',
               padding: '2.5rem',
               textAlign: 'center',

@@ -47,86 +47,25 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
     icon: string,
     label: string,
     count?: number,
-    iconBg = 'rgba(255,255,255,0.06)'
   ) => {
     const isActive = activeAnchor === id || (!activeAnchor && id === `cat-${activeSlug}`)
     return (
       <button
         key={id}
         onClick={() => scrollTo(id)}
-        style={{
-          position: 'relative',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0.45rem 1rem',
-          fontSize: '0.82rem',
-          fontWeight: isActive ? 600 : 400,
-          cursor: 'pointer',
-          textAlign: 'left',
-          background: isActive ? 'rgba(139,92,246,0.12)' : 'transparent',
-          color: isActive ? 'var(--accent-purple)' : 'var(--text-secondary)',
-          border: 'none',
-          transition: 'background 0.15s, color 0.15s',
-        }}
-        onMouseEnter={e => {
-          if (!isActive) {
-            (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'
-            ;(e.currentTarget as HTMLElement).style.color = 'var(--text-primary)'
-          }
-        }}
-        onMouseLeave={e => {
-          if (!isActive) {
-            (e.currentTarget as HTMLElement).style.background = 'transparent'
-            ;(e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'
-          }
-        }}
+        className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
       >
-        {/* Active indicator */}
-        {isActive && (
-          <span style={{
-            position: 'absolute',
-            left: 0,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '2px',
-            height: '1.25rem',
-            background: 'var(--accent-purple)',
-            borderRadius: '0 2px 2px 0',
-          }} />
-        )}
+        {isActive && <span className="nav-indicator" />}
 
-        <span style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', minWidth: 0 }}>
-          <span style={{
-            width: '1.75rem',
-            height: '1.75rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: '7px',
-            background: isActive ? 'rgba(139,92,246,0.2)' : iconBg,
-            fontSize: '0.9rem',
-            flexShrink: 0,
-          }}>
+        <span className="nav-item-inner">
+          <span className={`nav-icon ${isActive ? 'nav-icon-active' : ''}`}>
             {icon}
           </span>
-          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-            {label}
-          </span>
+          <span className="nav-label">{label}</span>
         </span>
 
         {count !== undefined && (
-          <span style={{
-            fontSize: '0.65rem',
-            fontVariantNumeric: 'tabular-nums',
-            flexShrink: 0,
-            marginLeft: '0.25rem',
-            padding: '0.1rem 0.4rem',
-            borderRadius: '999px',
-            background: isActive ? 'rgba(139,92,246,0.2)' : 'rgba(255,255,255,0.06)',
-            color: isActive ? 'var(--accent-purple)' : 'var(--text-muted)',
-          }}>
+          <span className={`nav-count ${isActive ? 'nav-count-active' : ''}`}>
             {count}
           </span>
         )}
@@ -136,60 +75,23 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
 
   return (
     <>
-      <aside style={{
-        display: 'none',
-        position: 'fixed',
-        left: 0,
-        top: '3.5rem',
-        bottom: 0,
-        width: '14rem',
-        background: 'var(--bg-secondary)',
-        borderRight: '1px solid rgba(255,255,255,0.06)',
-        zIndex: 40,
-        flexDirection: 'column',
-      }}
-        className="lg-sidebar"
-      >
+      <aside className="lg-sidebar">
         {/* Header */}
-        <div style={{
-          padding: '0.75rem 1rem',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexShrink: 0,
-        }}>
-          <span style={{
-            fontSize: '0.65rem',
-            fontWeight: 700,
-            color: 'var(--text-muted)',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            fontFamily: 'var(--font-display)',
-          }}>
-            工具分类
-          </span>
-          <span style={{
-            fontSize: '0.65rem',
-            color: 'var(--text-muted)',
-            background: 'rgba(255,255,255,0.06)',
-            padding: '0.1rem 0.4rem',
-            borderRadius: '999px',
-          }}>
-            {categories.length}
-          </span>
+        <div className="sidebar-header">
+          <span className="sidebar-header-label">工具分类</span>
+          <span className="sidebar-header-count">{categories.length}</span>
         </div>
 
         {/* Scrollable nav */}
-        <nav style={{ flex: 1, overflowY: 'auto', padding: '0.375rem 0' }}>
-          {navItem('featured', '⭐', '精选推荐', undefined, 'rgba(245,158,11,0.12)')}
-          {navItem('new-tools', '🆕', '最新收录', undefined, 'rgba(236,72,153,0.1)')}
+        <nav className="sidebar-nav">
+          {navItem('featured', '⭐', '精选推荐')}
+          {navItem('new-tools', '🆕', '最新收录')}
 
-          <div style={{ margin: '0.375rem 1rem', height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+          <div className="sidebar-divider" />
 
-          {navItem('cat-' + (categories[0]?.slug ?? ''), '🔥', '全部工具', totalCount, 'rgba(239,68,68,0.1)')}
+          {navItem('cat-' + (categories[0]?.slug ?? ''), '🔥', '全部工具', totalCount)}
 
-          <div style={{ margin: '0.375rem 1rem', height: '1px', background: 'rgba(255,255,255,0.06)' }} />
+          <div className="sidebar-divider" />
 
           {categories.map(cat =>
             navItem(`cat-${cat.slug}`, cat.icon ?? '🔧', cat.name, cat.toolCount)
@@ -197,38 +99,8 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
         </nav>
 
         {/* Footer CTA */}
-        <div style={{
-          padding: '0.75rem',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
-          flexShrink: 0,
-        }}>
-          <Link
-            href="/submit"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.375rem',
-              width: '100%',
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              color: 'var(--accent-purple)',
-              padding: '0.5rem',
-              borderRadius: '8px',
-              border: '1px solid rgba(139,92,246,0.3)',
-              background: 'rgba(139,92,246,0.08)',
-              textDecoration: 'none',
-              transition: 'background 0.15s, border-color 0.15s',
-            }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(139,92,246,0.18)'
-              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(139,92,246,0.5)'
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.background = 'rgba(139,92,246,0.08)'
-              ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(139,92,246,0.3)'
-            }}
-          >
+        <div className="sidebar-footer">
+          <Link href="/submit" className="sidebar-submit-btn">
             <span>＋</span>
             <span>提交工具</span>
           </Link>
@@ -238,10 +110,157 @@ export function CategoryNavSidebar({ categories, totalCount, activeSlug }: Props
       {/* Spacer */}
       <div className="hidden lg:block w-56 shrink-0" />
 
-      {/* Inline style to show aside on lg+ */}
       <style>{`
         @media (min-width: 1024px) {
           .lg-sidebar { display: flex !important; }
+        }
+        .lg-sidebar {
+          display: none;
+          position: fixed;
+          left: 0;
+          top: 3.5rem;
+          bottom: 0;
+          width: 14rem;
+          background: var(--bg-secondary);
+          border-right: 1px solid var(--border);
+          z-index: 40;
+          flex-direction: column;
+        }
+        .sidebar-header {
+          padding: 0.75rem 1rem;
+          border-bottom: 1px solid var(--border);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-shrink: 0;
+        }
+        .sidebar-header-label {
+          font-size: 0.65rem;
+          font-weight: 700;
+          color: var(--text-muted);
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          font-family: var(--font-display);
+        }
+        .sidebar-header-count {
+          font-size: 0.65rem;
+          color: var(--text-muted);
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          padding: 0.1rem 0.4rem;
+          border-radius: 999px;
+        }
+        .sidebar-nav {
+          flex: 1;
+          overflow-y: auto;
+          padding: 0.375rem 0;
+        }
+        .sidebar-divider {
+          margin: 0.375rem 1rem;
+          height: 1px;
+          background: var(--border);
+        }
+        .sidebar-footer {
+          padding: 0.75rem;
+          border-top: 1px solid var(--border);
+          flex-shrink: 0;
+        }
+        .sidebar-submit-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.375rem;
+          width: 100%;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--accent-navy);
+          padding: 0.5rem;
+          border-radius: 8px;
+          border: 1px solid rgba(26,47,94,0.25);
+          background: rgba(26,47,94,0.06);
+          text-decoration: none;
+          transition: background 0.15s, border-color 0.15s;
+        }
+        .sidebar-submit-btn:hover {
+          background: rgba(26,47,94,0.12);
+          border-color: rgba(26,47,94,0.4);
+        }
+        .nav-item {
+          position: relative;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0.45rem 1rem;
+          font-size: 0.82rem;
+          cursor: pointer;
+          text-align: left;
+          background: transparent;
+          color: var(--text-secondary);
+          border: none;
+          transition: background 0.15s, color 0.15s;
+        }
+        .nav-item:hover {
+          background: rgba(26,47,94,0.05);
+          color: var(--text-primary);
+        }
+        .nav-item-active {
+          font-weight: 600;
+          background: rgba(26,47,94,0.08) !important;
+          color: var(--accent-navy) !important;
+        }
+        .nav-indicator {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2px;
+          height: 1.25rem;
+          background: var(--accent-navy);
+          border-radius: 0 2px 2px 0;
+        }
+        .nav-item-inner {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          min-width: 0;
+        }
+        .nav-icon {
+          width: 1.75rem;
+          height: 1.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 7px;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          font-size: 0.9rem;
+          flex-shrink: 0;
+        }
+        .nav-icon-active {
+          background: rgba(26,47,94,0.1);
+          border-color: rgba(26,47,94,0.2);
+        }
+        .nav-label {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .nav-count {
+          font-size: 0.65rem;
+          font-variant-numeric: tabular-nums;
+          flex-shrink: 0;
+          margin-left: 0.25rem;
+          padding: 0.1rem 0.4rem;
+          border-radius: 999px;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          color: var(--text-muted);
+        }
+        .nav-count-active {
+          background: rgba(26,47,94,0.1);
+          border-color: rgba(26,47,94,0.2);
+          color: var(--accent-navy);
         }
       `}</style>
     </>

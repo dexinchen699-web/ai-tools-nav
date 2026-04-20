@@ -19,10 +19,10 @@ interface Article {
 }
 
 const CATEGORY_ACCENT: Record<string, string> = {
-  'AI工具教程': 'var(--accent-purple)',
-  'AI科普':     'var(--accent-cyan)',
+  'AI工具教程': 'var(--accent-navy)',
+  'AI科普':     'var(--accent-blue)',
   'AI技术解析': 'var(--accent-blue)',
-  'AI行业洞察': 'var(--accent-pink)',
+  'AI行业洞察': 'var(--accent-gold)',
 }
 
 function formatDate(dateStr: string | null): string {
@@ -68,7 +68,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) notFound()
 
   const tags = article.tags ?? []
-  const accent = article.category ? (CATEGORY_ACCENT[article.category] ?? 'var(--accent-purple)') : 'var(--accent-purple)'
+  const accent = article.category ? (CATEGORY_ACCENT[article.category] ?? 'var(--accent-navy)') : 'var(--accent-navy)'
 
   const breadcrumbs = [
     { name: '首页', url: '/' },
@@ -82,7 +82,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       {/* ── Hero ── */}
       <section style={{
         background: 'var(--bg-secondary)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--border)',
         position: 'relative',
         overflow: 'hidden',
         paddingTop: '2.5rem',
@@ -90,11 +90,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(26,47,94,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,47,94,0.04) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
           pointerEvents: 'none',
         }} />
-        <div className="glow-orb glow-orb-purple" style={{ top: -80, right: '5%', width: 360, height: 360, opacity: 0.1 }} />
+        <div style={{
+          position: 'absolute', top: -80, right: '5%',
+          width: 360, height: 360, borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(26,47,94,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
 
         <div className="container-content" style={{ position: 'relative', zIndex: 1 }}>
           <Breadcrumb items={breadcrumbs} />
@@ -115,7 +120,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             {article.date_published && (
               <span style={{
                 fontSize: '0.6875rem', padding: '0.25rem 0.75rem',
-                borderRadius: 999, border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: 999, border: '1px solid var(--border)',
                 color: 'var(--text-muted)', fontFamily: 'monospace',
               }}>
                 {formatDate(article.date_published)}
@@ -153,7 +158,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               {tags.map(tag => (
                 <span key={tag} style={{
                   fontSize: '0.6875rem', padding: '0.2rem 0.6rem',
-                  borderRadius: 4, background: 'rgba(255,255,255,0.05)',
+                  borderRadius: 4, background: 'var(--bg-secondary)',
                   color: 'var(--text-muted)', fontFamily: 'monospace',
                 }}>
                   #{tag}
@@ -178,7 +183,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               maxHeight: '420px',
               objectFit: 'cover',
               borderRadius: '0.875rem',
-              border: '1px solid rgba(255,255,255,0.08)',
+              border: '1px solid var(--border)',
               marginBottom: '2rem',
               display: 'block',
             }}
@@ -211,11 +216,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           alignItems: 'center',
           justifyContent: 'space-between',
           paddingTop: '1.5rem',
-          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderTop: '1px solid var(--border)',
         }}>
           <Link href="/articles" style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.375rem',
-            fontSize: '0.8125rem', color: 'var(--accent-purple)',
+            fontSize: '0.8125rem', color: 'var(--accent-navy)',
             textDecoration: 'none',
           }}>
             ← 返回文章列表

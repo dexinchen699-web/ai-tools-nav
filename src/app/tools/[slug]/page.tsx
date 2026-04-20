@@ -34,10 +34,10 @@ const PRICING_LABEL: Record<string, string> = {
 }
 
 const PRICING_COLOR: Record<string, string> = {
-  free: '#10b981',
-  freemium: '#3b82f6',
-  paid: '#f59e0b',
-  enterprise: '#8b5cf6',
+  free: '#059669',
+  freemium: 'var(--accent-blue)',
+  paid: '#d97706',
+  enterprise: 'var(--accent-navy)',
 }
 
 function StarRating({ rating, count }: { rating: number; count?: number }) {
@@ -92,14 +92,14 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
     }] : []),
   ]
 
-  const pricingColor = PRICING_COLOR[tool.pricing] ?? '#8b5cf6'
+  const pricingColor = PRICING_COLOR[tool.pricing] ?? 'var(--accent-navy)'
 
   return (
     <div className="animate-fade-in">
       <JsonLd data={jsonLd} />
 
       {/* Breadcrumb */}
-      <div style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)' }}>
         <div className="container-content" style={{ paddingTop: '0.75rem', paddingBottom: '0.75rem' }}>
           <nav style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
             <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>首页</Link>
@@ -138,10 +138,10 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     {tool.name}
                   </h1>
                   {tool.isNew && (
-                    <span className="badge" style={{ background: 'rgba(239,68,68,0.15)', color: '#f87171', border: '1px solid rgba(239,68,68,0.3)' }}>NEW</span>
+                    <span className="badge" style={{ background: 'rgba(239,68,68,0.1)', color: '#dc2626', border: '1px solid rgba(239,68,68,0.25)' }}>NEW</span>
                   )}
                   {tool.isFeatured && (
-                    <span className="badge" style={{ background: 'rgba(245,158,11,0.15)', color: '#fbbf24', border: '1px solid rgba(245,158,11,0.3)' }}>精选</span>
+                    <span className="badge" style={{ background: 'rgba(201,168,76,0.12)', color: 'var(--accent-gold)', border: '1px solid rgba(201,168,76,0.3)' }}>精选</span>
                   )}
                 </div>
                 <p style={{ fontSize: '0.9375rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', fontFamily: 'var(--font-body)' }}>
@@ -154,9 +154,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     borderRadius: 999,
                     fontSize: '0.75rem',
                     fontWeight: 600,
-                    background: `${pricingColor}20`,
+                    background: 'var(--bg-secondary)',
                     color: pricingColor,
-                    border: `1px solid ${pricingColor}40`,
+                    border: '1px solid var(--border)',
                   }}>
                     {PRICING_LABEL[tool.pricing]}
                   </span>
@@ -194,7 +194,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem', fontFamily: 'var(--font-display)' }}>
                     产品截图
                   </h2>
-                  <div style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  <div style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid var(--border)' }}>
                     <img
                       src={tool.screenshotUrl || tool.imageUrl}
                       alt={`${tool.name} 界面截图`}
@@ -217,10 +217,10 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                         display: 'flex', alignItems: 'flex-start', gap: '0.625rem',
                         padding: '0.75rem',
                         borderRadius: '0.625rem',
-                        background: 'rgba(139,92,246,0.06)',
-                        border: '1px solid rgba(139,92,246,0.12)',
+                        background: 'rgba(26,47,94,0.04)',
+                        border: '1px solid var(--border)',
                       }}>
-                        <span style={{ color: 'var(--accent-purple)', flexShrink: 0, marginTop: 2 }}>✦</span>
+                        <span style={{ color: 'var(--accent-navy)', flexShrink: 0, marginTop: 2 }}>✦</span>
                         <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>{f}</span>
                       </div>
                     ))}
@@ -239,14 +239,14 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                       <div style={{
                         padding: '1rem',
                         borderRadius: '0.75rem',
-                        background: 'rgba(16,185,129,0.06)',
-                        border: '1px solid rgba(16,185,129,0.2)',
+                        background: 'rgba(5,150,105,0.05)',
+                        border: '1px solid rgba(5,150,105,0.2)',
                       }}>
-                        <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#34d399', marginBottom: '0.75rem' }}>👍 优点</h3>
+                        <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#059669', marginBottom: '0.75rem' }}>👍 优点</h3>
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                           {tool.pros.map((p, i) => (
                             <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>
-                              <span style={{ color: '#34d399', flexShrink: 0 }}>✓</span>{p}
+                              <span style={{ color: '#059669', flexShrink: 0 }}>✓</span>{p}
                             </li>
                           ))}
                         </ul>
@@ -256,14 +256,14 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                       <div style={{
                         padding: '1rem',
                         borderRadius: '0.75rem',
-                        background: 'rgba(239,68,68,0.06)',
+                        background: 'rgba(239,68,68,0.05)',
                         border: '1px solid rgba(239,68,68,0.2)',
                       }}>
-                        <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#f87171', marginBottom: '0.75rem' }}>👎 缺点</h3>
+                        <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: '#dc2626', marginBottom: '0.75rem' }}>👎 缺点</h3>
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                           {tool.cons.map((c, i) => (
                             <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>
-                              <span style={{ color: '#f87171', flexShrink: 0 }}>✗</span>{c}
+                              <span style={{ color: '#dc2626', flexShrink: 0 }}>✗</span>{c}
                             </li>
                           ))}
                         </ul>
@@ -286,9 +286,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                           flexShrink: 0,
                           width: 28, height: 28,
                           borderRadius: '50%',
-                          background: 'rgba(139,92,246,0.15)',
-                          border: '1px solid rgba(139,92,246,0.3)',
-                          color: 'var(--accent-purple)',
+                          background: 'rgba(26,47,94,0.08)',
+                          border: '1px solid rgba(26,47,94,0.2)',
+                          color: 'var(--accent-navy)',
                           fontSize: '0.75rem',
                           fontWeight: 700,
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -315,7 +315,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     {tool.faqs.map((faq, i) => (
                       <div key={i} style={{
                         paddingBottom: '1rem',
-                        borderBottom: i < tool.faqs.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                        borderBottom: i < tool.faqs.length - 1 ? '1px solid var(--border)' : 'none',
                       }}>
                         <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem', fontFamily: 'var(--font-body)' }}>
                           Q: {faq.question}
@@ -354,7 +354,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <dt style={{ color: 'var(--text-muted)' }}>分类</dt>
                     <dd>
-                      <Link href={`/category/${tool.category}`} style={{ color: 'var(--accent-purple)', textDecoration: 'none', fontSize: '0.8125rem' }}>
+                      <Link href={`/category/${tool.category}`} style={{ color: 'var(--accent-navy)', textDecoration: 'none', fontSize: '0.8125rem' }}>
                         {category?.name ?? tool.category}
                       </Link>
                     </dd>
@@ -379,8 +379,8 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                       <div key={i} style={{
                         padding: '0.75rem',
                         borderRadius: '0.625rem',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        background: 'rgba(255,255,255,0.02)',
+                        border: '1px solid var(--border)',
+                        background: 'var(--bg-secondary)',
                       }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
                           <span style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '0.8125rem' }}>{tier.name}</span>
@@ -389,7 +389,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                           {tier.features.map((f, j) => (
                             <li key={j} style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
-                              <span style={{ color: '#34d399' }}>✓</span>{f}
+                              <span style={{ color: '#059669' }}>✓</span>{f}
                             </li>
                           ))}
                         </ul>
@@ -405,7 +405,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   <h2 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>标签</h2>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.375rem' }}>
                     {tool.tags.map(tag => (
-                      <span key={tag} className="badge" style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                      <span key={tag} className="badge" style={{ background: 'var(--bg-secondary)', color: 'var(--text-muted)', border: '1px solid var(--border)' }}>
                         {tag}
                       </span>
                     ))}
@@ -420,7 +420,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {tool.useCases.map((uc, i) => (
                       <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}>
-                        <span style={{ color: 'var(--accent-cyan)', flexShrink: 0 }}>▸</span>{uc}
+                        <span style={{ color: 'var(--accent-blue)', flexShrink: 0 }}>▸</span>{uc}
                       </li>
                     ))}
                   </ul>
@@ -428,7 +428,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               )}
 
               {/* Compare CTA */}
-              <div className="glass-card" style={{ padding: '1.25rem', background: 'rgba(139,92,246,0.05)', border: '1px solid rgba(139,92,246,0.15)' }}>
+              <div className="glass-card" style={{ padding: '1.25rem', background: 'rgba(26,47,94,0.04)', border: '1px solid rgba(26,47,94,0.12)' }}>
                 <h2 style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.375rem' }}>工具对比</h2>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.875rem', fontFamily: 'var(--font-body)' }}>
                   想知道 {tool.name} 和其他工具的区别？
@@ -439,7 +439,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                       <Link
                         key={c.slug}
                         href={`/compare/${c.slug}`}
-                        className="btn-ghost-dark"
+                        className="btn-ghost"
                         style={{ display: 'block', textAlign: 'center', fontSize: '0.75rem', padding: '0.5rem' }}
                       >
                         {c.title} →
@@ -447,7 +447,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                     ))}
                   </div>
                 ) : (
-                  <Link href="/compare" className="btn-ghost-dark" style={{ display: 'block', textAlign: 'center', fontSize: '0.75rem', padding: '0.5rem' }}>
+                  <Link href="/compare" className="btn-ghost" style={{ display: 'block', textAlign: 'center', fontSize: '0.75rem', padding: '0.5rem' }}>
                     查看对比 →
                   </Link>
                 )}

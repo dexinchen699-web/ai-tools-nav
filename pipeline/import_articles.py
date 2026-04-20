@@ -200,6 +200,7 @@ def main():
 
             record = {
                 "slug": slug,
+                "is_published": True,
                 **fields,
             }
 
