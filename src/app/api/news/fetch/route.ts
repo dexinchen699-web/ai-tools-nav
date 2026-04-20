@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { revalidatePath } from 'next/cache'
+import { revalidateTag } from 'next/cache'
 import { createClient } from '@supabase/supabase-js'
 import type { NewsCategory } from '@/lib/types'
 
@@ -158,7 +158,7 @@ export async function GET(request: NextRequest) {
 
   // Bust Next.js cache so news page reflects new data immediately
   if (totalInserted > 0) {
-    revalidatePath('/news')
+    revalidateTag('news')
   }
 
   return NextResponse.json({
