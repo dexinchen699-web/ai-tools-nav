@@ -1,5 +1,121 @@
 [
   {
+    "id": "ce47b2b4",
+    "slug": "mythosjia-gou-bei-22sui-xiao-huo-ni-tui-kai-yuan-liao-moehe-2026-04-20",
+    "title": "22岁开发者逆推开源Claude Mythos架构，借鉴DeepSeek的MoE与注意力机制",
+    "summary": "一位22岁的开发者通过整合公开研究和主流推测，对Claude的Mythos架构进行逆向工程并将其开源，其中MoE和注意力机制设计参考了DeepSeek的方案。",
+    "content": "近日，一位年仅22岁的开发者引发了AI社区的广泛关注。他通过系统整合现有公开研究成果以及业界对Anthropic旗下Claude模型所采用的Mythos架构的主流推测，完成了一次颇具影响力的逆向工程尝试，并将相关代码和架构设计公开开源。\n\n据悉，该项目并非基于任何内部泄露信息，而是依托学术论文、技术博客及社区讨论等公开资料，对Mythos架构的核心设计进行了系统性还原与推断。在关键技术选型上，该开源实现借鉴了DeepSeek在混合专家模型（MoE）和注意力机制方面的设计思路，这两项技术也是当前大模型领域的重要研究方向。\n\nMoE架构通过动态激活部分专家网络来提升模型效率，而DeepSeek在这一领域的探索已被业界广泛认可。注意力机制的改进则直接影响模型对长上下文的处理能力和推理效率。\n\n此次开源项目的意义在于，它为研究者和开发者提供了一个可参考的架构实现，有助于推动社区对前沿闭源模型架构的理解与讨论。不过需要注意的是，该项目本质上是基于推测的复现，与Anthropic实际采用的架构可能存在差异。目前该项目已在GitHub上获得较高关注度，引发了开发者社区的热烈讨论。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403708.html",
+    "publishedAt": "2026-04-20T07:59:51Z",
+    "category": "研究论文",
+    "tags": [
+      "Claude",
+      "Mythos架构",
+      "MoE",
+      "DeepSeek",
+      "开源",
+      "逆向工程"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "66927a17",
+    "slug": "quan-qiu-zui-da-gui-mo-han-hong-jue-shu-ju-ji-ping-shi-yao-x-2026-04-20",
+    "title": "全球最大规模含触觉全模态数据集 Daimon Infinit 发布",
+    "summary": "联合谷歌及多所高校，研究团队发布全球最大规模含触觉全模态物理世界数据集 Daimon Infinit，推动具身智能与机器人感知研究。",
+    "content": "近日，一项由谷歌及众多高校联合参与的研究成果正式发布——全球最大规模含触觉全模态物理世界数据集 Daimon Infinit。该数据集的核心亮点在于将触觉模态纳入多模态数据体系，填补了现有大规模数据集在触觉感知维度上的空白。\n\n传统多模态数据集通常涵盖视觉、听觉、语言等模态，而触觉数据由于采集难度高、标注成本大，长期处于缺失状态。Daimon Infinit 的发布意味着研究人员首次拥有了一个在规模和模态完整性上均达到新高度的基准数据集，为训练具备物理世界理解能力的 AI 模型提供了重要基础。\n\n谷歌与多所顶尖高校的加入，不仅体现了学术界和工业界对触觉感知研究价值的高度认可，也为数据集的质量与多样性提供了有力保障。该数据集预计将在机器人操作、具身智能、人机交互等领域产生广泛影响，帮助模型更真实地理解物体的材质、形变与接触力等物理属性。\n\n随着具身智能赛道持续升温，高质量的多模态数据资源正成为各方竞争的关键要素。Daimon Infinit 的开放与共享，有望加速该领域的研究进展，并为后续更复杂的物理世界建模任务奠定数据基础。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403701.html",
+    "publishedAt": "2026-04-20T07:55:03Z",
+    "category": "研究论文",
+    "tags": [
+      "触觉数据集",
+      "多模态",
+      "具身智能",
+      "机器人感知",
+      "谷歌"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "62d10cd4",
+    "slug": "20yi-mei-jin-su-du-ke-ji-ju-shen-shou-xiu-ji-da-zhao-0zhen-j-2026-04-20",
+    "title": "苏度科技发布具身智能模型 Sudo R1，零样本抓取成功率达 98%",
+    "summary": "估值 20 亿美元的苏度科技首次亮相具身智能领域，发布 Sudo R1 模型，在零真机训练数据、zero-shot 条件下实现 98% 的首次抓取成功率。",
+    "content": "苏度科技（Sudo Tech）近日正式发布其具身智能基础模型 Sudo R1，这也是这家估值达 20 亿美元的公司在具身智能方向的首次公开亮相。\n\nSudo R1 最引人关注的技术亮点在于其极强的泛化能力：模型在训练阶段未使用任何真实机器人采集的数据，完全依赖仿真或其他形式的数据进行训练，却能在 zero-shot（零样本迁移）条件下直接部署到真实机器人上，并在抓取任务中取得 98% 的首次抓取成功率。\n\n这一结果对具身智能领域具有重要意义。长期以来，真实机器人数据的采集成本高、规模难以扩展，是制约具身模型落地的核心瓶颈之一。Sudo R1 的表现表明，通过高质量的仿真训练与有效的 sim-to-real 迁移策略，有可能绕过对大规模真机数据的依赖，大幅降低具身智能系统的开发门槛。\n\n目前苏度科技尚未披露 Sudo R1 的完整技术细节与训练方案，更多信息有待后续论文或技术报告发布。该成果由量子位率先报道，业界对其后续在更复杂操作任务和多样化场景下的表现保持高度关注。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403543.html",
+    "publishedAt": "2026-04-20T05:34:32Z",
+    "category": "产品发布",
+    "tags": [
+      "具身智能",
+      "苏度科技",
+      "Sudo R1",
+      "机器人",
+      "zero-shot"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "9692d00b",
+    "slug": "kimixin-lun-wen-ba-kvcachewan-cheng-xin-shang-ye-mo-shi-liao-2026-04-20",
+    "title": "Kimi发布KV Cache新论文，探索超长上下文商业化路径",
+    "summary": "Kimi发布关于KV Cache的最新研究论文，探索将KV Cache技术转化为新商业模式的可能性，为超长上下文场景带来新思路。",
+    "content": "近日，Kimi（月之暗面）发布了一篇关于KV Cache（键值缓存）技术的最新研究论文，引发业界广泛关注。KV Cache是大语言模型推理过程中的核心机制，用于缓存注意力计算中的中间结果，从而避免重复计算，显著提升推理效率并降低延迟。\n\n此次论文的亮点在于，Kimi团队不仅从技术层面对KV Cache进行了深入研究，还尝试将其与商业模式相结合，探索如何通过KV Cache的复用与管理，为超长上下文场景提供更具成本效益的解决方案。超长上下文一直是大模型落地应用的重要挑战之一，涉及文档分析、代码理解、长对话等多种实际需求。\n\n从技术角度看，KV Cache的高效管理可以大幅降低长上下文推理的计算开销。Kimi在超长上下文领域本就具备较强的技术积累，此次论文进一步将缓存机制与服务定价、资源调度等商业逻辑相结合，为行业提供了新的参考思路。\n\n这一研究方向也反映出当前AI大模型公司在技术创新之外，正积极寻求将底层技术能力转化为可持续商业价值的路径。来源：量子位。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403528.html",
+    "publishedAt": "2026-04-19T10:19:45Z",
+    "category": "研究论文",
+    "tags": [
+      "Kimi",
+      "KV Cache",
+      "超长上下文",
+      "大语言模型",
+      "AI推理"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "e4e67a54",
+    "slug": "heng-sao-quan-qiu-15xiang-sota-gao-de-shou-ge-mian-xiang-agi-2026-04-20",
+    "title": "横扫全球15项SOTA！高德首个面向AGI的全栈具身技术体系大公开",
+    "summary": "当行业在底层基础设施上开始成型，局面就会迅速收敛",
+    "content": "当行业在底层基础设施上开始成型，局面就会迅速收敛",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403226.html",
+    "publishedAt": "2026-04-19T10:13:54Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "cd642a72",
+    "slug": "da-mo-xing-jia-gou-de-xia-ban-chang-2026-04-20",
+    "title": "大模型架构的下半场",
+    "summary": "面向大模型深度扩展的Flash Depth Attention与混合深度注意力",
+    "content": "面向大模型深度扩展的Flash Depth Attention与混合深度注意力",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403515.html",
+    "publishedAt": "2026-04-19T10:12:10Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "e52270ce",
+    "slug": "gao-de-fa-bu-quan-qiu-shou-ge-mian-xiang-agide-quan-zhan-ju-2026-04-20",
+    "title": "高德发布全球首个面向AGI的全栈具身技术体系“ABot”：15项SOTA，构建持续进化的具身智能闭环",
+    "summary": "打造出全球首个面向AGI的全栈具身技术体系。",
+    "content": "打造出全球首个面向AGI的全栈具身技术体系。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403505.html",
+    "publishedAt": "2026-04-19T07:50:32Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "39e05701",
     "slug": "ma-si-ke-lai-dou-yin-mai-lao-gan-ma-liao-2026-04-19",
     "title": "马斯克来抖音卖老干妈了？？",
