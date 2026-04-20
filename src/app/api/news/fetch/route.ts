@@ -18,9 +18,9 @@ const RSS_SOURCES: { name: string; url: string; category: NewsCategory }[] = [
     category: '产品发布',
   },
   {
-    name: '机器之心',
-    url: 'https://www.jiqizhixin.com/feed',
-    category: '研究论文',
+    name: '爱范儿',
+    url: 'https://www.ifanr.com/feed',
+    category: '产品发布',
   },
 ]
 
