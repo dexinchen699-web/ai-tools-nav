@@ -399,11 +399,11 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
         )}
 
         {/* ── FAQ ── */}
-        {cmp.faq && cmp.faq.length > 0 && (
+        {cmp.faqs && cmp.faqs.length > 0 && (
           <div className="glass-card" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem' }}>常见问题</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {cmp.faq.map((item, i) => (
+              {cmp.faqs.map((item, i) => (
                 <details key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.5rem' }}>
                   <summary style={{
                     cursor: 'pointer',
