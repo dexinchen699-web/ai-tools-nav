@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: '/tools',     label: 'AI 工具' },
   { href: '/compare',   label: '对比评测' },
   { href: '/tutorials', label: '教程' },
+  { href: '/articles',  label: '文章' },
   { href: '/news',      label: '资讯' },
 ];
 
