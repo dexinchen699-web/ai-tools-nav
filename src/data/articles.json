@@ -1,5 +1,13 @@
 [
   {
+    "slug": "42_chatgpt-shopping-acp",
+    "file": "42_chatgpt-shopping-acp.html",
+    "title": "ChatGPT 现在可以帮你买东西了——这不是购物升级，是电商规则的重写",
+    "desc": "OpenAI 和 Stripe 联手推出 Agentic Commerce Protocol，ChatGPT 可以直接帮你下单了。Etsy 已上线，Shopify 百万商家即将接入。这对消费者和电商从业者意味着什么？",
+    "date": "2026-04-20",
+    "category": "科普"
+  },
+  {
     "slug": "01_dify",
     "file": "01_dify.html",
     "title": "零代码搭建你的第一个 AI 应用——Dify 保姆级入门教程",
