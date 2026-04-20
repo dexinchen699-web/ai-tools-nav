@@ -77,9 +77,9 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
   const tags = tutorial.tags ?? []
 
   const breadcrumbs = [
-    { label: '首页', href: '/' },
-    { label: '教程', href: '/tutorials' },
-    { label: tutorial.category ?? '教程' },
+    { name: '首页', url: '/' },
+    { name: '教程', url: '/tutorials' },
+    { name: tutorial.category ?? '教程' },
   ]
 
   return (

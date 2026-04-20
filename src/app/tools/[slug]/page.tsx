@@ -125,7 +125,6 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                 width={72}
                 height={72}
                 className="tool-logo"
-                style={{ width: 72, height: 72, borderRadius: '1rem', flexShrink: 0 }}
               />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', flexWrap: 'wrap', marginBottom: '0.375rem' }}>
