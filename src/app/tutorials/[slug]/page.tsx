@@ -30,6 +30,8 @@ interface Tutorial {
   updated_at: string
 }
 
+export const revalidate = 86400 // 24h ISR
+
 export async function generateStaticParams() {
   const { data } = await supabase
     .from('tutorials')
@@ -76,6 +78,28 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
   const steps = tutorial.steps ?? []
   const tags = tutorial.tags ?? []
 
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ai-tools-nav-two.vercel.app'
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: tutorial.title,
+    description: tutorial.meta_description ?? tutorial.summary ?? '',
+    url: `${BASE_URL}/tutorials/${tutorial.slug}`,
+    ...(tutorial.duration_minutes && {
+      totalTime: `PT${tutorial.duration_minutes}M`,
+    }),
+    ...(tutorial.cover_image_url && { image: tutorial.cover_image_url }),
+    ...(steps.length > 0 && {
+      step: steps.map((s, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: s.title,
+        text: s.content,
+        ...(s.image_url && { image: s.image_url }),
+      })),
+    }),
+  }
+
   const breadcrumbs = [
     { name: '首页', url: '/' },
     { name: '教程', url: '/tutorials' },
@@ -84,6 +108,10 @@ export default async function TutorialPage({ params }: { params: Promise<{ slug:
 
   return (
     <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section style={{

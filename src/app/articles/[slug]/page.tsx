@@ -31,6 +31,8 @@ function formatDate(dateStr: string | null): string {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })
 }
 
+export const revalidate = 86400 // 24h ISR
+
 export async function generateStaticParams() {
   const { data } = await createServiceClient()
     .from('articles')
@@ -70,6 +72,24 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const tags = article.tags ?? []
   const accent = article.category ? (CATEGORY_ACCENT[article.category] ?? 'var(--accent-navy)') : 'var(--accent-navy)'
 
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ai-tools-nav-two.vercel.app'
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.meta_description ?? article.summary ?? '',
+    url: `${BASE_URL}/articles/${article.slug}`,
+    ...(article.date_published && { datePublished: article.date_published }),
+    ...(article.cover_image_url && { image: article.cover_image_url }),
+    author: { '@type': 'Organization', name: 'AI工具导航' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'AI工具导航',
+      url: BASE_URL,
+    },
+    ...(tags.length > 0 && { keywords: tags.join(', ') }),
+  }
+
   const breadcrumbs = [
     { name: '首页', url: '/' },
     { name: '文章', url: '/articles' },
@@ -78,6 +98,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section style={{
