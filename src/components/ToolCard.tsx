@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ToolLogo } from '@/components/ToolLogo'
+import { FavoriteButton } from '@/components/FavoriteButton'
 import type { AITool } from '@/lib/types'
 
 const PRICING_BADGE: Record<string, string> = {
@@ -18,9 +19,17 @@ const PRICING_LABEL: Record<string, string> = {
 
 export function ToolCard({ tool }: { tool: AITool }) {
   return (
-    <Link href={`/tools/${tool.slug}`} className="tool-card group">
+    <div className="tool-card group relative">
+      {/* Clickable overlay covering the whole card */}
+      <Link href={`/tools/${tool.slug}`} className="absolute inset-0 z-0" aria-label={tool.name} />
+
+      {/* Favorite button — above the link overlay */}
+      <div className="absolute top-2 right-2 z-10">
+        <FavoriteButton slug={tool.slug} size="sm" />
+      </div>
+
       {/* Top row: logo + badges */}
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex items-start justify-between gap-2 pr-7">
         <ToolLogo
           website={tool.website}
           alt={tool.name}
@@ -58,6 +67,6 @@ export function ToolCard({ tool }: { tool: AITool }) {
       <p className="text-xs leading-relaxed line-clamp-2 text-[var(--text-secondary)]">
         {tool.tagline || tool.description}
       </p>
-    </Link>
+    </div>
   )
 }

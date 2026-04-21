@@ -5,6 +5,8 @@ import { supabase } from '@/lib/supabase'
 import { JsonLd } from '@/components/JsonLd'
 import { ToolLogo } from '@/components/ToolLogo'
 import { generatedTools } from '@/data/generated_data'
+import { RatingReview } from '@/components/RatingReview'
+import { FavoriteButton } from '@/components/FavoriteButton'
 
 export const revalidate = 3600
 
@@ -162,13 +164,16 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   </span>
                 </div>
               </div>
-              <Link
-                href={`/go/${tool.slug}`}
-                className="btn-primary"
-                style={{ flexShrink: 0, padding: '0.625rem 1.5rem', fontSize: '0.875rem' }}
-              >
-                访问官网 ↗
-              </Link>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+                <FavoriteButton slug={tool.slug} />
+                <Link
+                  href={`/go/${tool.slug}`}
+                  className="btn-primary"
+                  style={{ padding: '0.625rem 1.5rem', fontSize: '0.875rem' }}
+                >
+                  访问官网 ↗
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -328,6 +333,9 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
                   </div>
                 </div>
               )}
+
+              {/* Rating & Reviews */}
+              <RatingReview toolSlug={tool.slug} toolName={tool.name} />
             </div>
 
             {/* Sidebar */}

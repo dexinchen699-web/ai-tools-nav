@@ -8,6 +8,8 @@ import { Breadcrumb } from '@/components/Breadcrumb'
 import { buildComparisonSchema } from '@/lib/schema'
 import type { AITool } from '@/lib/types'
 
+export const revalidate = 86400 // 24h ISR
+
 export async function generateStaticParams() {
   const comparisons = await getAllComparisons()
   return comparisons.map((c) => ({ slug: c.slug }))
