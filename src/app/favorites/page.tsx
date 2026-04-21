@@ -39,7 +39,7 @@ export default function FavoritesPage() {
   }, [])
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-10">
+    <main className="max-w-6xl mx-auto px-4 pt-24 pb-10">
       <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-6">收藏的工具</h1>
 
       {loading ? (
