@@ -1,5 +1,157 @@
 [
   {
+    "id": "c5f49e4c",
+    "slug": "xiao-mi-xuan-bu-shang-xian-pcban-long-xia-xiaomi-miclawzheng-2026-04-21",
+    "title": "小米龙虾AI助手上线PC版，开启多终端封测",
+    "summary": "小米旗下AI助手产品「龙虾」（Xiaomi miclaw）于3月6日正式上线PC版，并开启小范围封测，覆盖PC、Mac及有屏音箱等多终端设备。",
+    "content": "小米近日宣布，其AI助手产品「龙虾」（Xiaomi miclaw）正式扩展至PC端，于3月6日上线并开启小范围封测。此次封测覆盖Windows PC、Mac以及小米有屏音箱等多种终端设备，标志着该产品从移动端向多终端生态迈出重要一步。\n\n龙虾是小米布局AI助手赛道的重要产品，此前主要面向移动端用户提供服务。随着PC版的推出，用户将能够在更多使用场景下接入小米的AI能力，实现跨设备的连续体验。有屏音箱的加入也意味着小米正在尝试将AI助手延伸至智能家居场景，进一步打通IoT生态。\n\n目前该版本处于封测阶段，仅向小范围用户开放体验，正式版本的发布时间尚未公布。业界普遍认为，随着国内AI助手竞争持续升温，小米此举意在加速构建覆盖手机、电脑、智能家居的全场景AI入口，与其他厂商的多端AI产品展开竞争。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403867.html",
+    "publishedAt": "2026-04-21T04:57:31Z",
+    "category": "产品发布",
+    "tags": [
+      "小米",
+      "AI助手",
+      "多终端"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "37d03096",
+    "slug": "agentzheng-sha-ru-ruan-jian-yan-fa-yi-xian-quan-qiu-chao-60w-2026-04-21",
+    "title": "全球60位技术专家拆解AI落地困局，2026奇点智能技术大会收官",
+    "summary": "2026奇点智能技术大会落幕，超60位全球技术专家围绕AI Agent在软件研发领域的落地挑战展开深度探讨，聚焦程序员角色转变与智能化开发未来。",
+    "content": "随着AI代码生成能力的持续突破，软件研发正在经历一场深刻变革。2026奇点智能技术大会近日收官，来自全球的超60位技术专家、工程师与行业领袖汇聚一堂，围绕AI Agent在软件研发一线的实际落地展开系统性拆解与讨论。\n\n大会核心议题聚焦于一个时代之问：当代码可以被大模型自动生成，程序员的核心价值究竟在哪里？与会专家普遍认为，AI Agent并非简单替代开发者，而是正在重塑整个研发流程——从需求理解、架构设计到代码审查与测试，Agent的介入使得软件交付效率大幅提升，但同时也对工程师的系统思维、业务理解与AI协作能力提出了更高要求。\n\n多位专家在会上分享了AI Agent落地过程中面临的现实困局，包括上下文窗口限制、多步骤任务的可靠性问题、代码质量的一致性保障，以及企业内部遗留系统的适配难题。如何在自动化与可控性之间找到平衡，成为当前工程实践中最受关注的挑战之一。\n\n此次大会由量子位报道，被视为国内AI工程化落地领域的重要行业风向标，为2026年AI与软件研发深度融合的趋势提供了前沿参考。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403859.html",
+    "publishedAt": "2026-04-21T04:54:43Z",
+    "category": "行业动态",
+    "tags": [
+      "AI Agent",
+      "软件研发",
+      "代码生成",
+      "技术大会",
+      "智能化开发"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "72f3cb6b",
+    "slug": "ji-zhu-shen-du-jie-mi-yun-zhi-sheng-u1-ocrjia-gou-sheng-ji-a-2026-04-21",
+    "title": "技术深度揭秘｜云知声U1-OCR架构升级 + API 开放，重构 OCR 3.0 时代",
+    "summary": "采用Token 计费模式",
+    "content": "采用Token 计费模式",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403836.html",
+    "publishedAt": "2026-04-21T04:50:16Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "c17f6c86",
+    "slug": "tian-li-qi-ming-aiyan-jiu-yuan-yuan-chang-liu-zhi-yi-ru-xuan-2026-04-21",
+    "title": "天立启鸣AI研究院院长刘志毅，入选2025福布斯中国科创人物",
+    "summary": "教育+AI引领智能时代新范式",
+    "content": "教育+AI引领智能时代新范式",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403825.html",
+    "publishedAt": "2026-04-21T04:33:09Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "33cec34c",
+    "slug": "kxing-fen-hua-ru-he-po-ju-di-20jie-zhong-guo-tou-zi-nian-hui-2026-04-21",
+    "title": "K型分化，如何破局？| 第20届中国投资年会·年度峰会即将启幕",
+    "summary": "见证行业20年的演进。",
+    "content": "见证行业20年的演进。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403822.html",
+    "publishedAt": "2026-04-21T03:11:15Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "733293b5",
+    "slug": "zhe-ci-ku-ke-zhen-de-yao-xie-ren-ping-guo-ceoliao-2026-04-21",
+    "title": "库克宣布卸任苹果CEO，公开告别信出炉",
+    "summary": "苹果公司CEO蒂姆·库克发布公开告别信，正式宣布将卸任苹果CEO一职，消息引发科技界广泛关注。",
+    "content": "据量子位报道，苹果公司现任CEO蒂姆·库克发布了一封公开告别信，正式宣布其将卸任苹果CEO职位。库克自2011年接替史蒂夫·乔布斯出任苹果CEO以来，带领苹果公司走过了十余年的高速发展期，推动苹果市值一度突破3万亿美元，成为全球市值最高的科技公司之一。在其任期内，苹果相继推出了iPhone、iPad、Apple Watch、AirPods等多款具有里程碑意义的产品，并大力推进服务业务转型，使苹果服务收入占比持续提升。此次库克发布告别信，标志着苹果公司即将迎来新一轮领导层交接。目前，关于继任者人选及具体交接时间表，苹果官方尚未披露更多细节。库克的离任将是苹果公司历史上的重要转折点，外界普遍关注苹果未来在人工智能、混合现实等新兴领域的战略走向是否会因此发生调整。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403790.html",
+    "publishedAt": "2026-04-21T00:14:04Z",
+    "category": "公司新闻",
+    "tags": [
+      "苹果",
+      "蒂姆·库克",
+      "CEO卸任"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "8aa15a3e",
+    "slug": "kua-wei-zhi-neng-dexworldmodelzhan-huo-bang-shou-shi-jie-mo-2026-04-21",
+    "title": "跨维智能DexWorldModel斩获榜首，世界模型真正的考场在机器人执行里",
+    "summary": "重塑具身世界模型评价方式",
+    "content": "重塑具身世界模型评价方式",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403777.html",
+    "publishedAt": "2026-04-21T00:06:39Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "194cf0a7",
+    "slug": "ji-harnesszhi-hou-long-xia-jiuwenclawlu-xian-kai-qi-coordina-2026-04-21",
+    "title": "JiuwenClaw 率先开启「Coordination Engineering」时代",
+    "summary": "继 Harness 之后，多 Agent 协同工具 JiuwenClaw 提出「Coordination Engineering」概念，将多 Agent 协同能力推向新阶段。",
+    "content": "在 AI 工程化浪潮持续推进的背景下，多 Agent 协同正成为新的技术焦点。继 Harness 提出相关理念之后，被称为「龙虾」的 JiuwenClaw 率先将「Coordination Engineering」（协同工程）概念落地实践，标志着多 Agent 系统的工程化探索进入新阶段。\n\nCoordination Engineering 的核心思想在于，如何系统性地设计、编排和管理多个 AI Agent 之间的协作关系，使其能够高效完成复杂任务。与单一 Agent 模式相比，多 Agent 协同能够实现任务分解、并行处理与专业化分工，从而大幅提升复杂场景下的执行效率和输出质量。\n\nJiuwenClaw 在这一方向上的探索，聚焦于如何将多 Agent 协同从实验性玩法转变为可工程化落地的系统方法论。这包括 Agent 间通信协议的规范化、任务调度策略的优化，以及协同过程中的错误处理与状态管理等关键工程问题。\n\n随着大模型能力的持续提升，多 Agent 系统的可靠性和可控性逐渐成为业界关注的核心议题。Coordination Engineering 概念的提出，为开发者提供了一套更具结构化的思考框架，有望推动多 Agent 应用从概念验证走向规模化生产部署。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403751.html",
+    "publishedAt": "2026-04-20T13:00:10Z",
+    "category": "行业动态",
+    "tags": [
+      "多Agent协同",
+      "Coordination Engineering",
+      "AI工程化"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "29e21455",
+    "slug": "ying-te-er-cpude-tong-jiu-xiang-song-wai-mai-2026-04-21",
+    "title": "英特尔发布AI高能效处理器新品",
+    "summary": "英特尔推出面向AI应用的高性能处理器新品，旨在提升本地AI计算能力与能效表现。",
+    "content": "英特尔近期发布了新一代面向AI场景的处理器产品。此次新品聚焦于本地AI推理与计算需求，在性能与功耗比方面进行了针对性优化，以应对日益增长的端侧AI应用场景。\n\n随着大模型和AI助手在消费级设备上的普及，CPU在本地AI计算中的角色愈发重要。英特尔此次新品据悉在神经网络推理加速方面有所强化，配合其集成的NPU单元，可在不依赖云端的情况下流畅运行主流AI任务。\n\n业界普遍认为，PC端AI能力的竞争已成为芯片厂商的重要战场。英特尔此举是其在AI PC赛道持续布局的组成部分，与AMD、高通等竞争对手在本地AI算力领域的角力也在持续加剧。\n\n目前该产品的详细规格与上市时间尚待英特尔官方进一步披露。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403757.html",
+    "publishedAt": "2026-04-20T09:50:21Z",
+    "category": "产品发布",
+    "tags": [
+      "英特尔",
+      "AI处理器",
+      "AI PC"
+    ],
+    "imageUrl": ""
+  },
+  {
+    "id": "9b6cf552",
+    "slug": "shui-neng-tong-guo-zhen-shi-shi-jie-kao-yan-atec2026fa-qi-ju-2026-04-21",
+    "title": "谁能通过真实世界考验？ATEC2026发起具身智能“图灵测试”",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/04/403753.html",
+    "publishedAt": "2026-04-20T09:33:35Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "ce47b2b4",
     "slug": "mythosjia-gou-bei-22sui-xiao-huo-ni-tui-kai-yuan-liao-moehe-2026-04-20",
     "title": "22岁开发者逆推开源Claude Mythos架构，借鉴DeepSeek的MoE与注意力机制",
