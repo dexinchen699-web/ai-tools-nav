@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Search, Menu, X, Sparkles } from 'lucide-react'
+import { Search, Menu, X, Sparkles, Heart } from 'lucide-react'
 
 const NAV_LINKS = [
   { href: '/tools',     label: 'AI工具' },
@@ -31,7 +31,7 @@ export default function Header() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     if (search.trim()) {
-      window.location.href = `/tools?q=${encodeURIComponent(search.trim())}`
+      window.location.href = `/search?q=${encodeURIComponent(search.trim())}`
     }
   }
 
@@ -95,6 +95,19 @@ export default function Header() {
             })}
           </nav>
 
+          {/* Favorites icon — desktop */}
+          <Link
+            href="/favorites"
+            aria-label="我的收藏"
+            className={`hidden lg:flex items-center justify-center w-8 h-8 rounded-md transition-colors ${
+              pathname === '/favorites'
+                ? 'text-red-500 bg-red-50'
+                : 'text-[#4b5563] hover:text-red-500 hover:bg-red-50'
+            }`}
+          >
+            <Heart className="w-4 h-4" />
+          </Link>
+
           {/* CTA */}
           <Link
             href="/submit"
@@ -148,6 +161,17 @@ export default function Header() {
                 </Link>
               )
             })}
+            <Link
+              href="/favorites"
+              className={`px-3 py-2.5 rounded-md text-sm font-medium transition-colors flex items-center gap-2 ${
+                pathname === '/favorites'
+                  ? 'text-red-500 bg-red-50 font-semibold'
+                  : 'text-[#4b5563] hover:text-red-500 hover:bg-red-50'
+              }`}
+            >
+              <Heart className="w-4 h-4" />
+              我的收藏
+            </Link>
             <Link
               href="/submit"
               className="btn-primary mt-2 justify-center text-sm"
