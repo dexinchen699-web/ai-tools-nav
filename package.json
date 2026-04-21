@@ -12,6 +12,7 @@
     "sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.4",
     "@supabase/supabase-js": "^2.47.0",
     "clsx": "^2.1.1",
     "critters": "^0.0.23",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Syne, Noto_Sans_SC } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </Script>
         )}
       </body>
+      <GoogleAnalytics gaId="G-XGL4S4HP6K" />
     </html>
   );
 }
