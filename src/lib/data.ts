@@ -216,15 +216,26 @@ export const COMPARISONS: Comparison[] = [
 
 const _fetchAllTools = unstable_cache(
   async (): Promise<AITool[]> => {
-    const { data, error } = await supabase
-      .from('tools')
-      .select('*')
-      .order('rating', { ascending: false })
-    if (error || !data?.length) return STATIC_TOOLS
-    return data.map(rowToTool)
+    const PAGE_SIZE = 500
+    const allRows: Record<string, unknown>[] = []
+    let from = 0
+    while (true) {
+      const { data, error } = await supabase
+        .from('tools')
+        .select('*')
+        .order('rating', { ascending: false })
+        .range(from, from + PAGE_SIZE - 1)
+      if (error) break
+      if (!data?.length) break
+      allRows.push(...(data as Record<string, unknown>[]))
+      if (data.length < PAGE_SIZE) break
+      from += PAGE_SIZE
+    }
+    if (!allRows.length) return STATIC_TOOLS
+    return allRows.map(rowToTool)
   },
   ['all-tools'],
-  { revalidate: 3600, tags: ['tools'] }
+  { revalidate: 600, tags: ['tools'] }
 )
 
 const _fetchAllCategories = unstable_cache(
