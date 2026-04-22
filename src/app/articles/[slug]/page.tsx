@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { createServiceClient } from '@/lib/supabase'
 import { buildMetadata } from '@/lib/metadata'
 import { Breadcrumb } from '@/components/Breadcrumb'
+import { ArticleMermaidInit } from '@/components/ArticleMermaidInit'
+import { ArticleChartJsInit } from '@/components/ArticleChartJsInit'
 
 interface Article {
   id: string
@@ -216,11 +218,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         {/* Article content */}
         {article.content_html ? (
-          <article
-            className="glass-card article-html-content"
-            style={{ padding: '1.75rem 2rem', marginBottom: '2rem' }}
-            dangerouslySetInnerHTML={{ __html: article.content_html }}
-          />
+          <>
+            {article.content_html.includes('class="mermaid"') && <ArticleMermaidInit />}
+            {article.content_html.includes('chart-container') && <ArticleChartJsInit />}
+            <article
+              className="glass-card article-html-content"
+              style={{ padding: '1.75rem 2rem', marginBottom: '2rem' }}
+              dangerouslySetInnerHTML={{ __html: article.content_html }}
+            />
+          </>
         ) : (
           <div className="glass-card" style={{
             padding: '3rem 2rem',
