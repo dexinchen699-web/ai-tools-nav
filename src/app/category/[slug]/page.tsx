@@ -8,7 +8,8 @@ import { CategoryNavSidebar } from '@/components/CategoryNavSidebar'
 import { ToolCard } from '@/components/ToolCard'
 import type { AITool } from '@/lib/types'
 
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
+// export const revalidate = 3600
 
 export async function generateStaticParams() {
   const categories = await getAllCategories()

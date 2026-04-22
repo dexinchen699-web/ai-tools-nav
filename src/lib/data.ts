@@ -242,7 +242,7 @@ const _fetchAllCategories = unstable_cache(
   async (): Promise<Category[]> => {
     const [catRes, toolRes] = await Promise.all([
       supabase.from('categories').select('*').order('id', { ascending: true }),
-      supabase.from('tools').select('category_slug, category'),
+      supabase.from('tools').select('category, category_slug'),
     ])
 
     const tools = toolRes.data ?? []
@@ -363,13 +363,9 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
 
 export async function getToolsByCategory(categorySlug: string): Promise<AITool[]> {
   try {
-    const { data, error } = await supabase
-      .from('tools')
-      .select('*')
-      .eq('category', categorySlug)
-      .order('rating', { ascending: false })
-    if (error || !data?.length) return STATIC_TOOLS.filter((t) => t.category === categorySlug)
-    return data.map(rowToTool)
+    const allTools = await _fetchAllTools()
+    const filtered = allTools.filter((t) => t.category === categorySlug)
+    return filtered.length ? filtered : STATIC_TOOLS.filter((t) => t.category === categorySlug)
   } catch {
     return STATIC_TOOLS.filter((t) => t.category === categorySlug)
   }
