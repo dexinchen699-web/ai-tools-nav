@@ -240,19 +240,33 @@ const _fetchAllTools = unstable_cache(
 
 const _fetchAllCategories = unstable_cache(
   async (): Promise<Category[]> => {
-    const { data, error } = await supabase
-      .from('categories')
-      .select('*')
-      .order('id', { ascending: true })
-    if (error || !data?.length) return STATIC_CATEGORIES
-    return data.map((row) => ({
+    const [catRes, toolRes] = await Promise.all([
+      supabase.from('categories').select('*').order('id', { ascending: true }),
+      supabase.from('tools').select('category_slug, category'),
+    ])
+
+    const tools = toolRes.data ?? []
+    const countMap: Record<string, number> = {}
+    for (const t of tools) {
+      const slug = t.category_slug ?? t.category ?? ''
+      if (slug) countMap[slug] = (countMap[slug] ?? 0) + 1
+    }
+
+    if (catRes.error || !catRes.data?.length) {
+      return CATEGORY_DEFS.map((def) => ({
+        ...def,
+        toolCount: countMap[def.slug] ?? 0,
+      }))
+    }
+
+    return catRes.data.map((row) => ({
       id: String(row.id),
       slug: row.slug,
       name: row.name,
       description: row.description ?? '',
       iconName: row.icon_name ?? '',
       icon: row.icon ?? '',
-      toolCount: row.tool_count ?? 0,
+      toolCount: countMap[row.slug] ?? 0,
     }))
   },
   ['all-categories'],
