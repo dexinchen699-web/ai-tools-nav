@@ -5,6 +5,7 @@ import { buildMetadata } from '@/lib/metadata'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { ArticleMermaidInit } from '@/components/ArticleMermaidInit'
 import { ArticleChartJsInit } from '@/components/ArticleChartJsInit'
+import { LikeCommentSection } from '@/components/LikeCommentSection'
 
 interface Article {
   id: string
@@ -259,6 +260,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             {article.category ?? 'ARTICLE'}
           </span>
         </div>
+
+        <LikeCommentSection contentType="article" contentSlug={article.slug} />
       </div>
     </div>
   )

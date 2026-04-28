@@ -6,6 +6,7 @@ import { buildMetadata } from '@/lib/metadata'
 import { JsonLd } from '@/components/JsonLd'
 import { Breadcrumb } from '@/components/Breadcrumb'
 import { buildComparisonSchema } from '@/lib/schema'
+import { LikeCommentSection } from '@/components/LikeCommentSection'
 import type { AITool } from '@/lib/types'
 
 export const revalidate = 86400 // 24h ISR
@@ -442,6 +443,8 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
             </span>
           )}
         </div>
+
+        <LikeCommentSection contentType="comparison" contentSlug={cmp.slug} />
       </div>
     </>
   )

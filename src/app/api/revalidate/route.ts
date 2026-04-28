@@ -12,18 +12,18 @@ export async function POST(request: Request) {
     }
 
     if (tag) {
-      revalidateTag(tag)
-      return NextResponse.json({ 
-        revalidated: true, 
+      revalidateTag(tag, 'everything')
+      return NextResponse.json({
+        revalidated: true,
         tag,
-        now: Date.now() 
+        now: Date.now()
       })
     }
 
     // 如果没有指定 tag，清除所有相关缓存
-    revalidateTag('tools')
-    revalidateTag('categories')
-    revalidateTag('news')
+    revalidateTag('tools', 'everything')
+    revalidateTag('categories', 'everything')
+    revalidateTag('news', 'everything')
 
     return NextResponse.json({ 
       revalidated: true, 
