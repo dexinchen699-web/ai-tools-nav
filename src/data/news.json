@@ -1,5 +1,57 @@
 [
   {
+    "id": "ee98af9e",
+    "slug": "shi-yao-ni-shuo-hu-yan-bin-ye-zai-ku-xiu-vibe-coding-2026-05-24",
+    "title": "什么！你说胡彦斌也在苦修Vibe Coding",
+    "summary": "Vibe Coding还是太权威了vibe",
+    "content": "Vibe Coding还是太权威了vibe",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/423213.html",
+    "publishedAt": "2026-05-24T04:53:32Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "f3fdc2aa",
+    "slug": "wu-lei-ren-aiti-dai-bu-liao-qi-ye-zuo-di-er-ming-zui-wen-tuo-2026-05-24",
+    "title": "“五类人AI替代不了，企业做第二名最稳妥” | 昆仑万维方汉@AIGC2026",
+    "summary": "“AI时代经验不再是护城河”",
+    "content": "“AI时代经验不再是护城河”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/423202.html",
+    "publishedAt": "2026-05-23T10:09:58Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "4b6b7567",
+    "slug": "openaida-shen-jiao-ni-ru-he-zha-gan-codex-2026-05-24",
+    "title": "OpenAI大神教你如何榨干Codex",
+    "summary": "13k星开源库作者解锁Codex-maxxing！",
+    "content": "13k星开源库作者解锁Codex-maxxing！",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/423179.html",
+    "publishedAt": "2026-05-23T09:50:51Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "f507211a",
+    "slug": "deepseek-v4jie-ge-da-gu-zhe-zhu-wang-jing-dong-wang-yi-qiang-2026-05-24",
+    "title": "DeepSeek V4价格打骨折，宁王京东网易抢着入场，梁文锋：目标是AGI",
+    "summary": "梁文锋承诺坚持开源路线",
+    "content": "梁文锋承诺坚持开源路线",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/423162.html",
+    "publishedAt": "2026-05-23T09:46:37Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "c1e1cc6f",
     "slug": "mei-tuan-wai-mai-qian-fu-ze-ren-ru-ju-can-yin-ju-shen-mo-xin-2026-05-23",
     "title": "美团外卖前负责人入局餐饮具身模型，元节智能获千万级种子轮融资",
