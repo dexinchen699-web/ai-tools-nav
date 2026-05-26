@@ -1,5 +1,96 @@
 [
   {
+    "id": "46127fdf",
+    "slug": "bian-cheng-quan-wei-bang-dan-qian-wen-3-7jin-ci-yu-claude-a-2026-05-26",
+    "title": "编程权威榜单：千问3.7仅次于Claude，阿里全球第二",
+    "summary": "跻身全球编程模型第一梯队",
+    "content": "跻身全球编程模型第一梯队",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425150.html",
+    "publishedAt": "2026-05-26T05:32:12Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "fd6b6ac8",
+    "slug": "gang-gang-guo-chan-agentmo-xing-chuang-ru-quan-qiu-di-yi-ti-2026-05-26",
+    "title": "刚刚，国产Agent模型闯入全球第一梯队！限时免费",
+    "summary": "深度适配OpenClaw、Claude Code、Hermes等",
+    "content": "深度适配OpenClaw、Claude Code、Hermes等",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/424851.html",
+    "publishedAt": "2026-05-26T04:13:32Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "8466323d",
+    "slug": "jing-dong-joyinsidedai-wen-jun-aide-zhong-ji-xing-tai-bu-shi-2026-05-26",
+    "title": "京东JoyInside戴文军：AI的终极形态不是聊天，是融入你家每一件物品丨AIGC2026",
+    "summary": "硬件不该让人适应，它应该主动适应你",
+    "content": "硬件不该让人适应，它应该主动适应你",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/424794.html",
+    "publishedAt": "2026-05-25T09:37:05Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "7b37b5aa",
+    "slug": "wu-ren-che-yu-shui-ze-tan-waymoda-gui-mo-zhao-hui-jiao-ting-2026-05-26",
+    "title": "无人车遇水则瘫？Waymo大规模召回，叫停多城Robotaxi服务",
+    "summary": "特斯拉学会“躲交警”了",
+    "content": "特斯拉学会“躲交警”了",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/424610.html",
+    "publishedAt": "2026-05-25T08:48:14Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "5ab6d5a5",
+    "slug": "da-zao-chuang-tou-sheng-tai-de-chao-ji-shu-niu-2026tou-zi-ji-2026-05-26",
+    "title": "打造创投生态的超级枢纽， 2026投资界SuperLink大会定档6月",
+    "summary": "6月10-11日盛大启幕",
+    "content": "6月10-11日盛大启幕",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/424605.html",
+    "publishedAt": "2026-05-25T07:29:51Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "df6220ab",
+    "slug": "vlahe-shi-jie-mo-xing-du-bu-shi-zhong-ju-hui-you-wu-li-shi-j-2026-05-26",
+    "title": "“VLA和世界模型都不是终局，会有物理世界独有的模型” | 蚂蚁灵波沈宇军@AIGC2026",
+    "summary": "“要做机器人时代的安卓系统”",
+    "content": "“要做机器人时代的安卓系统”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/424584.html",
+    "publishedAt": "2026-05-25T06:56:42Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "95a14d0f",
+    "slug": "ma-yi-ling-bo-lingbot-valun-wen-bei-ji-qi-ren-ding-hui-rss-2-2026-05-26",
+    "title": "蚂蚁灵波LingBot-VA论文被机器人顶会RSS 2026接收，让机器人边推演、边行动",
+    "summary": "获得了国际机器人研究共同体的高度认可",
+    "content": "获得了国际机器人研究共同体的高度认可",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/424581.html",
+    "publishedAt": "2026-05-25T06:26:38Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "aafc962b",
     "slug": "deepseek-v4huan-neng-geng-sheng-xin-gong-ju-huan-cun-ming-zh-2026-05-25",
     "title": "DeepSeek V4还能更省！新工具缓存命中率高达99.82%，2折稳定到手",
@@ -4002,42 +4093,6 @@
       "开源",
       "大语言模型",
       "中国AI"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "7",
-    "slug": "ai-agent-market-report-2026-q1",
-    "title": "2026 Q1 AI Agent 市场报告：企业采用率同比增长 340%",
-    "summary": "最新行业报告显示，2026 年第一季度全球企业 AI Agent 采用率同比增长 340%，自动化工作流成为最主要应用场景，预计全年市场规模将突破 500 亿美元。",
-    "content": "根据 Gartner 发布的 2026 年 Q1 AI Agent 市场报告，全球企业级 AI Agent 的采用率在过去一年内增长了 340%，远超此前预期。\n\n报告显示，最主要的应用场景包括：客服自动化（占比 34%）、代码开发辅助（28%）、数据分析（21%）和内容创作（17%）。其中，金融、医疗和制造业是增长最快的三个垂直行业。\n\n在技术栈方面，基于 OpenAI、Anthropic 和 Google 模型构建的 Agent 占据市场主导地位，但开源模型（尤其是 DeepSeek 和 Llama 系列）的市场份额正在快速提升，从 2025 年的 12% 增长至 2026 年 Q1 的 29%。\n\nGartner 预测，2026 年全年 AI Agent 市场规模将突破 500 亿美元，到 2028 年将超过 2000 亿美元。",
-    "source": "Gartner",
-    "sourceUrl": "https://gartner.com",
-    "publishedAt": "2026-04-08T10:00:00Z",
-    "category": "行业动态",
-    "tags": [
-      "AI Agent",
-      "市场报告",
-      "企业AI",
-      "行业趋势"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "8",
-    "slug": "sora-2-video-generation-2026-04",
-    "title": "OpenAI Sora 2 发布：支持 4K 60fps 视频生成，时长延至 5 分钟",
-    "summary": "OpenAI 发布 Sora 2，支持生成最高 4K 分辨率、60fps 帧率、时长最长 5 分钟的视频，物理一致性和人物动作自然度大幅提升。",
-    "content": "OpenAI 正式发布 Sora 2 视频生成模型，相比初代 Sora 有多项重大升级。\n\n核心改进包括：支持最高 4K 分辨率和 60fps 帧率输出；单次生成视频时长从 1 分钟延长至 5 分钟；物理引擎模拟能力显著增强，液体流动、布料飘动等物理效果更加真实；人物面部表情和肢体动作的自然度大幅提升，\"恐怖谷\"效应明显减少。\n\nSora 2 目前向 ChatGPT Pro 用户（$200/月）开放，普通 Plus 用户每月可免费生成 10 个视频。API 访问预计在 Q2 末开放，定价约为 $0.05/秒视频。",
-    "source": "OpenAI",
-    "sourceUrl": "https://openai.com/sora",
-    "publishedAt": "2026-04-07T16:00:00Z",
-    "category": "产品发布",
-    "tags": [
-      "OpenAI",
-      "Sora",
-      "视频生成",
-      "AI视频"
     ],
     "imageUrl": ""
   }
