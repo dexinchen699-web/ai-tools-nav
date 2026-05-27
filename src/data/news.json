@@ -1,5 +1,135 @@
 [
   {
+    "id": "ece87aec",
+    "slug": "hong-jue-ju-shen-lai-liao-ge-meng-zhi-dui-tian-shi-lun-jin-y-2026-05-27",
+    "title": "触觉具身来了个梦之队：天使轮近亿",
+    "summary": "复旦系具身新星，想让机器人真正会“触摸”",
+    "content": "复旦系具身新星，想让机器人真正会“触摸”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425660.html",
+    "publishedAt": "2026-05-27T05:18:06Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "d02e47c4",
+    "slug": "codexzi-wo-zheng-liu-wan-fa-huo-liao-openaiyuan-gong-qin-sho-2026-05-27",
+    "title": "Codex自我蒸馏玩法火了！OpenAI员工亲授：复制粘贴就能让AI消灭重复劳动",
+    "summary": "只需一段提示词",
+    "content": "只需一段提示词",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425810.html",
+    "publishedAt": "2026-05-27T05:12:18Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "c21eb6fd",
+    "slug": "deepseekchen-de-li-kai-fa-zi-dong-yan-jiu-skill-xie-yi-pian-2026-05-27",
+    "title": "DeepSeek陈德里开发自动研究Skill，写一篇论文人类只动脑2小时",
+    "summary": "“1%是我写的，99%是Agent写的。”",
+    "content": "“1%是我写的，99%是Agent写的。”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425523.html",
+    "publishedAt": "2026-05-27T01:14:35Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "ea50e725",
+    "slug": "jiang-dsazhu-yi-li-yin-ru-duo-mo-tai-kuai-shou-keye2-0kai-qi-2026-05-27",
+    "title": "将DSA注意力引入多模态，快手Keye2.0开启强化推理新范式",
+    "summary": "光影之间，读懂未尽之意",
+    "content": "光影之间，读懂未尽之意",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425600.html",
+    "publishedAt": "2026-05-26T10:17:39Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "f999849b",
+    "slug": "gang-gang-guo-chan-aizi-ji-zao-liao-ai-quan-qiu-shou-li-2026-05-27",
+    "title": "刚刚，国产AI自己造了AI，全球首例！",
+    "summary": "训练速度比英伟达Megatron快10%",
+    "content": "训练速度比英伟达Megatron快10%",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425511.html",
+    "publishedAt": "2026-05-26T08:46:15Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "f673b6bf",
+    "slug": "liu-gei-ren-lei-shu-xue-jia-de-xuan-shang-bu-duo-liao-gu-ge-2026-05-27",
+    "title": "留给人类数学家的悬赏不多了！谷歌DeepMind一口气解决9道埃尔德什问题",
+    "summary": "解决卡了人类56年的数学难题",
+    "content": "解决卡了人类56年的数学难题",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425455.html",
+    "publishedAt": "2026-05-26T08:20:39Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "325b4b60",
+    "slug": "qia-pa-xi-anthropiczui-xin-tou-xian-ji-zhu-yuan-gong-mts-2026-05-27",
+    "title": "卡帕西Anthropic最新头衔：技术员工（MTS）",
+    "summary": "MTS（技术员工） @Anthropic",
+    "content": "MTS（技术员工） @Anthropic",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425304.html",
+    "publishedAt": "2026-05-26T07:42:02Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "40451357",
+    "slug": "hua-wei-fa-bu-ai-dcshu-ju-ji-chu-she-shi-quan-zhan-fang-an-j-2026-05-27",
+    "title": "华为发布AI DC数据基础设施全栈方案，加速行业智能化跃升",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425296.html",
+    "publishedAt": "2026-05-26T06:52:33Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "9b03f2db",
+    "slug": "rong-yao-600xi-lie-shou-ji-fa-bu-4kshan-guang-wei-dan-live-g-2026-05-27",
+    "title": "荣耀600系列手机发布：4K闪光微单Live，国补价2294.15元起",
+    "summary": "独特“幸运星”ID设计，打造数字系列史上最精致外观",
+    "content": "独特“幸运星”ID设计，打造数字系列史上最精致外观",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425155.html",
+    "publishedAt": "2026-05-26T05:50:01Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "f41df3f5",
+    "slug": "qia-che-jie-te-si-la-gang-gang-you-rong-liao-2yi-mei-yuan-2026-05-27",
+    "title": "“卡车界特斯拉”，刚刚又融了2亿美元",
+    "summary": "90后天才+70后老将打造",
+    "content": "90后天才+70后老将打造",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/425058.html",
+    "publishedAt": "2026-05-26T05:37:38Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "46127fdf",
     "slug": "bian-cheng-quan-wei-bang-dan-qian-wen-3-7jin-ci-yu-claude-a-2026-05-26",
     "title": "编程权威榜单：千问3.7仅次于Claude，阿里全球第二",
@@ -3924,176 +4054,6 @@
     "publishedAt": "2026-04-14T10:19:19Z",
     "category": "行业动态",
     "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "1",
-    "slug": "openai-gpt5-release-2026-04",
-    "title": "OpenAI 正式发布 GPT-5，推理能力大幅提升",
-    "summary": "OpenAI 宣布 GPT-5 正式上线，在数学推理、代码生成和多模态理解方面均有显著突破，ChatGPT Plus 用户可立即使用。",
-    "content": "OpenAI 于 2026 年 4 月正式发布了 GPT-5 模型。根据官方基准测试，GPT-5 在 MATH 数学竞赛题集上的准确率达到 92%，较 GPT-4o 提升约 18 个百分点。在代码生成方面，HumanEval 得分达到 96.3%。\n\n新模型支持最长 256K tokens 的上下文窗口，并原生支持图像、音频和视频输入。OpenAI CEO Sam Altman 表示，GPT-5 是迄今为止最接近 AGI 的模型。\n\nChatGPT Plus 和 Team 用户可立即访问 GPT-5，API 访问将在未来几周内逐步开放。",
-    "source": "OpenAI Blog",
-    "sourceUrl": "https://openai.com/blog",
-    "publishedAt": "2026-04-14T10:00:00Z",
-    "category": "产品发布",
-    "tags": [
-      "OpenAI",
-      "GPT-5",
-      "大语言模型",
-      "ChatGPT"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "fea44bd6",
-    "slug": "shi-yao-excelzhe-han-shu-na-gong-shi-wo-qian-wen-yong-yuan-y-2026-04-15",
-    "title": "什么Excel这函数那公式，我千问永远一步搞定",
-    "summary": "手机电脑全打通，随时随地大白话改表格",
-    "content": "手机电脑全打通，随时随地大白话改表格",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401127.html",
-    "publishedAt": "2026-04-14T08:36:36Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "c731bb21",
-    "slug": "si-tan-fu-nian-du-jie-lun-zhong-mei-da-mo-xing-yi-mei-chai-j-2026-04-15",
-    "title": "斯坦福年度报告：中美大模型差距已消除",
-    "summary": "斯坦福大学年度AI报告指出，中美两国在大型语言模型能力上已基本持平，全球AI普及率正在经历历史性加速增长。",
-    "content": "据量子位报道，斯坦福大学发布的年度人工智能报告得出重要结论：中美两国在大模型领域的技术差距已基本消除。报告显示，以中国头部AI企业为代表的大模型产品，在多项主流评测基准上的表现已与美国同类模型相当，标志着全球AI竞争格局正在发生深刻变化。\n\n报告同时指出，AI技术的普及率正在经历历史性加速。越来越多的企业和个人用户将AI工具融入日常工作流程，推动了全球范围内AI应用的快速渗透。这一趋势在教育、医疗、软件开发等多个垂直领域尤为明显。\n\n斯坦福AI报告是业界公认的权威年度参考文献，其对中美大模型能力趋同的判断，反映出近年来中国在基础模型研发、算法创新及工程落地方面持续加大投入所取得的成果。分析人士认为，这一结论将进一步推动全球AI产业的多极化发展，也意味着未来的竞争将更多聚焦于应用生态、数据资源以及行业解决方案的深度整合。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401094.html",
-    "publishedAt": "2026-04-14T05:58:59Z",
-    "category": "研究论文",
-    "tags": [
-      "斯坦福报告",
-      "中美大模型",
-      "AI普及",
-      "大语言模型",
-      "AI竞争格局"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "42730627",
-    "slug": "li-kai-fu-lu-qi-zhong-cang-tong-yi-jia-harnesszhi-neng-ti-go-2026-04-15",
-    "title": "李开复陆奇重仓同一家Harness智能体公司，李笛带队，4个月2轮融资3-5年粮草",
-    "summary": "团队即将发布最新成果",
-    "content": "团队即将发布最新成果",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401065.html",
-    "publishedAt": "2026-04-14T05:39:06Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "5eda8ba9",
-    "slug": "bu-zhi-shi-mai-fu-wu-qi-zhong-xing-tong-xun-xiang-zuo-aishi-2026-04-15",
-    "title": "中兴通讯布局AI基础设施，推出OpenClaw企业级解决方案",
-    "summary": "中兴通讯正从传统服务器销售商向AI时代基础设施提供商转型，推出OpenClaw产品，面向企业机房场景提供一体化AI算力解决方案。",
-    "content": "随着AI大模型应用加速落地，企业对本地化AI算力的需求持续增长，中兴通讯正抓住这一窗口期，推动自身业务定位从硬件设备供应商向AI基础设施整体解决方案商转型。\n\n中兴通讯推出的OpenClaw产品，旨在将AI推理与训练能力直接部署进企业自有机房，帮助企业在数据安全、合规要求较高的场景下，实现对大模型能力的私有化使用。相比单纯采购服务器硬件，OpenClaw更强调软硬件一体化的交付模式，降低企业自建AI基础设施的技术门槛。\n\n在市场背景上，国内企业对数据本地化部署的诉求日益强烈，叠加信创政策推动，具备自主可控能力的国产AI基础设施产品正迎来较大市场空间。中兴通讯凭借在电信设备领域积累的硬件研发与系统集成能力，具备切入这一赛道的基础优势。\n\n此次战略转型也反映出通信设备厂商在AI浪潮下的普遍选择——不再满足于作为算力硬件的搬运工，而是向上延伸至平台层与解决方案层，争夺企业AI采购链条中更高价值的环节。中兴通讯能否在华为、浪潮等竞争对手已深度布局的市场中建立差异化优势，仍有待市场验证。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401047.html",
-    "publishedAt": "2026-04-14T04:31:03Z",
-    "category": "行业动态",
-    "tags": [
-      "中兴通讯",
-      "AI基础设施",
-      "企业私有化部署"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "2",
-    "slug": "google-gemini-2-ultra-benchmark-2026-04",
-    "title": "Google Gemini 2 Ultra 刷新多项 AI 基准测试记录",
-    "summary": "Google DeepMind 发布 Gemini 2 Ultra，在 MMLU、HumanEval 等主流基准上超越 GPT-4o，并首次实现原生实时视频理解。",
-    "content": "Google DeepMind 正式推出 Gemini 2 Ultra，这是 Gemini 系列迄今最强大的模型。在 MMLU 多任务语言理解基准上，Gemini 2 Ultra 得分达到 91.2%，超越此前所有公开模型。\n\n值得关注的是，Gemini 2 Ultra 支持原生实时视频流理解，可以在视频通话中实时分析画面内容并给出回应。这一能力在医疗辅助诊断、远程教育等场景中具有重要应用价值。\n\nGemini 2 Ultra 已通过 Google AI Studio 和 Vertex AI 向开发者开放，定价与 Gemini 1.5 Pro 持平。",
-    "source": "Google DeepMind",
-    "sourceUrl": "https://deepmind.google",
-    "publishedAt": "2026-04-13T08:30:00Z",
-    "category": "产品发布",
-    "tags": [
-      "Google",
-      "Gemini",
-      "多模态",
-      "基准测试"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "3",
-    "slug": "anthropic-claude-4-safety-research-2026-04",
-    "title": "Anthropic 发布 Claude 4 安全研究报告，引入新型宪法 AI 框架",
-    "summary": "Anthropic 公开 Claude 4 的安全评估报告，详细介绍了新一代宪法 AI 训练方法，并宣布与多国政府合作推进 AI 安全标准制定。",
-    "content": "Anthropic 发布了关于 Claude 4 的详细安全研究报告，这是迄今为止最全面的 AI 安全评估文档之一。报告涵盖了模型在生物武器、网络攻击、虚假信息等高风险场景下的表现评估。\n\n新引入的宪法 AI 2.0 框架通过多轮自我批评和修正机制，显著降低了模型生成有害内容的概率。Anthropic 表示，Claude 4 在红队测试中的有害输出率比 Claude 3 降低了 73%。\n\n此外，Anthropic 宣布与英国、欧盟和日本政府签署合作协议，共同参与 AI 安全标准的制定工作。",
-    "source": "Anthropic",
-    "sourceUrl": "https://anthropic.com",
-    "publishedAt": "2026-04-12T14:00:00Z",
-    "category": "研究论文",
-    "tags": [
-      "Anthropic",
-      "Claude",
-      "AI安全",
-      "宪法AI"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "4",
-    "slug": "china-ai-regulation-update-2026-04",
-    "title": "中国发布《生成式人工智能服务管理办法》修订版",
-    "summary": "国家互联网信息办公室发布生成式 AI 管理新规，要求境内服务商完成安全评估备案，并对深度合成内容强制添加水印标识。",
-    "content": "国家互联网信息办公室（网信办）发布了《生成式人工智能服务管理办法》修订版，新规将于 2026 年 7 月 1 日起正式施行。\n\n主要变化包括：一、所有面向境内用户提供生成式 AI 服务的企业，须在 90 天内完成安全评估备案；二、AI 生成的图片、视频、音频内容必须添加不可见数字水印；三、大型模型服务商须定期向监管部门提交模型能力评估报告。\n\n业内人士认为，新规对国内 AI 企业的合规成本有所提升，但整体框架较此前草案更具可操作性，有助于行业健康发展。",
-    "source": "网信办",
-    "sourceUrl": "https://www.cac.gov.cn",
-    "publishedAt": "2026-04-11T09:00:00Z",
-    "category": "政策法规",
-    "tags": [
-      "AI监管",
-      "中国",
-      "生成式AI",
-      "合规"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "5",
-    "slug": "mistral-le-chat-enterprise-2026-04",
-    "title": "Mistral AI 推出 Le Chat Enterprise，主打欧洲数据主权",
-    "summary": "法国 AI 独角兽 Mistral AI 发布企业版 Le Chat，数据完全存储于欧盟境内服务器，主打 GDPR 合规和数据主权，已获多家欧洲银行采用。",
-    "content": "Mistral AI 正式推出 Le Chat Enterprise 企业版，这是专为欧洲企业设计的 AI 助手服务。与 ChatGPT Enterprise 和 Claude for Work 不同，Le Chat Enterprise 承诺所有数据处理和存储均在欧盟境内完成，完全符合 GDPR 要求。\n\n产品支持私有化部署，企业可选择将模型部署在自己的云环境或本地服务器上。Mistral 表示，已有法国兴业银行、德意志银行等多家欧洲金融机构签署采购协议。\n\n定价方面，Le Chat Enterprise 按用量计费，起步价约为 ChatGPT Enterprise 的 60%，对欧洲中小企业更具吸引力。",
-    "source": "Mistral AI",
-    "sourceUrl": "https://mistral.ai",
-    "publishedAt": "2026-04-10T11:00:00Z",
-    "category": "公司新闻",
-    "tags": [
-      "Mistral AI",
-      "欧洲",
-      "企业AI",
-      "数据主权"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "6",
-    "slug": "deepseek-v4-open-source-2026-04",
-    "title": "DeepSeek V4 开源发布，性能媲美 GPT-4o 但成本降低 90%",
-    "summary": "深度求索发布 DeepSeek V4 并完全开源，在多项基准测试中与 GPT-4o 持平，API 调用成本仅为 OpenAI 的十分之一，引发全球 AI 社区广泛关注。",
-    "content": "深度求索（DeepSeek）正式发布并开源 DeepSeek V4 模型，这是继 DeepSeek V3 之后的重大升级版本。\n\n在 MMLU、GSM8K、HumanEval 等主流基准测试中，DeepSeek V4 的表现与 GPT-4o 基本持平，部分中文推理任务上甚至略有超越。然而其 API 定价仅为 GPT-4o 的约 10%，输入 token 价格约为 ¥0.3/百万 tokens。\n\n模型权重已在 Hugging Face 上完全开放，支持商业使用。GitHub 仓库在发布后 24 小时内获得超过 15,000 个 Star，成为 2026 年最受关注的开源 AI 项目之一。",
-    "source": "DeepSeek",
-    "sourceUrl": "https://deepseek.com",
-    "publishedAt": "2026-04-09T06:00:00Z",
-    "category": "产品发布",
-    "tags": [
-      "DeepSeek",
-      "开源",
-      "大语言模型",
-      "中国AI"
-    ],
     "imageUrl": ""
   }
 ]
