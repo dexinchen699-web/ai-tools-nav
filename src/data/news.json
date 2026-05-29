@@ -1,5 +1,109 @@
 [
   {
+    "id": "519b30e2",
+    "slug": "qing-hua-xi-tuan-dui-gei-da-mo-xing-zhi-liao-yi-zhang-zhi-ne-2026-05-29",
+    "title": "清华系团队给大模型织了一张“智能算力电网”",
+    "summary": "单位Token成本降低40%",
+    "content": "单位Token成本降低40%",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426353.html",
+    "publishedAt": "2026-05-29T02:47:09Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "494c463b",
+    "slug": "claude-4-8zha-chang-bu-fen-neng-li-chao-guo-mythos-zhi-chi-s-2026-05-29",
+    "title": "Claude 4.8炸场！部分能力超过Mythos，支持数百子智能体并行",
+    "summary": "可以长时间执行任务，人类不用经常回来检查它的工作",
+    "content": "可以长时间执行任务，人类不用经常回来检查它的工作",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426314.html",
+    "publishedAt": "2026-05-28T23:57:47Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "15c36c7d",
+    "slug": "deepseek-v4xin-mo-xie-tong-bei-hou-guo-chan-suan-li-sheng-ta-2026-05-29",
+    "title": "DeepSeek V4芯模协同背后，国产算力生态开始飞轮加速",
+    "summary": "国产算力是潮流，先用起来。",
+    "content": "国产算力是潮流，先用起来。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426293.html",
+    "publishedAt": "2026-05-28T13:32:39Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "af955efb",
+    "slug": "shi-jie-mo-xing-jie-bang-yu-yan-mo-xing-zhe-jia-gong-si-quan-2026-05-29",
+    "title": "世界模型接棒语言模型，这家公司全球首创物理AGI“双金字塔”体系，通用机器人进入“家庭时代”",
+    "summary": "12个月冲击物理AGI的“GPT-3时刻”",
+    "content": "12个月冲击物理AGI的“GPT-3时刻”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426237.html",
+    "publishedAt": "2026-05-28T13:01:16Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "0976d9a5",
+    "slug": "sha-gang-qian-yue-ding-ding-rang-wu-kong-cheng-wei-mei-yi-we-2026-05-29",
+    "title": "沙钢签约钉钉，让悟空成为每一位“钢铁人”的生产力工具",
+    "summary": "实现AI技术从“能力”到“价值”的转化",
+    "content": "实现AI技术从“能力”到“价值”的转化",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426223.html",
+    "publishedAt": "2026-05-28T08:47:27Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "312b65b5",
+    "slug": "5pian-aisheng-cheng-de-shu-xue-lun-wen-bei-jie-shou-00hou-ch-2026-05-29",
+    "title": "5篇AI生成的数学论文被接收！00后创始人洪乐潼融资14个亿",
+    "summary": "8篇由同一个系统生成或形式化证明的数学论文",
+    "content": "8篇由同一个系统生成或形式化证明的数学论文",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426198.html",
+    "publishedAt": "2026-05-28T08:11:40Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "bd686580",
+    "slug": "7bda-bai-o3-gpt-5-yi-xue-aizhi-neng-ti-rang-mo-xing-xue-hui-2026-05-29",
+    "title": "7B打败o3、GPT-5！医学AI智能体让模型学会“看哪里、怎么看”",
+    "summary": "医学AI Agent到了关键拐点",
+    "content": "医学AI Agent到了关键拐点",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426150.html",
+    "publishedAt": "2026-05-28T08:01:57Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "3f9604b4",
+    "slug": "aizheng-zai-zhong-xie-ruan-jian-xing-ye-8sui-hai-zi-zuo-cao-2026-05-29",
+    "title": "AI正在重写软件行业？8岁孩子做操作系统，一人公司拿下千万订单",
+    "summary": "“87%用户不懂代码，却用AI跑通了一人公司”",
+    "content": "“87%用户不懂代码，却用AI跑通了一人公司”",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426069.html",
+    "publishedAt": "2026-05-28T07:34:57Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "4dedfc4a",
     "slug": "si-long-jiang-de-zhu-dai-liang-quan-zhi-jia-meng-fu-dan-2026-05-28",
     "title": "「斯隆奖」得主戴亮全职加盟复旦",
@@ -3922,130 +4026,6 @@
       "四足机器人",
       "高德"
     ],
-    "imageUrl": ""
-  },
-  {
-    "id": "e4311291",
-    "slug": "wo-yong-1fen-zhong-kai-fa-liao-ge-shang-xian-ying-yong-you-a-2026-04-16",
-    "title": "我用1分钟开发了个上线应用，有阿里Meoo谁还学编程啊",
-    "summary": "服务器、数据库、域名全不用管",
-    "content": "服务器、数据库、域名全不用管",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401553.html",
-    "publishedAt": "2026-04-16T03:16:51Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "86e1804a",
-    "slug": "ji-happyhorsehou-a-li-you-you-yi-kuan-mo-xing-deng-ding-quan-2026-04-16",
-    "title": "阿里又一款模型登顶WorldArena权威评测榜单",
-    "summary": "继HappyHorse之后，阿里巴巴旗下又一款AI模型在国际权威评测平台WorldArena上登顶榜首，进一步巩固其在大模型领域的竞争力。",
-    "content": "阿里巴巴在大模型赛道上持续发力。继此前HappyHorse模型登顶相关评测榜单之后，阿里旗下又一款新模型在国际权威AI评测平台WorldArena上取得第一名的成绩，引发业界广泛关注。\n\nWorldArena是目前AI领域具有较高公信力的综合评测平台之一，通过大规模人类偏好投票和多维度能力测试对各类大语言模型进行排名，榜单结果被业界视为衡量模型综合能力的重要参考指标。能够在该平台登顶，意味着模型在语言理解、逻辑推理、指令跟随等核心能力上均达到业界领先水平。\n\n近年来，阿里在大模型领域投入持续加大，旗下通义系列模型迭代速度明显加快。此次再度登顶国际权威榜单，不仅体现了阿里在基础模型研发上的技术积累，也反映出国内头部科技企业在全球AI竞争格局中正扮演越来越重要的角色。\n\n目前，阿里方面尚未就该模型的具体技术细节和应用场景作出详细披露，更多信息有待官方进一步公布。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401554.html",
-    "publishedAt": "2026-04-16T03:03:39Z",
-    "category": "行业动态",
-    "tags": [
-      "阿里巴巴",
-      "大模型",
-      "WorldArena",
-      "模型评测",
-      "AI竞争"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "aaba53b7",
-    "slug": "ju-shen-zhi-neng-wei-shi-yao-huan-mei-zhen-zheng-luo-di-wen-2026-04-16",
-    "title": "具身智能为何迟迟未能真正落地？核心问题探讨",
-    "summary": "量子位将于4月25日举办线下沙龙，聚焦具身智能落地难题，探讨当前技术与产业化之间的核心瓶颈。",
-    "content": "具身智能作为近年来AI领域最受关注的方向之一，融合了机器人技术、感知系统与大模型能力，被视为通用人工智能落地的重要路径。然而，尽管资本与技术持续投入，具身智能在实际场景中的大规模商业化应用仍面临重重挑战。\n\n量子位将于4月25日（周六）举办专题沙龙活动，邀请业内专家与从业者共同探讨具身智能迟迟未能真正落地的深层原因。议题预计涵盖多个核心维度：硬件成本与可靠性瓶颈、机器人在非结构化环境中的感知与决策能力不足、训练数据匮乏导致的泛化能力受限，以及从实验室到真实场景的部署鸿沟等问题。\n\n当前，具身智能领域的主要挑战在于，模型的智能水平与机器人本体的执行能力之间存在明显落差，软硬件协同优化难度极高。此外，真实世界的复杂性远超仿真环境，如何积累高质量的现实交互数据，也是制约产业化进程的关键因素。\n\n本次沙龙为行业从业者、研究人员及关注具身智能发展的人士提供了一个深度交流的平台，有助于厘清当前技术现状与产业化路径。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401541.html",
-    "publishedAt": "2026-04-16T02:41:44Z",
-    "category": "行业动态",
-    "tags": [
-      "具身智能",
-      "机器人",
-      "AI落地"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "6a8f37f3",
-    "slug": "zha-ao-te-man-de-ren-bei-ba-chu-lai-liao-2026-04-16",
-    "title": "炸奥特曼的人被扒出来了",
-    "summary": "手捏多位科技公司CEO及投资者“死亡名单”",
-    "content": "手捏多位科技公司CEO及投资者“死亡名单”",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401523.html",
-    "publishedAt": "2026-04-16T01:07:52Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "ae487494",
-    "slug": "quan-qiu-shou-chuang-16cmji-zhi-wai-kuo-chao-ji-ji-jie-bi-mo-2026-04-16",
-    "title": "MOVA扫地机推出16cm外扩超级机械臂，主动清洁死角",
-    "summary": "MOVA发布全球首创16cm极致外扩超级机械臂扫地机，可主动探入家具底部及边角等清洁死角，提升全屋清洁覆盖率。",
-    "content": "MOVA近日发布搭载全球首创超级机械臂技术的新款扫地机器人，该机械臂最大外扩幅度达16cm，相较于传统扫地机的边刷覆盖范围有显著突破。这一设计使扫地机能够主动伸入沙发底部、床底边缘、墙角等传统机型难以触及的清洁死角，从根本上解决了扫地机器人长期以来边角清洁能力不足的痛点。\n\n传统扫地机受限于机身尺寸与边刷长度，往往无法有效清洁家具周边及墙角区域，用户仍需手动补充清洁。MOVA此次推出的超级机械臂方案通过结构创新，让机器人在行进过程中动态调整机械臂伸展角度，实现对复杂家居环境的主动适应。\n\n据悉，该机械臂在伸缩控制上结合了传感器感知与智能路径规划算法，能够识别障碍物边缘并精准控制外扩幅度，避免碰撞的同时最大化清洁面积。这一技术的落地标志着扫地机器人在清洁覆盖率方向上迈出了重要一步，也预示着家用清洁机器人的硬件创新仍有较大空间。目前该产品已进入市场推广阶段。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401512.html",
-    "publishedAt": "2026-04-15T13:28:53Z",
-    "category": "产品发布",
-    "tags": [
-      "扫地机器人",
-      "MOVA",
-      "机械臂",
-      "智能家居",
-      "清洁机器人"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "6cb20908",
-    "slug": "bai-du-createda-hui-guan-xuan-san-da-he-xin-kan-dian-guo-nei-2026-04-16",
-    "title": "百度Create大会官宣三大核心看点，AI开发者嘉年华5月北京揭幕",
-    "summary": "百度Create大会即将于5月在北京举办，官方公布三大核心看点，开发者可一次性获取百度智能云全栈技术图谱。",
-    "content": "百度近日正式官宣年度Create大会的三大核心看点，这场被誉为国内最大AI开发者嘉年华的盛会将于5月在北京揭幕。作为百度面向开发者群体的旗舰技术活动，本届Create大会聚焦AI技术生态的全面展示与开发者赋能。\n\n据悉，参会者将有机会一次性获取百度智能云的全栈技术图谱，涵盖从底层算力基础设施到上层AI应用开发框架的完整技术体系。这对于希望深入了解百度AI能力边界、寻求技术落地路径的开发者而言，具有较高的参考价值。\n\n百度智能云近年来持续加码AI基础设施建设，旗下文心大模型、飞桨深度学习框架等核心产品已形成较为完整的AI开发生态。本次大会预计将围绕大模型应用开发、云原生AI部署以及开发者工具链等方向重点发力，为国内AI开发者提供系统性的技术参考与实践指引。\n\n随着国内AI产业竞争持续升温，各大云厂商纷纷加大开发者生态投入。百度选择在此时机高调举办Create大会，既是对自身技术积累的集中展示，也是争夺开发者心智、巩固AI云服务市场地位的重要举措。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401507.html",
-    "publishedAt": "2026-04-15T08:56:43Z",
-    "category": "行业动态",
-    "tags": [
-      "百度Create大会",
-      "百度智能云",
-      "AI开发者"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "3727404a",
-    "slug": "bei-dian-shu-zhi-fa-bu-xing-huo-aiyun-2-0-yi-aixi-tong-gong-2026-04-16",
-    "title": "北电数智发布星火·AI云2.0，以AI系统工程重塑产城发展范式 | 酒仙桥论坛",
-    "summary": "立足全球AI创新核心趋势，筑牢国芯AI发展根基",
-    "content": "立足全球AI创新核心趋势，筑牢国芯AI发展根基",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401484.html",
-    "publishedAt": "2026-04-15T07:59:47Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "88cfc8df",
-    "slug": "liu-lan-qi-yuan-di-bian-long-xia-chromeshang-xian-skills-ji-2026-04-15",
-    "title": "浏览器原地变龙虾！Chrome上线Skills，技能一键复用帮你干活",
-    "summary": "浏览器纷纷Agent化",
-    "content": "浏览器纷纷Agent化",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401389.html",
-    "publishedAt": "2026-04-15T05:46:10Z",
-    "category": "行业动态",
-    "tags": [],
     "imageUrl": ""
   }
 ]
