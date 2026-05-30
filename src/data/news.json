@@ -1,5 +1,122 @@
 [
   {
+    "id": "85be502b",
+    "slug": "ying-wei-da-qing-hua-tuan-dui-ti-chu-gamma-world-shi-jie-mo-2026-05-30",
+    "title": "英伟达清华团队提出Gamma-World：世界模型从「一个人玩」到「多人共处」",
+    "summary": "让世界模型迈向多智能体交互仿真",
+    "content": "让世界模型迈向多智能体交互仿真",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426643.html",
+    "publishedAt": "2026-05-30T03:17:17Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "b52357d7",
+    "slug": "4nm-bi-ya-di-zi-yan-aixin-pian-lai-liao-zhi-cheng-dui-qi-yin-2026-05-30",
+    "title": "4nm！比亚迪自研AI芯片来了：制程对齐英伟达，算力拉爆特斯拉",
+    "summary": "智驾出事，比亚迪兜底",
+    "content": "智驾出事，比亚迪兜底",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426557.html",
+    "publishedAt": "2026-05-29T14:30:20Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "83896190",
+    "slug": "guang-fan-ke-ji-yu-teng-xun-chu-xing-fu-wu-da-cheng-zhan-lue-2026-05-30",
+    "title": "光帆科技与腾讯出行服务达成战略合作 开启新一轮预售",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426552.html",
+    "publishedAt": "2026-05-29T11:27:07Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "d9a02e47",
+    "slug": "ppioru-xuan-fei-fan-chan-yan-2026-global-ai-100-yi-aishi-li-2026-05-30",
+    "title": "PPIO入选非凡产研「2026 Global AI 100」，以AI实力领跑出海新浪潮",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426548.html",
+    "publishedAt": "2026-05-29T11:24:57Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "d3d4fe16",
+    "slug": "mian-bi-zhi-neng-kai-yuan-zhou-yi-chang-ding-yi-duan-ce-ai-z-2026-05-30",
+    "title": "面壁智能「开源周」：一场定义端侧 AI 终局的系统性「亮剑」",
+    "summary": "端侧 AI 是一个系统性工程",
+    "content": "端侧 AI 是一个系统性工程",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426542.html",
+    "publishedAt": "2026-05-29T09:13:24Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "8d4e3ed6",
+    "slug": "5yi-tokensbai-song-quan-qiu-shou-ge-shang-yong-aizhu-ji-fa-b-2026-05-30",
+    "title": "5亿Tokens白送！全球首个商用AI主机发布，终于能放开烧Token了",
+    "summary": "这是这个时代的印刷机",
+    "content": "这是这个时代的印刷机",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426479.html",
+    "publishedAt": "2026-05-29T09:05:30Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "0bd7091f",
+    "slug": "xia-xian-ling-ji-chu-shang-xian-gan-da-zuo-teng-xun-zhe-ge-a-2026-05-30",
+    "title": "下限零基础，上限肝大作！腾讯这个AI游戏创作平台，太野了",
+    "summary": "下一波AI创作浪潮正在游戏领域发生",
+    "content": "下一波AI创作浪潮正在游戏领域发生",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426447.html",
+    "publishedAt": "2026-05-29T08:50:10Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "4757f427",
+    "slug": "chuang-yi-she-ji-ban-workbuddylai-liao-teng-xun-fa-bu-zhi-ne-2026-05-30",
+    "title": "创意设计版WorkBuddy来了！腾讯发布智能体创意工作室Miora",
+    "summary": "一个人拥有整个创意工作室",
+    "content": "一个人拥有整个创意工作室",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426400.html",
+    "publishedAt": "2026-05-29T08:32:52Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "068a9c44",
+    "slug": "gang-gang-quan-qiu-shou-ge-shi-jian-ji-yu-ce-ju-shen-zhi-nen-2026-05-30",
+    "title": "刚刚，全球⾸个“事件级预测”具身智能世界模型来了！",
+    "summary": "从按帧学动作，到按「事件」理解世界",
+    "content": "从按帧学动作，到按「事件」理解世界",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426366.html",
+    "publishedAt": "2026-05-29T07:02:05Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "519b30e2",
     "slug": "qing-hua-xi-tuan-dui-gei-da-mo-xing-zhi-liao-yi-zhang-zhi-ne-2026-05-29",
     "title": "清华系团队给大模型织了一张“智能算力电网”",
@@ -3876,155 +3993,6 @@
       "具身智能",
       "空间推理",
       "波士顿动力"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "7b57852b",
-    "slug": "p0-7fa-bu-vlaya-chu-liao-ji-qi-ren-de-gpt-3shi-ke-2026-04-18",
-    "title": "π0.7发布，VLA押出了机器人的GPT-3时刻",
-    "summary": "π0.7：具有涌现能力的可控模型",
-    "content": "π0.7：具有涌现能力的可控模型",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402189.html",
-    "publishedAt": "2026-04-17T06:57:35Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "8d344438",
-    "slug": "18jia-ju-shen-ding-jian-shi-li-ji-jie-robochallenge-da-zao-q-2026-04-18",
-    "title": "18家顶尖企业集结，RoboChallenge打造全球最大具身模型竞技场",
-    "summary": "RoboChallenge完成第二批生态扩容，星动纪元、地平线等8家企业重磅入驻，累计汇聚18家具身智能领域顶尖势力，共同构建全球最大具身模型竞技平台。",
-    "content": "RoboChallenge近日宣布正式完成第二批生态扩容，星动纪元、极佳视界、地平线、光轮智能、生数科技、中移杭研、长虹、算力自由8家顶尖企业重磅入驻，使平台参与企业总数达到18家，进一步巩固其作为全球最大具身模型竞技场的地位。\n\n具身智能是当前AI领域最受关注的前沿方向之一，涵盖机器人感知、运动控制、多模态交互等核心能力。RoboChallenge作为专注于具身模型评测与竞技的开放平台，致力于通过标准化的竞技机制，推动具身智能技术的快速迭代与生态协同发展。\n\n此次新加入的企业覆盖了具身智能产业链的多个关键环节。地平线在芯片与感知算法领域具有深厚积累，星动纪元专注于具身机器人本体与控制系统研发，生数科技在多模态生成模型方面具备领先优势，中移杭研则代表运营商在算力与网络侧的战略布局，长虹作为传统家电巨头也积极向智能机器人领域延伸。\n\n随着生态阵容持续扩大，RoboChallenge有望成为具身智能领域最具影响力的技术交流与能力验证平台，为行业提供统一的评测基准，加速推动具身大模型从实验室走向实际应用场景。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402186.html",
-    "publishedAt": "2026-04-17T05:52:13Z",
-    "category": "行业动态",
-    "tags": [
-      "具身智能",
-      "RoboChallenge",
-      "机器人大模型"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "3c095f9d",
-    "slug": "kong-jian-zhi-neng-di-yi-gu-kai-pan-bao-zhang-171-li-fei-fei-2026-04-18",
-    "title": "空间智能第一股，开盘暴涨171%！李飞飞押注的赛道，杭州六小龙之一跑通了",
-    "summary": "空间智能的时代，才刚刚开始。",
-    "content": "空间智能的时代，才刚刚开始。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402158.html",
-    "publishedAt": "2026-04-17T03:30:27Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "3a412860",
-    "slug": "imagenetzuo-zhe-su-hao-hui-guo-ren-jiao-fu-dan-li-fei-fei-ga-2026-04-18",
-    "title": "ImageNet作者苏昊回国任教复旦！李飞飞高徒，具身第一高引，出任通用物理AI院长",
-    "summary": "推动“物理智能”的最终实现",
-    "content": "推动“物理智能”的最终实现",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402088.html",
-    "publishedAt": "2026-04-17T02:16:36Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "114eb9b2",
-    "slug": "ppioshang-xian-pphermes-yun-duan-sha-xiang-yi-jian-bu-shu-he-2026-04-18",
-    "title": "PPIO上线PPHermes：云端沙箱一键部署Hermes Agent",
-    "summary": "PPIO推出PPHermes服务，支持用户在云端沙箱环境中一键部署和运行Hermes Agent，大幅降低AI智能体的使用门槛。",
-    "content": "PPIO近日正式上线PPHermes功能，为开发者和企业用户提供基于云端沙箱的Hermes Agent一键部署能力。Hermes Agent是一款具备自主任务执行能力的AI智能体，能够处理复杂的多步骤任务。此前，部署和运行此类Agent往往需要用户自行配置环境、管理依赖，技术门槛较高。PPHermes通过云端沙箱隔离机制，将底层基础设施的复杂性完全屏蔽，用户只需简单操作即可快速启动Agent实例，无需关心环境配置与资源调度问题。沙箱架构还保障了各任务实例之间的安全隔离，避免相互干扰，适合多租户场景下的稳定运行。PPIO作为专注于云计算与AI算力服务的平台，此次推出PPHermes是其在AI Agent基础设施领域的重要布局，旨在为开发者提供更便捷的智能体运行环境，推动AI Agent在实际业务场景中的落地应用。该服务的推出也反映出当前AI行业对Agent易用性与部署效率的持续关注。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402085.html",
-    "publishedAt": "2026-04-16T13:36:09Z",
-    "category": "产品发布",
-    "tags": [
-      "PPIO",
-      "AI Agent",
-      "云端沙箱",
-      "Hermes",
-      "一键部署"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "9c5f6696",
-    "slug": "72tian-cong-0dao-qian-mo-xiao-shi-chan-neng-zhe-ge-ju-shen-x-2026-04-18",
-    "title": "具身智能新锐72天实现千万小时产能，发布物理AI数据服务平台",
-    "summary": "一家具身智能领域的新兴企业在72天内将产能从零扩展至千万小时级别，并正式发布一站式物理AI数据服务平台，切入AI数据赛道。",
-    "content": "在具身智能数据需求快速增长的背景下，一家新兴企业以72天的极速完成了从零到千万小时数据产能的跨越，展现出强劲的规模化能力。该公司近期正式发布一站式物理AI数据服务平台，面向具身智能、自动驾驶等物理AI应用场景提供系统化的数据采集、标注与管理服务。\n\n物理AI数据与传统互联网数据存在本质差异，其对真实世界三维空间感知、多模态传感器融合以及高精度标注的要求极高，数据生产门槛较高。该平台的推出旨在解决物理AI训练数据供给不足、质量参差不齐的行业痛点，通过一站式服务降低下游机器人及自动化企业的数据获取成本。\n\n千万小时级别的产能意味着该企业已具备工业化规模的数据生产能力，这在具身智能数据领域属于较高水准。随着人形机器人和智能制造赛道持续升温，高质量物理世界数据的稀缺性愈发凸显，数据服务平台的市场空间也随之扩大。\n\n此次发布标志着该企业从数据生产能力建设转向平台化、产品化运营阶段，试图在AI数据服务赛道建立差异化竞争优势。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401741.html",
-    "publishedAt": "2026-04-16T13:04:18Z",
-    "category": "产品发布",
-    "tags": [
-      "具身智能",
-      "物理AI",
-      "AI数据服务",
-      "机器人",
-      "数据平台"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "a55a8774",
-    "slug": "reng-diao-ni-de-tokenzhang-dan-ba-rong-yao-yoyo-clawji-zhu-b-2026-04-16",
-    "title": "荣耀YOYO Claw技术可节省50% Token，大幅降低AI养虾成本",
-    "summary": "荣耀推出YOYO Claw技术，通过优化Token使用效率，将AI辅助水产养殖的运营成本降低约50%，为智慧养殖提供更经济的解决方案。",
-    "content": "荣耀近日发布YOYO Claw技术，该技术专注于优化大语言模型在垂直行业应用中的Token消耗问题。据量子位报道，这一技术能够在不损失关键信息的前提下，将Token用量压缩约50%，直接降低了调用AI模型的接口费用。\n\n在水产养殖领域，AI技术的引入虽然提升了养殖监控、水质分析和病害预测等环节的智能化水平，但持续调用大模型所产生的Token账单也成为中小养殖户难以承受的成本压力。YOYO Claw技术通过对输入数据进行结构化压缩与语义精简，在保留核心业务信息的同时减少冗余内容，从而显著降低每次模型调用的Token消耗。\n\n这一技术的落地对智慧养殖行业具有实际意义。养虾场景对实时数据监测频率要求较高，每日产生大量传感器数据需要模型处理，Token成本长期居高不下是制约AI普及的主要障碍之一。YOYO Claw的出现有望打破这一困局，让更多中小规模的水产养殖企业能够负担得起AI赋能的运营模式。\n\n目前该技术已在养虾场景中完成验证，后续有望推广至更多农业及工业垂直场景。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401682.html",
-    "publishedAt": "2026-04-16T04:53:31Z",
-    "category": "产品发布",
-    "tags": [
-      "荣耀",
-      "Token优化",
-      "智慧养殖",
-      "YOYO Claw",
-      "AI降本"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "8444059b",
-    "slug": "claudeshi-ming-ren-zheng-yin-zhong-nu-qiang-zhi-yan-zheng-sh-2026-04-16",
-    "title": "Claude实名认证争议：用户担忧强制验证背后是精准封号",
-    "summary": "Anthropic旗下Claude被曝出实名认证要求，引发用户强烈反弹，有观点认为此举意在为后续账号封禁提供依据。",
-    "content": "近日，AI助手Claude的实名认证机制在用户群体中引发广泛争议。据量子位报道，部分用户在使用Claude时遭遇强制身份验证要求，此举迅速在社区中引发强烈不满情绪。\n\n争议的核心在于用户对实名认证目的的质疑。不少用户认为，强制验证并非出于安全或合规的正当理由，而是为平台后续的精准封号操作铺路——一旦账号与真实身份绑定，违规处理将更加直接有效，用户申诉空间也随之压缩。\n\n值得关注的是，有报道援引Claude自身（尤其是其高级版本Opus）对相关政策的态度，暗示连模型本身对这一做法也持保留意见，进一步加剧了舆论的发酵。\n\n实名制在AI产品中的推行本就敏感，涉及用户隐私、数据安全与平台权力边界等多重议题。此次事件再度将AI服务的账号管理机制推上风口浪尖，也引发外界对AI公司如何平衡合规要求与用户信任的深层思考。\n\n目前Anthropic尚未就此争议发表官方声明，事态后续走向仍待观察。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401655.html",
-    "publishedAt": "2026-04-16T04:28:09Z",
-    "category": "产品发布",
-    "tags": [
-      "Claude",
-      "Anthropic",
-      "实名认证",
-      "账号管理",
-      "用户隐私"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "8ee74cc6",
-    "slug": "duan-duan-3ge-yue-gao-de-yi-na-xia-ju-shen-zhi-neng-ling-yu-2026-04-16",
-    "title": "短短3个月，高德已拿下具身智能领域15项世界第一",
-    "summary": "高德在具身智能领域快速布局，仅用3个月时间斩获15项世界第一，并预告近期将发布首款四足机器人。",
-    "content": "据量子位报道，高德在具身智能领域展现出强劲的技术突破能力，在短短3个月内累计拿下15项世界第一，引发业界广泛关注。具身智能是指将人工智能技术与物理实体相结合，使机器人或智能体能够通过感知、决策和行动与真实世界进行交互，被视为AI发展的重要方向之一。高德此次在该领域的密集突破，涵盖感知、运动控制、环境理解等多个核心技术维度，体现出其在具身智能研发上的系统性投入。值得关注的是，高德近期还将发布首款四足机器人产品，这标志着其技术积累正逐步走向产品化落地阶段。四足机器人因其在复杂地形下的强适应性，在工业巡检、应急救援、物流配送等场景中具备广泛应用潜力。高德此举不仅是对自身技术实力的一次集中展示，也进一步加剧了国内具身智能赛道的竞争态势。随着更多科技企业和互联网大厂加速入局，具身智能正从实验室研究走向规模化商业应用，行业整体发展节奏明显提速。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/401649.html",
-    "publishedAt": "2026-04-16T03:45:58Z",
-    "category": "行业动态",
-    "tags": [
-      "具身智能",
-      "四足机器人",
-      "高德"
     ],
     "imageUrl": ""
   }
