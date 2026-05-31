@@ -1,5 +1,57 @@
 [
   {
+    "id": "9ee1427d",
+    "slug": "aiyuan-sheng-shi-dai-xia-rang-shi-jie-gua-ying-agent-er-fei-2026-05-31",
+    "title": "AI原生时代下，让世界适应Agent，而非教AI做人 | 港大黄超@AIGC2026",
+    "summary": "CLI更像是Agent的母语",
+    "content": "CLI更像是Agent的母语",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426819.html",
+    "publishedAt": "2026-05-31T03:54:27Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "e98660f6",
+    "slug": "cong-tokenwu-shang-xian-dao-quan-yuan-agent-minimaxde-ai-nat-2026-05-31",
+    "title": "从Token无上限到全员Agent：MiniMax的AI Native组织进化实践",
+    "summary": "与其焦虑AI，不如加入AI",
+    "content": "与其焦虑AI，不如加入AI",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426793.html",
+    "publishedAt": "2026-05-31T01:29:42Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "3deb73b9",
+    "slug": "bang-geminina-xia-imojin-pai-de-guan-jian-xian-sheng-chai-di-2026-05-31",
+    "title": "帮Gemini拿下IMO金牌的关键先生，差点成了职业钢琴家",
+    "summary": "（可能是）大模型圈里最会弹钢琴的人",
+    "content": "（可能是）大模型圈里最会弹钢琴的人",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426706.html",
+    "publishedAt": "2026-05-30T06:43:26Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "5de0975e",
+    "slug": "ying-wei-da-qing-hua-tuan-dui-ti-chu-gamma-world-shi-jie-mo-2026-05-31",
+    "title": "英伟达清华团队提出Gamma-World：世界模型从「一个人玩」到「多人共处」",
+    "summary": "让世界模型迈向多智能体交互仿真",
+    "content": "让世界模型迈向多智能体交互仿真",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/05/426662.html",
+    "publishedAt": "2026-05-30T06:33:58Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "85be502b",
     "slug": "ying-wei-da-qing-hua-tuan-dui-ti-chu-gamma-world-shi-jie-mo-2026-05-30",
     "title": "英伟达清华团队提出Gamma-World：世界模型从「一个人玩」到「多人共处」",
@@ -3936,64 +3988,6 @@
     "publishedAt": "2026-04-18T15:48:50Z",
     "category": "行业动态",
     "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "814fe14e",
-    "slug": "wei-jian-jun-fa-bu-hui-kai-pao-zhuan-shu-dian-dong-che-ping-2026-04-18",
-    "title": "魏建军发布会开炮：专属电动车平台纯粹伪命题，友商回去立马向我们学习",
-    "summary": "不以尺寸定义汽车平台",
-    "content": "不以尺寸定义汽车平台",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402636.html",
-    "publishedAt": "2026-04-18T01:10:09Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "73aa9718",
-    "slug": "11-58mo-quan-xi-lidar-l4tong-yuan-suan-fa-yan-qi-wen-yuan-ba-2026-04-18",
-    "title": "11.58万，全系Lidar+L4同源算法，广汽文远把城区NOA打成白菜价",
-    "summary": "算力只需200TOPS",
-    "content": "算力只需200TOPS",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402440.html",
-    "publishedAt": "2026-04-17T08:24:28Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "173bf60b",
-    "slug": "4-55yi-mei-jin-zhong-guo-ju-shen-zhi-neng-zui-da-dan-bi-rong-2026-04-18",
-    "title": "4.55亿美金！中国具身智能最大单笔融资诞生，高瓴红杉联手押注具身大脑",
-    "summary": "全栈大脑会成为具身智能下一阶段竞赛的胜负手",
-    "content": "全栈大脑会成为具身智能下一阶段竞赛的胜负手",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402388.html",
-    "publishedAt": "2026-04-17T07:37:14Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "f7745d22",
-    "slug": "gu-ge-zui-qiang-ju-shen-da-nao-fa-bu-bo-shi-dun-ji-qi-gou-sh-2026-04-18",
-    "title": "谷歌发布 Gemini Robotics 第三代模型，强化具身空间推理能力",
-    "summary": "谷歌推出 Gemini Robotics 新一代具身智能模型，主打空间推理能力，波士顿动力机器狗等硬件平台因此获得更自然的动作表现。",
-    "content": "谷歌近日发布了 Gemini Robotics 系列的第三代模型，这是其面向具身智能领域的最新进展。该模型的核心突破在于空间推理能力的大幅提升，使机器人能够更准确地理解三维环境、物体位置关系以及任务执行所需的物理逻辑。\n\n在实际演示中，搭载该模型的波士顿动力机器狗展现出更接近自然生物的动作协调性，能够在复杂场景下完成抓取、移动和交互等任务，动作流畅度和适应性相比前代有明显提升。\n\nGemini Robotics 的设计思路是将大语言模型的语义理解能力与机器人的物理执行能力深度融合。第三代模型在感知、规划和控制三个层面进行了协同优化，尤其在处理非结构化环境和开放式指令时表现更为稳健。\n\n这一发布标志着谷歌在具身智能赛道上持续加码，与 OpenAI、Figure AI 等竞争对手的角力进一步加剧。随着基础模型的空间推理能力不断增强，机器人从实验室走向实际应用场景的进程也在提速。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/402329.html",
-    "publishedAt": "2026-04-17T07:08:17Z",
-    "category": "产品发布",
-    "tags": [
-      "谷歌",
-      "Gemini Robotics",
-      "具身智能",
-      "空间推理",
-      "波士顿动力"
-    ],
     "imageUrl": ""
   }
 ]
