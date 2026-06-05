@@ -1,5 +1,109 @@
 [
   {
+    "id": "397cbcea",
+    "slug": "gang-gang-yao-shun-yu-xian-shen-gong-kai-hui-ying-teng-xun-a-2026-06-05",
+    "title": "刚刚，姚顺雨现身！公开回应腾讯AI落后了吗？",
+    "summary": "现场爆满！",
+    "content": "现场爆满！",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/429285.html",
+    "publishedAt": "2026-06-05T04:18:10Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "a66848b2",
+    "slug": "zhong-gu-bi-ya-di-cong-zhi-jia-kai-shi-2026-06-05",
+    "title": "重估比亚迪，从智驾开始",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/429192.html",
+    "publishedAt": "2026-06-04T13:10:19Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "e61e35c8",
+    "slug": "zhong-guo-zu-qiu-xiao-jiang-duo-guan-bi-ya-di-xi-shou-zu-qiu-2026-06-05",
+    "title": "中国足球小将夺冠，比亚迪携手足球少年走向世界",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/429186.html",
+    "publishedAt": "2026-06-04T13:00:31Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "157dba0d",
+    "slug": "cvpr-2026-ying-wei-da-te-si-la-waymoyi-kuai-ting-zhong-guo-g-2026-06-05",
+    "title": "CVPR 2026，英伟达特斯拉Waymo一块听中国公司讲物理AI",
+    "summary": "率先实现物理AI闭环飞轮",
+    "content": "率先实现物理AI闭环飞轮",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/429130.html",
+    "publishedAt": "2026-06-04T11:56:35Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "ed7d68d4",
+    "slug": "lian-gitlabdu-kai-shi-cai-cheng-xu-yuan-liao-2026-06-05",
+    "title": "连GitLab都开始裁程序员了",
+    "summary": "硅谷科技公司Q1裁员同比增长40%",
+    "content": "硅谷科技公司Q1裁员同比增长40%",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/429117.html",
+    "publishedAt": "2026-06-04T08:54:13Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "e49da240",
+    "slug": "agu-zhang-hu-ke-yi-mai-robotaxiliao-2026-06-05",
+    "title": "A股账户可以买Robotaxi了",
+    "summary": "Robotaxi双雄同日官宣",
+    "content": "Robotaxi双雄同日官宣",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/428954.html",
+    "publishedAt": "2026-06-04T07:41:33Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "a8c57de1",
+    "slug": "ying-bo-shu-ke-liang-xiang-ccig-2026-shou-ci-gong-kai-ebflex-2026-06-05",
+    "title": "英博数科亮相CCIG 2026，首次公开EBFlex私有化算力管理平台",
+    "summary": "聚焦高校科研算力",
+    "content": "聚焦高校科研算力",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/428942.html",
+    "publishedAt": "2026-06-04T07:25:26Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "6f3f1c3e",
+    "slug": "bi-ya-di-yu-zhong-guo-shi-hua-shen-hua-zhan-lue-he-zuo-gong-2026-06-05",
+    "title": "比亚迪与中国石化深化战略合作 共建智慧能源生态",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/06/428933.html",
+    "publishedAt": "2026-06-04T06:58:07Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "a4703fe1",
     "slug": "lecun-10yi-ya-zhu-de-fang-xiang-quan-qiu-ling-xian-shi-jue-d-2026-06-04",
     "title": "LeCun 10亿押注的方向，全球领先视觉大模型团队早已布局",
@@ -3802,136 +3906,6 @@
       "PixVerse",
       "AI for Good",
       "AI视频生成"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "5a5d7162",
-    "slug": "te-si-la-kai-yuan-ying-jian-zhong-guo-gong-si-hui-ying-lai-l-2026-04-23",
-    "title": "特斯拉开源硬件，中国公司回应来了：直接把机器人大脑开源了",
-    "summary": "这次，智平方玩了个大的",
-    "content": "这次，智平方玩了个大的",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/405325.html",
-    "publishedAt": "2026-04-23T00:57:43Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "298e9893",
-    "slug": "wa-lou-dong-he-bi-mythos-guo-chan-zhi-neng-ti-zao-pao-tong-l-2026-04-23",
-    "title": "国产智能体已可批量挖漏洞，360智能体跑通安全攻防场景",
-    "summary": "360智能体已实现批量自动化漏洞挖掘，国产AI安全智能体在实战攻防场景中的能力得到验证，无需依赖海外同类产品。",
-    "content": "近日，量子位报道指出，在海外AI安全智能体Mythos引发关注之际，国内360公司的智能体产品已率先在漏洞挖掘场景中跑通完整流程，并具备批量化作业能力。\n\n漏洞挖掘是网络安全领域技术门槛极高的任务，传统方式依赖安全研究员手动分析代码、构造攻击载荷并验证漏洞可利用性，耗时耗力。AI智能体的引入，使得这一流程有望实现自动化与规模化——智能体可自主完成目标识别、漏洞探测、利用验证等多个环节。\n\n360作为国内头部网络安全企业，长期积累了大量安全攻防数据与专业知识。此次其智能体产品在漏洞挖掘任务上的突破，得益于安全领域垂直数据的深度训练以及智能体任务规划能力的提升。批量挖洞能力的实现，意味着该智能体可在短时间内对多个目标系统展开自动化安全检测，显著提升攻防效率。\n\n这一进展表明，国产AI安全智能体在实战能力上已与国际同类产品处于同一竞争梯队，在特定场景下甚至具备先发优势。随着AI与网络安全的深度融合，智能体驱动的自动化攻防将成为行业新常态，同时也对安全合规与使用边界提出了更高要求。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/405299.html",
-    "publishedAt": "2026-04-23T00:43:41Z",
-    "category": "行业动态",
-    "tags": [
-      "AI智能体",
-      "网络安全",
-      "漏洞挖掘",
-      "360",
-      "自动化攻防"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "22a1e8b2",
-    "slug": "bu-zao-che-de-te-si-la-liang-chu-cang-jia-yi-ti-quan-jia-ton-2026-04-23",
-    "title": "“不造车的特斯拉”亮出“舱驾一体”全家桶，汽车长出“主动理解力”，奇瑞比亚迪等10+巨头力挺",
-    "summary": "智能车时代的Wintel已出现",
-    "content": "智能车时代的Wintel已出现",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/404721.html",
-    "publishedAt": "2026-04-22T14:26:18Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "f213294c",
-    "slug": "ke-da-xun-fei-fa-bu-liao-yuan-n30mbi-ji-ben-zhong-su-quan-zh-2026-04-23",
-    "title": "科大讯飞发布燎原N30m笔记本，重塑全栈国产AIPC新标杆",
-    "summary": "",
-    "content": "",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/404713.html",
-    "publishedAt": "2026-04-22T13:15:52Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "1f0aedb1",
-    "slug": "shen-mi-mo-xing-da-xiang-jin-100bna-xia-sota-tokenxiao-lu-ch-2026-04-23",
-    "title": "神秘模型「大象」：仅100B参数拿下SOTA，Token效率超高",
-    "summary": "一个代号为「大象」的神秘AI模型以仅100B参数规模达到SOTA性能，展现出极高的Token使用效率，引发业界广泛关注。",
-    "content": "近日，一个被称为「大象」的神秘AI模型在业界引发热议。据量子位报道，该模型仅凭100B（1000亿）参数规模便在多项基准测试中达到了当前最优（SOTA）水平，这一成绩在同等参数量级的模型中极为罕见。\n\n「大象」模型最受关注的特点在于其极高的Token效率。相比同类大模型，它能够以更少的Token消耗完成相同质量的推理与生成任务，这意味着在实际部署中可以显著降低推理成本，提升响应速度。\n\n目前该模型的研发团队及背景尚未完全公开，「神秘」标签也因此成为其最大的话题点之一。业界普遍猜测，这一成果可能来自对模型架构、训练数据配比或训练策略的创新性改进，而非单纯依赖参数规模的堆叠。\n\n这一进展再次印证了AI领域「小而精」路线的可行性。在大模型军备竞赛普遍追求千亿乃至万亿参数的背景下，「大象」的出现提示研究者：参数效率与架构设计的优化，或许比单纯扩大规模更具长远价值。后续随着更多技术细节的披露，该模型有望为开源社区和商业应用带来新的参考范式。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/404645.html",
-    "publishedAt": "2026-04-22T10:29:00Z",
-    "category": "研究论文",
-    "tags": [
-      "大模型",
-      "SOTA",
-      "Token效率",
-      "100B参数",
-      "模型架构"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "c49c06ad",
-    "slug": "xiang-gang-ke-chuang-biao-gan-jiang-xiang-shang-tang-shou-xi-2026-04-23",
-    "title": "商汤首席科学家林达华荣获中银香港科创奖",
-    "summary": "商汤科技首席科学家林达华凭借在人工智能领域的卓越贡献，荣获香港科创标杆奖项——中银香港科创奖，其发表论文被引用逾9万次。",
-    "content": "近日，商汤科技首席科学家林达华荣获中银香港科创奖，这一奖项被视为香港科技创新领域的重要荣誉，旨在表彰在科技创新方面作出突出贡献的人士。\n\n林达华是计算机视觉与深度学习领域的知名学者，长期深耕人工智能基础研究与应用探索。其学术影响力极为深远，发表的相关论文被引用次数逾90000次，在国际学术界享有极高声誉。他主导或参与的多项研究成果，对目标检测、图像识别、视频理解等核心AI技术方向产生了重要推动作用。\n\n林达华在加入商汤科技后，持续推动产学研深度融合，将前沿学术成果转化为实际产品与技术能力，助力商汤在计算机视觉、大模型等核心赛道保持竞争优势。\n\n中银香港科创奖的授予，不仅是对林达华个人学术与产业贡献的高度认可，也体现了香港社会对人工智能基础研究价值的重视。随着香港持续推进国际创新科技中心建设，像林达华这样兼具学术深度与产业影响力的科学家，正成为推动区域科创生态发展的重要力量。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/404631.html",
-    "publishedAt": "2026-04-22T09:52:49Z",
-    "category": "公司新闻",
-    "tags": [
-      "商汤科技",
-      "林达华",
-      "香港科创奖",
-      "人工智能",
-      "计算机视觉"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "c43b464f",
-    "slug": "rgb-mini-leddian-shi-pu-ji-feng-bao-hai-xin-zheng-shi-fa-bu-2026-04-23",
-    "title": "海信正式发布小墨E5S Pro，RGB-Mini LED电视迎来普及",
-    "summary": "海信发布小墨E5S Pro电视，采用RGB-Mini LED技术，旨在重塑Mini LED品质标杆，推动该技术在消费市场的普及。",
-    "content": "海信近日正式发布旗下新品小墨E5S Pro电视，该产品搭载RGB-Mini LED显示技术，被视为海信在高端电视领域的重要布局。\n\nRGB-Mini LED技术相较于传统Mini LED方案，在色彩表现上更进一步。传统Mini LED背光通常采用白色LED配合量子点或色彩滤光片实现色彩还原，而RGB-Mini LED则直接使用红、绿、蓝三色Mini LED作为背光源，从光源层面提升色域覆盖率与色彩纯度，理论上可带来更高的对比度和更精准的局部调光表现。\n\n海信将小墨E5S Pro定位为Mini LED品质标杆产品，意在通过技术下探推动RGB-Mini LED从高端旗舰走向更广泛的消费群体。此次发布也反映出国内电视厂商在显示技术路线上的持续投入，Mini LED赛道的竞争正从单纯的背光分区数量比拼，逐步转向光源结构与色彩系统的整体升级。\n\n目前Mini LED电视市场竞争激烈，海信、TCL、三星等品牌均在加速布局。小墨E5S Pro的发布，标志着RGB-Mini LED技术正式进入更主流的市场区间，消费者有望以更亲民的价格体验到接近专业级的显示效果。具体定价与上市时间尚待海信官方进一步公布。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/404798.html",
-    "publishedAt": "2026-04-22T09:13:55Z",
-    "category": "产品发布",
-    "tags": [
-      "海信",
-      "Mini LED",
-      "电视"
-    ],
-    "imageUrl": ""
-  },
-  {
-    "id": "01ed4a57",
-    "slug": "guo-chan-duo-mo-tai-agentna-xia-yi-xue-fen-ge-sota-bu-yong-g-2026-04-23",
-    "title": "国产多模态Agent实现医学图像分割SOTA，无需改模型或增加token",
-    "summary": "一项来自国内团队的多模态Agent方法在医学图像分割任务上取得最优性能，无需修改底层模型结构或增加额外token，已被CVPR 2026接收。",
-    "content": "近日，国内研究团队提出了一种基于多模态Agent的医学图像分割新方法，在多个医学分割基准上取得了当前最优（SOTA）性能，相关成果已被计算机视觉顶级会议CVPR 2026正式接收。\n\n该方法的核心亮点在于其高效性与通用性：无需对现有视觉或语言模型进行结构改动，也不引入额外的token开销，即可显著提升医学图像分割的精度。这意味着该方案具备较强的即插即用能力，便于在现有模型基础上直接部署应用。\n\n医学图像分割是计算机辅助诊断的关键环节，涉及CT、MRI等影像中病灶、器官的精准定位与勾画。传统方法往往依赖大量标注数据或复杂的模型微调流程，而多模态Agent的引入为该任务提供了新的解题思路——通过协调视觉感知与语言推理能力，Agent能够更灵活地理解医学图像语义并指导分割过程。\n\n此次成果登上量子位报道，也再次印证了国内团队在多模态大模型与医疗AI交叉领域的持续突破。CVPR作为计算机视觉领域的顶级学术会议，其录用本身即代表了业界对该工作方法创新性与实验严谨性的认可。",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/04/404604.html",
-    "publishedAt": "2026-04-22T07:17:04Z",
-    "category": "研究论文",
-    "tags": [
-      "多模态Agent",
-      "医学图像分割",
-      "CVPR 2026"
     ],
     "imageUrl": ""
   }
