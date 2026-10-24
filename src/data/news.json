@@ -1,5 +1,31 @@
 [
   {
+    "id": "ef09b9ea",
+    "slug": "bai-du-shi-jie-2026qian-zhan-10-zhong-bang-fen-lun-tan-quan-2026-10-24",
+    "title": "百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径",
+    "summary": "10月21日，百度官方公众号发文披露了百度世界2026分论坛的更多议程信息。",
+    "content": "10月21日，百度官方公众号发文披露了百度世界2026分论坛的更多议程信息。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/10/504901.html",
+    "publishedAt": "2026-10-23T07:35:51Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "0d3135da",
+    "slug": "you-yi-guo-chan-jue-ce-mo-xing-fa-bu-zhun-que-lu-chao-guo-we-2026-10-24",
+    "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+    "summary": "10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。",
+    "content": "10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/10/504879.html",
+    "publishedAt": "2026-10-22T09:07:05Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "ed092f7f",
     "slug": "te-si-la-li-run-yao-zhan-yi-ye-die-mei-tong-yong-qi-che-ma-s-2026-10-23",
     "title": "特斯拉利润腰斩，一夜跌没“通用汽车”！马斯克：FSD在中国也会遥遥领先",
@@ -3869,32 +3895,6 @@
     "source": "量子位",
     "sourceUrl": "https://www.qbitai.com/2026/09/484551.html",
     "publishedAt": "2026-09-05T01:17:56Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "b953efcf",
-    "slug": "qu-jing-ke-ji-yu-mo-er-xian-cheng-da-cheng-zhan-lue-he-zuo-g-2026-09-05",
-    "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
-    "summary": "国产卡跑出高品质 AI Token 生产级性能",
-    "content": "国产卡跑出高品质 AI Token 生产级性能",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/09/484547.html",
-    "publishedAt": "2026-09-04T09:23:24Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "667d94dd",
-    "slug": "ji-qi-ren-bu-neng-ting-xia-lai-deng-mo-xing-xing-chen-fa-bu-2026-09-05",
-    "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
-    "summary": "星尘智能（Astribot） 基座模型团队发布能异步执行的在线强化学习框架 SmoothRL",
-    "content": "星尘智能（Astribot） 基座模型团队发布能异步执行的在线强化学习框架 SmoothRL",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/09/484437.html",
-    "publishedAt": "2026-09-04T09:19:29Z",
     "category": "行业动态",
     "tags": [],
     "imageUrl": ""
