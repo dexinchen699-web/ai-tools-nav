@@ -1,5 +1,31 @@
 [
   {
+    "id": "e417b370",
+    "slug": "aihui-liao-wo-de-ji-suan-ji-xue-wei-2026-11-10",
+    "title": "“AI毁了我的计算机学位”",
+    "summary": "教授也用Claude糊弄…",
+    "content": "教授也用Claude糊弄…",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/11/508706.html",
+    "publishedAt": "2026-11-09T08:57:20Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
+    "id": "fc581b1d",
+    "slug": "teng-xun-hun-yuan-ji-shen-zui-qiang-kai-yuan-mo-xing-yi-shou-2026-11-10",
+    "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+    "summary": "",
+    "content": "",
+    "source": "量子位",
+    "sourceUrl": "https://www.qbitai.com/2026/11/507843.html",
+    "publishedAt": "2026-11-09T08:44:00Z",
+    "category": "行业动态",
+    "tags": [],
+    "imageUrl": ""
+  },
+  {
     "id": "090dcd8e",
     "slug": "qian-wen-ban-gong-2-0fa-bu-shou-ge-zhi-chi-duo-ren-yu-agentx-2026-11-09",
     "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
@@ -3869,32 +3895,6 @@
     "source": "量子位",
     "sourceUrl": "https://www.qbitai.com/2026/09/493235.html",
     "publishedAt": "2026-09-21T07:52:46Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "08ed1ffb",
-    "slug": "guo-chan-shu-ju-ku-pao-chu-aixin-neng-li-oceanbasedeng-ding-2026-09-22",
-    "title": "国产数据库跑出AI新能力！OceanBase登顶国际Data Agent榜单",
-    "summary": "OceanBase团队提交的Data Agent方案登顶国际数据智能体基准Data Agent Benchmark",
-    "content": "OceanBase团队提交的Data Agent方案登顶国际数据智能体基准Data Agent Benchmark",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/09/493231.html",
-    "publishedAt": "2026-09-21T07:31:26Z",
-    "category": "行业动态",
-    "tags": [],
-    "imageUrl": ""
-  },
-  {
-    "id": "abf24170",
-    "slug": "gpt-6-astrakai-jin-ji-qi-ren-shen-ti-qing-hua-lian-shou-wu-w-2026-09-21",
-    "title": "GPT-6 Astra开进机器人身体！清华联手无问芯穹等开源RPent",
-    "summary": "在物理世界真正干活的具身智能体",
-    "content": "在物理世界真正干活的具身智能体",
-    "source": "量子位",
-    "sourceUrl": "https://www.qbitai.com/2026/09/493218.html",
-    "publishedAt": "2026-09-21T06:22:37Z",
     "category": "行业动态",
     "tags": [],
     "imageUrl": ""
